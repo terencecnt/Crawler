@@ -9,7 +9,7 @@ class Grid {
   int floor;
   TextDisplay *td;
   //vector<enemy> enemies;
-
+  initStair();
  public:
   Grid();
   ~Grid();
