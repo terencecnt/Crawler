@@ -3,7 +3,7 @@
 using namespace std;
 
 TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{floor} {
-    int rows = 30;
+    int rows = 25;
     int columns = 79;
 
     for (int i = 0; i < rows; ++i) {
@@ -11,7 +11,7 @@ TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{flo
 
         for (int j = 0; j < columns; ++j) {
             Object *current = board[i][j].getObject();
-            char spot = current->getKind();
+            char spot = current->getKind();;
             row.emplace_back(spot);       
  }
 	cout << endl;
@@ -20,7 +20,7 @@ TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{flo
 }
 
 void TextDisplay::print() {
-    int rows = 30;
+    int rows = 25;
     int columns = 79;
 
     for (int i = 0; i < rows; ++i) {
