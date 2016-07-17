@@ -11,7 +11,10 @@ char Object::getKind() {
     return kind;
 }
 
-Tile *Object::Parent() {
+Tile *Object::getParent() {
     return parent;
 }
 
+void Object::changeParent(Tile *parent) {
+    parent = parent;
+}

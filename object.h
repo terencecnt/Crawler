@@ -6,12 +6,13 @@ class Tile;
 
 class Object {
     char kind;
-    Tile  *parent;
+    Tile *parent;
 public: 
     Object(char kind, Tile *parent); 
     char getKind();
     ~Object() = default;
     Tile *getParent();
+    void changeParent(Tile *parent);
 };
 
 #endif
