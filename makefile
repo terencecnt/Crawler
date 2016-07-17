@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++14 -g -Werror=vla -Wall -MMD
 EXEC = cck3
-OBJECTS =  textdisplay.o object.o tile.o grid.o main.o
+OBJECTS = player.o grid.o character.o  textdisplay.o object.o tile.o main.o
 DEPENDS = ${OBJECTS:.o=.d}
 
 ${EXEC}: ${OBJECTS}

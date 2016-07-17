@@ -4,6 +4,7 @@
 #include "grid.h"
 #include<iostream>
 #include<string>
+#include "player.h"
 using namespace std;
 
 Grid:: Grid() {
@@ -78,6 +79,7 @@ void Grid::initStair() {
     int row;
     int col;
     while (true) {
+        srand(time(null));
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
@@ -89,219 +91,25 @@ void Grid::initStair() {
     }
 }
 
+void Grid::initPlayer() {
+    int row;
+    int col;
+    while (true) {
+        srand(time(null));
+        row = rand()%24;
+        col = rand()%78;
+        if (Board[row][col].getObject()->getKind() == '.') {
+            auto temp = make_shared<Object>(Player(&Board[row][col]));
+            Board[row][col].changeO(temp);
+            td->update(Board[row][col]);
+            return;
+        }
+    }
+}
+
 void Grid:: print() {
     td->print();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void Grid::swapObject(Tile *t1, Tile *t2) {
         auto temp = t1->getObject();

@@ -5,8 +5,8 @@
 class Player: public  Character {
     int gold; 
     public: 
-    Player(); 
-    ~Player(); 
+    Player(Tile *parent); 
+    ~Player() = default; 
 };
 
 #endif

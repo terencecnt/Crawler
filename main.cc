@@ -9,5 +9,6 @@ using namespace std;
 int main () {
     Grid g;
     g.initStair();
+    g.initPlayer();
     g.print();
 }

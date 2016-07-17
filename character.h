@@ -9,11 +9,11 @@ class Character: public Object {
     std::string Race;
     public: 
     Character(int HP, int Atk, int Def, std::string Race, char Kind, Tile *parent);
-    ~Character(); 
+    ~Character() = default; 
     std::string getType();
-    void move(); 
-    virtual void slay(); 
-    virtual void attacked(); 
+   // void move(); 
+   // virtual void slay(); 
+   // virtual void attacked(); 
 };
 
 #endif
