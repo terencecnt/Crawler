@@ -11,6 +11,7 @@ public:
     Object(char kind, Tile *parent); 
     char getKind();
     ~Object() = default;
+    Tile *getParent();
 };
 
 #endif

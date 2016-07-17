@@ -10,3 +10,8 @@ char Object::getKind() {
  //   cout << "calling getkind" << endl;
     return kind;
 }
+
+Tile *Object::Parent() {
+    return parent;
+}
+
