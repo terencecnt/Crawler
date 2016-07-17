@@ -3,7 +3,7 @@
 using namespace std;
 
 Tile::Tile(int row, int col): row{row}, col{col} {
-	if (((col == 0 || col == 78) && (row <= 24)) || ((col == 2) && (((row >= 2) && (row <= 7)) || ((row >= 14) && (row <= 22)))) || (((col == 29) || (col == 38)) && (((row== 2) || (row == 3)) || ((row >= 5) && (row <= 7)))) || ((col == 25) && (((row >= 14) && (row <= 19)) || ((row == 21) || (row == 22)))) || ((col == 36) && (((row >= 18) && (row <= 19)) || ((row == 21) || (row == 22)))) || (((col == 37) || (col == 50)) && ((row >= 9) && (row <= 13))) || ((col == 60) && (((row >= 7) && (row <= 10)) || ((row == 12) || (row == 13)))) || ((col == 62) && (((row >= 2) && (row <= 4))))|| ((col == 64) && (((row >= 15) && (row <= 18)))) || ((col == 70) && ((row == 4) || (row == 5))) || ((col == 73) && ((row == 5) || (row == 6))) || ((col == 76)  && ((((row >= 6) && (row <= 13)))|| ((row >= 15) && (row <= 22))))) { 
+	if (((col == 0 || col == 78) && (row <= 24)) || ((col == 3) && (((row >= 2) && (row <= 7)) || ((row >= 14) && (row <= 22)))) || (((col == 29) || (col == 38)) && (((row== 2) || (row == 3)) || ((row >= 5) && (row <= 7)))) || ((col == 25) && (((row >= 14) && (row <= 19)) || ((row == 21) || (row == 22)))) || ((col == 36) && (((row >= 18) && (row <= 19)) || ((row == 21) || (row == 22)))) || (((col == 37) || (col == 50)) && ((row >= 9) && (row <= 13))) || ((col == 60) && (((row >= 7) && (row <= 10)) || ((row == 12) || (row == 13)))) || ((col == 62) && (((row >= 2) && (row <= 4))))|| ((col == 64) && (((row >= 15) && (row <= 18)))) || ((col == 70) && ((row == 4) || (row == 5))) || ((col == 73) && ((row == 5) || (row == 6))) || ((col == 76)  && ((((row >= 6) && (row <= 13)))|| ((row >= 15) && (row <= 22))))) { 
 		content = new Object('|', this);
 	}
 
@@ -11,7 +11,19 @@ Tile::Tile(int row, int col): row{row}, col{col} {
 		content = new Object('-', this);
 	}
 
-	else if (((row==7 ) && (col == 13)) || ((row ==14 ) && (col ==13)) || ((row == 29) && (col == 4)) || ((row == 38) && (col == 4)) || ((row == 43) && (col == 7))  || ((row == 43) && (col == 13))  || ((row ==43 ) && (col ==18 )) || ((row ==60 ) && (col ==11 )) || ((row == 69) && (col ==13)) || ((row ==69 ) && (col ==15)) || ((row ==25) && (col ==20)) || ((row ==36) && (col ==20))) {
+	else if (((row==7 ) && (col == 13)) ||
+		((row ==14 ) && (col ==13)) ||
+		((row == 4) && (col == 38)) || 
+		((row == 7) && (col == 43)) ||
+		((row == 13) && (col == 43))||
+		((row ==18 ) && (col ==43 )) || 
+		((row ==11 ) && (col ==60 )) ||
+		((row == 13) && (col ==69)) ||
+		((row ==15 ) && (col ==69)) ||
+		((row ==20) && (col ==25)) ||
+		((row ==20) && (col ==36)) ||
+		((row==9 ) && (col == 43)) ||
+		((row==4) && (col == 29))) {
 		content = new Object('+', this);
 	}
 
@@ -32,7 +44,7 @@ Tile::Tile(int row, int col): row{row}, col{col} {
 
 	//horizontal wallz
 	else if ((row== 2) &&  ((col >= 3 && col <29) || (col >= 39 && col <62))) {
-			content = new Object('-' , this);
+		content = new Object('-' , this);
 	}else if ((row==4) &&  (col >= 63 && col <70)){
 			content = new Object('-' , this);
 	}else if ((row==5) && (col >= 71 && col <73)){

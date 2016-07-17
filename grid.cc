@@ -11,6 +11,7 @@ Grid:: Grid() {
 		
 		    row.emplace_back(Tile(i,j));
 	    }
+     //neighbors function here
 	    cout << endl;
 	    Board.emplace_back(row);
     }
