@@ -4,4 +4,5 @@
 #include "object.h"
 
 int main () {
+Grid g;
 }

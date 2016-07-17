@@ -6,10 +6,10 @@ class Tile;
 
 class Object {
     char kind;
-    Tile *parent;
-  public:
-    Object(char kind, Tile *parent);
+    Tile  *parent;
     ~Object() = default;
+public: 
+    Object(char kind, Tile *parent); 
     char getKind();
 };
 

@@ -10,12 +10,13 @@ class Object;
 
 class Tile {
     int row;
-    int column;
+    int col;
     std::vector<Tile *> neighbors;
     TextDisplay *td;
     Object *content;
   public:
-    Tile(int row, int column, TextDisplay *td, Object *content);
+    Tile(int row, int col);
+  // Tile(int row, int col, TextDisplay *td, Object *content);
     ~Tile() = default;
     Object *getObject();
     void attach(Tile *o);
