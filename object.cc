@@ -3,9 +3,10 @@
 using namespace std;
 
 Object:: Object(char kind, Tile *parent): kind{kind}, parent{parent}{
-cout << kind; 
+//cout << kind; 
 }
 
 char Object::getKind() {
+ //   cout << "calling getkind" << endl;
     return kind;
 }

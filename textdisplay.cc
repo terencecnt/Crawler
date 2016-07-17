@@ -14,7 +14,7 @@ TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{flo
             char spot = current->getKind();;
             row.emplace_back(spot);       
  }
-	cout << endl;
+//	cout << endl;
         display.emplace_back(row);
     }
 }
