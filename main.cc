@@ -5,4 +5,5 @@
 
 int main () {
 Grid g;
+g.initStair();
 }
