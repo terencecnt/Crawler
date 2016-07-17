@@ -31,11 +31,8 @@ void Grid::initStair() {
     int row;
     int col;
     while (true) {
-       srand();
         row = rand()%24;
         col = rand()%78;
- //       cout << "row: " << row << " col: " << col << endl;
-        
         if (Board[row][col].getObject()->getKind() == '.') {
             Object temp('/', &Board[row][col]);
             Board[row][col].changeO(&temp);
