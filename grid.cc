@@ -25,6 +25,7 @@ Grid:: Grid() {
 
 Grid::~Grid() {
     delete td;
+    // delete all Tiles, they are in heap, or smart pointers
 }
 
 void Grid::initStair() {
@@ -36,6 +37,7 @@ void Grid::initStair() {
         if (Board[row][col].getObject()->getKind() == '.') {
             Object temp('/', &Board[row][col]);
             Board[row][col].changeO(&temp);
+            td->update(Board[row][col]);
             return;
         }
     }
