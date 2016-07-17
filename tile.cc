@@ -158,3 +158,6 @@ Object *Tile:: getObject() {
     return content;
 }
 
+void Tile::changeO(Object *new_content) {
+        content = new_content;
+}
