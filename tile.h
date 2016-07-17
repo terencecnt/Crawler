@@ -22,6 +22,7 @@ class Tile {
     void attach(Tile *o);
     int getRow();
     int getColumn();
+    void changeO(Object *new_content);
     //update();
     //notifyneighbors()
     //notifyTD()
