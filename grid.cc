@@ -26,44 +26,44 @@ Grid:: Grid() {
             if (((j - 1) >= 0)) {
                 Board[i][j].attach(&Board[i][j-1]);
             } else {
-                nullptr;
+               Board[i][j].attach(nullptr);
             }
             
             if (((i - 1) >= 0) && ((j - 1) >= 0)) {
                 Board[i][j].attach(&Board[i - 1][j - 1]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
     
             if ((i - 1) >= 0) {
                 Board[i][j].attach(&Board[i-1][j]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
             if (((i - 1) <= row) && ((j+1) <= column)) {
                 Board[i][j].attach(&Board[i-1][j + 1]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
             if ((j+1) <= column) {
                 Board[i][j].attach(&Board[i][j + 1]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
             if (((i + 1) <= row) && ((j+1) <= column)) {
                 Board[i][j].attach(&Board[i][j + 1]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
             if ((i + 1) <= row) {
                 Board[i][j].attach(&Board[i][j + 1]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
             if (((i + 1) <= row) && ((j-1) >= 0)) {
                 Board[i][j].attach(&Board[i][j + 1]);
             } else {
-                nullptr;
+                Board[i][j].attach(nullptr);
             }
         }
     }    
@@ -307,7 +307,10 @@ void Grid:: print() {
 
 void Grid::swapObject(Tile *t1, Tile *t2) {
         Object *temp = t1->getObject();
-        t1->changeO(t2->getObject());
+        Object *temp_two = t2->getObject();
+        temp->changeParent(t2);
+        temp_two->changeParent(t1);
+        t1->changeO(temp_two);
         t2->changeO(temp);
 }
     

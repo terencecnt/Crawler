@@ -7,7 +7,7 @@ using namespace std;
 
 
 int main () {
-Grid g;
-g.initStair();
-g.print();
+    Grid g;
+    g.initStair();
+    g.print();
 }
