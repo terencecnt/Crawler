@@ -28,20 +28,19 @@ Grid::~Grid() {
 }
 
 void Grid::initStair() {
-    bool invalid= true;
     int row;
     int col;
-    while (invalid) {
+    while (true) {
        srand();
         row = rand()%24;
         col = rand()%78;
  //       cout << "row: " << row << " col: " << col << endl;
         
         if (Board[row][col].getObject()->getKind() == '.') {
-                invalid = false;
-            }
             Object temp('/', &Board[row][col]);
             Board[row][col].changeO(&temp);
+            return;
+        }
     }
 }
 
