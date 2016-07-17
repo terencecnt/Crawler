@@ -78,8 +78,8 @@ Grid::~Grid() {
 void Grid::initStair() {
     int row;
     int col;
+    srand(time(NULL));
     while (true) {
-        srand(time(null));
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
@@ -94,8 +94,8 @@ void Grid::initStair() {
 void Grid::initPlayer() {
     int row;
     int col;
+    srand(time(NULL));
     while (true) {
-        srand(time(null));
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
