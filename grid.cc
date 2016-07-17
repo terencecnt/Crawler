@@ -2,10 +2,12 @@
 #include <time.h>
 #include <stdlib.h>
 #include "grid.h"
+#include<iostream>
 using namespace std;
 
 Grid:: Grid() {
     floor = 0;
+<<<<<<< HEAD
    // td = nullptr;
     for (int i= 0; i < 25; ++i) {
 	    vector<Tile> row; 
@@ -14,17 +16,34 @@ Grid:: Grid() {
 	    }
      //neighbors function here
 	//    cout << endl;
+=======
+    for (int i= 0; i < 25; ++i) {
+	    vector<Tile> row; 
+	    for (int j =0; j < 79; ++j) {
+           // cout << Tile(i,j).getObject()->getKind() << "Wtf" << endl;
+		    row.emplace_back(Tile(i,j));
+	    }
+     //neighbors function here 
+>>>>>>> 2593e71a71d88da2cf723a7454cd1f7c6cd17d7d
 	    Board.emplace_back(row);
+//        cout << endl;
     }
+<<<<<<< HEAD
 
     TextDisplay *theDisplay = new TextDisplay(Board, floor); 
     td = theDisplay;
+=======
+    
+    TextDisplay *theDisplay = new TextDisplay(Board, floor);
+    td = theDisplay;
+    
+>>>>>>> 2593e71a71d88da2cf723a7454cd1f7c6cd17d7d
 }
 
 Grid::~Grid() {
     delete td;
 }
-
+/*
 void Grid::initStair() {
     bool invalid= true;
     int row;
@@ -46,6 +65,7 @@ void Grid::initStair() {
             }
     }
 }
+<<<<<<< HEAD
 
 
 /*
@@ -72,6 +92,9 @@ void Grid::initPlayer() {
 
 
 
+=======
+*/
+>>>>>>> 2593e71a71d88da2cf723a7454cd1f7c6cd17d7d
 void Grid:: print() {
     td->print();
 }
