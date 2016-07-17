@@ -12,7 +12,8 @@ class TextDisplay {
  public:
   TextDisplay(std::vector<std::vector<Tile>> &board, int floor);
   ~TextDisplay() = default;
-void print();
+  void update(std::vector<std::vector<Tile>> &board, int floor);
+  void print();
 };
 
 #endif
