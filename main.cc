@@ -8,6 +8,7 @@ using namespace std;
 
 int main () {
 Grid g;
+cout<< "HERE" ke << endl;
 g.initStair();
 g.print();
 }
