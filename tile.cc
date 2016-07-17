@@ -6,11 +6,11 @@ using namespace std;
 Tile::Tile(int row, int col): row{row}, col{col} {
 	if (((col == 0 || col == 78) && (row <= 24)) || ((col == 3) && (((row >= 2) && (row <= 7)) || ((row >= 14) && (row <= 22)))) || (((col == 29) || (col == 38)) && (((row== 2) || (row == 3)) || ((row >= 5) && (row <= 7)))) || ((col == 25) && (((row >= 14) && (row <= 19)) || ((row == 21) || (row == 22)))) || ((col == 36) && (((row >= 18) && (row <= 19)) || ((row == 21) || (row == 22)))) || (((col == 37) || (col == 50)) && ((row >= 9) && (row <= 13))) || ((col == 60) && (((row >= 7) && (row <= 10)) || ((row == 12) || (row == 13)))) || ((col == 62) && (((row >= 2) && (row <= 4))))|| ((col == 64) && (((row >= 15) && (row <= 18)))) || ((col == 70) && ((row == 4) || (row == 5))) || ((col == 73) && ((row == 5) || (row == 6))) || ((col == 76)  && ((((row >= 6) && (row <= 13)))|| ((row >= 15) && (row <= 22))))) { 
 		
-       content = new Object('|', this);
+       content = make_shared<Object>(Object('|', this));
 	}
 
 	else if ((row== 0) || (row == 24)) {
-       content = new Object('-', this);
+       content = make_shared<Object>(Object('-', this));
 	}
 
 	else if (((row==7 ) && (col == 13)) ||
@@ -27,7 +27,7 @@ Tile::Tile(int row, int col): row{row}, col{col} {
 		((row==9 ) && (col == 43)) ||
 		((row==4) && (col == 29))) {
 		
-       content = new Object('+', this);
+       content = make_shared<Object>(Object('+', this));
 	}
 
 	else if (((row== 4) && ((col >= 30) && (col <= 37))) ||  
@@ -43,69 +43,69 @@ Tile::Tile(int row, int col): row{row}, col{col} {
 			((col == 54) && ((row >= 12) && (row <= 15))) ||
 			((col == 69) && (row== 14))) {
 		
-       content = new Object('#', this);
+       content = make_shared<Object>(Object('#', this));
 	}
 
 	//horizontal wallz
 	else if ((row== 2) &&  ((col >= 3 && col <29) || (col >= 39 && col <62))) {
-       content = new Object('-', this);
+       content = make_shared<Object>(Object('-', this));
 	}else if ((row==4) &&  (col >= 63 && col <70)){
-       content = new Object('-', this);
+       content = make_shared<Object>(Object('-', this));
 	}else if ((row==5) && (col >= 71 && col <73)){
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}else if ((row==6) && (col >= 74 && col <76)){	
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}else if ((row== 7) && ((col >= 3 && col <13) || (col >= 14 && col <29) || (col >= 39 && col < 43 )|| (col >= 44 && col < 60))){
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 
 	}else if ((row== 9) && ((col >= 38 && col < 43) || (col >= 44 && col < 50)))  {
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 
 	}else if ((row== 13) && ((col >= 38 && col < 50 && col != 43) || (col >= 62 && col < 76 && col != 69))){
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}else if ((row== 14) && (col >= 4 && col <25 && col != 13)) {
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}else if ((row== 15) && ( col >= 65 && col <76 && col != 69)){
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}else if ((row== 18) && (col >= 37 && col <64 && col != 43)){
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}else if ((row== 22) && ((col >= 4 && col <25) || (col >= 37 && col <76))){
-        content = new Object('-', this);
+        content = make_shared<Object>(Object('-', this));
 	}
 	//chamber top left 
 	else if ((row >= 3 && row < 7) && (col >= 3 && col < 29)){
-			content = new Object('.', this);
+			content = make_shared<Object>(Object('.', this));
 	}
 	//chamber bottom left 
 	else if ((row >= 15 && row < 22) && (col >= 4 && col < 25)){
-        content = new Object('.', this);
+        content = make_shared<Object>(Object('.', this));
 	}
 	//chamber middle one 
 	else if ((row >= 10 && row < 13) && ( col >= 38 && col < 50)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}
 	// chamber top right (40, 4) to (62, 5)
 	else if ((row >= 3 && row < 5) && (col >= 39 && col < 62)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}else if ((row== 5) && (col >= 39 && col < 70)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}else if ((row== 6) && (col >= 39 && col < 73)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}
 	//(62,8) to (7 6,13)
 	else if ((row >=7 && row<13) && (col >= 61 && col < 76)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}
 	// chamber bottom right (66,17) to (76, 19)
 	else if ((row >= 16 && row < 19) && (col >= 65 && col < 76)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}
 	//(20,38) to (22,76)
 	else if ((row >= 19 && row < 22) && (col >= 37 && col < 76)){
-         content = new Object('.', this);
+         content = make_shared<Object>(Object('.', this));
 	}
 	else {
-		content = new Object(' ', this);
+		content = make_shared<Object>(Object(' ', this));
 	//	cout << "AYYYY WE MDE IT";
 	}
 }
@@ -125,11 +125,11 @@ void Tile:: attach(Tile *o) {
     neighbors.emplace_back(o);
 }
 
-Object *Tile:: getObject() {
+shared_ptr<Object>Tile:: getObject() {
     return content;
 }
 
-void Tile::changeO(Object *new_content) {
+void Tile::changeO(shared_ptr<Object> new_content) {
         content = new_content;
 }
 

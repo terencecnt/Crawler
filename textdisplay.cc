@@ -10,7 +10,7 @@ TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{flo
         vector<char> row;
 
         for (int j = 0; j < columns; ++j) {
-            Object *current = board[i][j].getObject();
+            auto current = board[i][j].getObject();
             char spot = current->getKind();;
             row.emplace_back(spot);       
  }

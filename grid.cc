@@ -67,13 +67,11 @@ Grid:: Grid() {
             }
         }
     }    
-    TextDisplay *theDisplay = new TextDisplay(Board, floor);
+    shared_ptr<TextDisplay>theDisplay = make_shared<TextDisplay>(TextDisplay(Board, floor));
     td = theDisplay;
 }
 
 Grid::~Grid() {
-    delete td;
-    // delete all Tiles, they are in heap, or smart pointers
 }
 
 void Grid::initStair() {
@@ -83,8 +81,8 @@ void Grid::initStair() {
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
-            Object temp('/', &Board[row][col]);
-            Board[row][col].changeO(&temp);
+            auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+            Board[row][col].changeO(temp);
             td->update(Board[row][col]);
             return;
         }
@@ -306,8 +304,8 @@ void Grid:: print() {
 
 
 void Grid::swapObject(Tile *t1, Tile *t2) {
-        Object *temp = t1->getObject();
-        Object *temp_two = t2->getObject();
+        auto temp = t1->getObject();
+        auto temp_two = t2->getObject();
         temp->changeParent(t2);
         temp_two->changeParent(t1);
         t1->changeO(temp_two);
@@ -316,7 +314,7 @@ void Grid::swapObject(Tile *t1, Tile *t2) {
     
 void Grid:: move(string d) {
     try {
-        Tile *to_move_to = player->getParent()->getneighbor(d);
+        auto to_move_to = player->getParent()->getneighbor(d);
         char kind = to_move_to->getObject()->getKind();
         if ((to_move_to == nullptr)||
                 ((kind != 'G')&&

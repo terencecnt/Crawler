@@ -12,21 +12,21 @@ class Object;
 class Tile {
     int row;
     int col;
-    std::vector<Tile *> neighbors;
-    TextDisplay *td;
-    Object *content;
+    std::vector<Tile *> neighbors; //
+    std::shared_ptr<TextDisplay> td; //
+    std::shared_ptr<Object>content; //
   public:
     Tile(int row, int col);
   // Tile(int row, int col, TextDisplay *td, Object *content);
     ~Tile() = default;
-    Object *getObject();
-    void attach(Tile *o);
+    std::shared_ptr<Object>getObject(); //
+    void attach(Tile *o); //
     int getRow();
     int getColumn();
-    void changeO(Object *new_content);
+    void changeO(std::shared_ptr<Object> new_content); //
     //update();
-    Tile *getneighbor(std::string d);
-    void swapObject(Tile *t1, Tile*t2);
+    Tile *getneighbor(std::string d); //
+    void swapObject(std::shared_ptr<Tile> t1, std::shared_ptr<Tile> t2); //
     //notifyTD()
 };
 

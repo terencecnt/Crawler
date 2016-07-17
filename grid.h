@@ -2,6 +2,7 @@
 #define __GRID_H__
 #include <iostream>
 #include <vector>
+#include <memory>
 #include "textdisplay.h"
 #include "player.h"
 
@@ -10,8 +11,8 @@ class Player;
 class Grid {
   std::vector<std::vector<Tile>> Board;
   int floor;
-  TextDisplay *td;
-  Player *player;
+  std::shared_ptr<TextDisplay> td;
+  std::shared_ptr<Player> player;
   //vector<enemy> enemies;
     public:
   void  initStair();
