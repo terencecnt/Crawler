@@ -1,3 +1,3 @@
 #include "player.h"
 
-Player::Player() gold{0} {}
+Player::Player(): gold{0} {}

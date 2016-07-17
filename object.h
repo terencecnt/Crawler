@@ -12,7 +12,7 @@ public:
     char getKind();
     ~Object() = default;
     Tile *getParent();
-    void changeParent(Tile *parent);
+    void changeParent(Tile *new_parent);
 };
 
 #endif

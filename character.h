@@ -6,15 +6,15 @@ class Character: public Object {
     int HP; 
     int Atk;
     int Def; 
-    string Race;
+    std::string Race;
     public: 
     Character();
     ~Character(); 
-    string getType();
+    std::string getType();
     void move(); 
-    virtual slay(); 
-    virtual attacked(); 
-}
+    virtual void slay(); 
+    virtual void attacked(); 
+};
 
 #endif
 

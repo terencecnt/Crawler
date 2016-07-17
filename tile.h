@@ -25,7 +25,7 @@ class Tile {
     int getColumn();
     void changeO(Object *new_content);
     //update();
-    void getneighbor(string d);
+    Tile *getneighbor(std::string d);
     void swapObject(Tile *t1, Tile*t2);
     //notifyTD()
 };

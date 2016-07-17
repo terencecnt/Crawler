@@ -3,8 +3,9 @@
 #include <iostream>
 #include <vector>
 #include "textdisplay.h"
+#include "player.h"
 
-class player;
+class Player;
 
 class Grid {
   std::vector<std::vector<Tile>> Board;
@@ -21,7 +22,8 @@ public:
   ~Grid();
 
   void print();
-  void move(string d);
+  void swapObject(Tile *t1, Tile *t2);
+  void move(std::string d);
 
   /*
   void GridSpawn();
