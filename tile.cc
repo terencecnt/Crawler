@@ -1,5 +1,6 @@
 #include "grid.h"
 #include "tile.h"
+#include<string>
 using namespace std;
 
 Tile::Tile(int row, int col): row{row}, col{col} {
@@ -131,3 +132,37 @@ Object *Tile:: getObject() {
 void Tile::changeO(Object *new_content) {
         content = new_content;
 }
+
+Tile *Tile::getneighbor(string d) {
+    int  neighbor_number;
+    if (d == "we") {
+        neighbor_number = 0;
+    } else if(d == "nw") {
+        neighbor_number = 1;
+    } else if(d == "no") {
+        neighbor_number = 3;
+    } else if(d == "ne") {
+        neighbor_number = 4;
+    } else if(d == "ea") {
+        neighbor_number = 5;
+    } else if(d == "se") {
+        neighbor_number = 6;
+    } else if(d == "so") {
+        neighbor_number = 7;
+    } else if(d == "sw") {
+        neighbor_number = 8;
+    } else if(d == "we") {
+        neighbor_number = 9;
+    }
+    return neighbors[neighbor_number];
+}
+        
+
+
+
+
+
+
+
+
+

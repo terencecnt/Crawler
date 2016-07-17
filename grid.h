@@ -4,10 +4,13 @@
 #include <vector>
 #include "textdisplay.h"
 
+class player;
+
 class Grid {
   std::vector<std::vector<Tile>> Board;
   int floor;
   TextDisplay *td;
+  Player *player;
   //vector<enemy> enemies;
     public:
   void  initStair();
@@ -18,6 +21,7 @@ public:
   ~Grid();
 
   void print();
+  void move(string d);
 
   /*
   void GridSpawn();
