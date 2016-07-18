@@ -3,12 +3,10 @@
 #include "character.h"
 
 class Enemy: public Character{
-    public: 
-        Enemy(); 
-        ~Enemy();
-        void move(); 
+  public: 
+      Enemy(int HP, int Atk, int Def, std::string Race, char Kind, Tile *parent); 
+      ~Enemy() = default; 
 };
-
 
 #endif
 

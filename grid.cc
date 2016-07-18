@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "grid.h"
+#include "enemy.h"
 #include<iostream>
 #include<string>
 #include "player.h"
@@ -106,6 +107,17 @@ void Grid::initPlayer() {
         }
     }
 }
+/* uncomment when getHP is good
+string Grid::state() {
+    if (player->getHP() == 0) {
+        return "lost";
+    } else if (floor == 5) {
+        return "win";
+    } else {
+        return "neutral";
+    }
+}
+*/
 
 void Grid:: print() {
     td->print();
@@ -137,3 +149,4 @@ void Grid:: move(string d) {
         cout << "Unable to move to " << d << endl;
     }
 }
+
