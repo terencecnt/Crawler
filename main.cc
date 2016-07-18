@@ -21,6 +21,10 @@ bool isDirection(string s) {
 }
 
 int main () {
+    Grid g;
+    g.print();
+   // Tile t(3,4);
+   // Enemy(50, 50, 50, "wtf", 'l',
     /*
     string to_replay = "q";
     while(true) {
