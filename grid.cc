@@ -2,9 +2,9 @@
 #include <time.h>
 #include <stdlib.h>
 #include "grid.h"
-#include "enemy.h"
 #include<iostream>
 #include<string>
+#include "enemy.h"
 #include "player.h"
 using namespace std;
 
@@ -92,7 +92,7 @@ void Grid::initStair() {
     }
 }
 
-void Grid::initPlayer() {
+void Grid::initPlayer(char Race) {
     int row;
     int col;
     srand(time(NULL));
@@ -100,24 +100,33 @@ void Grid::initPlayer() {
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
-            auto temp = make_shared<Object>(Player(&Board[row][col]));
+            shared_ptr<Object>temp;
+            if (Race == 'h') {
+                temp = make_shared<Object>(Human(&Board[row][col]));
+            }
+
+            else if (Race == 'e') {
+                temp = make_shared<Object>(Elf(&Board[row][col]));
+            }
+
+            else  if (Race == 'd') {
+                temp = make_shared<Object>(Human(&Board[row][col]));
+            }
+
+            else  if (Race == 'o') {
+                temp = make_shared<Object>(Human(&Board[row][col]));
+            }
+
+            else {
+                temp = make_shared<Object>(Human(&Board[row][col]));
+            }
+          //  auto temp = make_shared<Object>(Player(&Board[row][col]));
             Board[row][col].changeO(temp);
             td->update(Board[row][col]);
             return;
         }
     }
 }
-/* uncomment when getHP is good
-string Grid::state() {
-    if (player->getHP() == 0) {
-        return "lost";
-    } else if (floor == 5) {
-        return "win";
-    } else {
-        return "neutral";
-    }
-}
-*/
 
 void Grid:: print() {
     td->print();
@@ -150,3 +159,14 @@ void Grid:: move(string d) {
     }
 }
 
+/* uncomment when getHP is good
+string Grid::state() {
+    if (player->getHP() == 0) {
+        return "lost";
+    } else if (floor == 5) {
+        return "win";
+    } else {
+        return "neutral";
+    }
+}
+*/
