@@ -10,50 +10,56 @@ public:
 	Potion(const int value, Tile* parent);
 	~Potion();
 	int getValue();
-	virtual int getValue() = 0;
+	virtual char getType() = 0;
 
 };
 
 class RH: public Potion{
+	const char type;
 public:
 	RH(Tile* parent);
 	~RH();
-	int getValue();
-}
+	char getType();
+};
 
 class BA: public Potion{
+	const char type;
 public:
 	BA(Tile* parent);
 	~BA();
-	int getValue();
-}
+	char getType();
+};
 
 class BD: public Potion{
+	const char type;
 public:
 	BD(Tile* parent);
 	~BD();
-	int getValue();
-}
+	char getType();
+};
 
 
 class PH: public Potion{
+	const char type;
 public:
 	PH(Tile* parent);
 	~PH();
-	int getValue();
+	char getType();
 
-}
+};
 class WD: public Potion{
+	const char type;
 public:
 	WD(Tile* parent);
 	~WD();
-	int getValue();
-}
+	char getType();
+};
 class WA: public Potion{
+	const char type;
 public:
 	WA(Tile* parent);
 	~WA();
-	int getValue();
-}
+	char getType();
+};
 
 #endif
