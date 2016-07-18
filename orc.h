@@ -1,5 +1,5 @@
 #ifndef _ORC_
-#define _0RC_
+#define _ORC_
 #include "player.h"
 
 class Orc: public Player{

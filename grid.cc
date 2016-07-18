@@ -6,6 +6,10 @@
 #include<string>
 #include "enemy.h"
 #include "player.h"
+#include "human.h"
+#include "elf.h"
+#include "dwarf.h"
+#include "orc.h"
 using namespace std;
 
 Grid:: Grid() {
@@ -110,11 +114,11 @@ void Grid::initPlayer(char Race) {
             }
 
             else  if (Race == 'd') {
-                temp = make_shared<Object>(Human(&Board[row][col]));
+                temp = make_shared<Object>(Dwarf(&Board[row][col]));
             }
 
             else  if (Race == 'o') {
-                temp = make_shared<Object>(Human(&Board[row][col]));
+                temp = make_shared<Object>(Orc(&Board[row][col]));
             }
 
             else {

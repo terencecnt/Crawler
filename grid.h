@@ -17,7 +17,7 @@ class Grid {
   //vector<enemy> enemies;
     public:
   void initStair();
-  void initPlayer();
+  void initPlayer(char Race);
   void initEnemy(); 
 public:
   Grid();
