@@ -21,6 +21,11 @@ bool isDirection(string s) {
 }
 
 int main () {
+    Grid g;
+   // g.gridSpawn(); 
+    g.initStair();
+    g.initPlayer('h');
+    g.print();
     /*
     string to_replay = "q";
     while(true) {
