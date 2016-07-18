@@ -5,7 +5,7 @@
 class Player: public  Character {
     int gold; 
     public: 
-    Player(Tile *parent); 
+    Player(int HP, int Atk, int Def, char Kind, Tile *parent); 
     ~Player() = default; 
 };
 

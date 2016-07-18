@@ -8,7 +8,7 @@ class Character: public Object {
     int Def; 
     std::string Race;
     public: 
-    Character(int HP, int Atk, int Def, std::string Race, char Kind, Tile *parent);
+    Character(int HP, int Atk, int Def, char Kind, Tile *parent);
     ~Character() = default; 
     std::string getType();
    // void move(); 

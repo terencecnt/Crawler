@@ -1,3 +1,3 @@
 #include "player.h"
 
-Player::Player(Tile *parent): Character(20,20,20,"Human", '@', parent), gold{0} {};
+Player::Player(int HP, int Atk, int Def, char Kind, Tile *parent): Character(HP, Atk, Def, '@', parent), gold{0} {};
