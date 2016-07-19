@@ -5,6 +5,7 @@
 class Elf: public Player{
     public:
     Elf(Tile *parent); 
+    void usePotion(Potion *p);
 };
 
 #endif
