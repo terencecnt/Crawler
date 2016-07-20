@@ -779,16 +779,13 @@ void Grid:: move(string d) {
     }
 }
 
-
+/*
 void Grid:: attack(string s) {
-//   shared_ptr<Object> 
+    shared_ptr<Object> enemy = 
 }
-    
+*/  
 
-
-
-
-/* uncomment when getHP is good
+/*
 string Grid::state() {
     if (player->getHP() == 0) {
         return "lost";
@@ -796,6 +793,14 @@ string Grid::state() {
         return "win";
     } else {
         return "neutral";
+    }
+}
+
+void Grid::use(string d) {
+    // check if neighbour is a potion
+    Object neighbourObj = player->getParent()->getneighbor(string d)->getObject();
+    if (neighbourObj->kind == 'P') {
+        player->usePotion(neighbourObj);
     }
 }
 */

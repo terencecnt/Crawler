@@ -23,7 +23,6 @@ class Grid {
   void initEnemy(); 
   void initGold();
   void initPotion();
-  void attack(std::string d);
 public:
   Grid();
   ~Grid();
@@ -32,6 +31,7 @@ public:
   void swapObject(Tile *t1, Tile *t2);
   void move(std::string d);
   void use(std::string d); 
+  void attack(std::string d);
   //void pickup(std::string d);
 
   /*
