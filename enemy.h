@@ -14,6 +14,30 @@ class Vampire: public Enemy {
 
 };
 
+class Merchant: public Enemy {
+    Merchant(); 
+    ~Merchant();
+};
+
+class Werewolf: public Enemy {
+    Werewolf(); 
+    ~Werewolf();
+};
+
+class Goblin: public Enemy { 
+    Goblin(); 
+    ~Goblin(); 
+};
+
+class Phoenix: public Enemy {
+    Phoenix();
+    ~Phoenix(); 
+};
+
+class Troll: public Enemy {
+    Troll(); 
+    ~Troll(); 
+};
 
 
 
