@@ -6,6 +6,7 @@ class Tile;
 
 class Object {
     char kind;
+ protected:
     Tile *parent;
 public: 
     Object(char kind, Tile *parent); 

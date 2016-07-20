@@ -2,8 +2,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include "grid.h"
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 #include "enemy.h"
 #include "player.h"
 #include "human.h"
@@ -81,6 +81,9 @@ Grid::~Grid() {
 }
 
 void Grid::initStair() {
+
+    cout << player->getParent()->getRow() << endl;
+    cout << player->getParent()->getColumn() << endl;
     int row;
     int col;
     srand(time(NULL));
@@ -94,6 +97,7 @@ void Grid::initStair() {
             return;
         }
     }
+    
 }
 
 void Grid::initPlayer(char Race) {
@@ -124,7 +128,8 @@ void Grid::initPlayer(char Race) {
             else {
                 temp = make_shared<Object>(Human(&Board[row][col]));
             }
-          //auto temp = make_shared<Object>(Player(&Board[row][col]));
+            //auto temp = make_shared<Object>(Player(&Board[row][col]));
+            this->player = temp; // set the Player field
             Board[row][col].changeO(temp);
             td->update(Board[row][col]);
             return;
@@ -138,6 +143,7 @@ void Grid::initEnemy() {
     int row; 
     int col; 
     int enem = 20;
+
     while(true) {
         if (enem == 0) break;
         bool alive = 0;

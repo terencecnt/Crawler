@@ -27,9 +27,10 @@ int main () {
    // Enemy(50, 50, 50, "wtf", 'l',
    // g.gridSpawn(); 
     g.initGold();
+    g.initPlayer('h');
     g.initStair();
    // cout << 0 << endl;
-    g.initPlayer('h');
+    
   //  cout << "1"<< endl;
     g.initEnemy();
   //  cout << "2" << endl;

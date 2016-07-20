@@ -1,10 +1,10 @@
 #ifndef __GRID_H__
 #define __GRID_H__
-#include<iostream>
-#include<vector>
-#include<memory>
-#include<string>
-#include"textdisplay.h"
+#include <iostream>
+#include <vector>
+#include <memory>
+#include <string>
+#include "textdisplay.h"
 #include "player.h"
 #include "enemy.h"
 
@@ -15,7 +15,7 @@ class Grid {
   std::vector<std::vector<Tile>> Board;
   int floor;
   std::shared_ptr<TextDisplay> td;
-  std::shared_ptr<Player> player;
+  std::shared_ptr<Object> player;
   std::vector<std::shared_ptr<Object>> enemies;
     public:
   void initStair();
