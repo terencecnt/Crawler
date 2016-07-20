@@ -14,9 +14,6 @@ class Player: public Character {
     std::string getRace();
 
 
-    int Character::getHP(); 
-    int Character::getAtk();
-    int Character::getDef();
     virtual void usePotion(Potion *p);
     virtual void getGold(Treasure *t);
 };

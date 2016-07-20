@@ -21,6 +21,7 @@ bool isDirection(string s) {
 }
 
 int main () {
+    /*
     Grid g;
 //    g.print();
    // Tile t(3,4);
@@ -37,7 +38,7 @@ int main () {
   //  cout << "2" << endl;
     g.print();
    // cout << 3 << endl;
-    /*
+    */
     string to_replay = "q";
     while(true) {
         Grid g;
@@ -49,6 +50,7 @@ int main () {
             (s != "h") &&
             (s != "o")){
             cout << "This race does not exist. Bye." << end;
+            break;
         } else {
             initPlayer(s);
         }
@@ -99,5 +101,4 @@ int main () {
             }
         }
     }
-    */
 }

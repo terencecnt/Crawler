@@ -9,7 +9,11 @@ class Character: public Object {
     int Def; 
     public: 
     Character(int HP, int Atk, int Def, char Kind, Tile *parent);
-    ~Character() = default; 
+    ~Character() = default;
+
+    int getHP(); 
+    int getAtk();
+    int getDef();
    // void move(); 
    // virtual void slay(); 
    // virtual void attacked(); 
