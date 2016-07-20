@@ -5,7 +5,7 @@
 class Enemy: public Character{
   public: 
       Enemy(int HP, int Atk, int Def,char Kind, Tile *parent); 
-      ~Enemy() = default; 
+      virtual ~Enemy() = 0; 
 };
 
 class Vampire: public Enemy { 
