@@ -11,7 +11,7 @@ Merchant::Merchant(Tile *parent) :  Enemy{30, 70, 5, 'M', parent} {}
 
 Werewolf::Werewolf(Tile *parent):  Enemy{120,30,5,'W', parent} {}
 
-Goblin::Goblin(Tile *parent): Enemy{70,5,10,'G', parent} {}
+Goblin::Goblin(Tile *parent): Enemy{70,5,10,'N', parent} {}
 
 Troll::Troll(Tile *parent):  Enemy{120,25,15, 'T', parent} {}
 
