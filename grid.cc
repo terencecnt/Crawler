@@ -212,15 +212,15 @@ void Grid::initGold() {
     }
 }
 
-
+/*
 void Grid::initPotion() {
     srand(time(NULL));
-    int GoldNum;
+    int PotionNum;
     int row; 
     int col; 
-    int gold = 10;
+    int potion = 10;
     while(true) {
-        if (gold == 0) break;
+        if (potion == 0) break;
         bool alive = 0;
         row = rand()%24;
         col = rand()%78;
@@ -234,7 +234,6 @@ void Grid::initPotion() {
             else  if ((GoldNum == 6) && (GoldNum <= 7)){
                 temp = make_shared<Object>(Small(&Board[row][col]));
             }
-
             else if (GoldNum == 8) {
                 temp = make_shared<Object>(Dragon(&Board[row][col]));
             }
@@ -246,7 +245,7 @@ void Grid::initPotion() {
         }
     }
 }
-
+*/
 
 
 
