@@ -294,40 +294,168 @@ void Grid::initGold() {
     }
 }
 
-/*
+
+
+
 void Grid::initPotion() {
     srand(time(NULL));
-    int PotionNum;
     int row; 
     int col; 
-    int potion = 10;
-    while(true) {
-        if (potion == 0) break;
-        bool alive = 0;
+    int potion = 0;
+    int potionType; // randNum to choose the 6 potions
+    int chamber; // randnum to choose form 5 chambers
+    while(potion < 10) {
         row = rand()%24;
         col = rand()%78;
-        if (Board[row][col].getObject()->getKind() == '.') {
-            shared_ptr<Object> temp;
-            GoldNum = rand()%7 + 1; 
-            if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
-            if ((GoldNum >= 1) || (GoldNum <= 5)){
-                temp = make_shared<Object>(Normal(&Board[row][col]));
-            }
-            else  if ((GoldNum == 6) && (GoldNum <= 7)){
-                temp = make_shared<Object>(Small(&Board[row][col]));
-            }
-            else if (GoldNum == 8) {
-                temp = make_shared<Object>(Dragon(&Board[row][col]));
-            }
-            if (alive == 1) {
-                --gold;
+        potionType = rand()%6;
+        chamber = rand()%5;
+        switch (chamber) {
+            
+            case 0: // spawn in chamber 1
+            if ((Board[row][col].getObject()->getKind() == '.')&&((row >= 3 && row < 7) && (col >= 3 && col < 29))){
+                shared_ptr<Object> temp;
+                switch (potionType) {
+                    case 0: 
+                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        break;
+                    case 1: 
+                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        break;
+                    case 2:
+                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        break;
+                    case 3:  
+                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        break;
+                    case 4: 
+                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        break;
+                    case 5: 
+                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        break;
+                }
                 Board[row][col].changeO(temp);
                 td->update(Board[row][col]);
+                ++potion;
+                break;
             }
-        }
+            case 1: // spawn in chamber 2
+            if ((Board[row][col].getObject()->getKind() == '.')&& (((row >= 3 && row < 5)&&(col >= 39 && col < 62))
+                ||((row== 5)&&(col >= 39 && col < 70))||((row== 6)&&(col >= 39 && col < 73))||((row >=7 && row<13) && (col >= 61 && col < 76)))){
+            shared_ptr<Object> temp;
+              switch (potionType) {
+                    case 0: 
+                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        break;
+                    case 1: 
+                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        break;
+                    case 2:
+                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        break;
+                    case 3:  
+                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        break;
+                    case 4: 
+                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        break;
+                    case 5: 
+                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        break;
+                }
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                ++potion;
+                break;
+            }
+            case 2: // spawn in chamber 3
+            if ((Board[row][col].getObject()->getKind() == '.')&& ((row >= 10 && row < 13) && (col >= 38 && col < 50))){
+                shared_ptr<Object> temp;
+                switch (potionType) {
+                    case 0: 
+                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        break;
+                    case 1: 
+                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        break;
+                    case 2:
+                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        break;
+                    case 3:  
+                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        break;
+                    case 4: 
+                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        break;
+                    case 5: 
+                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        break;
+                }
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                ++potion;
+                break;
+            }
+            case 3: // spawn in chamber 4
+            if ((Board[row][col].getObject()->getKind() == '.')&& ((row >= 15 && row < 22) && (col >= 4 && col < 25))){
+                shared_ptr<Object> temp;
+                switch (potionType) {
+                    case 0: 
+                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        break;
+                    case 1: 
+                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        break;
+                    case 2:
+                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        break;
+                    case 3:  
+                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        break;
+                    case 4: 
+                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        break;
+                    case 5: 
+                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        break;
+                }
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                ++potion;
+                break;
+            }
+            case 4: // spawn in chamber 5
+            if ((Board[row][col].getObject()->getKind() == '.')&&(((row >=7 && row<13)&&(col >= 61 && col < 76))||((row >= 16 && row < 19)&&(col >= 65 && col < 76))||
+                ((row >= 19 && row < 22)&&(col >= 37&&col < 76)))){
+                shared_ptr<Object> temp;
+                switch (potionType) {
+                    case 0: 
+                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        break;
+                    case 1: 
+                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        break;
+                    case 2:
+                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        break;
+                    case 3:  
+                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        break;
+                    case 4: 
+                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        break;
+                    case 5: 
+                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        break;
+                }
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                ++potion;
+                break;
+            }
+        }       
     }
 }
-*/
 
 
 
@@ -356,136 +484,6 @@ void Grid::initPotion() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void Grid::use(string d) { 
-    Tile *a= player->getParent()->getneighbor(d);
-    //if tile points to a potion, then use potion 
-    player->usePotion(a->getObject());
-}
 
 
 
@@ -792,6 +790,116 @@ string Grid::state() {
     }
 }
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
