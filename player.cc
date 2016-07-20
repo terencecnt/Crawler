@@ -5,6 +5,9 @@ using namespace std;
 Player::Player(int HP, int Atk, int Def, string Race, char Kind, Tile *parent): 
 Character(HP, Atk, Def,'@', parent), gold(0), Race(Race) {};
 
+Player::Player(int HP, int Atk, int Def, char Kind, Tile *parent): 
+Character(HP, Atk, Def,'@', parent), gold(0){};
+
 string Player::getRace(){
 	return Race;
 }
