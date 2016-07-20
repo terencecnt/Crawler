@@ -184,25 +184,25 @@ void Grid::initPlayer(char Race) {
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
-            shared_ptr<Object>temp;
+            shared_ptr<Player>temp;
             if (Race == 'h') {
-                temp = make_shared<Object>(Human(&Board[row][col]));
+                temp = make_shared<Player>(Human(&Board[row][col]));
             }
 
             else if (Race == 'e') {
-                temp = make_shared<Object>(Elf(&Board[row][col]));
+                temp = make_shared<Player>(Elf(&Board[row][col]));
             }
 
             else  if (Race == 'd') {
-                temp = make_shared<Object>(Dwarf(&Board[row][col]));
+                temp = make_shared<Player>(Dwarf(&Board[row][col]));
             }
 
             else  if (Race == 'o') {
-                temp = make_shared<Object>(Orc(&Board[row][col]));
+                temp = make_shared<Player>(Orc(&Board[row][col]));
             }
 
             else {
-                temp = make_shared<Object>(Human(&Board[row][col]));
+                temp = make_shared<Player>(Human(&Board[row][col]));
             }
             //auto temp = make_shared<Object>(Player(&Board[row][col]));
             this->player = temp; // set the Player field

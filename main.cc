@@ -27,6 +27,7 @@ int main () {
    // Enemy(50, 50, 50, "wtf", 'l',
    // g.gridSpawn(); 
     g.initGold();
+    g.initPotion();
     g.initPlayer('h');
     g.initStair();
    // cout << 0 << endl;
