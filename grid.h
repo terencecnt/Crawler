@@ -9,13 +9,14 @@
 #include "enemy.h"
 
 class Player;
+class Enemy;
 
 class Grid {
   std::vector<std::vector<Tile>> Board;
   int floor;
   std::shared_ptr<TextDisplay> td;
   std::shared_ptr<Player> player;
-  std::vector<Enemy> enemies;
+  std::vector<std::shared_ptr<Enemy>> enemies;
     public:
   void initStair();
   void initPlayer(char Race);
