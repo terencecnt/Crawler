@@ -28,7 +28,7 @@ public:
   void print();
   void swapObject(Tile *t1, Tile *t2);
   void move(std::string d);
-  void use(char 
+  void use(char d);
   //void pickup(std::string d);
 
   /*
