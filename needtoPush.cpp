@@ -22,7 +22,7 @@ void Grid::initGold() {
             }
 
             else if (GoldNum == 8) {
-                temp = make_shared<Object>(dragonGold(&Board[row][col]));
+                temp = make_shared<Object>(dragonHoard(&Board[row][col]));
                 //spawn new dragon
                 int dragRow;
                 int dragCol; 
@@ -30,13 +30,8 @@ void Grid::initGold() {
                     int dragRow = rand()%24; 
                      int dragCol = rand()%78;
                      if (Board[row][col].getObject()->getKind() == '.') {
-                        temp = make_shared<Object>(dragon(&Board)
-
-
-
-
-
-
+                        temp = make_shared<Object>(Dragon(&Board[row][col]));
+                        return;
                 }
             if (alive == 1) {
                 --gold;
@@ -96,11 +91,13 @@ string Grid::state() {
 
 
 
-
-
-
-
-
+void use(string d) {
+    // check if neighbour is a potion 
+    Object neighbourObj = player->getParent()->getneighbor(string d)->getObject();
+    if (neighbourObj->kind == 'P') { 
+        player->usePotion(neighbourObj);
+    } 
+}
 
 
 

@@ -38,3 +38,23 @@ void Player::getGold(Treasure *t){
 		gold += t->getValue();
 	}
 }
+
+
+//for header
+int Character::getHP(); 
+int Character::getAtk();
+int Character::getDef();
+
+
+
+//for character.cc
+int Character::getHP() {
+    return HP;
+}
+
+int Character::getAtk(){
+    return Atk;
+}
+int Character::getDef(){
+    return Def;
+}
