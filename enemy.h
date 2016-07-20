@@ -8,5 +8,16 @@ class Enemy: public Character{
       ~Enemy() = default; 
 };
 
+class Vampire: public Enemy { 
+    Vampire(); 
+    ~Vampire(); 
+
+};
+
+
+
+
+
+
 #endif
 
