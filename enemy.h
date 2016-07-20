@@ -42,7 +42,7 @@ class Troll: public Enemy {
 class Dragon: public Enemy {
     Dragon(Tile *parent);
     ~Dragon() = default;
-}
+};
 
 
 
