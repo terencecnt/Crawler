@@ -2,6 +2,7 @@
 #define _TREASURE_
 #include "tile.h"
 #include "object.h"
+#include "enemy.h"
 
 class Treasure : public Object{
 	const int value;

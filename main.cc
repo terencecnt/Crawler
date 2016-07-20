@@ -27,9 +27,13 @@ int main () {
    // Enemy(50, 50, 50, "wtf", 'l',
    // g.gridSpawn(); 
     g.initStair();
+   // cout << 0 << endl;
     g.initPlayer('h');
+  //  cout << "1"<< endl;
     g.initEnemy();
+  //  cout << "2" << endl;
     g.print();
+   // cout << 3 << endl;
     /*
     string to_replay = "q";
     while(true) {

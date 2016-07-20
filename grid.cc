@@ -124,7 +124,7 @@ void Grid::initPlayer(char Race) {
             else {
                 temp = make_shared<Object>(Human(&Board[row][col]));
             }
-          //  auto temp = make_shared<Object>(Player(&Board[row][col]));
+          //auto temp = make_shared<Object>(Player(&Board[row][col]));
             Board[row][col].changeO(temp);
             td->update(Board[row][col]);
             return;
@@ -134,45 +134,50 @@ void Grid::initPlayer(char Race) {
 
 
 void Grid::initEnemy() {
-    int enem = 10; 
     srand(time(NULL));
     int enemNum;
     int row; 
     int col; 
-    while (enem != 0) {
+    int enem = 20;
+    while(true) {
+        if (enem == 0) break;
+        bool alive = 0;
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
-            shared_ptr<Enemy>temp;
-
-            enemNum = rand()%18; 
+            shared_ptr<Object> temp;
+            enemNum = rand()%17 + 1; 
+            if ((1 <= enemNum) && (enemNum<= 18)) alive = 1;
             if ((enemNum == 1) || (enemNum == 2)){
-                auto temp = make_shared<Object>(Merchant(&Board[row][col]));
+                temp = make_shared<Object>(Merchant(&Board[row][col]));
 
             }
-            else  if ((enemNum >= 3) || (enemNum <= 5)){
-                auto temp = make_shared<Object>(Vampire(&Board[row][col]));
+            else  if ((enemNum >= 3) && (enemNum <= 5)){
+                temp = make_shared<Object>(Vampire(&Board[row][col]));
             }
 
-            else if ((enemNum == 6) || (enemNum == 9)){
-                auto temp = make_shared<Object>(Werewolf(&Board[row][col]));
+            else if ((enemNum >= 6) && (enemNum <= 9)){
+                temp = make_shared<Object>(Werewolf(&Board[row][col]));
             }
-            else if ((enemNum >= 10) || (enemNum <= 14)){
-                auto temp = make_shared<Object>(Goblin(&Board[row][col]));
+            else if ((enemNum >= 10) && (enemNum <= 14)){
+                temp = make_shared<Object>(Goblin(&Board[row][col]));
             }
             else if ((enemNum == 15) || (enemNum == 16)){
-                auto temp = make_shared<Object>(Phoenix(&Board[row][col]));
+                temp = make_shared<Object>(Phoenix(&Board[row][col]));
             }
             else if ((enemNum == 17) || (enemNum == 18)){
-                auto temp = make_shared<Object>(Troll(&Board[row][col]));
+                temp = make_shared<Object>(Troll(&Board[row][col]));
             }
-            enemies.emplace_back(temp);
-            td->update(Board[row][col]);
+            if (alive == 1) {
+                --enem;
+                enemies.emplace_back(temp);
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+            }
         }
-        --enem;
     }
+    
 }
-
 
 
 

@@ -16,7 +16,7 @@ class Grid {
   int floor;
   std::shared_ptr<TextDisplay> td;
   std::shared_ptr<Player> player;
-  std::vector<std::shared_ptr<Enemy>> enemies;
+  std::vector<std::shared_ptr<Object>> enemies;
     public:
   void initStair();
   void initPlayer(char Race);
