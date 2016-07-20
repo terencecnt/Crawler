@@ -377,6 +377,11 @@ void Grid::initPotion() {
 
 
 
+void Grid::use(string d) { 
+    Tile a= getneighbor(d);
+    //if tile is a potion, then use potion 
+    player->usePotion(a.getObject());
+}
 
 
 
