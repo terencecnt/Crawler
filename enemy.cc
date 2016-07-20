@@ -15,6 +15,6 @@ Goblin::Goblin(Tile *parent): Enemy{70,5,10,'N', parent} {}
 
 Troll::Troll(Tile *parent):  Enemy{120,25,15, 'T', parent} {}
 
-Phoenix::Phoenix(Tile *parent): Enemy{50, 35, 20, 'P', parent}{}
+Phoenix::Phoenix(Tile *parent): Enemy{50, 35, 20, 'X', parent}{}
 
 Dragon::Dragon(Tile *parent): Enemy{150, 20, 20, 'D', parent}{}
