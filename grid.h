@@ -15,7 +15,7 @@ class Grid {
   std::vector<std::vector<Tile>> Board;
   int floor;
   std::shared_ptr<TextDisplay> td;
-  std::shared_ptr<Object> player;
+  std::shared_ptr<Player> player;
   std::vector<std::shared_ptr<Object>> enemies;
     public:
   void initStair();
@@ -30,7 +30,7 @@ public:
   void print();
   void swapObject(Tile *t1, Tile *t2);
   void move(std::string d);
-  void use(char d); 
+  void use(std::string d); 
   //void pickup(std::string d);
 
   /*
