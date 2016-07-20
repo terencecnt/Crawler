@@ -6,6 +6,7 @@
 #include<string>
 #include"textdisplay.h"
 #include "player.h"
+#include "enemy.h"
 
 class Player;
 
@@ -14,7 +15,7 @@ class Grid {
   int floor;
   std::shared_ptr<TextDisplay> td;
   std::shared_ptr<Player> player;
-  //vector<enemy> enemies;
+  std::vector<Enemy> enemies;
     public:
   void initStair();
   void initPlayer(char Race);

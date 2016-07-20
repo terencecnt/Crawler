@@ -9,33 +9,33 @@ class Enemy: public Character{
 };
 
 class Vampire: public Enemy { 
-    Vampire(); 
+    Vampire(Tile *parent); 
     ~Vampire(); 
 
 };
 
 class Merchant: public Enemy {
-    Merchant(); 
+    Merchant(Tile *parent); 
     ~Merchant();
 };
 
 class Werewolf: public Enemy {
-    Werewolf(); 
+    Werewolf(Tile *parent); 
     ~Werewolf();
 };
 
 class Goblin: public Enemy { 
-    Goblin(); 
+    Goblin(Tile *parent); 
     ~Goblin(); 
 };
 
 class Phoenix: public Enemy {
-    Phoenix();
+    Phoenix(Tile *parent);
     ~Phoenix(); 
 };
 
 class Troll: public Enemy {
-    Troll(); 
+    Troll(Tile *parent); 
     ~Troll(); 
 };
 
