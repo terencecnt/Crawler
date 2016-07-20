@@ -10,36 +10,39 @@ class Enemy: public Character{
 
 class Vampire: public Enemy { 
     Vampire(Tile *parent); 
-    ~Vampire(); 
+    ~Vampire() = default;
 
 };
 
 class Merchant: public Enemy {
     Merchant(Tile *parent); 
-    ~Merchant();
+    ~Merchant() = default;
 };
 
 class Werewolf: public Enemy {
     Werewolf(Tile *parent); 
-    ~Werewolf();
+    ~Werewolf() = default;
 };
 
 class Goblin: public Enemy { 
     Goblin(Tile *parent); 
-    ~Goblin(); 
+    ~Goblin() = default;
 };
 
 class Phoenix: public Enemy {
     Phoenix(Tile *parent);
-    ~Phoenix(); 
+    ~Phoenix() = default;
 };
 
 class Troll: public Enemy {
     Troll(Tile *parent); 
-    ~Troll(); 
+    ~Troll() = default;
 };
 
-
+class Dragon: public Enemy {
+    Dragon(Tile *parent);
+    ~Dragon() = default;
+}
 
 
 
