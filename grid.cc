@@ -180,6 +180,77 @@ void Grid::initEnemy() {
 }
 
 
+void Grid::initGold() {
+    srand(time(NULL));
+    int GoldNum;
+    int row; 
+    int col; 
+    int gold = 10;
+    while(true) {
+        if (gold == 0) break;
+        bool alive = 0;
+        row = rand()%24;
+        col = rand()%78;
+        if (Board[row][col].getObject()->getKind() == '.') {
+            shared_ptr<Object> temp;
+            GoldNum = rand()%7 + 1; 
+            if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
+            if ((GoldNum >= 1) || (GoldNum <= 5)){
+                temp = make_shared<Object>(Normal(&Board[row][col]));
+            }
+            else  if ((GoldNum == 6) && (GoldNum <= 7)){
+                temp = make_shared<Object>(Small(&Board[row][col]));
+            }
+
+            else if (GoldNum == 8) {
+                temp = make_shared<Object>(Dragon(&Board[row][col]));
+            }
+            if (alive == 1) {
+                --gold;
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+            }
+        }
+    }
+}
+
+
+void Grid::initPotion() {
+    srand(time(NULL));
+    int GoldNum;
+    int row; 
+    int col; 
+    int gold = 10;
+    while(true) {
+        if (gold == 0) break;
+        bool alive = 0;
+        row = rand()%24;
+        col = rand()%78;
+        if (Board[row][col].getObject()->getKind() == '.') {
+            shared_ptr<Object> temp;
+            GoldNum = rand()%7 + 1; 
+            if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
+            if ((GoldNum >= 1) || (GoldNum <= 5)){
+                temp = make_shared<Object>(Normal(&Board[row][col]));
+            }
+            else  if ((GoldNum == 6) && (GoldNum <= 7)){
+                temp = make_shared<Object>(Small(&Board[row][col]));
+            }
+
+            else if (GoldNum == 8) {
+                temp = make_shared<Object>(Dragon(&Board[row][col]));
+            }
+            if (alive == 1) {
+                --gold;
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+            }
+        }
+    }
+}
+
+
+
 
 
 void Grid:: print() {

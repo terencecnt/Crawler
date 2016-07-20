@@ -21,6 +21,8 @@ class Grid {
   void initStair();
   void initPlayer(char Race);
   void initEnemy(); 
+  void initGold();
+  void initPotion();
 public:
   Grid();
   ~Grid();
