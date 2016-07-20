@@ -40,10 +40,6 @@ void Player::getGold(Treasure *t){
 }
 
 
-//for header
-int Character::getHP(); 
-int Character::getAtk();
-int Character::getDef();
 
 
 

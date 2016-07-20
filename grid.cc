@@ -781,7 +781,7 @@ void Grid:: move(string d) {
 
 
 void Grid:: attack(string s) {
-   // Object *
+//   shared_ptr<Object> 
 }
     
 

@@ -12,6 +12,11 @@ class Player: public Character {
     Player(int HP, int Atk, int Def, std::string Race, char Kind, Tile *parent); 
     ~Player() = default; 
     std::string getRace();
+
+
+    int Character::getHP(); 
+    int Character::getAtk();
+    int Character::getDef();
     virtual void usePotion(Potion *p);
     virtual void getGold(Treasure *t);
 };
