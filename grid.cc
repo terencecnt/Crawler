@@ -82,22 +82,98 @@ Grid::~Grid() {
 
 void Grid::initStair() {
 
-    cout << player->getParent()->getRow() << endl;
-    cout << player->getParent()->getColumn() << endl;
+    int chamber;
+    int pRow = player->getParent()->getRow(); //players current location
+    int pCol = player->getParent()->getColumn();
+
+    if ((pRow >= 3 && pRow < 7) && (pCol >= 3 && pCol < 29)){ // top left chamber1
+        chamber = 1; 
+    }
+    // top right chamber 2
+    else if (((pRow >= 3 && pRow < 5)&&(pCol >= 39 && pCol < 62))||((pRow== 5)&&(pCol >= 39 && pCol < 70))||
+        ((pRow== 6)&&(pCol >= 39 && pCol < 73))||((pRow >=7 && pRow<13) && (pCol >= 61 && pCol < 76))) {
+        chamber = 2;
+    }
+    else if ((pRow >= 10 && pRow < 13) && ( pCol >= 38 && pCol < 50)){ // middle chamber 3
+        chamber = 3;
+    }else if ((pRow >= 15 && pRow < 22) && (pCol >= 4 && pCol < 25)){ // bottem left chamber 4
+        chamber = 4;
+    }else{ // bottom right chamber 5
+        chamber = 5;
+    }
+
     int row;
     int col;
     srand(time(NULL));
-    while (true) {
-        row = rand()%24;
-        col = rand()%78;
-        if (Board[row][col].getObject()->getKind() == '.') {
-            auto temp = make_shared<Object>(Object('/', &Board[row][col]));
-            Board[row][col].changeO(temp);
-            td->update(Board[row][col]);
-            return;
-        }
-    }
+    switch (chamber) {
+        case 1: // stairs cant spawn in chamber1
     
+        while (true) {
+            row = rand()%24;
+            col = rand()%78;
+            if ((Board[row][col].getObject()->getKind() == '.') && ((row < 3 || row >= 7) || (col < 3 || col >= 29))){
+                auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                return;
+            }
+        }
+
+        case 2: // stairs cant spawn in chamber2
+   
+        while (true) {
+            row = rand()%24;
+            col = rand()%78;
+            if ((Board[row][col].getObject()->getKind() == '.')&& 
+            (((row < 3 || row >= 5)||(col < 39 || col >= 62)) && ((row != 5) || (col < 39 || col >= 70))&&
+            ((row != 6)||(col < 39 || col >= 73)) && ((row < 7 || row >= 13) ||(col < 61 || col >= 76)))) {
+                auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                return;
+            }
+        }
+
+        case 3: // stairs cant spawn in chamber3
+
+        while (true) {
+            row = rand()%24;
+            col = rand()%78;
+            if ((Board[row][col].getObject()->getKind() == '.') && ((row < 10 || row >= 13) || ( col < 38 || col >= 50))){
+                auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                return;
+            }
+        }
+ 
+        case 4: // stairs cant spawn in chamber4
+       
+        while (true) {
+            row = rand()%24;
+            col = rand()%78;
+            if ((Board[row][col].getObject()->getKind() == '.') && ((row < 15 || row >= 22) || (col < 4 || col >= 25))){
+                auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                return;
+            }
+        }
+
+        case 5: // stairs cant spawn in chamber5
+    
+        while (true) {
+            row = rand()%24;
+            col = rand()%78;
+            if ((Board[row][col].getObject()->getKind() == '.') && 
+                (((row < 16 || row >= 19) || (col < 65 && col >= 76)) &&((row < 19 || row >= 22)||(col < 37 || col >= 76)))){
+                auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+                return;
+            }
+        }
+    }   
 }
 
 void Grid::initPlayer(char Race) {
