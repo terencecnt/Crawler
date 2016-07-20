@@ -28,6 +28,7 @@ int main () {
    // g.gridSpawn(); 
     g.initStair();
     g.initPlayer('h');
+    g.initEnemy();
     g.print();
     /*
     string to_replay = "q";

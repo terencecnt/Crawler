@@ -139,41 +139,37 @@ void Grid::initEnemy() {
     int enemNum;
     int row; 
     int col; 
-    while (enem != 0 && true) {
+    while (enem != 0) {
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
+            shared_ptr<Enemy>temp;
 
             enemNum = rand()%18; 
             if ((enemNum == 1) || (enemNum == 2)){
-                //make merchant
-                Merchant(&Board[row][col]);
+                auto temp = make_shared<Object>(Merchant(&Board[row][col]));
 
             }
-            if ((enemNum >= 3) || (enemNum <= 5)){
-                //make vampire
-                Vampire(&Board[row][col]);
+            else  if ((enemNum >= 3) || (enemNum <= 5)){
+                auto temp = make_shared<Object>(Vampire(&Board[row][col]));
             }
 
-            if ((enemNum == 6) || (enemNum == 9)){
-                //make werewolf;
-                Werewolf(&Board[row][col]);
+            else if ((enemNum == 6) || (enemNum == 9)){
+                auto temp = make_shared<Object>(Werewolf(&Board[row][col]));
             }
-            if ((enemNum >= 10) || (enemNum <= 14)){
-                //make goblin;
-                Goblin(&Board[row][col]);
+            else if ((enemNum >= 10) || (enemNum <= 14)){
+                auto temp = make_shared<Object>(Goblin(&Board[row][col]));
             }
-            if ((enemNum == 15) || (enemNum == 16)){
-                Pheonix(&Board[row][col]);
-                //make phoenix;
-
+            else if ((enemNum == 15) || (enemNum == 16)){
+                auto temp = make_shared<Object>(Phoenix(&Board[row][col]));
             }
-            if ((enemNum == 17) || (enemNum == 18)){
-                Troll(&Board[row][col]);
-                //make troll;
+            else if ((enemNum == 17) || (enemNum == 18)){
+                auto temp = make_shared<Object>(Troll(&Board[row][col]));
             }
+            enemies.emplace_back(temp);
+            td->update(Board[row][col]);
         }
-        
+        --enem;
     }
 }
 
