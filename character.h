@@ -3,6 +3,7 @@
 #include "object.h"
 
 class Character: public Object {
+    protected:
     int HP; 
     int Atk;
     int Def; 
