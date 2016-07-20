@@ -23,6 +23,7 @@ class Grid {
   void initEnemy(); 
   void initGold();
   void initPotion();
+  void attack(string d);
 public:
   Grid();
   ~Grid();
