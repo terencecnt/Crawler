@@ -785,7 +785,7 @@ void Grid:: attack(string s) {
 }
 */  
 
-/*
+
 string Grid::state() {
     if (player->getHP() == 0) {
         return "lost";
@@ -798,12 +798,15 @@ string Grid::state() {
 
 void Grid::use(string d) {
     // check if neighbour is a potion
-    Object neighbourObj = player->getParent()->getneighbor(string d)->getObject();
-    if (neighbourObj->kind == 'P') {
-        player->usePotion(neighbourObj);
+    auto neighbourObj = player->getParent()->getneighbor(d)->getObject();
+    if (neighbourObj != nullptr) {
+        if (neighbourObj->getKind() == 'P') {
+
+            player->usePotion(static_pointer_cast<Potion> (neighbourObj));
+        }
     }
 }
-*/
+
 
 
 

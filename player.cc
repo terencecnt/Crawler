@@ -12,7 +12,7 @@ string Player::getRace(){
 	return Race;
 }
 
-void Player::usePotion(Potion *p) {
+void Player::usePotion(shared_ptr<Potion> p) {
     if (p->getType() == 'H') {
         HP += p->getValue();
         
@@ -26,7 +26,7 @@ void Player::usePotion(Potion *p) {
     }
 }
 
-void Player::getGold(Treasure *t){
+void Player::getGold(shared_ptr<Treasure> t){
 
 	if (Race == "dwarf"){ // double gold for dwarves ayyy
 		gold += 2*(t->getValue());

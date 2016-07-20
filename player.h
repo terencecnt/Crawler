@@ -14,8 +14,8 @@ class Player: public Character {
     std::string getRace();
 
 
-    virtual void usePotion(Potion *p);
-    virtual void getGold(Treasure *t);
+    virtual void usePotion(std::shared_ptr<Potion> p);
+    virtual void getGold(std::shared_ptr<Treasure> t);
 };
 
 #endif

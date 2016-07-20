@@ -1,8 +1,9 @@
-#include "elf.h" 
+#include "elf.h"
+using namespace std;
 
 Elf::Elf(Tile *parent): Player{140,30,10, '@', parent} {}
 
-void Elf::usePotion(Potion *p) {
+void Elf::usePotion(shared_ptr<Potion> p) {
     if (p->getType() == 'H') {
         HP += abs(p->getValue());
         

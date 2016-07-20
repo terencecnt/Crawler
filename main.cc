@@ -49,10 +49,10 @@ int main () {
             (s != "e") &&
             (s != "h") &&
             (s != "o")){
-            cout << "This race does not exist. Bye." << end;
+            cout << "This race does not exist. Bye." << endl;
             break;
         } else {
-            initPlayer(s);
+            g.initPlayer(s[0]);
         }
         while(true) {
             cin >> s;
@@ -63,9 +63,9 @@ int main () {
                     continue;
                 } else {
                     if (s== "u") {
-                        g.pickup(s);
+                 //       g.pickup(s);
                     } else {
-                        g.attack(s);
+                   //     g.attack(s);
                     }
                 }
             } else if(s == "r") {
@@ -81,7 +81,7 @@ int main () {
                 continue;
             }
             to_replay = g.state();
-            if((to_return == "lost") || (to_return == "win")) break;
+            if((to_replay == "lost") || (to_replay == "win")) break;
         }
         if (to_replay == "lost") {
             cout << "You lost" << endl;
