@@ -137,32 +137,48 @@ void Grid::initEnemy() {
     int enem = 10; 
     srand(time(NULL));
     int enemNum;
-    while (enem != 0) {
-        enemNum = rand()%18; 
-        if ((enemNum == 1) || (enemNum == 2)){
-            //make merchant;
-        }
-        if ((enemNum >= 3) || (enemNum <= 5)){
-            //make vampire
-        }
+    int row; 
+    int col; 
+    while (enem != 0 && true) {
+        row = rand()%24;
+        col = rand()%78;
+        if (Board[row][col].getObject()->getKind() == '.') {
 
-        if ((enemNum == 6) || (enemNum == 9)){
-            //make werewolf;
+            enemNum = rand()%18; 
+            if ((enemNum == 1) || (enemNum == 2)){
+                //make merchant
+                Merchant(&Board[row][col]);
+
+            }
+            if ((enemNum >= 3) || (enemNum <= 5)){
+                //make vampire
+                Vampire(&Board[row][col]);
+            }
+
+            if ((enemNum == 6) || (enemNum == 9)){
+                //make werewolf;
+                Werewolf(&Board[row][col]);
+            }
+            if ((enemNum >= 10) || (enemNum <= 14)){
+                //make goblin;
+                Goblin(&Board[row][col]);
+            }
+            if ((enemNum == 15) || (enemNum == 16)){
+                Pheonix(&Board[row][col]);
+                //make phoenix;
+
+            }
+            if ((enemNum == 17) || (enemNum == 18)){
+                Troll(&Board[row][col]);
+                //make troll;
+            }
         }
-        if ((enemNum >= 10) || (enemNum <= 14)){
-            //make goblin;
-        }
-        if ((enemNum == 15) || (enemNum == 16)){
-            //make phoenix;
-        }
-        if ((enemNum == 17) || (enemNum == 18)){
-            //make troll;
-        }
+        
     }
 }
 
 
-        
+
 
 
 void Grid:: print() {

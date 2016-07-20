@@ -5,41 +5,44 @@
 class Enemy: public Character{
   public: 
       Enemy(int HP, int Atk, int Def,char Kind, Tile *parent); 
-      ~Enemy() = default; 
+      virtual ~Enemy() = 0; 
 };
 
 class Vampire: public Enemy { 
-    Vampire(); 
-    ~Vampire(); 
+    Vampire(Tile *parent); 
+    ~Vampire() = default;
 
 };
 
 class Merchant: public Enemy {
-    Merchant(); 
-    ~Merchant();
+    Merchant(Tile *parent); 
+    ~Merchant() = default;
 };
 
 class Werewolf: public Enemy {
-    Werewolf(); 
-    ~Werewolf();
+    Werewolf(Tile *parent); 
+    ~Werewolf() = default;
 };
 
 class Goblin: public Enemy { 
-    Goblin(); 
-    ~Goblin(); 
+    Goblin(Tile *parent); 
+    ~Goblin() = default;
 };
 
 class Phoenix: public Enemy {
-    Phoenix();
-    ~Phoenix(); 
+    Phoenix(Tile *parent);
+    ~Phoenix() = default;
 };
 
 class Troll: public Enemy {
-    Troll(); 
-    ~Troll(); 
+    Troll(Tile *parent); 
+    ~Troll() = default;
 };
 
-
+class Dragon: public Enemy {
+    Dragon(Tile *parent);
+    ~Dragon() = default;
+};
 
 
 
