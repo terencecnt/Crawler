@@ -23,7 +23,7 @@ class Grid {
   void initEnemy(); 
   void initGold();
   void initPotion();
-  void attack(string d);
+  void attack(std::string d);
 public:
   Grid();
   ~Grid();

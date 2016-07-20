@@ -18,3 +18,5 @@ Tile *Object::getParent() {
 void Object::changeParent(Tile *new_parent) {
     parent = new_parent;
 }
+
+

@@ -18,7 +18,7 @@ class Tile {
   public:
     Tile(int row, int col);
     ~Tile() = default;
-    std::shared_ptr<Object>getObject(); 
+    std::shared_ptr<Object> getObject(); 
     void attach(Tile *o); 
     int getRow();
     int getColumn();

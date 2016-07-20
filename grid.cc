@@ -779,6 +779,15 @@ void Grid:: move(string d) {
     }
 }
 
+
+void Grid:: attack(string s) {
+   // Object *
+}
+    
+
+
+
+
 /* uncomment when getHP is good
 string Grid::state() {
     if (player->getHP() == 0) {
