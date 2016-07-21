@@ -52,11 +52,11 @@ int main () {
             cout << "This race does not exist. Bye." << endl;
             break;
         } else {
-    //        g.initPlayer(s[0]);
-   //         g.initStair();
-  //          g.initPotion();
-//            g.initGold();
-//            g.initEnemy();
+            g.initPlayer(s[0]);
+            g.initStair();
+           g.initPotion();
+            g.initGold();
+            g.initEnemy();
         }
         while(true) {
             g.print();

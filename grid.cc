@@ -89,7 +89,7 @@ void Grid::clearGrid(){
     }
 
 }
-
+/*
 void Grid::gridSpawn(){ //CALL THIS WHEN U LEVEL UP 
     clearGrid(); 
     ++floor; 
@@ -109,7 +109,7 @@ void Grid::gridSpawn(){ //CALL THIS WHEN U LEVEL UP
     initEnemy();
     
 }
-
+*/
 
 Grid::~Grid() {
 }
@@ -306,7 +306,7 @@ void Grid::initGold() {
         row = rand()%25;
         col = rand()%79;
         if (Board[row][col].getObject()->getKind() == '.') {
-            GoldNum = rand()%7 + 1; 
+            GoldNum = rand()%8 + 1; 
             if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
             if ((GoldNum >= 1) || (GoldNum <= 5)){
                 auto temp = make_shared<Normal>(Normal(&Board[row][col]));
@@ -322,7 +322,7 @@ void Grid::initGold() {
                 //spawn new dragon
                 int dragon;
                 while (true){ 
-                    dragon = rand()%7; 
+                    dragon = rand()%8; 
                     Tile *dragonTile; 
                     if (dragon == 0){
                         dragonTile = temp->getParent()->getneighbor("we"); 

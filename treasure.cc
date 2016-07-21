@@ -4,7 +4,8 @@
 using namespace std;
 
 
-Treasure::Treasure(int value, Tile* parent): Object('G' , parent) , value(value) {}
+Treasure::Treasure(int value, Tile* parent): Object('G' , parent) , value(value) {
+}
 Treasure::~Treasure(){}
 int Treasure::getValue() { return value; }
 
@@ -24,5 +25,6 @@ merchantGold::~merchantGold() {}
 dragonGold::dragonGold(Tile* parent): Treasure(6, parent) {}
 void dragonGold::updateDragon(shared_ptr<Dragon> father) {
     owner = father;
+    cout << "Row:" <<  parent->getRow() << "Col:" << parent->getColumn()<< endl;
 }
 dragonGold::~dragonGold() {}

@@ -7,6 +7,7 @@
 #include "textdisplay.h"
 #include "player.h"
 #include "enemy.h"
+#include "treasure.h"
 
 class Player;
 class Enemy;
