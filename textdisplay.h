@@ -9,6 +9,7 @@ class Tile;
 class TextDisplay {
   std::vector<std::vector<char>> display;
   int floor;
+  std::string Race; 
  public:
   TextDisplay(std::vector<std::vector<Tile>> &board, int floor);
   ~TextDisplay() = default;

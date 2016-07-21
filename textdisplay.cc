@@ -37,6 +37,14 @@ void TextDisplay::print() {
         }
         cout << endl;
     }
+//lower part
+    cout << "Race: " << Race;
+    int line1 = 6 + Race.length();
+    cout << string(68 - line1 , ' ') << "Floor: " << floor  <<  endl;
+    cout << "HP: " << endl;
+    cout << "Atk: " << endl;
+    cout << "Def: "  << endl; 
+    cout << "Action: " << endl; 
 }
 
 
