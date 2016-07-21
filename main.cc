@@ -52,9 +52,15 @@ int main () {
             cout << "This race does not exist. Bye." << endl;
             break;
         } else {
-            g.initPlayer(s[0]);
+    //        g.initPlayer(s[0]);
+   //         g.initStair();
+  //          g.initPotion();
+//            g.initGold();
+//            g.initEnemy();
         }
         while(true) {
+            g.print();
+            cout << "Enter Command" << endl;
             cin >> s;
             if ((s == "u") || (s == "a")) {
                 cin >> s;
