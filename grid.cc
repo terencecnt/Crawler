@@ -90,6 +90,27 @@ void Grid::clearGrid(){
 
 }
 
+void Grid::gridSpawn(){ //CALL THIS WHEN U LEVEL UP 
+    clearGrid(); 
+    ++floor; 
+
+    char race = player->getRace().at(0);
+    int currentHP = player->getHP();
+    int currentGold = player->Gold();
+
+    player = 
+
+
+    
+    initPlayer(race);
+    initStair();
+    initGold();
+    initPotion();
+    initEnemy();
+    
+}
+
+
 Grid::~Grid() {
 }
 
@@ -122,8 +143,8 @@ void Grid::initStair() {
         case 1: // stairs cant spawn in chamber1
     
         while (true) {
-            row = rand()%24;
-            col = rand()%78;
+            row = rand()%25;
+            col = rand()%79;
             if ((Board[row][col].getObject()->getKind() == '.') && ((row < 3 || row >= 7) || (col < 3 || col >= 29))){
                 auto temp = make_shared<Object>(Object('/', &Board[row][col]));
                 Board[row][col].changeO(temp);
@@ -135,8 +156,8 @@ void Grid::initStair() {
         case 2: // stairs cant spawn in chamber2
 
         while (true) {
-            row = rand()%24;
-            col = rand()%78;
+            row = rand()%25;
+            col = rand()%79;
             if ((Board[row][col].getObject()->getKind() == '.')&& 
                     (((row < 3 || row >= 5)||(col < 39 || col >= 62)) && ((row != 5) || (col < 39 || col >= 70))&&
                      ((row != 6)||(col < 39 || col >= 73)) && ((row < 7 || row >= 13) ||(col < 61 || col >= 76)))) {
@@ -150,8 +171,8 @@ void Grid::initStair() {
         case 3: // stairs cant spawn in chamber3
 
         while (true) {
-            row = rand()%24;
-            col = rand()%78;
+            row = rand()%25;
+            col = rand()%79;
             if ((Board[row][col].getObject()->getKind() == '.') && ((row < 10 || row >= 13) || ( col < 38 || col >= 50))){
                 auto temp = make_shared<Object>(Object('/', &Board[row][col]));
                 Board[row][col].changeO(temp);
@@ -163,8 +184,8 @@ void Grid::initStair() {
         case 4: // stairs cant spawn in chamber4
 
         while (true) {
-            row = rand()%24;
-            col = rand()%78;
+            row = rand()%25;
+            col = rand()%79;
             if ((Board[row][col].getObject()->getKind() == '.') && ((row < 15 || row >= 22) || (col < 4 || col >= 25))){
                 auto temp = make_shared<Object>(Object('/', &Board[row][col]));
                 Board[row][col].changeO(temp);
@@ -176,8 +197,8 @@ void Grid::initStair() {
         case 5: // stairs cant spawn in chamber5
 
         while (true) {
-            row = rand()%24;
-            col = rand()%78;
+            row = rand()%25;
+            col = rand()%79;
             if ((Board[row][col].getObject()->getKind() == '.') && 
                     (((row < 16 || row >= 19) || (col < 65 && col >= 76)) &&((row < 19 || row >= 22)||(col < 37 || col >= 76)))){
                 auto temp = make_shared<Object>(Object('/', &Board[row][col]));
@@ -194,8 +215,8 @@ void Grid::initPlayer(char Race) {
     int col;
     srand(time(NULL));
     while (true) {
-        row = rand()%24;
-        col = rand()%78;
+        row = rand()%25;
+        col = rand()%79;
         if (Board[row][col].getObject()->getKind() == '.') {
             shared_ptr<Player>temp;
             if (Race == 'h') {
@@ -236,8 +257,8 @@ void Grid::initEnemy() {
     while(true) {
         if (enem == 0) break;
         bool alive = 0;
-        row = rand()%24;
-        col = rand()%78;
+        row = rand()%25;
+        col = rand()%79;
         if (Board[row][col].getObject()->getKind() == '.') {
             shared_ptr<Object> temp;
             enemNum = rand()%17 + 1; 
@@ -282,8 +303,8 @@ void Grid::initGold() {
     while(true) {
         if (gold == 0) break;
         bool alive = 0;
-        row = rand()%24;
-        col = rand()%78;
+        row = rand()%25;
+        col = rand()%79;
         if (Board[row][col].getObject()->getKind() == '.') {
             GoldNum = rand()%7 + 1; 
             if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
@@ -358,8 +379,8 @@ void Grid::initPotion() {
     int potionType; // randNum to choose the 6 potions
     int chamber; // randnum to choose form 5 chambers
     while(potion < 10) {
-        row = rand()%24;
-        col = rand()%78;
+        row = rand()%25;
+        col = rand()%79;
         potionType = rand()%6;
         chamber = rand()%5;
         switch (chamber) {
