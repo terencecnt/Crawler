@@ -3,7 +3,6 @@
 #include <vector>
 #include "textdisplay.h"
 #include "object.h"
-#include "tile.h"
 #include <string>
 
 class TextDisplay;

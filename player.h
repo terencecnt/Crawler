@@ -1,9 +1,11 @@
 #ifndef _PLAYER_
 #define _PLAYER_
+#include<memory>
 #include "character.h"
 #include "potion.h"
-#include "treasure.h"
-//class Treasure;
+
+class Treasure;
+class Character;
 
 class Player: public Character {
     int gold; 

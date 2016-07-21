@@ -1,5 +1,5 @@
 #include "player.h"
-
+#include "treasure.h"
 using namespace std;
 
 Player::Player(int HP, int Atk, int Def, string Race, char Kind, Tile *parent): 

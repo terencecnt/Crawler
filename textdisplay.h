@@ -3,12 +3,9 @@
 #include <iostream>
 #include <vector>
 #include "tile.h"
-//#include "player.h"
-#include "object.h"
 
-
-class Object;
 class Tile;
+class Player;
 
 class TextDisplay {
   std::vector<std::vector<char>> display;
@@ -17,7 +14,7 @@ class TextDisplay {
   int HP; 
   int Atk;
   int Def;
-  //std::shared_ptr<Object> current;
+  std::shared_ptr<Player> current;
  public:
   TextDisplay(std::vector<std::vector<Tile>> &board, int floor);
   ~TextDisplay() = default;

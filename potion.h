@@ -3,6 +3,8 @@
 #include "tile.h"
 #include "object.h"
 
+class Tile;
+
 class Potion : public Object{
 	const int value;
 

@@ -872,7 +872,7 @@ void Grid:: move(string d) {
            //call getGold;
            cout << "Get gold" << endl;
            auto temp = to_move_to->getObject();
-           player->getGold(static_cast<make_shared<Treasure>(temp)); 
+           //player->getGold(static_cast<make_shared<Treasure>(temp)); 
 
        }   else {
 
