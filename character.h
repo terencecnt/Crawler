@@ -14,6 +14,7 @@ class Character: public Object {
     int getHP(); 
     int getAtk();
     int getDef();
+    void changeHP(int n);
    // void move(); 
    // virtual void slay(); 
    // virtual void attacked(); 

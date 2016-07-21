@@ -1,3 +1,3 @@
 #include "dwarf.h"
 
-Dwarf::Dwarf(Tile *parent): Player{80,30,25, '@', parent} {}
+Dwarf::Dwarf(Tile *parent): Player{100,20,30, '@', parent} {}

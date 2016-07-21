@@ -72,7 +72,7 @@ int main () {
                     if (s== "u") {
                  //       g.pickup(s);
                     } else {
-                   //     g.attack(s);
+                        g.attack(s);
                     }
                 }
             } else if(s == "r") {

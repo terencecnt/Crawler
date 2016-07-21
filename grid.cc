@@ -1,6 +1,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <math.h> 
 #include "grid.h"
 #include <iostream>
 #include <memory>
@@ -923,6 +924,75 @@ void Grid::use(string d) {
     }
 }
 
+
+
+
+
+void Grid::attack(string d) {
+    try {
+        auto enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        char kind = enemy->getKind(); 
+     
+        if ((enemy == nullptr)||
+                ((kind != 'V')&&
+                 (kind != 'M')&&
+                 (kind != 'W')&&
+                 (kind != 'N')&& 
+                 (kind != 'X')&&
+                 (kind != 'D')&& 
+                 (kind != 'T' ))) {
+                    throw "error";
+        }else{
+
+            //player stats
+            int pHP = player->getHP();
+            int pAtk = player->getAtk();
+            int pDef = player->getDef();
+           
+            //enemy stats 
+            int eHP = static_pointer_cast<Character>(enemy)->getHP();
+            int eAtk = static_pointer_cast<Character>(enemy)->getAtk();
+            int eDef = static_pointer_cast<Character>(enemy)->getDef();
+
+            cout << "man has this much HP: " << eHP << endl;
+            cout << "man has this much Atk: " << eAtk << endl;
+            cout << "man has this much Def: " << eDef << endl;
+          
+
+            //fight
+
+            //player attacks first
+            int damage_on_enemy = ceil(100/(100+eDef))*pAtk;
+
+            // subtract hp from enemy
+            static_pointer_cast<Character>(enemy)->changeHP(-damage_on_enemy);
+
+            if (eHP == 0){ //check if enemy died.
+                int eRow = player->getParent()->getneighbor(d)->getRow(); 
+                int eCol = player->getParent()->getneighbor(d)->getColumn(); 
+
+                Board[eRow][eCol] = Tile(eRow,eCol);
+                td->update(Board[eRow][eCol]);
+                cout << "lol enemy died" << endl;
+                return;
+            }
+
+            //enemy attacks 
+            int damage_on_player = ceil(100/(100+pDef))*eAtk;
+
+            //subtract HP from player
+            player->changeHP(-damage_on_player);
+
+            //check if player died.
+            if (pHP == 0 ){
+                cout << "LOL U ded" << endl;
+                return;
+            }
+        }
+    }catch(...) {
+        cout << "Not a valid enemy at " << d << endl;
+    }
+}
 
 
 

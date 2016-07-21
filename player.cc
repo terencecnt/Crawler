@@ -44,13 +44,5 @@ void Player::getGold(shared_ptr<Treasure> t){
 
 
 //for character.cc
-int Character::getHP() {
-    return HP;
-}
 
-int Character::getAtk(){
-    return Atk;
-}
-int Character::getDef(){
-    return Def;
-}
+

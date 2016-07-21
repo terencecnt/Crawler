@@ -4,7 +4,6 @@ using namespace std;
 
 Enemy:: Enemy(int HP, int Atk, int Def,char Kind, Tile *parent): Character(HP, Atk, Def, Kind, parent) {};
 
-
 Enemy:: ~Enemy(){};
 
 Vampire::Vampire(Tile *parent): Enemy{50,25,25, 'V', parent} {}
