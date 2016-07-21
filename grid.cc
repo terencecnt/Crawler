@@ -77,6 +77,18 @@ Grid:: Grid() {
     td = theDisplay;
 }
 
+void Grid::clearGrid(){
+    int row = 25;
+    int column =79;
+    for (int r = 0; r < row; ++r){  
+        for (int c = 0 ; c < column; ++c){
+            Board[r][c] = Tile(r,c);
+            td->update(Board[r][c]);
+        }
+    }
+
+}
+
 Grid::~Grid() {
 }
 

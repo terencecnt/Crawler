@@ -26,6 +26,7 @@ class Grid {
 public:
   Grid();
   ~Grid();
+  void clearGrid();
   std::string state(); 
   void print();
   void swapObject(Tile *t1, Tile *t2);
