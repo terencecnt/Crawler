@@ -1,5 +1,6 @@
 #include <iostream>
 #include "textdisplay.h"
+#include "player.h"
 using namespace std;
 
 TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{floor} {
