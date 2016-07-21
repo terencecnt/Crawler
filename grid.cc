@@ -862,7 +862,19 @@ void Grid:: move(string d) {
                  (kind != '+' ))) {
             cout << "throwing error" << endl;
                     throw "error";
-                } else {
+                } 
+       if (kind == '/') {
+           //call gridspawn;
+           cout <<"NEXT LEVEL, GRID SPAWN " << endl;
+       }
+
+       if (kind == 'G') { 
+           //call getGold;
+           cout << "Get gold" << endl;
+           auto temp = to_move_to->getObject();
+           player->getGold(static_cast<make_shared<Treasure>(temp)); 
+
+       }   else {
 
                     swapObject(to_move_to, player->getParent());
                 }
@@ -870,7 +882,6 @@ void Grid:: move(string d) {
     catch(...) {
         cout << "Unable to move to " << d << endl;
     }
-
     td->update(*player->getParent());
     td->update(*player->getParent()->getneighbor("we"));
     td->update(*player->getParent()->getneighbor("nw"));
@@ -906,7 +917,7 @@ void Grid::use(string d) {
     auto neighbourObj = player->getParent()->getneighbor(d)->getObject();
     if (neighbourObj != nullptr) {
         if (neighbourObj->getKind() == 'P') {
-
+            cout <<"Potion being used" << endl;
             player->usePotion(static_pointer_cast<Potion> (neighbourObj));
         }
     }
