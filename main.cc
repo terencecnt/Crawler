@@ -18,6 +18,7 @@ bool isDirection(string s) {
         (s != "sw")) {
         to_return = false;
     }
+    return to_return;
 }
 
 int main () {

@@ -134,25 +134,25 @@ void Tile::changeO(shared_ptr<Object> new_content) {
 }
 
 Tile *Tile::getneighbor(string d) {
-    int  neighbor_number = 0;
+    int  neighbor_number;
     if (d == "we") {
         neighbor_number = 0;
     } else if(d == "nw") {
         neighbor_number = 1;
     } else if(d == "no") {
-        neighbor_number = 3;
+        neighbor_number = 2;
     } else if(d == "ne") {
-        neighbor_number = 4;
+        neighbor_number = 3;
     } else if(d == "ea") {
-        neighbor_number = 5;
+        neighbor_number = 4;
     } else if(d == "se") {
-        neighbor_number = 6;
+        neighbor_number = 5;
     } else if(d == "so") {
-        neighbor_number = 7;
+        neighbor_number = 6;
     } else if(d == "sw") {
-        neighbor_number = 8;
+        neighbor_number = 7;
     } else if(d == "we") {
-        neighbor_number = 9;
+        neighbor_number = 8;
     }
     return neighbors[neighbor_number];
 }

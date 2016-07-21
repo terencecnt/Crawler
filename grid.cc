@@ -30,44 +30,52 @@ Grid:: Grid() {
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < column; ++j) {
             if (((j - 1) >= 0)) {
+               //attach west
                 Board[i][j].attach(&Board[i][j-1]);
             } else {
                Board[i][j].attach(nullptr);
             }
             
             if (((i - 1) >= 0) && ((j - 1) >= 0)) {
+                //attach nw
                 Board[i][j].attach(&Board[i - 1][j - 1]);
             } else {
                 Board[i][j].attach(nullptr);
             }
     
             if ((i - 1) >= 0) {
+                //attach north 
                 Board[i][j].attach(&Board[i-1][j]);
             } else {
                 Board[i][j].attach(nullptr);
             }
             if (((i - 1) <= row) && ((j+1) <= column)) {
+                //attach ne
                 Board[i][j].attach(&Board[i-1][j + 1]);
             } else {
                 Board[i][j].attach(nullptr);
             }
             if ((j+1) <= column) {
+                //attach ea
                 Board[i][j].attach(&Board[i][j + 1]);
             } else {
                 Board[i][j].attach(nullptr);
             }
             if (((i + 1) <= row) && ((j+1) <= column)) {
-                Board[i][j].attach(&Board[i][j + 1]);
+                //attach se
+                Board[i][j].attach(&Board[i+1][j + 1]);
             } else {
                 Board[i][j].attach(nullptr);
             }
             if ((i + 1) <= row) {
-                Board[i][j].attach(&Board[i][j + 1]);
+                //attach south
+                Board[i][j].attach(&Board[i+1][j]);
             } else {
                 Board[i][j].attach(nullptr);
             }
             if (((i + 1) <= row) && ((j-1) >= 0)) {
-                Board[i][j].attach(&Board[i][j + 1]);
+                //attach sw
+                Board[i][j].attach(&Board[i+1][j-1]);
             } else {
                 Board[i][j].attach(nullptr);
             }
@@ -842,27 +850,44 @@ void Grid::swapObject(Tile *t1, Tile *t2) {
 }
     
 void Grid:: move(string d) {
+    cout << "String is " << d << endl;
     try {
         auto to_move_to = player->getParent()->getneighbor(d);
         char kind = to_move_to->getObject()->getKind();
         if ((to_move_to == nullptr)||
                 ((kind != 'G')&&
                  (kind != '.')&&
-                 (kind != '/'))) {
+                 (kind != '/')&&
+                 (kind != '#')&& 
+                 (kind != '+' ))) {
+            cout << "throwing error" << endl;
                     throw "error";
                 } else {
+
                     swapObject(to_move_to, player->getParent());
                 }
         }
     catch(...) {
         cout << "Unable to move to " << d << endl;
     }
+
+    td->update(*player->getParent());
+    td->update(*player->getParent()->getneighbor("we"));
+    td->update(*player->getParent()->getneighbor("nw"));
+    td->update(*player->getParent()->getneighbor("no"));
+    td->update(*player->getParent()->getneighbor("ne"));
+    td->update(*player->getParent()->getneighbor("ea"));
+    td->update(*player->getParent()->getneighbor("se"));
+    td->update(*player->getParent()->getneighbor("so"));
+    td->update(*player->getParent()->getneighbor("sw"));
+
+
 }
 
 /*
-void Grid:: attack(string s) {
-    shared_ptr<Object> enemy = 
-}
+   void Grid:: attack(string s) {
+   shared_ptr<Object> enemy = 
+   }
 */  
 
 
