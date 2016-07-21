@@ -24,13 +24,36 @@ void Grid::initGold() {
             else if (GoldNum == 8) {
                 temp = make_shared<Object>(dragonHoard(&Board[row][col]));
                 //spawn new dragon
-                int dragRow;
-                int dragCol; 
+                int dragon;
                 while (true){ 
-                    int dragRow = rand()%24; 
-                     int dragCol = rand()%78;
-                     if (Board[row][col].getObject()->getKind() == '.') {
-                        temp = make_shared<Object>(Dragon(&Board[row][col]));
+                    int dragon = rand()%7; 
+                    Tile dragonTile; 
+                    if (dragon == 0){
+                        dragonTile = temp->getParent()->getneighbor("we"); 
+                    }
+                    else if (dragon == 1){
+                        dragonTile = temp->getParent()->getneighbor("nw"); 
+                    }
+                    else if (dragon == 2){
+                        dragonTile = temp->getParent()->getneighbor("no"); 
+                    }
+                    else if (dragon == 3){
+                        dragonTile = temp->getParent()->getneighbor("ne"); 
+                    }
+                    else if (dragon == 4){
+                        dragonTile = temp->getParent()->getneighbor("ea"); 
+                    }
+                    else if (dragon == 5){
+                        dragonTile = temp->getParent()->getneighbor("se"); 
+                    }
+                    else if (dragon == 6){
+                        dragonTile = temp->getParent()->getneighbor("so"); 
+                    }
+                    else if (dragon == 7){
+                        dragonTile = temp->getParent()->getneighbor("sw"); 
+                    }
+                    if (Board[row][col].getObject()->getKind() == '.') {
+                        temp = make_shared<Object>(Dragon(dragonTile));
                         return;
                 }
             if (alive == 1) {
@@ -91,10 +114,10 @@ string Grid::state() {
 
 
 
-void use(string d) {
+void Grid::use(string d) {
     // check if neighbour is a potion 
-    Object neighbourObj = player->getParent()->getneighbor(string d)->getObject();
-    if (neighbourObj->kind == 'P') { 
+    Object neighbourObj = player->getParent()->getneighbor(d)->getObject();
+    if (neighbourObj->getKind()== 'P') { 
         player->usePotion(neighbourObj);
     } 
 }
