@@ -295,7 +295,7 @@ void Grid::initGold() {
             }
 
             else if (GoldNum == 8) {
-                temp = make_shared<Object>(Dragon(&Board[row][col]));
+               // temp = make_shared<Object>(DragonGold(&Board[row][col]));
             }
             if (alive == 1) {
                 --gold;
