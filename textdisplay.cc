@@ -15,6 +15,7 @@ TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{flo
             row.emplace_back(spot);       
  }
 //	cout << endl;
+     //   current = nullptr;
         display.emplace_back(row);
     }
 }
@@ -26,6 +27,18 @@ void TextDisplay:: update(Tile &t) {
     int column = t.getColumn();
     display[row][column] = temp;
 }
+
+
+
+/*void TextDisplay:: updatePlayer(shared_ptr<Object> newP) { 
+    char temp = '@';
+   // int row = t.getRow();
+   // int column = t.getColumn();
+    HP = newP->getHP();
+    Race = newP->getRace();
+    //display[row][column] = temp;
+}*/
+
 
 void TextDisplay::print() {
     int rows = 25;
@@ -48,7 +61,9 @@ void TextDisplay::print() {
 }
 
 
-
+/*void changePlayer(shared_ptr<Object> newP) { 
+   current =newP;
+}*/
 
 
 

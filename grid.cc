@@ -20,12 +20,11 @@ Grid:: Grid() {
     for (int i= 0; i < row; ++i) {
         vector<Tile> row;
         for (int j =0; j < column; ++j) {
-           // cout << Tile(i,j).getObject()->getKind() << "Wtf" << endl;
+
             row.emplace_back(Tile(i,j));
         }
-     //neighbors function here
+
         Board.emplace_back(row);
-//        cout << endl;
     }
 
     for (int i = 0; i < row; ++i) {
@@ -240,8 +239,9 @@ void Grid::initPlayer(char Race) {
             }
             //auto temp = make_shared<Object>(Player(&Board[row][col]));
             this->player = temp; // set the Player field
+            //td->changePlayer(temp);
             Board[row][col].changeO(temp);
-            td->update(Board[row][col]);
+             td->update(Board[row][col]);
             return;
         }
     }
@@ -308,7 +308,7 @@ void Grid::initGold() {
             GoldNum = rand()%8 + 1; 
         if (Board[row][col].getObject()->getKind() == '.') {
             GoldNum = rand()%8 + 1; 
-            cout << GoldNum<< " : it me" << endl;
+            //cout << GoldNum<< " : it me" << endl;
             if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
             if ((GoldNum >= 1) && (GoldNum <= 5)){
                 cout << "Wtf1"<< endl;
@@ -325,7 +325,7 @@ void Grid::initGold() {
                 cout << "Wtf3"<< endl;
                 auto temp = make_shared<dragonGold>(dragonGold(&Board[row][col]));
                 //spawn new dragon
-                int dragon;
+                int dragon=0;
                 while (true){ 
                     dragon = rand()%8; 
                     Tile *dragonTile; 
@@ -354,7 +354,7 @@ void Grid::initGold() {
                         dragonTile = temp->getParent()->getneighbor("sw"); 
                     }
                     if (dragonTile->getObject()->getKind() == '.') {
-                        cout << "WTF" << endl;
+                       // cout << "WTF" << endl;
                         auto temp_two = make_shared<Dragon>(Dragon(dragonTile, temp));
                         //int dragon_row = dragonTile->getRow();
                         Board[row][col].changeO(temp);

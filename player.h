@@ -3,6 +3,7 @@
 #include "character.h"
 #include "potion.h"
 #include "treasure.h"
+//class Treasure;
 
 class Player: public Character {
     int gold; 
