@@ -305,19 +305,24 @@ void Grid::initGold() {
         bool alive = 0;
         row = rand()%25;
         col = rand()%79;
+            GoldNum = rand()%8 + 1; 
         if (Board[row][col].getObject()->getKind() == '.') {
             GoldNum = rand()%8 + 1; 
+            cout << GoldNum<< " : it me" << endl;
             if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
-            if ((GoldNum >= 1) || (GoldNum <= 5)){
+            if ((GoldNum >= 1) && (GoldNum <= 5)){
+                cout << "Wtf1"<< endl;
                 auto temp = make_shared<Normal>(Normal(&Board[row][col]));
                 Board[row][col].changeO(temp);
             }
-            else  if ((GoldNum == 6) && (GoldNum <= 7)){
+            else  if ((GoldNum == 6) || (GoldNum <= 7)){
+                cout << "Wtf2"<< endl;
                 auto temp = make_shared<Small>(Small(&Board[row][col]));
                 Board[row][col].changeO(temp);
             }
 
             else if (GoldNum == 8) {
+                cout << "Wtf3"<< endl;
                 auto temp = make_shared<dragonGold>(dragonGold(&Board[row][col]));
                 //spawn new dragon
                 int dragon;
@@ -349,6 +354,7 @@ void Grid::initGold() {
                         dragonTile = temp->getParent()->getneighbor("sw"); 
                     }
                     if (dragonTile->getObject()->getKind() == '.') {
+                        cout << "WTF" << endl;
                         auto temp_two = make_shared<Dragon>(Dragon(dragonTile, temp));
                         //int dragon_row = dragonTile->getRow();
                         Board[row][col].changeO(temp);
