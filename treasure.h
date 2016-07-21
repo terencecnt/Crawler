@@ -1,5 +1,6 @@
 #ifndef _TREASURE_
 #define _TREASURE_
+#include<memory>
 #include "tile.h"
 #include "object.h"
 #include "enemy.h"
@@ -36,12 +37,12 @@ public:
 };
 
 class dragonGold: public Treasure {
-	Dragon* owner;
+    std::shared_ptr<Dragon> owner;
 	bool dead;
 public:
-	dragonGold(Tile* parent, Dragon* dragon);
+	dragonGold(Tile* parent);
 	~dragonGold();
-	
+    void updateDragon(std::shared_ptr<Dragon> father);
 };
 
 

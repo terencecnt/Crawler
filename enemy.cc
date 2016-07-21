@@ -1,4 +1,6 @@
 #include "enemy.h"
+#include "treasure.h"
+using namespace std;
 
 Enemy:: Enemy(int HP, int Atk, int Def,char Kind, Tile *parent): Character(HP, Atk, Def, Kind, parent) {};
 
@@ -17,4 +19,4 @@ Troll::Troll(Tile *parent):  Enemy{120,25,15, 'T', parent} {}
 
 Phoenix::Phoenix(Tile *parent): Enemy{50, 35, 20, 'X', parent}{}
 
-Dragon::Dragon(Tile *parent): Enemy{150, 20, 20, 'D', parent}{}
+Dragon::Dragon(Tile *parent, shared_ptr<dragonGold> son): Enemy{150, 20, 20, 'D', parent}{}

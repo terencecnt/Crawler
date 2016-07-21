@@ -1,5 +1,6 @@
 #ifndef _ENEMY_
 #define _ENEMY_
+#include<memory>
 #include "character.h"
 
 class Enemy: public Character{
@@ -45,9 +46,11 @@ class Troll: public Enemy {
         ~Troll() = default;
 };
 
+class dragonGold;
+
 class Dragon: public Enemy {
     public:
-        Dragon(Tile *parent);
+        Dragon(Tile *parent,std::shared_ptr<dragonGold> son);
         ~Dragon() = default;
 };
 

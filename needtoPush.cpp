@@ -27,7 +27,7 @@ void Grid::initGold() {
                 int dragon;
                 while (true){ 
                     int dragon = rand()%7; 
-                    Tile dragonTile; 
+                    Tile *dragonTile; 
                     if (dragon == 0){
                         dragonTile = temp->getParent()->getneighbor("we"); 
                     }
@@ -52,9 +52,9 @@ void Grid::initGold() {
                     else if (dragon == 7){
                         dragonTile = temp->getParent()->getneighbor("sw"); 
                     }
-                    if (Board[row][col].getObject()->getKind() == '.') {
+                    if (dragonTile.getObject()->getKind() == '.') {
                         temp = make_shared<Object>(Dragon(dragonTile));
-                        return;
+                    }
                 }
             if (alive == 1) {
                 --gold;

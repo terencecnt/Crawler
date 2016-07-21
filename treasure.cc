@@ -21,5 +21,8 @@ merchantGold::merchantGold(Tile* parent): Treasure(4, parent) {}
 merchantGold::~merchantGold() {}
 
 
-dragonGold::dragonGold(Tile* parent, Dragon* dragon): Treasure(6, parent) , owner(dragon){}
+dragonGold::dragonGold(Tile* parent): Treasure(6, parent) {}
+void dragonGold::updateDragon(shared_ptr<Dragon> father) {
+    owner = father;
+}
 dragonGold::~dragonGold() {}

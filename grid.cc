@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "grid.h"
 #include <iostream>
+#include <memory>
 #include <string>
 #include "enemy.h"
 #include "player.h"
@@ -132,13 +133,13 @@ void Grid::initStair() {
         }
 
         case 2: // stairs cant spawn in chamber2
-   
+
         while (true) {
             row = rand()%24;
             col = rand()%78;
             if ((Board[row][col].getObject()->getKind() == '.')&& 
-            (((row < 3 || row >= 5)||(col < 39 || col >= 62)) && ((row != 5) || (col < 39 || col >= 70))&&
-            ((row != 6)||(col < 39 || col >= 73)) && ((row < 7 || row >= 13) ||(col < 61 || col >= 76)))) {
+                    (((row < 3 || row >= 5)||(col < 39 || col >= 62)) && ((row != 5) || (col < 39 || col >= 70))&&
+                     ((row != 6)||(col < 39 || col >= 73)) && ((row < 7 || row >= 13) ||(col < 61 || col >= 76)))) {
                 auto temp = make_shared<Object>(Object('/', &Board[row][col]));
                 Board[row][col].changeO(temp);
                 td->update(Board[row][col]);
@@ -158,9 +159,9 @@ void Grid::initStair() {
                 return;
             }
         }
- 
+
         case 4: // stairs cant spawn in chamber4
-       
+
         while (true) {
             row = rand()%24;
             col = rand()%78;
@@ -173,12 +174,12 @@ void Grid::initStair() {
         }
 
         case 5: // stairs cant spawn in chamber5
-    
+
         while (true) {
             row = rand()%24;
             col = rand()%78;
             if ((Board[row][col].getObject()->getKind() == '.') && 
-                (((row < 16 || row >= 19) || (col < 65 && col >= 76)) &&((row < 19 || row >= 22)||(col < 37 || col >= 76)))){
+                    (((row < 16 || row >= 19) || (col < 65 && col >= 76)) &&((row < 19 || row >= 22)||(col < 37 || col >= 76)))){
                 auto temp = make_shared<Object>(Object('/', &Board[row][col]));
                 Board[row][col].changeO(temp);
                 td->update(Board[row][col]);
@@ -269,7 +270,7 @@ void Grid::initEnemy() {
             }
         }
     }
-    
+
 }
 
 void Grid::initGold() {
@@ -284,22 +285,62 @@ void Grid::initGold() {
         row = rand()%24;
         col = rand()%78;
         if (Board[row][col].getObject()->getKind() == '.') {
-            shared_ptr<Object> temp;
             GoldNum = rand()%7 + 1; 
             if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
             if ((GoldNum >= 1) || (GoldNum <= 5)){
-                temp = make_shared<Object>(Normal(&Board[row][col]));
+                auto temp = make_shared<Normal>(Normal(&Board[row][col]));
+                Board[row][col].changeO(temp);
             }
             else  if ((GoldNum == 6) && (GoldNum <= 7)){
-                temp = make_shared<Object>(Small(&Board[row][col]));
+                auto temp = make_shared<Small>(Small(&Board[row][col]));
+                Board[row][col].changeO(temp);
             }
 
             else if (GoldNum == 8) {
-               // temp = make_shared<Object>(DragonGold(&Board[row][col]));
+                auto temp = make_shared<dragonGold>(dragonGold(&Board[row][col]));
+                //spawn new dragon
+                int dragon;
+                while (true){ 
+                    dragon = rand()%7; 
+                    Tile *dragonTile; 
+                    if (dragon == 0){
+                        dragonTile = temp->getParent()->getneighbor("we"); 
+                    }
+                    else if (dragon == 1){
+                        dragonTile = temp->getParent()->getneighbor("nw"); 
+                    }
+                    else if (dragon == 2){
+                        dragonTile = temp->getParent()->getneighbor("no"); 
+                    }
+                    else if (dragon == 3){
+                        dragonTile = temp->getParent()->getneighbor("ne"); 
+                    }
+                    else if (dragon == 4){
+                        dragonTile = temp->getParent()->getneighbor("ea"); 
+                    }
+                    else if (dragon == 5){
+                        dragonTile = temp->getParent()->getneighbor("se"); 
+                    }
+                    else if (dragon == 6){
+                        dragonTile = temp->getParent()->getneighbor("so"); 
+                    }
+                    else if (dragon == 7){
+                        dragonTile = temp->getParent()->getneighbor("sw"); 
+                    }
+                    if (dragonTile->getObject()->getKind() == '.') {
+                        auto temp_two = make_shared<Dragon>(Dragon(dragonTile, temp));
+                        //int dragon_row = dragonTile->getRow();
+                        Board[row][col].changeO(temp);
+                        //int dragon_col = dragonTile->getColumn();
+                        dragonTile->changeO(temp_two);
+                        temp->updateDragon(temp_two);
+                        td->update(*dragonTile);
+                        break;
+                    }
+                }
             }
             if (alive == 1) {
                 --gold;
-                Board[row][col].changeO(temp);
                 td->update(Board[row][col]);
             }
         }
