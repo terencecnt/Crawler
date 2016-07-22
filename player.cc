@@ -27,16 +27,15 @@ void Player::usePotion(shared_ptr<Potion> p) {
 }
 
 void Player::getGold(shared_ptr<Treasure> t){
-
 	if (Race == "dwarf"){ // double gold for dwarves ayyy
 		gold += 2*(t->getValue());
-
 	} else if ( Race == "orc"){ // half gold for orcs lmao
 		gold += 0.5*(t->getValue());
 
 	}else{ // rest of the races 
 		gold += t->getValue();
 	}
+    cout << "Giving value: " << t->getValue() << endl;
 }
 
 

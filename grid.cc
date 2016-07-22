@@ -865,7 +865,7 @@ void Grid:: move(string d) {
                     throw "error";
                 } 
        if (kind == '/') {
-           //call gridspawn;
+           //call gridspawns
            cout <<"NEXT LEVEL, GRID SPAWN " << endl;
        }
 
@@ -873,10 +873,13 @@ void Grid:: move(string d) {
            //call getGold;
            cout << "Get gold" << endl;
            auto temp = to_move_to->getObject();
-           player->getGold(static_pointer_cast<Treasure>(temp)); 
+           player->getGold(static_pointer_cast<Treasure>(temp));
+           //get rid of the gold
+        to_move_to->changeO( make_shared<Object>(Object('.', to_move_to)));
+
 
        }   else {
-
+ 
                     swapObject(to_move_to, player->getParent());
                 }
         }
