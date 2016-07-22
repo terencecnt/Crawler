@@ -97,16 +97,19 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     clearGrid();
     int original_floor = floor;
     shared_ptr<Player> original_player = player;
+    cout << "working: 1" << endl;
     Grid::Grid new_grid;
+    cout << "working: 2" << endl;
     (*this) = new_grid;
+    cout << "working: 3" << endl;
     floor = original_floor + 1;
-    
-    char race = player->getRace().at(0);
-
-    int currentHP = player->getHP();
-    int currentGold = player->getMyGold();
-    initPlayer(race);
-
+    cout << "working: 4" << endl;
+   // char race = player->getRace().at(0);
+   // int currentHP = player->getHP();
+   // int currentGold = player->getMyGold();
+    cout << "working: 5" << endl;
+    initPlayer('H');
+    cout << "working: 6" << endl;
     player->changeHP(currentHP);
     player->changeGold(currentGold);
 
