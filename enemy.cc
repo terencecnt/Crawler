@@ -8,7 +8,10 @@ Enemy:: ~Enemy(){};
 
 Vampire::Vampire(Tile *parent): Enemy{50,25,25, 'V', parent} {}
 
-Merchant::Merchant(Tile *parent) :  Enemy{30, 70, 5, 'M', parent} {}
+Merchant::Merchant(Tile *parent) : hostile{"false"}, Enemy{30, 70, 5, 'M', parent} {}
+
+string Merchant::checkHostile() { return hostile;}
+void Merchant::makeHostile() { hostile ="true";}
 
 Werewolf::Werewolf(Tile *parent):  Enemy{120,30,5,'W', parent} {}
 

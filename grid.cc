@@ -865,6 +865,7 @@ void Grid:: move(string d) {
                 } 
         else if (kind == '/') {
            //call gridspawns
+            GridSpawn();
            cout <<"NEXT LEVEL, GRID SPAWN " << endl;
        }
 
@@ -877,7 +878,9 @@ void Grid:: move(string d) {
         to_move_to->changeO( make_shared<Object>(Object('.', to_move_to)));
 
 
-       }   else {
+       }  
+        
+        else {
  
                     swapObject(to_move_to, player->getParent());
                 }
@@ -1106,16 +1109,19 @@ void Grid::enemyMove() {
     for (int enemyNum =0; enemyNum <20; ++enemyNum) {
         //dont attack if merchant isn't hostile
    //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
-    if (enemies[enemyNum]->getKind() == 'M'){
-        bool hostile = static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile();
-        cout << "HELLO STOP "<< hostile << endl;
-            break;}
         for (int i =0 ; i < 8; ++i) {
-         if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
-            cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
-            break;
-            
-         }
+            if (enemies[enemyNum]->getKind() == 'M'){
+                shared_ptr<Merchant> test=  static_pointer_cast<Merchant>(enemies[enemyNum]);
+                string hostile = test->checkHostile();
+                cout << "HELLO STOP "<< hostile << endl;
+                 break;
+            }
+
+                else if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+                    cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
+                    break;
+
+                }
         }
     
     while (true) { 
