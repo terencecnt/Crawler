@@ -881,11 +881,14 @@ void Grid:: move(string d) {
 
        else if (kind == 'G') { 
            //call getGold;
+           int row = player->getParent()->getRow();
+           int col = player->getParent()->getColumn();
            cout << "Get gold" << endl;
            auto temp = to_move_to->getObject();
            player->getGold(static_pointer_cast<Treasure>(temp));
            //get rid of the gold
-        to_move_to->changeO( make_shared<Object>(Object('.', to_move_to)));
+           swapObject(to_move_to, player->getParent());
+           Board[row][col].changeO( make_shared<Object>(Object('.', to_move_to)));
 
 
        }  
@@ -922,9 +925,10 @@ void Grid:: move(string d) {
 
 
 string Grid::state() {
-    if (player->getHP() == 0) {
-        return "lost";
-    } else if (floor == 5) {
+  //  if (player->getHP() == 0) {
+    //    return "lost";
+//} else
+    if (floor == 5) {
         return "win";
     } else {
         return "neutral";
@@ -953,10 +957,65 @@ void Grid::use(string d) {
 
 
 
-
 void Grid::attack(string d) {
     try {
-        auto enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        shared_ptr<Object> enemy;
+        enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        char kind = enemy->getKind(); 
+     
+        if ((enemy == nullptr)||
+                ((kind != 'V')&&
+                 (kind != 'M')&&
+                 (kind != 'W')&&
+                 (kind != 'N')&& 
+                 (kind != 'X')&&
+                 (kind != 'D')&& 
+                 (kind != 'T' ))) {
+                    throw "error";
+        }else{
+
+            //player stats
+            int pHP = player->getHP();
+            int pAtk = player->getAtk();
+            int pDef = player->getDef();
+           
+            //enemy stats 
+            int eHP = (dynamic_pointer_cast<Character>(enemy))->getHP();
+            int eAtk = (dynmaic_pointer_cast<Character>(enemy))->getAtk();
+            int eDef = (dynamic_pointer_cast<Character>(enemy))->getDef();
+            cout << "man has this much HP: " << eHP << endl;
+            cout << "man has this much Atk: " << eAtk << endl;
+            cout << "man has this much Def: " << eDef << endl;
+          
+
+            //fight
+
+            //player attacks 
+            int damage_on_enemy = ceil(100/(100+eDef))*pAtk;
+
+            // subtract hp from enemy
+            static_pointer_cast<Character>(enemy)->changeHP(-damage_on_enemy);
+
+            if (eHP == 0){ //check if enemy died.
+                int eRow = player->getParent()->getneighbor(d)->getRow(); 
+                int eCol = player->getParent()->getneighbor(d)->getColumn(); 
+
+                Board[eRow][eCol] = Tile(eRow,eCol);
+                td->update(Board[eRow][eCol]);
+                cout << "lol enemy died" << endl;
+                return;
+            }
+        }
+    }catch(...) {
+        cout << "Not a valid enemy at " << d << endl;
+    }
+}
+
+void Grid::defend(string d) {
+    try {
+
+        shared_ptr<Object> enemy;
+        enemy = player->getParent()->getneighbor(d)->getObject(); //object
         char kind = enemy->getKind(); 
      
         if ((enemy == nullptr)||
@@ -979,33 +1038,20 @@ void Grid::attack(string d) {
             int eHP = static_pointer_cast<Character>(enemy)->getHP();
             int eAtk = static_pointer_cast<Character>(enemy)->getAtk();
             int eDef = static_pointer_cast<Character>(enemy)->getDef();
-
             cout << "man has this much HP: " << eHP << endl;
             cout << "man has this much Atk: " << eAtk << endl;
             cout << "man has this much Def: " << eDef << endl;
           
 
-            //fight
-
-            //player attacks first
-            int damage_on_enemy = ceil(100/(100+eDef))*pAtk;
-
-            // subtract hp from enemy
-            static_pointer_cast<Character>(enemy)->changeHP(-damage_on_enemy);
-
-            if (eHP == 0){ //check if enemy died.
-                int eRow = player->getParent()->getneighbor(d)->getRow(); 
-                int eCol = player->getParent()->getneighbor(d)->getColumn(); 
-
-                Board[eRow][eCol] = Tile(eRow,eCol);
-                td->update(Board[eRow][eCol]);
-                cout << "lol enemy died" << endl;
-                return;
-            }
-
-            //enemy attacks 
+            //fight 
+            //enemy attacks with 50% chance to miss
             int damage_on_player = ceil(100/(100+pDef))*eAtk;
 
+            bool miss = (rand() % 100) < 50;
+            if (miss) {
+                cout << "Enemy missed attack" << endl;
+                return;
+            }
             //subtract HP from player
             player->changeHP(-damage_on_player);
 
