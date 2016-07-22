@@ -94,6 +94,7 @@ void Grid::clearGrid(){
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
+    cout << "LET ME SPAWN" << endl;
     clearGrid();
     int original_floor = floor;
     shared_ptr<Player> original_player = player;
@@ -110,12 +111,17 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     cout << "working: 5" << endl;
     initPlayer('H');
     cout << "working: 6" << endl;
-    player->changeHP(currentHP);
-    player->changeGold(currentGold);
+    player->changeHP(1000000000000);
+    player->changeGold(100000000);
 
     initStair();
+    cout << "working: 7" << endl;
     initGold();
+ 
+    cout << "working: 8" << endl;
     initPotion();
+   
+    cout << "working: 9" << endl;
     initEnemy();
 }
 
@@ -870,6 +876,7 @@ void Grid:: move(string d) {
            //call gridspawns
             GridSpawn();
            cout <<"NEXT LEVEL, GRID SPAWN " << endl;
+           return;
        }
 
        else if (kind == 'G') { 
