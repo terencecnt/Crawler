@@ -865,12 +865,12 @@ void Grid:: move(string d) {
             cout << "throwing error" << endl;
                     throw "error";
                 } 
-       if (kind == '/') {
+        else if (kind == '/') {
            //call gridspawns
            cout <<"NEXT LEVEL, GRID SPAWN " << endl;
        }
 
-       if (kind == 'G') { 
+       else if (kind == 'G') { 
            //call getGold;
            cout << "Get gold" << endl;
            auto temp = to_move_to->getObject();
@@ -883,6 +883,8 @@ void Grid:: move(string d) {
  
                     swapObject(to_move_to, player->getParent());
                 }
+
+ enemyMove();
         }
     catch(...) {
         cout << "Unable to move to " << d << endl;
@@ -896,7 +898,7 @@ void Grid:: move(string d) {
     td->update(*player->getParent()->getneighbor("se"));
     td->update(*player->getParent()->getneighbor("so"));
     td->update(*player->getParent()->getneighbor("sw")); 
-    enemyMove();
+   
 
 
 }
@@ -1102,27 +1104,41 @@ void Grid::attack(string d) {
 void Grid::enemyMove() { 
     srand(time(NULL)); 
     int enemyNum = 0;
-    cout << "MOVING: " << enemies[enemyNum]->getParent()->getRow() << " ," << enemies[enemyNum]->getParent()->getColumn()<< endl; 
-    for (int i =0; i < 8; ++i) { 
-        if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
-            //code in attack :w
-            cout << "CODE IN ATTACK FROM ENEMY TO PLAYER" << endl;
+    //this section makes enemy attack if there is a nearby player 
+    for (int enemyNum =0; enemyNum <20; ++enemyNum) {
+        //dont attack if merchant isn't hostile
+   //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
+    if (enemies[enemyNum]->getKind() == 'M'){
+        bool hostile = static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile();
+        cout << "HELLO STOP "<< hostile << endl;
+            break;}
+        for (int i =0 ; i < 8; ++i) {
+         if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+            cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
             break;
+            
+         }
         }
-    }
-        while (true) { 
-            int neighbourNum = rand()%8; 
+    
+    while (true) { 
+            int neighbourNum = rand()%8;
             if (enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum)->getObject()->getKind() == '.') { 
-                cout << "MOVE VALID" << endl;
+                auto to_move_to = enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum);
+                swapObject(to_move_to, enemies[enemyNum]->getParent());
+                td->update(*enemies[enemyNum]->getParent());
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("we"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("nw"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("no"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("ne"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("ea"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("se"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("so"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("sw"));
                 break;
             }
-           // break;
     }
-
-
-
-
-}
+    }   
+}// break;
 
 
 
