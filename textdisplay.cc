@@ -3,7 +3,7 @@
 #include "player.h"
 using namespace std;
 
-TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor): floor{floor} {
+TextDisplay::TextDisplay(std::vector<vector<Tile>> &board, int floor, shared_ptr<Player>player, string action): floor{floor}, current{player}, action{action} {
     int rows = 25;
     int columns = 79;
 
@@ -31,15 +31,13 @@ void TextDisplay:: update(Tile &t) {
 
 
 
-/*void TextDisplay:: updatePlayer(shared_ptr<Object> newP) { 
-    char temp = '@';
-   // int row = t.getRow();
-   // int column = t.getColumn();
-    HP = newP->getHP();
-    Race = newP->getRace();
-    //display[row][column] = temp;
-}*/
+void TextDisplay:: updatePlayer(shared_ptr<Player> newP) { 
+    current = newP;
+}
 
+void TextDisplay::changeAction(string newAction) {
+    action = newAction;
+}
 
 void TextDisplay::print() {
     int rows = 25;
@@ -52,13 +50,13 @@ void TextDisplay::print() {
         cout << endl;
     }
 //lower part
-    cout << "Race: " << Race;
-    int line1 = 6 + Race.length();
+    cout << "Race: " << current->getRace();
+    int line1 = 6 + (current->getRace()).length();
     cout << string(68 - line1 , ' ') << "Floor: " << floor  <<  endl;
-    cout << "HP: " << endl;
-    cout << "Atk: " << endl;
-    cout << "Def: "  << endl; 
-    cout << "Action: " << endl; 
+    cout << "HP: " << current->getHP() << endl;
+    cout << "Atk: " << current->getAtk() << endl;
+    cout << "Def: "  << current->getDef() << endl; 
+    cout << "Action: " << action << endl; 
 }
 
 
