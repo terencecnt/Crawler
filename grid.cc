@@ -1100,13 +1100,22 @@ void Grid::attack(string d) {
 
 void Grid::enemyMove() { 
     srand(time(NULL)); 
-    int i;
-    while (true) { 
-        cout << "MOVING: " << enemies[0]->getParent()->getRow() << " ,:" << enemies[0]->getParent()->getColumn()<< endl; 
-        i = rand(); 
-         break;
-
-
+    int enemyNum = 0;
+    cout << "MOVING: " << enemies[enemyNum]->getParent()->getRow() << " ," << enemies[enemyNum]->getParent()->getColumn()<< endl; 
+    for (int i =0; i < 8; ++i) { 
+        if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+            //code in attack :w
+            cout << "CODE IN ATTACK FROM ENEMY TO PLAYER" << endl;
+            break;
+        }
+    }
+        while (true) { 
+            int neighbourNum = rand()%8; 
+            if (enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum)->getObject()->getKind() == '.') { 
+                cout << "MOVE VALID" << endl;
+                break;
+            }
+           // break;
     }
 
 
