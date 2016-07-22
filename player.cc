@@ -38,6 +38,13 @@ void Player::getGold(shared_ptr<Treasure> t){
     cout << "Giving value: " << t->getValue() << endl;
 }
 
+void Player::changeGold(int old_Gold) {
+    gold = old_Gold;
+}
+
+int Player::getMyGold(){
+    return gold;
+}
 
 
 

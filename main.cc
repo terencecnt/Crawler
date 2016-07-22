@@ -56,7 +56,9 @@ int main () {
             g.initPlayer(s[0]);
             g.initStair();
            g.initPotion();
-            g.initGold();
+
+#include <iostream>
+           g.initGold();
             g.initEnemy();
         }
         while(true) {

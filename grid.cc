@@ -87,37 +87,35 @@ Grid:: Grid() {
 }
 
 void Grid::clearGrid(){
-    int row = 25;
-    int column =79;
-    for (int r = 0; r < row; ++r){  
-        for (int c = 0 ; c < column; ++c){
-            Board[r][c] = Tile(r,c);
-            td->update(Board[r][c]);
-        }
+    int size = Board.size();
+    for (int i = 0; i < size; ++i) {
+        Board.pop_back();
     }
-
 }
-/*
-void Grid::gridSpawn(){ //CALL THIS WHEN U LEVEL UP 
-    clearGrid(); 
-    ++floor; 
 
-    char race = player->getRace().at(0);
-    int currentHP = player->getHP();
-    int currentGold = player->Gold();
-
-    player = 
-
-
+void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
+    clearGrid();
+    int original_floor = floor;
+    shared_ptr<Player> original_player = player;
+    Grid::Grid new_grid;
+    (*this) = new_grid;
+    floor = original_floor + 1;
     
+    char race = player->getRace().at(0);
+
+    int currentHP = player->getHP();
+    int currentGold = player->getMyGold();
     initPlayer(race);
+
+    player->changeHP(currentHP);
+    player->changeGold(currentGold);
+
     initStair();
     initGold();
     initPotion();
     initEnemy();
-    
 }
-*/
+
 
 Grid::~Grid() {
 }
