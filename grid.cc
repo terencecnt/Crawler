@@ -1129,7 +1129,7 @@ void Grid::enemyMove() {
    //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
         for (int i =0 ; i < 8; ++i) {
             if (enemies[enemyNum]->getKind() == 'M'){
-                shared_ptr<Merchant> test=  static_pointer_cast<Merchant>(enemies[enemyNum]);
+                shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
                 string hostile = test->checkHostile();
                 cout << "HELLO STOP "<< hostile << endl;
                  break;
