@@ -401,25 +401,25 @@ void Grid::initPotion() {
             
             case 0: // spawn in chamber 1
             if ((Board[row][col].getObject()->getKind() == '.')&&((row >= 3 && row < 7) && (col >= 3 && col < 29))){
-                shared_ptr<Object> temp;
+                shared_ptr<Potion> temp;
                 switch (potionType) {
                     case 0: 
-                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        temp = make_shared<Potion>(RH(&Board[row][col]));
                         break;
                     case 1: 
-                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        temp = make_shared<Potion>(BA(&Board[row][col]));
                         break;
                     case 2:
-                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        temp = make_shared<Potion>(BD(&Board[row][col]));
                         break;
                     case 3:  
-                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        temp = make_shared<Potion>(PH(&Board[row][col]));
                         break;
                     case 4: 
-                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        temp = make_shared<Potion>(WD(&Board[row][col]));
                         break;
                     case 5: 
-                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        temp = make_shared<Potion>(WA(&Board[row][col]));
                         break;
                 }
                 Board[row][col].changeO(temp);
@@ -430,25 +430,25 @@ void Grid::initPotion() {
             case 1: // spawn in chamber 2
             if ((Board[row][col].getObject()->getKind() == '.')&& (((row >= 3 && row < 5)&&(col >= 39 && col < 62))
                 ||((row== 5)&&(col >= 39 && col < 70))||((row== 6)&&(col >= 39 && col < 73))||((row >=7 && row<13) && (col >= 61 && col < 76)))){
-            shared_ptr<Object> temp;
+            shared_ptr<Potion> temp;
               switch (potionType) {
                     case 0: 
-                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        temp = make_shared<Potion>(RH(&Board[row][col]));
                         break;
                     case 1: 
-                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        temp = make_shared<Potion>(BA(&Board[row][col]));
                         break;
                     case 2:
-                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        temp = make_shared<Potion>(BD(&Board[row][col]));
                         break;
                     case 3:  
-                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        temp = make_shared<Potion>(PH(&Board[row][col]));
                         break;
                     case 4: 
-                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        temp = make_shared<Potion>(WD(&Board[row][col]));
                         break;
                     case 5: 
-                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        temp = make_shared<Potion>(WA(&Board[row][col]));
                         break;
                 }
                 Board[row][col].changeO(temp);
@@ -458,25 +458,25 @@ void Grid::initPotion() {
             }
             case 2: // spawn in chamber 3
             if ((Board[row][col].getObject()->getKind() == '.')&& ((row >= 10 && row < 13) && (col >= 38 && col < 50))){
-                shared_ptr<Object> temp;
+                shared_ptr<Potion> temp;
                 switch (potionType) {
                     case 0: 
-                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        temp = make_shared<Potion>(RH(&Board[row][col]));
                         break;
                     case 1: 
-                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        temp = make_shared<Potion>(BA(&Board[row][col]));
                         break;
                     case 2:
-                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        temp = make_shared<Potion>(BD(&Board[row][col]));
                         break;
                     case 3:  
-                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        temp = make_shared<Potion>(PH(&Board[row][col]));
                         break;
                     case 4: 
-                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        temp = make_shared<Potion>(WD(&Board[row][col]));
                         break;
                     case 5: 
-                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        temp = make_shared<Potion>(WA(&Board[row][col]));
                         break;
                 }
                 Board[row][col].changeO(temp);
@@ -486,25 +486,25 @@ void Grid::initPotion() {
             }
             case 3: // spawn in chamber 4
             if ((Board[row][col].getObject()->getKind() == '.')&& ((row >= 15 && row < 22) && (col >= 4 && col < 25))){
-                shared_ptr<Object> temp;
+                shared_ptr<Potion> temp;
                 switch (potionType) {
                     case 0: 
-                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        temp = make_shared<Potion>(RH(&Board[row][col]));
                         break;
                     case 1: 
-                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        temp = make_shared<Potion>(BA(&Board[row][col]));
                         break;
                     case 2:
-                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        temp = make_shared<Potion>(BD(&Board[row][col]));
                         break;
                     case 3:  
-                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        temp = make_shared<Potion>(PH(&Board[row][col]));
                         break;
                     case 4: 
-                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        temp = make_shared<Potion>(WD(&Board[row][col]));
                         break;
                     case 5: 
-                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        temp = make_shared<Potion>(WA(&Board[row][col]));
                         break;
                 }
                 Board[row][col].changeO(temp);
@@ -515,25 +515,25 @@ void Grid::initPotion() {
             case 4: // spawn in chamber 5
             if ((Board[row][col].getObject()->getKind() == '.')&&(((row >=7 && row<13)&&(col >= 61 && col < 76))||((row >= 16 && row < 19)&&(col >= 65 && col < 76))||
                 ((row >= 19 && row < 22)&&(col >= 37&&col < 76)))){
-                shared_ptr<Object> temp;
+                shared_ptr<Potion> temp;
                 switch (potionType) {
                     case 0: 
-                        temp = make_shared<Object>(RH(&Board[row][col]));
+                        temp = make_shared<Potion>(RH(&Board[row][col]));
                         break;
                     case 1: 
-                        temp = make_shared<Object>(BA(&Board[row][col]));
+                        temp = make_shared<Potion>(BA(&Board[row][col]));
                         break;
                     case 2:
-                        temp = make_shared<Object>(BD(&Board[row][col]));
+                        temp = make_shared<Potion>(BD(&Board[row][col]));
                         break;
                     case 3:  
-                        temp = make_shared<Object>(PH(&Board[row][col]));
+                        temp = make_shared<Potion>(PH(&Board[row][col]));
                         break;
                     case 4: 
-                        temp = make_shared<Object>(WD(&Board[row][col]));
+                        temp = make_shared<Potion>(WD(&Board[row][col]));
                         break;
                     case 5: 
-                        temp = make_shared<Object>(WA(&Board[row][col]));
+                        temp = make_shared<Potion>(WA(&Board[row][col]));
                         break;
                 }
                 Board[row][col].changeO(temp);
@@ -918,12 +918,20 @@ string Grid::state() {
 
 void Grid::use(string d) {
     // check if neighbour is a potion
-    auto neighbourObj = player->getParent()->getneighbor(d)->getObject();
+    auto neighbourOfObj = player->getParent()->getneighbor(d);
+    auto neighbourObj = neighbourOfObj->getObject();
     if (neighbourObj != nullptr) {
         if (neighbourObj->getKind() == 'P') {
-            cout <<"Potion being used" << endl;
+            char type = ((static_pointer_cast<Potion>(neighbourObj))->getType())[0];
+           // if (type == 
+
+            td->changeAction("Potion is used");
             player->usePotion(static_pointer_cast<Potion> (neighbourObj));
+        } else {
+            td->changeAction("Not a Potion");
         }
+    } else {
+        td->changeAction("Dead End");
     }
 }
 

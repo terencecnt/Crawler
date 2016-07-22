@@ -13,14 +13,14 @@ string Player::getRace(){
 }
 
 void Player::usePotion(shared_ptr<Potion> p) {
-    if (p->getType() == 'H') {
+    if ((p->getType()[0]) == 'H') {
         HP += p->getValue();
         
     }
-    if (p->getType() == 'A') {
+    if ((p->getType())[0] == 'A') {
         Atk += p->getValue();
     }
-    if (p->getType() == 'D') {
+    if ((p->getType())[0] == 'D') {
         Def += p->getValue();
         
     }

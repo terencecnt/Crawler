@@ -6,62 +6,48 @@
 class Tile;
 
 class Potion : public Object{
-	const int value;
-
-public:
-	Potion(const int value, Tile* parent);
+    const int value;
+	const std::string type;
+  public:
+	Potion(const int value, const std::string type, Tile* parent);
 	~Potion();
 	int getValue();
-	virtual char getType() = 0;
-
+    std::string getType();
 };
 
 class RH: public Potion{
-	const char type;
-public:
+  public:
 	RH(Tile* parent);
 	~RH();
-	char getType();
 };
 
 class BA: public Potion{
-	const char type;
-public:
+  public:
 	BA(Tile* parent);
 	~BA();
-	char getType();
 };
 
 class BD: public Potion{
-	const char type;
-public:
+  public:
 	BD(Tile* parent);
 	~BD();
-	char getType();
 };
 
 
 class PH: public Potion{
-	const char type;
-public:
+  public:
 	PH(Tile* parent);
 	~PH();
-	char getType();
-
 };
 class WD: public Potion{
-	const char type;
-public:
+  public:
 	WD(Tile* parent);
 	~WD();
-	char getType();
 };
 class WA: public Potion{
-	const char type;
-public:
+  public:
 	WA(Tile* parent);
 	~WA();
-	char getType();
 };
 
 #endif
