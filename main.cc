@@ -90,7 +90,7 @@ int main () {
                 continue;
             }
             to_replay = g.state();
-            if((to_replay == "lost") || (to_replay == "win")) break;
+            if((to_replay == "lost")|| (to_replay=="won")) break;
         }
         if (to_replay == "lost") {
             cout << "You lost" << endl;

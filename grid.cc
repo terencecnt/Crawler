@@ -881,11 +881,14 @@ void Grid:: move(string d) {
 
        else if (kind == 'G') { 
            //call getGold;
+           int row = player->getParent()->getRow();
+           int col = player->getParent()->getColumn();
            cout << "Get gold" << endl;
            auto temp = to_move_to->getObject();
            player->getGold(static_pointer_cast<Treasure>(temp));
            //get rid of the gold
-        to_move_to->changeO( make_shared<Object>(Object('.', to_move_to)));
+           swapObject(to_move_to, player->getParent());
+           Board[row][col].changeO( make_shared<Object>(Object('.', to_move_to)));
 
 
        }  
@@ -922,9 +925,10 @@ void Grid:: move(string d) {
 
 
 string Grid::state() {
-    if (player->getHP() == 0) {
-        return "lost";
-    } else if (floor == 5) {
+  //  if (player->getHP() == 0) {
+    //    return "lost";
+//} else
+    if (floor == 5) {
         return "win";
     } else {
         return "neutral";
