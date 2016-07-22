@@ -82,7 +82,7 @@ Grid:: Grid() {
             }
         }
     }    
-    shared_ptr<TextDisplay>theDisplay = make_shared<TextDisplay>(TextDisplay(Board, floor));
+    shared_ptr<TextDisplay>theDisplay = make_shared<TextDisplay>(TextDisplay(Board, floor, nullptr));
     td = theDisplay;
 }
 
@@ -250,6 +250,7 @@ void Grid::initPlayer(char Race) {
             this->player = temp; // set the Player field
             //td->changePlayer(temp);
             Board[row][col].changeO(temp);
+            td->updatePlayer(temp);
              td->update(Board[row][col]);
             return;
         }
