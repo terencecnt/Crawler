@@ -35,7 +35,7 @@ public:
   void use(std::string d); 
   void attack(std::string d);
   //void pickup(std::string d);
-
+ void enemyMove();
   /*
   void GridSpawn();
 */

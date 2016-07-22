@@ -894,7 +894,8 @@ void Grid:: move(string d) {
     td->update(*player->getParent()->getneighbor("ea"));
     td->update(*player->getParent()->getneighbor("se"));
     td->update(*player->getParent()->getneighbor("so"));
-    td->update(*player->getParent()->getneighbor("sw"));
+    td->update(*player->getParent()->getneighbor("sw")); 
+    enemyMove();
 
 
 }
@@ -1096,6 +1097,22 @@ void Grid::attack(string d) {
 
 
 
+
+void Grid::enemyMove() { 
+    srand(time(NULL)); 
+    int i;
+    while (true) { 
+        cout << "MOVING: " << enemies[0]->getParent()->getRow() << " ,:" << enemies[0]->getParent()->getColumn()<< endl; 
+        i = rand(); 
+         break;
+
+
+    }
+
+
+
+
+}
 
 
 
