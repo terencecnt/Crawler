@@ -18,7 +18,7 @@ int Character::getDef(){
 void Character::changeHP(int n){
     int newHP = HP + n;
     if (newHP > HP){
-        HP = HP;
+        cout << "need a variable for MaxHP" << endl;
     }else if ( newHP < 0){
         HP = 0;
     }else{

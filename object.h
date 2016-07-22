@@ -11,7 +11,7 @@ class Object {
 public: 
     Object(char kind, Tile *parent); 
     char getKind();
-    ~Object() = default;
+    virtual ~Object()= default;
     Tile *getParent();
     void changeParent(Tile *new_parent);
 };
