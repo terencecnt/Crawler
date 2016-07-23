@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include "character.h"
 #include "enemy.h"
 #include "player.h"
 #include "human.h"
@@ -940,12 +941,31 @@ void Grid::use(string d) {
     auto neighbourOfObj = player->getParent()->getneighbor(d);
     auto neighbourObj = neighbourOfObj->getObject();
     if (neighbourObj != nullptr) {
+        cout << "what" << neighbourObj->getKind() << endl;
         if (neighbourObj->getKind() == 'P') {
-            char type = ((static_pointer_cast<Potion>(neighbourObj))->getType())[0];
-           // if (type == 
-
-            td->changeAction("Potion is used");
-            player->usePotion(static_pointer_cast<Potion> (neighbourObj));
+            string type = (static_pointer_cast<Potion>(neighbourObj))->getType();
+            string to_return;
+            int to_change = (static_pointer_cast<Potion>(neighbourObj))->getValue();
+            if (type == "HI") {
+                int changed = player->changeHP(to_change);
+                to_return = to_string(changed) + " HP is restored";
+            } else if (type == "AI") {
+                player->changeATK(to_change);
+                to_return = to_string(to_change) + " attack is restored";
+            } else if (type == "DI") {
+                player->changeDEF(to_change);
+                to_return = to_string(to_change) + " defense is increased";
+            } else if (type == "Hl") {
+                int changed = player->changeHP(to_change, "decrease");
+                to_return = to_string(to_change) + " HP is lost";
+            } else if(type == "Al") {
+                player->changeATK(to_change);
+                to_return = to_string(to_change) + "attack is decreased";
+            } else if (type == "Dl") {
+                player->changeDEF(to_change);
+                to_return = to_string(to_change) + " defense is decreased";
+            }
+            td->changeAction("Potion is used" + to_return);
         } else {
             td->changeAction("Not a Potion");
         }

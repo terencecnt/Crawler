@@ -15,13 +15,15 @@ int Character::getDef(){
     return Def;
 }
 
-void Character::changeHP(int n){
-    int newHP = HP + n;
-    if (newHP > HP){
-        cout << "need a variable for MaxHP" << endl;
-    }else if ( newHP < 0){
-        HP = 0;
-    }else{
-        HP = newHP;
-    }
+int Character::changeHP(int n, string to_change){
+    HP = n;
+    return HP;
+}
+
+void Character::changeATK(int n) {
+    Atk += n;
+}
+
+void Character::changeDEF(int n) {
+    Def += n;
 }
