@@ -23,7 +23,7 @@ class Tile {
     int getColumn();
     void changeO(std::shared_ptr<Object> new_content); 
     //update();
-    Tile *getneighbor(std::string d= "false" , int neighbor_number=0); 
+    Tile *getneighbor(std::string d= "false" , int neighbor_number=-1); 
     void swapObject(std::shared_ptr<Tile> t1, std::shared_ptr<Tile> t2); 
     //notifyTD()
 };

@@ -59,6 +59,7 @@ int Player::getOriginal(string field) {
 
 
 int Player::changeHP(int n, string to_change){
+    int first_hp = HP;
     if (to_change == "increase") {
         int newHP = HP + n;
         if (newHP <=  getOriginal("hp")){
@@ -72,7 +73,7 @@ int Player::changeHP(int n, string to_change){
             HP = newHP;
         }
     }
-    return HP;
+    return HP - first_hp;
 }
 //for character.cc
 

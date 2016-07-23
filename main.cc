@@ -73,9 +73,9 @@ int main () {
                     continue;
                 } else {
                     if (s== "u") {
-                        g.use(s);
+                        g.use(s_two);
                     } else {
-                        g.attack(s);
+                        g.attack(s_two);
                     }
                 }
             } else if(s == "r") {

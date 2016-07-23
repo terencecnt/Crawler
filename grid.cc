@@ -51,7 +51,7 @@ Grid:: Grid() {
             } else {
                 Board[i][j].attach(nullptr);
             }
-            if (((i - 1) <= row) && ((j+1) <= column)) {
+            if (((i - 1) >= 0) && ((j+1) <= column)) {
                 //attach ne
                 Board[i][j].attach(&Board[i-1][j + 1]);
             } else {
@@ -895,15 +895,18 @@ void Grid:: move(string d) {
        }  
         
         else {
- 
+ cout << "first" << endl;
                     swapObject(to_move_to, player->getParent());
+                     cout << "second" << endl;
                 }
-
+ cout << "third" << endl;
  enemyMove();
+  cout << "fourth" << endl;
         }
     catch(...) {
         cout << "Unable to move to " << d << endl;
     }
+     cout << "fifth" << endl;
     td->update(*player->getParent());
     td->update(*player->getParent()->getneighbor("we"));
     td->update(*player->getParent()->getneighbor("nw"));
@@ -913,7 +916,7 @@ void Grid:: move(string d) {
     td->update(*player->getParent()->getneighbor("se"));
     td->update(*player->getParent()->getneighbor("so"));
     td->update(*player->getParent()->getneighbor("sw")); 
-   
+    cout << "sixth" << endl;
 
 
 }
@@ -937,35 +940,42 @@ string Grid::state() {
 }
 
 void Grid::use(string d) {
-    // check if neighbour is a potion
-    auto neighbourOfObj = player->getParent()->getneighbor(d);
+    //cout << "******************************************" << endl;
+    Tile *the_Tile = player->getParent();
+   // cout << "+++++++++++++++++++++" << endl;
+    Tile *neighbourOfObj = the_Tile->getneighbor(d);
+    //cout << "1**********************" << endl;
     auto neighbourObj = neighbourOfObj->getObject();
+    //cout << "2**********************" << endl;
     if (neighbourObj != nullptr) {
-        cout << "what" << neighbourObj->getKind() << endl;
+        //cout << "what**************************************" << neighbourObj->getKind() << endl;
         if (neighbourObj->getKind() == 'P') {
             string type = (static_pointer_cast<Potion>(neighbourObj))->getType();
             string to_return;
             int to_change = (static_pointer_cast<Potion>(neighbourObj))->getValue();
             if (type == "HI") {
                 int changed = player->changeHP(to_change);
-                to_return = to_string(changed) + " HP is restored";
+                to_return = to_string(abs(changed)) + " HP is restored";
             } else if (type == "AI") {
                 player->changeATK(to_change);
-                to_return = to_string(to_change) + " attack is restored";
+                to_return = to_string(abs(to_change)) + " attack is restored";
             } else if (type == "DI") {
                 player->changeDEF(to_change);
-                to_return = to_string(to_change) + " defense is increased";
+                to_return = to_string(abs(to_change)) + " defense is increased";
             } else if (type == "Hl") {
                 int changed = player->changeHP(to_change, "decrease");
-                to_return = to_string(to_change) + " HP is lost";
+                to_return = to_string(abs(to_change)) + " HP is lost";
             } else if(type == "Al") {
                 player->changeATK(to_change);
-                to_return = to_string(to_change) + "attack is decreased";
+                to_return = to_string(abs(to_change)) + "attack is decreased";
             } else if (type == "Dl") {
                 player->changeDEF(to_change);
-                to_return = to_string(to_change) + " defense is decreased";
+                to_return = to_string(abs(to_change)) + " defense is decreased";
             }
-            td->changeAction("Potion is used" + to_return);
+            shared_ptr<Object>  updated_object = make_shared<Object> (Object('.', neighbourOfObj));
+            neighbourOfObj->changeO(updated_object);
+            td->update(*neighbourOfObj);
+            td->changeAction("Potion is used " + to_return);
         } else {
             td->changeAction("Not a Potion");
         }
@@ -1194,17 +1204,22 @@ void Grid::enemyMove() {
         //dont attack if merchant isn't hostile
    //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
         for (int i =0 ; i < 8; ++i) {
+            cout << "FirstEn" << endl;
+            cout << "enemyNum" << enemyNum << endl;
+            cout << "length" << enemies.size() << endl;
             if (enemies[enemyNum]->getKind() == 'M'){
+                cout << "Kind" << enemies[enemyNum]->getKind() << endl;
                 shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
+                cout << "before chec" << endl; 
                 string hostile = test->checkHostile();
                 cout << "HELLO STOP "<< hostile << endl;
                  break;
             }
-
                 else if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+                    cout << "secondEn" << endl;
                     cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
                     break;
-
+                    cout << "thirdEn" << endl;
                 }
         }
     
