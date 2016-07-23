@@ -7,7 +7,7 @@ Object:: Object(char kind, Tile *parent): kind{kind}, parent{parent}{
 }
 
 char Object::getKind() {
-    cout << "calling getkind" << kind <<endl;
+    //cout << "calling getkind" << kind <<endl;
     return kind;
 }
 
