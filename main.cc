@@ -65,16 +65,17 @@ int main () {
             g.print();
             cout << "Enter Command" << endl;
             cin >> s;
+            string s_two;
             if ((s == "u") || (s == "a")) {
-                cin >> s;
-                if (!isDirection(s)) {
+                cin >> s_two;
+                if (!isDirection(s_two)) {
                     cout << "Direction does not exist" << endl;
                     continue;
                 } else {
                     if (s== "u") {
-                 //       g.pickup(s);
+                        g.use(s_two);
                     } else {
-                        g.attack(s);
+                        g.attack(s_two);
                     }
                 }
             } else if(s == "r") {

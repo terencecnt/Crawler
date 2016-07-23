@@ -3,7 +3,7 @@
 using namespace std;
 
 Player::Player(int HP, int Atk, int Def, string Race, char Kind, Tile *parent): 
-Character(HP, Atk, Def,'@', parent), gold(0), Race(Race) {};
+Character(HP, Atk, Def,'@', parent), gold(0), original_HP{HP}, original_ATK{Atk}, original_DEF{Def}, Race(Race) {};
 
 Player::Player(int HP, int Atk, int Def, char Kind, Tile *parent): 
 Character(HP, Atk, Def,'@', parent), gold(0){};
@@ -47,8 +47,34 @@ int Player::getMyGold(){
 }
 
 
+int Player::getOriginal(string field) {
+    if (field == "attack") {
+        return original_ATK;
+    } else if (field == "defend") {
+        return original_DEF;
+    } else {
+        return original_HP;
+    }
+}
 
 
+int Player::changeHP(int n, string to_change){
+    int first_hp = HP;
+    if (to_change == "increase") {
+        int newHP = HP + n;
+        if (newHP <=  getOriginal("hp")){
+            HP = newHP;
+        } else {
+            HP = getOriginal("hp");
+        }
+    } else if (to_change == "decrease"){
+        int newHP = HP - n;
+        if(newHP >= 0) {
+            HP = newHP;
+        }
+    }
+    return HP - first_hp;
+}
 //for character.cc
 
 

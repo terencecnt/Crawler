@@ -14,7 +14,9 @@ class Character: public Object {
     int getHP(); 
     int getAtk();
     int getDef();
-    void changeHP(int n);
+    virtual int changeHP(int n, std::string to_change ="increase");
+    void changeATK(int n);
+    void changeDEF(int n);
    // void move(); 
    // virtual void slay(); 
    // virtual void attacked(); 
