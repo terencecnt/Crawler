@@ -1020,7 +1020,8 @@ void Grid::attack(string d) {
             cout << "about to deal " << damage_on_enemy << " dmg" << endl;
             static_pointer_cast<Character>(enemy)->changeHP(-damage_on_enemy);
 
-            if (eHP == 0){ //check if enemy died.
+
+            if (eHP <= 0){ //check if enemy died.
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
                 int eCol = player->getParent()->getneighbor(d)->getColumn(); 
 
@@ -1077,7 +1078,7 @@ void Grid::defend(string d) {
             player->changeHP(-damage_on_player);
 
             //check if player died.
-            if (pHP == 0 ){
+            if (pHP <= 0 ){
                 cout << "LOL U ded" << endl;
                 return;
             }
