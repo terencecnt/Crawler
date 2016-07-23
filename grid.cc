@@ -105,9 +105,9 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     cout << "working: 3" << endl;
     floor = original_floor + 1;
     cout << "working: 4" << endl;
-   // char race = player->getRace().at(0);
-   // int currentHP = player->getHP();
-   // int currentGold = player->getMyGold();
+    char race = original_player->getRace().at(0);
+    int currentHP = original_player->getHP();
+   int currentGold = original_player->getMyGold();
     cout << "working: 5" << endl;
     initPlayer('H');
     cout << "working: 6" << endl;
