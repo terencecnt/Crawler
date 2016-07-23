@@ -277,28 +277,28 @@ void Grid::initEnemy() {
         row = rand()%25;
         col = rand()%79;
         if (Board[row][col].getObject()->getKind() == '.') {
-            shared_ptr<Object> temp;
+            shared_ptr<Enemy> temp;
             enemNum = rand()%17 + 1; 
             if ((1 <= enemNum) && (enemNum<= 18)) alive = 1;
             if ((enemNum == 1) || (enemNum == 2)){
-                temp = make_shared<Object>(Merchant(&Board[row][col]));
+                temp = make_shared<Merchant>(Merchant(&Board[row][col]));
 
             }
             else  if ((enemNum >= 3) && (enemNum <= 5)){
-                temp = make_shared<Object>(Vampire(&Board[row][col]));
+                temp = make_shared<Vampire>(Vampire(&Board[row][col]));
             }
 
             else if ((enemNum >= 6) && (enemNum <= 9)){
-                temp = make_shared<Object>(Werewolf(&Board[row][col]));
+                temp = make_shared<Werewolf>(Werewolf(&Board[row][col]));
             }
             else if ((enemNum >= 10) && (enemNum <= 14)){
-                temp = make_shared<Object>(Goblin(&Board[row][col]));
+                temp = make_shared<Goblin>(Goblin(&Board[row][col]));
             }
             else if ((enemNum == 15) || (enemNum == 16)){
-                temp = make_shared<Object>(Phoenix(&Board[row][col]));
+                temp = make_shared<Phoenix>(Phoenix(&Board[row][col]));
             }
             else if ((enemNum == 17) || (enemNum == 18)){
-                temp = make_shared<Object>(Troll(&Board[row][col]));
+                temp = make_shared<Troll>(Troll(&Board[row][col]));
             }
             if (alive == 1) {
                 --enem;
@@ -957,10 +957,10 @@ void Grid::use(string d) {
 
 
 
-
 void Grid::attack(string d) {
     try {
-        auto enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        shared_ptr<Object> enemy;
+        enemy = player->getParent()->getneighbor(d)->getObject(); //object
         char kind = enemy->getKind(); 
      
         if ((enemy == nullptr)||
@@ -975,26 +975,28 @@ void Grid::attack(string d) {
         }else{
 
             //player stats
-            int pHP = player->getHP();
-            int pAtk = player->getAtk();
-            int pDef = player->getDef();
+            double pHP = player->getHP();
+            double pAtk = player->getAtk();
+            double pDef = player->getDef();
            
             //enemy stats 
-            int eHP = static_pointer_cast<Character>(enemy)->getHP();
-            int eAtk = static_pointer_cast<Character>(enemy)->getAtk();
-            int eDef = static_pointer_cast<Character>(enemy)->getDef();
+            if (static_pointer_cast<Character>(enemy) == nullptr){
+                cout << "nullptr" << endl;
 
-            cout << "man has this much HP: " << eHP << endl;
-            cout << "man has this much Atk: " << eAtk << endl;
-            cout << "man has this much Def: " << eDef << endl;
-          
+            }
+
+            double eHP = (static_pointer_cast<Character>(enemy))->getHP();
+            double eAtk = (static_pointer_cast<Character>(enemy))->getAtk();
+            double eDef = (static_pointer_cast<Character>(enemy))->getDef();
+            cout << "enemy has this much HP: " << eHP << endl;
 
             //fight
 
-            //player attacks first
-            int damage_on_enemy = ceil(100/(100+eDef))*pAtk;
+            //player attacks 
+            double damage_on_enemy = (100/(100+eDef))*pAtk;
 
             // subtract hp from enemy
+            cout << "about to deal " << damage_on_enemy << " dmg" << endl;
             static_pointer_cast<Character>(enemy)->changeHP(-damage_on_enemy);
 
             if (eHP == 0){ //check if enemy died.
@@ -1006,10 +1008,50 @@ void Grid::attack(string d) {
                 cout << "lol enemy died" << endl;
                 return;
             }
+        }
+    }catch(...) {
+        cout << "Not a valid enemy at " << d << endl;
+    }
+}
 
-            //enemy attacks 
-            int damage_on_player = ceil(100/(100+pDef))*eAtk;
+void Grid::defend(string d) {
+    try {
 
+        shared_ptr<Object> enemy;
+        enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        char kind = enemy->getKind(); 
+     
+        if ((enemy == nullptr)||
+                ((kind != 'V')&&
+                 (kind != 'M')&&
+                 (kind != 'W')&&
+                 (kind != 'N')&& 
+                 (kind != 'X')&&
+                 (kind != 'D')&& 
+                 (kind != 'T' ))) {
+                    throw "error";
+        }else{
+
+            //player stats
+            double pHP = player->getHP();
+            double pAtk = player->getAtk();
+            double pDef = player->getDef();
+           
+            //enemy stats 
+            double eHP = static_pointer_cast<Character>(enemy)->getHP();
+            double eAtk = static_pointer_cast<Character>(enemy)->getAtk();
+            double eDef = static_pointer_cast<Character>(enemy)->getDef();
+            cout << "enemy has this much HP: " << eHP << endl;
+
+            //fight 
+            //enemy attacks with 50% chance to miss
+            double damage_on_player = ceil(100/(100+pDef))*eAtk;
+
+            bool miss = (rand() % 100) < 50;
+            if (miss) {
+                cout << "Enemy missed attack" << endl;
+                return;
+            }
             //subtract HP from player
             player->changeHP(-damage_on_player);
 
