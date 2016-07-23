@@ -860,7 +860,6 @@ void Grid::swapObject(Tile *t1, Tile *t2) {
 }
     
 void Grid:: move(string d) {
-    cout << "String is " << d << endl;
     try {
         auto to_move_to = player->getParent()->getneighbor(d);
         char kind = to_move_to->getObject()->getKind();
@@ -895,18 +894,13 @@ void Grid:: move(string d) {
        }  
         
         else {
- cout << "first" << endl;
                     swapObject(to_move_to, player->getParent());
-                     cout << "second" << endl;
                 }
- cout << "third" << endl;
  enemyMove();
-  cout << "fourth" << endl;
         }
     catch(...) {
         cout << "Unable to move to " << d << endl;
     }
-     cout << "fifth" << endl;
     td->update(*player->getParent());
     td->update(*player->getParent()->getneighbor("we"));
     td->update(*player->getParent()->getneighbor("nw"));
@@ -916,9 +910,6 @@ void Grid:: move(string d) {
     td->update(*player->getParent()->getneighbor("se"));
     td->update(*player->getParent()->getneighbor("so"));
     td->update(*player->getParent()->getneighbor("sw")); 
-    cout << "sixth" << endl;
-
-
 }
 
 /*
