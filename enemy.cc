@@ -20,4 +20,8 @@ Troll::Troll(Tile *parent):  Enemy{120,25,15, 'T', parent} {}
 
 Phoenix::Phoenix(Tile *parent): Enemy{50, 35, 20, 'X', parent}{}
 
-Dragon::Dragon(Tile *parent, shared_ptr<dragonGold> son): Enemy{150, 20, 20, 'D', parent}{}
+Dragon::Dragon(Tile *parent, shared_ptr<dragonGold> son): son{son}, Enemy{150, 20, 20, 'D', parent}  {}
+
+void Dragon::notifyGold(){
+        son->changeStatus();
+        }

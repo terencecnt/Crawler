@@ -22,9 +22,15 @@ merchantGold::merchantGold(Tile* parent): Treasure(4, parent) {}
 merchantGold::~merchantGold() {}
 
 
-dragonGold::dragonGold(Tile* parent): Treasure(6, parent) {}
+dragonGold::dragonGold(Tile* parent): Treasure(6, parent), alive{true} {}
 void dragonGold::updateDragon(shared_ptr<Dragon> father) {
     owner = father;
-    cout << "Row:" <<  parent->getRow() << "Col:" << parent->getColumn()<< endl;
+  //  cout << "Row:" <<  parent->getRow() << "Col:" << parent->getColumn()<< endl;
+}
+bool dragonGold::isAlive(){
+    return alive;
+}
+void dragonGold::changeStatus() { 
+    alive= false;
 }
 dragonGold::~dragonGold() {}

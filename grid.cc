@@ -95,7 +95,7 @@ void Grid::clearGrid(){
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
-    cout << "LET ME SPAWN" << endl;
+   // cout << "LET ME SPAWN" << endl;
     clearGrid();
     int original_floor = floor;
     shared_ptr<Player> original_player = player;
@@ -872,6 +872,11 @@ void Grid:: move(string d) {
 
        else if (kind == 'G') { 
            //call getGold;
+           if (static_pointer_cast<Treasure>(to_move_to->getObject())->getValue() == 6 && static_pointer_cast<dragonGold>(to_move_to->getObject())->isAlive()) {
+               cout << "Must slay dragon before retrieving!" << endl;
+               return;
+           }
+
            int row = player->getParent()->getRow();
            int col = player->getParent()->getColumn();
         //   cout << "Get gold" << endl;
@@ -902,12 +907,6 @@ void Grid:: move(string d) {
     td->update(*player->getParent()->getneighbor("so"));
     td->update(*player->getParent()->getneighbor("sw")); 
 }
-
-/*
-   void Grid:: attack(string s) {
-   shared_ptr<Object> enemy = 
-   }
-*/  
 
 
 string Grid::state() {
@@ -1013,6 +1012,12 @@ void Grid::attack(string d) {
 
 
             if (eHP <= 0){ //check if enemy died.
+                //check if enemy was a dragon 
+                if (kind == 'D') { 
+                    //call notify
+                    static_pointer_cast<Dragon>(enemy)->notifyGold();
+    
+                }
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
                 int eCol = player->getParent()->getneighbor(d)->getColumn(); 
 
@@ -1187,22 +1192,22 @@ void Grid::enemyMove() {
         //dont attack if merchant isn't hostile
    //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
         for (int i =0 ; i < 8; ++i) {
-            cout << "FirstEn" << endl;
-            cout << "enemyNum" << enemyNum << endl;
-            cout << "length" << enemies.size() << endl;
+         //   cout << "FirstEn" << endl;
+          //  cout << "enemyNum" << enemyNum << endl;
+          //  cout << "length" << enemies.size() << endl;
             if (enemies[enemyNum]->getKind() == 'M'){
-                cout << "Kind" << enemies[enemyNum]->getKind() << endl;
+           //     cout << "Kind" << enemies[enemyNum]->getKind() << endl;
                 shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
-                cout << "before chec" << endl; 
+             //   cout << "before chec" << endl; 
                 string hostile = test->checkHostile();
-                cout << "HELLO STOP "<< hostile << endl;
+              //  cout << "HELLO STOP "<< hostile << endl;
                  break;
             }
                 else if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
-                    cout << "secondEn" << endl;
+            //        cout << "secondEn" << endl;
                //     cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
                     break;
-                    cout << "thirdEn" << endl;
+              //      cout << "thirdEn" << endl;
                 }
         }
     

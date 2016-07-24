@@ -38,11 +38,13 @@ public:
 
 class dragonGold: public Treasure {
     std::shared_ptr<Dragon> owner;
-	bool dead;
+	bool alive;
 public:
 	dragonGold(Tile* parent);
 	~dragonGold();
     void updateDragon(std::shared_ptr<Dragon> father);
+    bool isAlive();
+    void changeStatus();
 };
 
 

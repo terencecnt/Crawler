@@ -52,8 +52,10 @@ class Troll: public Enemy {
 class dragonGold;
 
 class Dragon: public Enemy {
+    std::shared_ptr<dragonGold> son;
     public:
         Dragon(Tile *parent,std::shared_ptr<dragonGold> son);
+        void notifyGold();
         ~Dragon() = default;
 };
 
