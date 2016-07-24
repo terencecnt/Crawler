@@ -50,8 +50,9 @@ void TextDisplay::print() {
         cout << endl;
     }
 //lower part
-    cout << "Race: " << current->getRace();
-    int line1 = 6 + (current->getRace()).length();
+    cout << "Race: " << current->getRace(); 
+    cout << " Gold: " << current->getMyGold();
+    int line1 = 14 + (current->getRace()).length();
     cout << string(68 - line1 , ' ') << "Floor: " << floor  <<  endl;
     cout << "HP: " << current->getHP() << endl;
     cout << "Atk: " << current->getAtk() << endl;

@@ -17,9 +17,9 @@ class Vampire: public Enemy {
 };
 
 class Merchant: public Enemy {
-    std::string hostile;
+    bool hostile;
     public:
-    std::string checkHostile(); 
+    bool checkHostile(); 
     void makeHostile();
     Merchant(Tile *parent); 
     ~Merchant() = default;

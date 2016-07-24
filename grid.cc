@@ -111,6 +111,7 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     (*this) = new_grid;
     cout << "working: 3" << endl;
     floor = original_floor + 1;
+    cout << "Floor is now " << floor << endl;
     cout << "working: 4" << endl;
 
     char race = original_player->getRace()[0];
@@ -935,15 +936,10 @@ string Grid::state() {
 }
 
 void Grid::use(string d) {
-    //cout << "******************************************" << endl;
     Tile *the_Tile = player->getParent();
-   // cout << "+++++++++++++++++++++" << endl;
     Tile *neighbourOfObj = the_Tile->getneighbor(d);
-    //cout << "1**********************" << endl;
     auto neighbourObj = neighbourOfObj->getObject();
-    //cout << "2**********************" << endl;
     if (neighbourObj != nullptr) {
-        //cout << "what**************************************" << neighbourObj->getKind() << endl;
         if (neighbourObj->getKind() == 'P') {
             string type = (static_pointer_cast<Potion>(neighbourObj))->getType();
             string to_return;
@@ -962,7 +958,7 @@ void Grid::use(string d) {
                 to_return = to_string(abs(to_change)) + " HP is lost";
             } else if(type == "Al") {
                 player->changeATK(to_change);
-                to_return = to_string(abs(to_change)) + "attack is decreased";
+                to_return = to_string(abs(to_change)) + " attack is decreased";
             } else if (type == "Dl") {
                 player->changeDEF(to_change);
                 to_return = to_string(abs(to_change)) + " defense is decreased";
@@ -998,7 +994,14 @@ void Grid::attack(string d) {
                  (kind != 'T' ))) {
                     throw "error";
         }else{
-
+            if (kind == 'M') { 
+                for (int i =0; i <8; ++i) { 
+                    if (enemies[i]->getKind()== 'M') { 
+                        cout << "Merchants will now be hostile" << endl;
+                        static_pointer_cast<Merchant>(enemies[i])->makeHostile();
+                    }
+                }
+            }
             //player stats
             double pHP = player->getHP();
             double pAtk = player->getAtk();
@@ -1038,6 +1041,7 @@ void Grid::attack(string d) {
                 Board[eRow][eCol] = Tile(eRow,eCol);
                 td->update(Board[eRow][eCol]);
                 cout << "lol enemy died" << endl;
+                td->changeAction("Enemy has died");
                 return;
             }
         }
@@ -1046,11 +1050,11 @@ void Grid::attack(string d) {
     }
 }
 
-void Grid::defend(string d) {
+void Grid::defend(int d) {
     try {
 
         shared_ptr<Object> enemy;
-        enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        enemy = player->getParent()->getneighbor("false", d)->getObject(); //object
         char kind = enemy->getKind(); 
      
         if ((enemy == nullptr)||
@@ -1082,14 +1086,17 @@ void Grid::defend(string d) {
             bool miss = (rand() % 100) < 50;
             if (miss) {
                 cout << "Enemy missed attack" << endl;
+                td->changeAction("Enemy missed attack");
                 return;
             }
             //subtract HP from player
+            cout << "Enemy damages player by " << damage_on_player << endl;
             player->changeHP(-damage_on_player);
 
             //check if player died.
             if (pHP <= 0 ){
                 cout << "LOL U ded" << endl;
+                td->changeAction("You have died");
                 return;
             }
         }
@@ -1209,18 +1216,31 @@ void Grid::enemyMove() {
          //   cout << "FirstEn" << endl;
           //  cout << "enemyNum" << enemyNum << endl;
           //  cout << "length" << enemies.size() << endl;
-            if (enemies[enemyNum]->getKind() == 'M'){
+           // if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
            //     cout << "Kind" << enemies[enemyNum]->getKind() << endl;
-                shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
+             //   shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
              //   cout << "before chec" << endl; 
-                string hostile = test->checkHostile();
+           //     string hostile = test->checkHostile();
               //  cout << "HELLO STOP "<< hostile << endl;
-                 break;
-            }
-                else if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+           ///      break;
+           // }
+                if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
             //        cout << "secondEn" << endl;
+                //defend(int)a
+                     if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                         cout << "A friendly Merchant appeared"  << endl;
+                     }
+                     if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                         cout << "Merchant is angry"  << endl;
+                     }
+                     else if (i <= 3) { 
+                        defend(i+ 4);
+                    }
+                    else { 
+                        defend(i-4);
+                    }
                //     cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
-                    break;
+               //     break;
               //      cout << "thirdEn" << endl;
                 }
         }
@@ -1242,7 +1262,7 @@ void Grid::enemyMove() {
                 break;
             }
     }
-    }   
+    }
 }// break;
 
 
