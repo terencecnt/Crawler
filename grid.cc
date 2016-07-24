@@ -99,30 +99,27 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     clearGrid();
     int original_floor = floor;
     shared_ptr<Player> original_player = player;
-    cout << "working: 1" << endl;
+    //cout << "working: 1" << endl;
     Grid::Grid new_grid;
-    cout << "working: 2" << endl;
+    //cout << "working: 2" << endl;
     (*this) = new_grid;
-    cout << "working: 3" << endl;
+   // cout << "working: 3" << endl;
     floor = original_floor + 1;
-    cout << "working: 4" << endl;
+   // cout << "working: 4" << endl;
     char race = original_player->getRace().at(0);
     int currentHP = original_player->getHP();
    int currentGold = original_player->getMyGold();
-    cout << "working: 5" << endl;
+   // cout << "working: 5" << endl;
     initPlayer('H');
-    cout << "working: 6" << endl;
+    //cout << "working: 6" << endl;
     player->changeHP(1000000000000);
     player->changeGold(100000000);
-
     initStair();
-    cout << "working: 7" << endl;
+   // cout << "working: 7" << endl;
     initGold();
- 
-    cout << "working: 8" << endl;
+   // cout << "working: 8" << endl;
     initPotion();
-   
-    cout << "working: 9" << endl;
+  //  cout << "working: 9" << endl;
     initEnemy();
 }
 
@@ -326,23 +323,18 @@ void Grid::initGold() {
             GoldNum = rand()%8 + 1; 
         if (Board[row][col].getObject()->getKind() == '.') {
             GoldNum = rand()%8 + 1; 
-            //cout << GoldNum<< " : it me" << endl;
             if ((1 <= GoldNum) && (GoldNum<= 8)) alive = 1;
             if ((GoldNum >= 1) && (GoldNum <= 5)){
-                cout << "Wtf1"<< endl;
                 auto temp = make_shared<Normal>(Normal(&Board[row][col]));
                 Board[row][col].changeO(temp);
             }
             else  if ((GoldNum == 6) || (GoldNum <= 7)){
-                cout << "Wtf2"<< endl;
                 auto temp = make_shared<Small>(Small(&Board[row][col]));
                 Board[row][col].changeO(temp);
             }
 
             else if (GoldNum == 8) {
-                cout << "Wtf3"<< endl;
                 auto temp = make_shared<dragonGold>(dragonGold(&Board[row][col]));
-                //spawn new dragon
                 int dragon=0;
                 while (true){ 
                     dragon = rand()%8; 
@@ -372,7 +364,6 @@ void Grid::initGold() {
                         dragonTile = temp->getParent()->getneighbor("sw"); 
                     }
                     if (dragonTile->getObject()->getKind() == '.') {
-                       // cout << "WTF" << endl;
                         auto temp_two = make_shared<Dragon>(Dragon(dragonTile, temp));
                         //int dragon_row = dragonTile->getRow();
                         Board[row][col].changeO(temp);
@@ -869,13 +860,13 @@ void Grid:: move(string d) {
                  (kind != '/')&&
                  (kind != '#')&& 
                  (kind != '+' ))) {
-            cout << "throwing error" << endl;
+          //  cout << "throwing error" << endl;
                     throw "error";
                 } 
         else if (kind == '/') {
            //call gridspawns
             GridSpawn();
-           cout <<"NEXT LEVEL, GRID SPAWN " << endl;
+           //cout <<"NEXT LEVEL, GRID SPAWN " << endl;
            return;
        }
 
@@ -883,7 +874,7 @@ void Grid:: move(string d) {
            //call getGold;
            int row = player->getParent()->getRow();
            int col = player->getParent()->getColumn();
-           cout << "Get gold" << endl;
+        //   cout << "Get gold" << endl;
            auto temp = to_move_to->getObject();
            player->getGold(static_pointer_cast<Treasure>(temp));
            //get rid of the gold
@@ -1209,7 +1200,7 @@ void Grid::enemyMove() {
             }
                 else if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
                     cout << "secondEn" << endl;
-                    cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
+               //     cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
                     break;
                     cout << "thirdEn" << endl;
                 }
