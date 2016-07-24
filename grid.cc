@@ -92,6 +92,12 @@ void Grid::clearGrid(){
     for (int i = 0; i < size; ++i) {
         Board.pop_back();
     }
+
+    int enemSize = enemies.size();
+
+    for (int i = 0; i < enemSize; ++i) {
+        enemies.pop_back();
+    }
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
@@ -124,9 +130,11 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
  
     cout << "working: 8" << endl;
     initPotion();
-   
-    cout << "working: 9" << endl;
+    
+    cout << "enem size is" << enemies.size() << endl;
     initEnemy();
+    cout << "enem size is" << enemies.size() << endl;
+
 }
 
 

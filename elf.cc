@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-Elf::Elf(Tile *parent): Player{140,30,10, '@', parent} {}
+Elf::Elf(Tile *parent): Player{140,30,10, "elf", '@', parent} {}
 
 void Elf::usePotion(shared_ptr<Potion> p) {
     if ((p->getType())[0] == 'H') {
