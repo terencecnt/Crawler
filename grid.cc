@@ -95,31 +95,37 @@ void Grid::clearGrid(){
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
-   // cout << "LET ME SPAWN" << endl;
+    cout << "LET ME SPAWN" << endl;
     clearGrid();
     int original_floor = floor;
     shared_ptr<Player> original_player = player;
-    //cout << "working: 1" << endl;
+    cout << "working: 1" << endl;
     Grid::Grid new_grid;
-    //cout << "working: 2" << endl;
+    cout << "working: 2" << endl;
     (*this) = new_grid;
-   // cout << "working: 3" << endl;
+    cout << "working: 3" << endl;
     floor = original_floor + 1;
-   // cout << "working: 4" << endl;
-    char race = original_player->getRace().at(0);
-    int currentHP = original_player->getHP();
-   int currentGold = original_player->getMyGold();
-   // cout << "working: 5" << endl;
-    initPlayer('H');
-    //cout << "working: 6" << endl;
-    player->changeHP(1000000000000);
-    player->changeGold(100000000);
+    cout << "working: 4" << endl;
+
+    char race = original_player->getRace()[0];
+    int currentHP = original_player->getOriginal("HP");
+    int currentGold = original_player->getMyGold();
+
+    cout << "working: race is " << race << endl;
+
+    initPlayer(race);
+    cout << "working: 6" << endl;
+    player->changeHP(currentHP);
+    player->changeGold(currentGold);
+
     initStair();
-   // cout << "working: 7" << endl;
+    cout << "working: 7" << endl;
     initGold();
-   // cout << "working: 8" << endl;
+ 
+    cout << "working: 8" << endl;
     initPotion();
-  //  cout << "working: 9" << endl;
+   
+    cout << "working: 9" << endl;
     initEnemy();
 }
 
