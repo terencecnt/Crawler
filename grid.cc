@@ -10,10 +10,7 @@
 #include "character.h"
 #include "enemy.h"
 #include "player.h"
-#include "human.h"
-#include "elf.h"
-#include "dwarf.h"
-#include "orc.h"
+#include "player_type.h"
 using namespace std;
 
 Grid:: Grid() {
@@ -559,7 +556,6 @@ void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
                     temp = make_shared<Object>(Object('\\', &Board[i][j]));
                 }
                 else{
-                    //cout << "we in default.." << endl;
                     isObject = false;
                 }     
                 if (isObject){
@@ -617,7 +613,6 @@ bool Grid:: move(string d) {
                  (kind != '\\')&&
                  (kind != '#')&& 
                  (kind != '+' ))) {
-            //  cout << "throwing error" << endl;
             throw "error";
         } else if (kind == '\\') {
             return true;
@@ -632,7 +627,6 @@ bool Grid:: move(string d) {
             swapObject(to_move_to, player->getParent());
             Board[row][col].changeO( make_shared<Object>(Object('.', to_move_to)));
         } else {
-            // (kind == '#' || kind == '+') {
             auto newObj = Tile(row, col).getObject();
             swapObject(to_move_to, player->getParent());
             Board[row][col].changeO(newObj);
@@ -740,14 +734,12 @@ void Grid::attack(string d) {
                 td->changeAction("Merchants will now be hostile. ");
                 for (int i =0; i <enemies.size(); ++i) { 
                     if (enemies[i]->getKind()== 'M') { 
-                        cout << "Merchants will now be hostile. " << endl;
                         static_pointer_cast<Merchant>(enemies[i])->makeHostile();
                     }
                 }
             }
             double pAtk = player->getAtk();
             if (static_pointer_cast<Character>(enemy) == nullptr){
-                cout << "nullptr" << endl;
             }
             int eHP = (static_pointer_cast<Character>(enemy))->getHP();
             double eDef = (static_pointer_cast<Character>(enemy))->getDef();
@@ -755,7 +747,6 @@ void Grid::attack(string d) {
             int damage_on_enemy = damage_on_enemy_ceil;
             static_pointer_cast<Character>(enemy)->changeHP(min(0, eHP-damage_on_enemy));
             string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining. ";
-            cout << "Update: " << msg << endl;
             if (eHP <= 0){ //check if enemy died.
                 msg += "Enemy has died. ";
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
@@ -779,15 +770,10 @@ void Grid::attack(string d) {
                     int trow = enemies[i]->getParent()->getRow();
                     int tcol= enemies[i]->getParent()->getColumn();
                     if ((trow == eRow) && (tcol == eCol)) { 
-                       // enemies<i> = NULL; a
-                        cout << "FOUND ENEMY, will pop" << endl;
                         enemies.erase(enemies.begin()+i);
                         break;
                     }
                 }
-           //     td->changeAction(msg);
-             //   enemyMove();
-               // return;
             }
             td->changeAction(msg);
             enemyMove();
@@ -854,12 +840,10 @@ void Grid::defend(int d) {
     }catch(char const *error) {
         cerr << "Not a valid enemy at " << d << endl;
     }
- //   enemyMove();
 }
 
 void Grid::enemyMove() { 
     srand(time(NULL)); 
-    cout << "Enemy move has been called" << endl;
     //this section makes enemy attack if there is a nearby player 
     for (int enemyNum =0; enemyNum < enemies.size(); ++enemyNum) {
         for (int i =0 ; i < 8; ++i) {
