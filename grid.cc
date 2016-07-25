@@ -109,10 +109,10 @@ void Grid::clearGrid(){
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
-    char race = player->getRace()[0];
-    int currentHP = player->getOriginal("HP");
-    int currentGold = player->getMyGold();
     ++floor;
+    char race = player->getRace()[0];
+    int currentHP = player->getHP();
+    int currentGold = player->getMyGold();
     td->updateFloor(floor);
     td->changeAction("You are now on floor " + to_string(floor));
 
@@ -122,7 +122,8 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     
 
     initPlayer(race);
-    player->changeHP(currentHP);
+    int change = player->getHP() - currentHP;
+    player->changeHP(change, "decrease");
     player->changeGold(currentGold);
 
     initStair();
@@ -144,6 +145,14 @@ void Grid::initStair() {
     int pRow = player->getParent()->getRow(); //players current location
     int pCol = player->getParent()->getColumn();
 
+    int row = pRow + 1;
+    int col = pCol;
+    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+    Board[row][col].changeO(temp);
+    td->update(Board[row][col]);
+    return;
+
+    /*
     if ((pRow >= 3 && pRow < 7) && (pCol >= 3 && pCol < 29)){ // top left chamber1
         chamber = 1; 
     }
@@ -232,6 +241,7 @@ void Grid::initStair() {
                 }
             }
     }   
+    */
 }
 
 void Grid::initPlayer(char Race) {
@@ -917,67 +927,160 @@ void Grid::initGrid(bool has_file, char type) {
 
 
 
-iiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiii
-i
+void Grid:: print() {
+    td->print();
+}
 
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiii
-i
+void Grid::swapObject(Tile *t1, Tile *t2) {
+    auto temp = t1->getObject();
+    auto temp_two = t2->getObject();
+    temp->changeParent(t2);
+    temp_two->changeParent(t1);
+    t1->changeO(temp_two);
+    t2->changeO(temp);
+}
 
-iiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiii
-iiiiiiiiiiiiiiiiiiii
-iiiii
-iiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-iiiiiiiiiiiiiiiii
-i
+bool Grid:: move(string d) {
+    string output = "Player moved " + d;
+    int row = player->getParent()->getRow();
+    int col = player->getParent()->getColumn();
+    try {
+        auto to_move_to = player->getParent()->getneighbor(d);
+        char kind = to_move_to->getObject()->getKind();
+        if ((to_move_to == nullptr)||
+                ((kind != 'G')&&
+                 (kind != '.')&&
+                 (kind != '/')&&
+                 (kind != '#')&& 
+                 (kind != '+' ))) {
+            //  cout << "throwing error" << endl;
+            throw "error";
+        } else if (kind == '/') {
+            return true;
+        } else if (kind == 'G') { 
+            //call getGold;
+            if (static_pointer_cast<Treasure>(to_move_to->getObject())->getValue() == 6 && static_pointer_cast<dragonGold>(to_move_to->getObject())->isAlive()) {
+                cout << "Must slay dragon before retrieving!" << endl;
+                return false;
+            }
+            auto temp = to_move_to->getObject();
+            player->getGold(static_pointer_cast<Treasure>(temp));
+            swapObject(to_move_to, player->getParent());
+            Board[row][col].changeO( make_shared<Object>(Object('.', to_move_to)));
+        } else {
+            // (kind == '#' || kind == '+') {
+            auto newObj = Tile(row, col).getObject();
+            swapObject(to_move_to, player->getParent());
+            Board[row][col].changeO(newObj);
+        }
+        enemyMove();
+    }
+    catch(char const *error) {
+        cerr << "Unable to move to " << d << endl;
+    }
+    td->update(*player->getParent());
+    td->update(*player->getParent()->getneighbor("we"));
+    td->update(*player->getParent()->getneighbor("nw"));
+    td->update(*player->getParent()->getneighbor("no"));
+    td->update(*player->getParent()->getneighbor("ne"));
+    td->update(*player->getParent()->getneighbor("ea"));
+    td->update(*player->getParent()->getneighbor("se"));
+    td->update(*player->getParent()->getneighbor("so"));
+    td->update(*player->getParent()->getneighbor("sw")); 
+    return false;
+}
+
+
+string Grid::state() {
+    if (player->getHP() == 0) {
+        return "lost";
+    } else {
+        if (floor == 6) {
+            return "win";
+        } else {
+            return "neutral";
+        }
+    }
+}
+
+void Grid::use(string d) {
+    Tile *the_Tile = player->getParent();
+    Tile *neighbourOfObj = the_Tile->getneighbor(d);
+    auto neighbourObj = neighbourOfObj->getObject();
+    if (neighbourObj != nullptr) {
+        if (neighbourObj->getKind() == 'P') {
+            string type = (static_pointer_cast<Potion>(neighbourObj))->getType();
+            string to_return;
+            int to_change = (static_pointer_cast<Potion>(neighbourObj))->getValue();
+            if (type == "HI") {
+                int changed = player->changeHP(to_change);
+                to_return = to_string(abs(changed)) + " HP is restored";
+            } else if (type == "AI") {
+                player->changeATK(to_change);
+                to_return = to_string(abs(to_change)) + " attack is restored";
+            } else if (type == "DI") {
+                player->changeDEF(to_change);
+                to_return = to_string(abs(to_change)) + " defense is increased";
+            } else if (type == "Hl") {
+                int changed = player->changeHP(to_change, "decrease");
+                to_return = to_string(abs(to_change)) + " HP is lost";
+            } else if(type == "Al") {
+                player->changeATK(to_change);
+                to_return = to_string(abs(to_change)) + " attack is decreased";
+            } else if (type == "Dl") {
+                player->changeDEF(to_change);
+                to_return = to_string(abs(to_change)) + " defense is decreased";
+            }
+            shared_ptr<Object>  updated_object = make_shared<Object> (Object('.', neighbourOfObj));
+            neighbourOfObj->changeO(updated_object);
+            td->update(*neighbourOfObj);
+            td->changeAction("Potion is used " + to_return);
+        } else {
+            td->changeAction("Not a Potion");
+        }
+    } else {
+        td->changeAction("Dead End");
+    }
+}
+
+
+
+
+void Grid::attack(string d) {
+    try {
+        shared_ptr<Object> enemy;
+        enemy = player->getParent()->getneighbor(d)->getObject(); //object
+        char kind = enemy->getKind(); 
+     
+        if ((enemy == nullptr)||
+                ((kind != 'V')&&
+                 (kind != 'M')&&
+                 (kind != 'W')&&
+                 (kind != 'N')&& 
+                 (kind != 'X')&&
+                 (kind != 'D')&& 
+                 (kind != 'T' ))) {
+                    throw "error";
+        }else{
+            if (kind == 'M') { 
+                for (int i =0; i <8; ++i) { 
+                    if (enemies[i]->getKind()== 'M') { 
+                        cout << "Merchants will now be hostile" << endl;
+                        static_pointer_cast<Merchant>(enemies[i])->makeHostile();
+                    }
+                }
+            }
+            //player stats
+            //double pHP = player->getHP();
+            double pAtk = player->getAtk();
+            //double pDef = player->getDef();
+           
+            //enemy stats 
+            if (static_pointer_cast<Character>(enemy) == nullptr){
+                cout << "nullptr" << endl;
+
+            }
+>>>>>>> 49ee81edbf44cd8b68c5a7b44a95adda43d0d0df
 
 
 iiiiiiiiiiiiiiiiiiiiii
@@ -1138,6 +1241,7 @@ iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
+<<<<<<< HEAD
 iiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiii
@@ -1149,11 +1253,67 @@ iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+=======
+                Board[eRow][eCol] = Tile(eRow,eCol);
+                td->update(Board[eRow][eCol]);
+                td->changeAction("Enemy has died");
+                return;
+            }
+        }
+    }catch(char const *error) {
+        cerr << "Not a valid enemy at " << d << endl;
+    }
+}
+
+void Grid::defend(int d) {
+    if (player->getHP()<= 0) { 
+        state();
+    }
+    try {
+        shared_ptr<Object> enemy;
+        enemy = player->getParent()->getneighbor("false", d)->getObject(); //object
+        char kind = enemy->getKind(); 
+     
+        if ((enemy == nullptr)||
+                ((kind != 'V')&&
+                 (kind != 'M')&&
+                 (kind != 'W')&&
+                 (kind != 'N')&& 
+                 (kind != 'X')&&
+                 (kind != 'D')&& 
+                 (kind != 'T' ))) {
+                    throw "error";
+        }else{
+
+            //player stats
+            double pHP = player->getHP();
+            //double pAtk = player->getAtk();
+            double pDef = player->getDef();
+           
+            //enemy stats 
+            //double eHP = static_pointer_cast<Character>(enemy)->getHP();
+            double eAtk = static_pointer_cast<Character>(enemy)->getAtk();
+            //double eDef = static_pointer_cast<Character>(enemy)->getDef();
+           
+
+            //fight 
+            //enemy attacks with 50% chance to miss
+            
+            double damage_on_player = ceil(100/(100+pDef))*eAtk;
+
+            bool miss = (rand() % 100) < 50;
+            if (miss) {
+                td->changeAction("Enemy missed attack");
+                return;
+            }
+            //subtract HP from player
+>>>>>>> 49ee81edbf44cd8b68c5a7b44a95adda43d0d0df
 
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
+<<<<<<< HEAD
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
@@ -1164,6 +1324,18 @@ iiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 iiiii
 i
+=======
+            //check if player died.
+            if (pHP <= 0 ){
+                td->changeAction("You have died");
+                return;
+            }
+        }
+    }catch(char const *error) {
+        cerr << "Not a valid enemy at " << d << endl;
+    }
+}
+>>>>>>> 49ee81edbf44cd8b68c5a7b44a95adda43d0d0df
 
 
 
@@ -1265,6 +1437,7 @@ i
 
 
 
+<<<<<<< HEAD
 iiiiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiiiii
 iiiiiiiiiiiiiiiiiiiii
@@ -1324,6 +1497,67 @@ iiiiiiiiiiiii
 iiiii
 iiiii
 iiiiiiiiii
+=======
+void Grid::enemyMove() { 
+    srand(time(NULL)); 
+    //int enemyNum = 0;
+    //this section makes enemy attack if there is a nearby player 
+    for (int enemyNum =0; enemyNum <20; ++enemyNum) {
+        //dont attack if merchant isn't hostile
+   //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
+        for (int i =0 ; i < 8; ++i) {
+         //   cout << "FirstEn" << endl;
+          //  cout << "enemyNum" << enemyNum << endl;
+          //  cout << "length" << enemies.size() << endl;
+           // if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+           //     cout << "Kind" << enemies[enemyNum]->getKind() << endl;
+             //   shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
+             //   cout << "before chec" << endl; 
+           //     string hostile = test->checkHostile();
+              //  cout << "HELLO STOP "<< hostile << endl;
+           ///      break;
+           // }
+                if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+            //        cout << "secondEn" << endl;
+                //defend(int)a
+                     if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                         cout << "A friendly Merchant appeared"  << endl;
+                     }
+                     if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                         cout << "Merchant is angry"  << endl;
+                     }
+                     else if (i <= 3) { 
+                        defend(i+ 4);
+                    }
+                    else { 
+                        defend(i-4);
+                    }
+               //     cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
+               //     break;
+              //      cout << "thirdEn" << endl;
+                }
+        }
+    
+    while (true) { 
+            int neighbourNum = rand()%8;
+            if (enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum)->getObject()->getKind() == '.') { 
+                auto to_move_to = enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum);
+                swapObject(to_move_to, enemies[enemyNum]->getParent());
+                td->update(*enemies[enemyNum]->getParent());
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("we"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("nw"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("no"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("ne"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("ea"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("se"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("so"));
+                td->update(*enemies[enemyNum]->getParent()->getneighbor("sw"));
+                break;
+            }
+    }
+    }
+}// break;
+>>>>>>> 49ee81edbf44cd8b68c5a7b44a95adda43d0d0df
 
 
 
