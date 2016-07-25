@@ -31,7 +31,7 @@ public:
   std::string state(); 
   void print();
   void swapObject(Tile *t1, Tile *t2);
-  void move(std::string d);
+  bool move(std::string d);
   void use(std::string d); 
   void attack(std::string d);
   void defend(int d);

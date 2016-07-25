@@ -44,6 +44,7 @@ int main () {
     while(true) {
         Grid g;
         string s;
+        bool hit_stairs = false;
         cout << "Choose a Race: (h)umans, (d)warf, (e)lves, (o)rc" << endl;
         cin >> s;
         if ((s != "d") &&
@@ -85,12 +86,20 @@ int main () {
                 to_replay = "surrender";
                 break;
             } else if (isDirection(s)) {
-                g.move(s);
+                hit_stairs = g.move(s);
+                if(hit_stairs) {
+                     
+                }
+
             } else {
                 cout << "Wrong Input" << endl;
                 continue;
             }
             to_replay = g.state();
+            if ((to_replay == "neutral") && hit_stairs) {
+                g.GridSpawn();
+                hit_stairs = false;
+            }
             if((to_replay == "lost")|| (to_replay=="won")) break;
         }
         if (to_replay == "lost") {
