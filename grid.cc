@@ -109,10 +109,10 @@ void Grid::clearGrid(){
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
-    char race = player->getRace()[0];
-    int currentHP = player->getOriginal("HP");
-    int currentGold = player->getMyGold();
     ++floor;
+    char race = player->getRace()[0];
+    int currentHP = player->getHP();
+    int currentGold = player->getMyGold();
     td->updateFloor(floor);
     td->changeAction("You are now on floor " + to_string(floor));
 
@@ -122,7 +122,8 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     
 
     initPlayer(race);
-    player->changeHP(currentHP);
+    int change = player->getHP() - currentHP;
+    player->changeHP(change, "decrease");
     player->changeGold(currentGold);
 
     initStair();
@@ -144,6 +145,14 @@ void Grid::initStair() {
     int pRow = player->getParent()->getRow(); //players current location
     int pCol = player->getParent()->getColumn();
 
+    int row = pRow + 1;
+    int col = pCol;
+    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+    Board[row][col].changeO(temp);
+    td->update(Board[row][col]);
+    return;
+
+    /*
     if ((pRow >= 3 && pRow < 7) && (pCol >= 3 && pCol < 29)){ // top left chamber1
         chamber = 1; 
     }
@@ -232,6 +241,7 @@ void Grid::initStair() {
                 }
             }
     }   
+    */
 }
 
 void Grid::initPlayer(char Race) {
@@ -896,8 +906,8 @@ bool Grid:: move(string d) {
         }
         enemyMove();
     }
-    catch(...) {
-        cout << "Unable to move to " << d << endl;
+    catch(char const *error) {
+        cerr << "Unable to move to " << d << endl;
     }
     td->update(*player->getParent());
     td->update(*player->getParent()->getneighbor("we"));
@@ -916,7 +926,7 @@ string Grid::state() {
     if (player->getHP() == 0) {
         return "lost";
     } else {
-        if (floor == 5) {
+        if (floor == 6) {
             return "win";
         } else {
             return "neutral";
@@ -994,7 +1004,7 @@ void Grid::attack(string d) {
                 }
             }
             //player stats
-            double pHP = player->getHP();
+            //double pHP = player->getHP();
             double pAtk = player->getAtk();
             //double pDef = player->getDef();
            
@@ -1048,8 +1058,8 @@ void Grid::attack(string d) {
                 return;
             }
         }
-    }catch(...) {
-        cout << "Not a valid enemy at " << d << endl;
+    }catch(char const *error) {
+        cerr << "Not a valid enemy at " << d << endl;
     }
 }
 
@@ -1075,14 +1085,14 @@ void Grid::defend(int d) {
 
             //player stats
             double pHP = player->getHP();
-            double pAtk = player->getAtk();
+            //double pAtk = player->getAtk();
             double pDef = player->getDef();
            
             //enemy stats 
-            double eHP = static_pointer_cast<Character>(enemy)->getHP();
+            //double eHP = static_pointer_cast<Character>(enemy)->getHP();
             double eAtk = static_pointer_cast<Character>(enemy)->getAtk();
-            double eDef = static_pointer_cast<Character>(enemy)->getDef();
-            cout << "enemy has this much HP: " << eHP << endl;
+            //double eDef = static_pointer_cast<Character>(enemy)->getDef();
+           
 
             //fight 
             //enemy attacks with 50% chance to miss
@@ -1106,8 +1116,8 @@ void Grid::defend(int d) {
                 return;
             }
         }
-    }catch(...) {
-        cout << "Not a valid enemy at " << d << endl;
+    }catch(char const *error) {
+        cerr << "Not a valid enemy at " << d << endl;
     }
 }
 
@@ -1213,7 +1223,7 @@ void Grid::defend(int d) {
 
 void Grid::enemyMove() { 
     srand(time(NULL)); 
-    int enemyNum = 0;
+    //int enemyNum = 0;
     //this section makes enemy attack if there is a nearby player 
     for (int enemyNum =0; enemyNum <20; ++enemyNum) {
         //dont attack if merchant isn't hostile
