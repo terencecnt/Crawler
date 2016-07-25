@@ -35,6 +35,10 @@ void TextDisplay:: updatePlayer(shared_ptr<Player> newP) {
     current = newP;
 }
 
+void TextDisplay:: updateFloor(int floor){
+    this->floor = floor;
+}
+
 void TextDisplay::changeAction(string newAction) {
     action = newAction;
 }
