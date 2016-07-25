@@ -1075,7 +1075,7 @@ void Grid::use(string d) {
                 to_return = to_string(abs(to_change)) + " defense is increased";
             } else if (type == "Hl") {
                 int changed = player->changeHP(to_change, "decrease");
-                to_return = to_string(abs(to_change)) + " HP is lost";
+                to_return = to_string(abs(changed)) + " HP is lost";
             } else if(type == "Al") {
                 player->changeATK(to_change);
                 to_return = to_string(abs(to_change)) + " attack is decreased";
@@ -1086,7 +1086,7 @@ void Grid::use(string d) {
             shared_ptr<Object>  updated_object = make_shared<Object> (Object('.', neighbourOfObj));
             neighbourOfObj->changeO(updated_object);
             td->update(*neighbourOfObj);
-            td->changeAction("Potion is used " + to_return);
+            td->changeAction("Potion is used " + to_return + " ");
         } else {
             td->changeAction("Not a Potion");
         }
