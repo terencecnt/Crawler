@@ -779,7 +779,7 @@ void Grid::attack(string d) {
             enemyMove();
         }
     }catch(char const *error) {
-        cerr << "Not a valid enemy at " << d << endl;
+        td->changeAction( "Not a valid enemy");
     }
 }
 
@@ -838,7 +838,7 @@ void Grid::defend(int d) {
             }
         }
     }catch(char const *error) {
-        cerr << "Not a valid enemy at " << d << endl;
+        td->changeAction("Not a valid enemy at ");
     }
 }
 
