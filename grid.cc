@@ -559,10 +559,18 @@ void Grid::initPotion() {
 /*
 void Grid::initGrid(bool has_file, string type) {
     if (has_file) {
-        int row = 24;
-        int col = 78;
-        for (int i = 0) {
-            for 
+        int row = 25;
+        int col = 79;
+        string current;
+        for (int i = 0; i < row; ++i) {
+            getline(f, current);
+            for(int j = 0; j < col; ++j) {
+                char cur = current[j];
+                if (cur == '0') {
+                    
+
+
+
 
 
     } else {
@@ -574,9 +582,8 @@ void Grid::initGrid(bool has_file, string type) {
     }
 }
 
+
 */
-
-
 
 
 
