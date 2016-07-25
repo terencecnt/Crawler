@@ -17,6 +17,7 @@ class TextDisplay {
   TextDisplay(std::vector<std::vector<Tile>> &board, int floor, std::shared_ptr<Player> player, std::string action = "You entered the dungeon");
   ~TextDisplay() = default;
   void update(Tile &t);
+  void updateFloor(int floor);
   void changeAction(std::string newAction);
   void updatePlayer(std::shared_ptr<Player> newP);
   void print();

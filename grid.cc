@@ -16,7 +16,7 @@
 using namespace std;
 
 Grid:: Grid() {
-    floor = 0;
+    floor = 1;
     int row = 25;
     int column =79;
     for (int i= 0; i < row; ++i) {
@@ -113,12 +113,13 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     int currentHP = player->getOriginal("HP");
     int currentGold = player->getMyGold();
     ++floor;
+    td->updateFloor(floor);
+    td->changeAction("You are now on floor " + to_string(floor));
 
 
-    cout << "new grid is under this " <<  Board.size() << endl;
     clearGrid();
 
-    cout << "Floor is now " << floor << endl;
+    
 
     initPlayer(race);
     player->changeHP(currentHP);
@@ -556,34 +557,6 @@ void Grid::initPotion() {
     }
 }
 
-/*
-void Grid::initGrid(bool has_file, string type) {
-    if (has_file) {
-        int row = 25;
-        int col = 79;
-        string current;
-        for (int i = 0; i < row; ++i) {
-            getline(f, current);
-            for(int j = 0; j < col; ++j) {
-                char cur = current[j];
-                if (cur == '0') {
-                    
-
-
-
-
-
-    } else {
-        g.initPlayer(s[0]);
-        g.initStair();
-        g.initPotion();
-        g.initGold();
-        g.initEnemy();
-    }
-}
-
-
-*/
 
 
 
@@ -1015,7 +988,7 @@ void Grid::attack(string d) {
             //player stats
             double pHP = player->getHP();
             double pAtk = player->getAtk();
-            double pDef = player->getDef();
+            //double pDef = player->getDef();
            
             //enemy stats 
             if (static_pointer_cast<Character>(enemy) == nullptr){
@@ -1024,18 +997,21 @@ void Grid::attack(string d) {
             }
 
             double eHP = (static_pointer_cast<Character>(enemy))->getHP();
-            double eAtk = (static_pointer_cast<Character>(enemy))->getAtk();
+            //double eAtk = (static_pointer_cast<Character>(enemy))->getAtk();
             double eDef = (static_pointer_cast<Character>(enemy))->getDef();
-            cout << "enemy has this much HP: " << eHP << endl;
 
             //fight
 
             //player attacks 
+            
             double damage_on_enemy = (100/(100+eDef))*pAtk;
 
             // subtract hp from enemy
-            cout << "about to deal " << damage_on_enemy << " dmg" << endl;
+           //cout << "about to deal " << damage_on_enemy << " dmg" << endl;
+            
             static_pointer_cast<Character>(enemy)->changeHP(-damage_on_enemy);
+            string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining";
+            td->changeAction(msg);
 
 
             if (eHP <= 0){ //check if enemy died.
@@ -1050,7 +1026,6 @@ void Grid::attack(string d) {
 
                 Board[eRow][eCol] = Tile(eRow,eCol);
                 td->update(Board[eRow][eCol]);
-                cout << "lol enemy died" << endl;
                 td->changeAction("Enemy has died");
                 return;
             }
@@ -1091,21 +1066,22 @@ void Grid::defend(int d) {
 
             //fight 
             //enemy attacks with 50% chance to miss
+            
             double damage_on_player = ceil(100/(100+pDef))*eAtk;
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
-                cout << "Enemy missed attack" << endl;
                 td->changeAction("Enemy missed attack");
                 return;
             }
             //subtract HP from player
-            cout << "Enemy damages player by " << damage_on_player << endl;
+
+            string msg = "Enemy dealt " + to_string(damage_on_player) + " damage on you";
+            td->changeAction(msg);
             player->changeHP(-damage_on_player);
 
             //check if player died.
             if (pHP <= 0 ){
-                cout << "LOL U ded" << endl;
                 td->changeAction("You have died");
                 return;
             }
