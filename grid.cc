@@ -510,7 +510,7 @@ void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
 
 
                 }
-                else if (cur == 'P'){
+                else if (cur == 'X'){
                     temp = make_shared<Phoenix>(Phoenix(&Board[i][j]));
                     enemies.emplace_back(temp);
 
@@ -713,7 +713,7 @@ void Grid::attack(string d) {
                  (kind != 'M')&&
                  (kind != 'W')&&
                  (kind != 'N')&& 
-                 (kind != 'P')&&
+                 (kind != 'X')&&
                  (kind != 'D')&& 
                  (kind != 'T' ))) {
             throw "error";
@@ -788,7 +788,7 @@ void Grid::defend(int d) {
                  (kind != 'M') &&
                  (kind != 'W') &&
                  (kind != 'N') && 
-                 (kind != 'P') &&
+                 (kind != 'X') &&
                  (kind != 'D') && 
                  (kind != 'T'))) {
             throw "error";
