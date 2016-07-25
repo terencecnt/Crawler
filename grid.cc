@@ -712,7 +712,7 @@ void Grid::attack(string d) {
                 ((kind != 'V')&&
                  (kind != 'M')&&
                  (kind != 'W')&&
-                 (kind != 'G')&& 
+                 (kind != 'N')&& 
                  (kind != 'P')&&
                  (kind != 'D')&& 
                  (kind != 'T' ))) {
@@ -787,7 +787,7 @@ void Grid::defend(int d) {
                 ((kind != 'V') &&
                  (kind != 'M') &&
                  (kind != 'W') &&
-                 (kind != 'G') && 
+                 (kind != 'N') && 
                  (kind != 'P') &&
                  (kind != 'D') && 
                  (kind != 'T'))) {
