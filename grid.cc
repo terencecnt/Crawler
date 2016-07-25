@@ -1082,7 +1082,6 @@ void Grid::attack(string d) {
                 cout << "nullptr" << endl;
 
             }
-<<<<<<< HEAD
 
             double eHP = (static_pointer_cast<Character>(enemy))->getHP();
             //double eAtk = (static_pointer_cast<Character>(enemy))->getAtk();
@@ -1295,18 +1294,7 @@ void Grid::enemyMove() {
         //dont attack if merchant isn't hostile
    //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
         for (int i =0 ; i < 8; ++i) {
-         //   cout << "FirstEn" << endl;
-          //  cout << "enemyNum" << enemyNum << endl;
-          //  cout << "length" << enemies.size() << endl;
-           // if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
-           //     cout << "Kind" << enemies[enemyNum]->getKind() << endl;
-             //   shared_ptr<Merchant> test =  static_pointer_cast<Merchant>(enemies[enemyNum]);
-             //   cout << "before chec" << endl; 
-           //     string hostile = test->checkHostile();
-              //  cout << "HELLO STOP "<< hostile << endl;
-           ///      break;
-           // }
-                if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+                         if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
             //        cout << "secondEn" << endl;
                 //defend(int)a
                      if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
