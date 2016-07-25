@@ -24,4 +24,7 @@ Dragon::Dragon(Tile *parent, shared_ptr<dragonGold> son): son{son}, Enemy{150, 2
 
 void Dragon::notifyGold(){
         son->changeStatus();
-        }
+}
+
+bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
+
