@@ -571,9 +571,78 @@ void Grid::initPotion() {
 
 
 
+/*
+void Grid::initGrid(bool has_file, char type) {
+    if (has_file) {
+        vector<Dragon> Dragons;
+        vector<dragonGold> Golds;
+        int row = 25;
+        int col = 79;
+        string current;
+        shared_ptr<Object> temp;
+        for (int i = 0; i < row; ++i) {
+            getline(f, current);
+            for(int j = 0; j < col; ++j) {
+                char cur = current[j];
+                switch (cur) {
+                    case '0':
+                        temp = make_shared<Potion>(RH(&Board[row][col]));
+                    case '1':
+                        temp = make_shared<Potion>(BA(&Board[row][col]));
+                    case '2':
+                        temp = make_shared<Potion>(BD(&Board[row][col]));
+                    case '3':
+                        temp = make_shared<Potion>(PH(&Board[row][col]));
+                    case '4':
+                        temp = make_shared<Potion>(WA(&Board[row][col]));
+                    case '5':
+                        temp = make_shared<Potion>(WD(&Board[row][col]));
+                    case '6':
+                        temp = make_shared<Normal>(Normal(&Board[row][col]));
+                    case '7':
+                        temp = make_shared<Small>(Small(&Board[row][col]));
+                    case '8':
+                        temp = make_shared<merchantGold>(merchantGold(&Board[row][col]));
+                    case '9':
+                        temp = make_shared<dragonGold>(dragonGold(&Board[row][col]));
+                        Golds.emplace_back(temp);
+                    case 'V':
+                        temp = make_shared<Vampire>(Vampire(&Board[row][col]));
+                    case 'W':
+                        temp = make_shared<Werewolf>(Werewolf(&Board[row][col]));
+                    case 'N':
+                        temp = make_shared<Goblin>(Goblin(&Board[row][col]));
+                    case 'P':
+                        temp = make_shared<Phoenix>(Phoenix(&Board[row][col]));
+                    case 'T':
+                        temp = make_shared<Troll>(Troll(&Board[row][col]));
+                    case 'M':
+                        temp = make_shared<Merchant>(Merchant(&Board[row][col]));
+                    case 'D':
+                        temp = make_shared<Dragon>(Dragon(dragonTile, nullptr));
+                        Dragons.emplace_back(temp);
+                    case '@':
+                        switch(type) {
+                            case 'h':
+                                temp = make_shared<Player>(Human(&Board[row][col]));
+                            case 'e':
+                                temp = make_shared<Player>(Elf(&Board[row][col]));
+                            case 'd':
+                                temp = make_shared<Player>(Dwarf(&Board[row][col]));
+                            case 'o':
+                                temp = make_shared<Player>(Orc(&Board[row][col]));
+                        }
+                    this->player = temp;
+                    td->updatePlayer(temp);
+                }
+                    Board[row][col].changeO(temp);
+                    td->update(Board[row][col]);
+            }
+        }
+    }
+}
 
-
-
+*/
 
 
 
@@ -1013,6 +1082,7 @@ void Grid::attack(string d) {
                 cout << "nullptr" << endl;
 
             }
+<<<<<<< HEAD
 
             double eHP = (static_pointer_cast<Character>(enemy))->getHP();
             //double eAtk = (static_pointer_cast<Character>(enemy))->getAtk();
@@ -1053,6 +1123,7 @@ void Grid::attack(string d) {
 
                 }
                 //td->update(Board[row][col]);
+                Board[eRow][eCol] = Tile(eRow,eCol);
                 td->update(Board[eRow][eCol]);
                 td->changeAction("Enemy has died");
                 return;
@@ -1105,11 +1176,6 @@ void Grid::defend(int d) {
                 return;
             }
             //subtract HP from player
-
-            string msg = "Enemy dealt " + to_string(damage_on_player) + " damage on you";
-            td->changeAction(msg);
-            player->changeHP(-damage_on_player);
-
             //check if player died.
             if (pHP <= 0 ){
                 td->changeAction("You have died");
