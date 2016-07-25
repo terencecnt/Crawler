@@ -839,10 +839,10 @@ void Grid::attack(string d) {
             if (static_pointer_cast<Character>(enemy) == nullptr){
                 cout << "nullptr" << endl;
             }
-            double eHP = (static_pointer_cast<Character>(enemy))->getHP();
+            int eHP = (static_pointer_cast<Character>(enemy))->getHP();
             double eDef = (static_pointer_cast<Character>(enemy))->getDef();
-            double damage_on_enemy = (100/(100+eDef))*pAtk;
-           // int damage_on_enemy = damage;
+            double damage_on_enemy_ceil = ceil(100/(100+eDef))*pAtk;
+            int damage_on_enemy = damage_on_enemy_ceil;
             static_pointer_cast<Character>(enemy)->changeHP(min(0, eHP-damage_on_enemy));
             string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining. ";
             cout << "Update: " << msg << endl;
@@ -909,7 +909,7 @@ void Grid::defend(int d) {
         }else{
 
             //player stats
-            double pHP = player->getHP();
+            int pHP = player->getHP();
             //double pAtk = player->getAtk();
             double pDef = player->getDef();
            
@@ -922,8 +922,8 @@ void Grid::defend(int d) {
             //fight 
             //enemy attacks with 50% chance to miss
             
-            double damage_on_player= ceil(100/(100+pDef))*eAtk;
-           // int damage_on_player = damage;
+            double damage_on_player_ceil = ceil(100/(100+pDef))*eAtk;
+            int damage_on_player = damage_on_player_ceil ;
             
 
             bool miss = (rand() % 100) < 50;
