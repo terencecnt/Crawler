@@ -877,6 +877,7 @@ void Grid::swapObject(Tile *t1, Tile *t2) {
 }
 
 bool Grid:: move(string d) {
+    string output = "Player moved " + d;
     int row = player->getParent()->getRow();
     int col = player->getParent()->getColumn();
     try {
@@ -1054,8 +1055,10 @@ void Grid::attack(string d) {
 }
 
 void Grid::defend(int d) {
+    if (player->getHP()<= 0) { 
+        state();
+    }
     try {
-
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor("false", d)->getObject(); //object
         char kind = enemy->getKind(); 

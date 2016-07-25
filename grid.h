@@ -30,7 +30,7 @@ public:
   void clearGrid();
   std::string state(); 
   void print();
-  void initGrid(bool has_file, string type);
+  void initGrid(bool has_file, std::string type);
   void swapObject(Tile *t1, Tile *t2);
   bool move(std::string d);
   void use(std::string d); 
