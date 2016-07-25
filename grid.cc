@@ -87,57 +87,52 @@ Grid:: Grid() {
     td = theDisplay;
 }
 
-void Grid::clearGrid(){
-    int size = Board.size();
-    for (int i = 0; i < size; ++i) {
-        Board.pop_back();
+void Grid::clearGrid(){    
+    int row = 25;
+    int column =79;
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            char kind = Board[i][j].getObject()->getKind();
+            if (kind != '.' && kind != '-' && kind != '+' && kind != '|' && kind != '#' && kind != ' '){
+                Board[i][j].changeO(make_shared<Object>(Object('.', &Board[i][j])));
+                td->update(Board[i][j]);
+            }
+           
+        }
     }
-
+    
     int enemSize = enemies.size();
-
     for (int i = 0; i < enemSize; ++i) {
         enemies.pop_back();
     }
+    
 }
 
 void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
-    cout << "LET ME SPAWN" << endl;
+    char race = player->getRace()[0];
+    int currentHP = player->getOriginal("HP");
+    int currentGold = player->getMyGold();
+    ++floor;
+
+
+    cout << "new grid is under this " <<  Board.size() << endl;
     clearGrid();
-    int original_floor = floor;
-    shared_ptr<Player> original_player = player;
-    cout << "working: 1" << endl;
-    Grid::Grid new_grid;
-    cout << "working: 2" << endl;
-    (*this) = new_grid;
-    cout << "working: 3" << endl;
-    floor = original_floor + 1;
+
     cout << "Floor is now " << floor << endl;
-    cout << "working: 4" << endl;
-
-    char race = original_player->getRace()[0];
-    int currentHP = original_player->getOriginal("HP");
-    int currentGold = original_player->getMyGold();
-
-    cout << "working: race is " << race << endl;
 
     initPlayer(race);
-    cout << "working: 6" << endl;
     player->changeHP(currentHP);
     player->changeGold(currentGold);
 
     initStair();
-    cout << "working: 7" << endl;
     initGold();
-
-    cout << "working: 8" << endl;
+ 
+   
     initPotion();
-
-    cout << "enem size is" << enemies.size() << endl;
     initEnemy();
-    cout << "enem size is" << enemies.size() << endl;
+
 
 }
-
 
 Grid::~Grid() {
 }
