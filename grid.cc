@@ -561,9 +561,25 @@ void Grid::initPotion() {
     }
 }
 
+/*
+void Grid::initGrid(bool has_file, string type) {
+    if (has_file) {
+        int row = 24;
+        int col = 78;
+        for (int i = 0) {
+            for 
 
 
+    } else {
+        g.initPlayer(s[0]);
+        g.initStair();
+        g.initPotion();
+        g.initGold();
+        g.initEnemy();
+    }
+}
 
+*/
 
 
 

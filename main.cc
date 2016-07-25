@@ -3,6 +3,7 @@
 #include "grid.h"
 #include "object.h"
 #include <iostream>
+#include<fstream>
 using namespace std; 
 
 
@@ -21,25 +22,21 @@ bool isDirection(string s) {
     return to_return;
 }
 
-int main () {
-    /*
-    Grid g;
-//    g.print();
-   // Tile t(3,4);
-   // Enemy(50, 50, 50, "wtf", 'l',
-   // g.gridSpawn(); 
-    g.initGold();
-    g.initPotion();
-    g.initPlayer('h');
-    g.initStair();
-   // cout << 0 << endl;
-    
-  //  cout << "1"<< endl;
-    g.initEnemy();
-  //  cout << "2" << endl;
-    g.print();
-   // cout << 3 << endl;
-    */
+int main (int argc, char* argv[]) {
+    bool input_exist = false;
+    ifstream f;
+
+    if (argc > 1) {
+        string input = argv[1];
+        f.open(input);
+        if(f.good()) {
+            input_exist = true;
+        } else {
+            cout << "File Cannot be Found" << endl;
+            return 0;
+        }
+    }
+
     string to_replay = "q";
     while(true) {
         Grid g;
