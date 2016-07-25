@@ -906,8 +906,8 @@ bool Grid:: move(string d) {
         }
         enemyMove();
     }
-    catch(...) {
-        cout << "Unable to move to " << d << endl;
+    catch(char const *error) {
+        cerr << "Unable to move to " << d << endl;
     }
     td->update(*player->getParent());
     td->update(*player->getParent()->getneighbor("we"));
@@ -1002,7 +1002,7 @@ void Grid::attack(string d) {
                 }
             }
             //player stats
-            double pHP = player->getHP();
+            //double pHP = player->getHP();
             double pAtk = player->getAtk();
             //double pDef = player->getDef();
            
@@ -1046,8 +1046,8 @@ void Grid::attack(string d) {
                 return;
             }
         }
-    }catch(...) {
-        cout << "Not a valid enemy at " << d << endl;
+    }catch(char const *error) {
+        cerr << "Not a valid enemy at " << d << endl;
     }
 }
 
@@ -1073,14 +1073,14 @@ void Grid::defend(int d) {
 
             //player stats
             double pHP = player->getHP();
-            double pAtk = player->getAtk();
+            //double pAtk = player->getAtk();
             double pDef = player->getDef();
            
             //enemy stats 
-            double eHP = static_pointer_cast<Character>(enemy)->getHP();
+            //double eHP = static_pointer_cast<Character>(enemy)->getHP();
             double eAtk = static_pointer_cast<Character>(enemy)->getAtk();
-            double eDef = static_pointer_cast<Character>(enemy)->getDef();
-            cout << "enemy has this much HP: " << eHP << endl;
+            //double eDef = static_pointer_cast<Character>(enemy)->getDef();
+           
 
             //fight 
             //enemy attacks with 50% chance to miss
@@ -1104,8 +1104,8 @@ void Grid::defend(int d) {
                 return;
             }
         }
-    }catch(...) {
-        cout << "Not a valid enemy at " << d << endl;
+    }catch(char const *error) {
+        cerr << "Not a valid enemy at " << d << endl;
     }
 }
 
