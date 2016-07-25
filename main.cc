@@ -51,12 +51,7 @@ int main (int argc, char* argv[]) {
             cout << "This race does not exist. Bye." << endl;
             break;
         } else {
-            g.initPlayer(s[0]);
-            g.initStair();
-           g.initPotion();
-
-           g.initGold();
-            g.initEnemy();
+            g.initGrid(input_exist, s[0], f);
         }
         while(true) {
             g.print();
@@ -83,10 +78,6 @@ int main (int argc, char* argv[]) {
                 break;
             } else if (isDirection(s)) {
                 hit_stairs = g.move(s);
-                if(hit_stairs) {
-                    
-                }
-
             } else {
                 cout << "Wrong Input" << endl;
                 continue;
@@ -94,7 +85,7 @@ int main (int argc, char* argv[]) {
 
             to_replay = g.state();
             if ((to_replay == "neutral") && hit_stairs) {
-                g.GridSpawn();
+                g.GridSpawn(input_exist, f);
                 to_replay = g.state();
 
                 hit_stairs = false;

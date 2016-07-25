@@ -30,15 +30,14 @@ public:
   void clearGrid();
   std::string state(); 
   void print();
-  void initGrid(bool has_file, std::string type);
+  void initGrid(bool has_file, char type, std::ifstream& the_file);
   void swapObject(Tile *t1, Tile *t2);
   bool move(std::string d);
   void use(std::string d); 
   void attack(std::string d);
   void defend(int d);
-  //void pickup(std::string d);
- void enemyMove();
-  void GridSpawn();
+  void enemyMove();
+  void GridSpawn(bool has_file, std::ifstream& the_file);
 };
 
 #endif
