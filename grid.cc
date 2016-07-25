@@ -639,7 +639,7 @@ bool Grid:: move(string d) {
     }
     td->update(*player->getParent());
     for (int i = 0; i < 8; ++i){
-        td->update(*player->getParent()->getneighbor(i));
+        td->update(*player->getParent()->getneighbor("false" ,i));
     }
     td->changeAction(output);
     return false;
