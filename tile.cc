@@ -4,7 +4,7 @@
 using namespace std;
 
 Tile::Tile(int row, int col): row{row}, col{col} {
-	if (((col == 0 || col == 78) && (row <= 24)) || ((col == 3) && (((row >= 2) && (row <= 7)) || ((row >= 14) && (row <= 22)))) || (((col == 29) || (col == 38)) && (((row== 2) || (row == 3)) || ((row >= 5) && (row <= 7)))) || ((col == 25) && (((row >= 14) && (row <= 19)) || ((row == 21) || (row == 22)))) || ((col == 36) && (((row >= 18) && (row <= 19)) || ((row == 21) || (row == 22)))) || (((col == 37) || (col == 50)) && ((row >= 9) && (row <= 13))) || ((col == 60) && (((row >= 7) && (row <= 10)) || ((row == 12) || (row == 13)))) || ((col == 62) && (((row >= 2) && (row <= 4))))|| ((col == 64) && (((row >= 15) && (row <= 18)))) || ((col == 70) && ((row == 4) || (row == 5))) || ((col == 73) && ((row == 5) || (row == 6))) || ((col == 76)  && ((((row >= 6) && (row <= 13)))|| ((row >= 15) && (row <= 22))))) { 
+	if (((col == 0 || col == 78) && (row <= 24)) || ((col == 2) && (((row >= 2) && (row <= 7)))) || ((col == 3) && ((row >= 14) && (row <= 22))) || (((col == 29) || (col == 38)) && (((row== 2) || (row == 3)) || ((row >= 5) && (row <= 7)))) || ((col == 25) && (((row >= 14) && (row <= 19)) || ((row == 21) || (row == 22)))) || ((col == 36) && (((row >= 18) && (row <= 19)) || ((row == 21) || (row == 22)))) || (((col == 37) || (col == 50)) && ((row >= 9) && (row <= 13))) || ((col == 60) && (((row >= 7) && (row <= 10)) || ((row == 12) || (row == 13)))) || ((col == 62) && (((row >= 2) && (row <= 4))))|| ((col == 64) && (((row >= 15) && (row <= 18)))) || ((col == 70) && ((row == 4) || (row == 5))) || ((col == 73) && ((row == 5) || (row == 6))) || ((col == 76)  && ((((row >= 6) && (row <= 13)))|| ((row >= 15) && (row <= 22))))) { 
 		
        content = make_shared<Object>(Object('|', this));
 	}
@@ -77,7 +77,7 @@ Tile::Tile(int row, int col): row{row}, col{col} {
 			content = make_shared<Object>(Object('.', this));
 	}
 	//chamber bottom left 
-	else if ((row >= 15 && row < 22) && (col >= 4 && col < 25)){
+	else if ((row >= 15 && row < 22) && (col >= 3 && col < 25)){
         content = make_shared<Object>(Object('.', this));
 	}
 	//chamber middle one 

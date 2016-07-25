@@ -866,6 +866,8 @@ void Grid::swapObject(Tile *t1, Tile *t2) {
 }
     
 void Grid:: move(string d) {
+    int row = player->getParent()->getRow();
+    int col = player->getParent()->getColumn();
     try {
         auto to_move_to = player->getParent()->getneighbor(d);
         char kind = to_move_to->getObject()->getKind();
@@ -892,18 +894,17 @@ void Grid:: move(string d) {
                return;
            }
 
-           int row = player->getParent()->getRow();
-           int col = player->getParent()->getColumn();
-        //   cout << "Get gold" << endl;
+          
            auto temp = to_move_to->getObject();
            player->getGold(static_pointer_cast<Treasure>(temp));
-           //get rid of the gold
            swapObject(to_move_to, player->getParent());
            Board[row][col].changeO( make_shared<Object>(Object('.', to_move_to)));
-
-
        }  
-        
+       if (kind == '#' || kind == '+') {
+        //   auto newObj = Tile(row, col).getObject();
+          // swapObject(newObj, player->getParent());
+
+       }
         else {
                     swapObject(to_move_to, player->getParent());
                 }
