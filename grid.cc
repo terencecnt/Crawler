@@ -24,7 +24,6 @@ Grid:: Grid() {
 
             row.emplace_back(Tile(i,j));
         }
-
         Board.emplace_back(row);
     }
 
@@ -104,7 +103,6 @@ void Grid::clearGrid(){
     for (int i = 0; i < enemSize; ++i) {
         enemies.pop_back();
     }
-    
 }
 
 void Grid::GridSpawn(bool has_file, ifstream& the_file){ //CALL THIS WHEN U LEVEL UP 
@@ -132,9 +130,6 @@ void Grid::initStair() {
     int pRow = player->getParent()->getRow(); //players current location
     int pCol = player->getParent()->getColumn();
 
-
-
-    
     if ((pRow >= 3 && pRow < 7) && (pCol >= 3 && pCol < 29)){ // top left chamber1
         chamber = 1; 
     }
@@ -222,10 +217,8 @@ void Grid::initStair() {
                     return;
                 }
             }
-    }   
-    
+    }
 }
-
 void Grid::initPlayer(char Race) {
     int row;
     int col;
