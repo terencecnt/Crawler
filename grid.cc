@@ -789,7 +789,7 @@ void Grid::use(string d) {
             shared_ptr<Object>  updated_object = make_shared<Object> (Object('.', neighbourOfObj));
             neighbourOfObj->changeO(updated_object);
             td->update(*neighbourOfObj);
-            td->changeAction("Potion is used " + to_return + " ");
+            td->changeAction("Potion is used " + to_return + ". ");
         } else {
             td->changeAction("Not a Potion");
         }
@@ -895,16 +895,16 @@ void Grid::defend(int d) {
     try {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor("false", d)->getObject(); //object
-        char kind = enemy->getKind(); 
+        string kind = (static_pointer_cast<Enemy>(enemy))->getName(); 
      
         if ((enemy == nullptr)||
-                ((kind != 'V')&&
-                 (kind != 'M')&&
-                 (kind != 'W')&&
-                 (kind != 'N')&& 
-                 (kind != 'X')&&
-                 (kind != 'D')&& 
-                 (kind != 'T' ))) {
+                ((kind != "Vampire") &&
+                 (kind != "Merchant") &&
+                 (kind != "Werewolf") &&
+                 (kind != "Goblin") && 
+                 (kind != "Phoenix") &&
+                 (kind != "Dragon") && 
+                 (kind != "Troll" ))) {
                     throw "error";
         }else{
 
@@ -928,10 +928,10 @@ void Grid::defend(int d) {
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
-                td->changeAction(to_string(kind) + "  missed attack. ");
+                td->changeAction(kind + " missed attack. ");
                 return;
             }
-            string msg= "Enemy dealt " + to_string(damage_on_player) + " damage on you. ";
+            string msg=  kind + " " + to_string(damage_on_player) + " damage on you. ";
             td->changeAction(msg);
             player->changeHP(-damage_on_player);
             //subtract HP from player

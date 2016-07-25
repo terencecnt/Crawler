@@ -8,6 +8,7 @@ class Enemy: public Character{
   public: 
       Enemy(int HP, int Atk, int Def,char Kind, Tile *parent); 
       virtual ~Enemy(); 
+      std::string getName();
 };
 
 class Vampire: public Enemy { 

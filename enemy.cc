@@ -26,6 +26,9 @@ Enemy:: Enemy(int HP, int Atk, int Def,char Kind, Tile *parent): Character(HP, A
 
 Enemy:: ~Enemy(){};
 
+string Enemy:: getName() {
+    return name;
+}
 Vampire::Vampire(Tile *parent): Enemy{50,25,25, 'V', parent} {}
 Merchant::Merchant(Tile *parent) : hostile{false}, Enemy{30, 70, 5, 'M', parent} {}
 
