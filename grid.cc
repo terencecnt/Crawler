@@ -637,14 +637,9 @@ bool Grid:: move(string d) {
         cerr << "Unable to move to " << d << endl;
     }
     td->update(*player->getParent());
-    td->update(*player->getParent()->getneighbor("we"));
-    td->update(*player->getParent()->getneighbor("nw"));
-    td->update(*player->getParent()->getneighbor("no"));
-    td->update(*player->getParent()->getneighbor("ne"));
-    td->update(*player->getParent()->getneighbor("ea"));
-    td->update(*player->getParent()->getneighbor("se"));
-    td->update(*player->getParent()->getneighbor("so"));
-    td->update(*player->getParent()->getneighbor("sw")); 
+    for (int i = 0; i < 8; ++i){
+        td->update(*player->getParent()->getneighbor(i));
+    }
     td->changeAction(output);
     return false;
 }
