@@ -5,6 +5,7 @@
 #include "grid.h"
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <memory>
 #include <string>
 #include "character.h"
@@ -637,14 +638,9 @@ bool Grid:: move(string d) {
         cerr << "Unable to move to " << d << endl;
     }
     td->update(*player->getParent());
-    td->update(*player->getParent()->getneighbor("we"));
-    td->update(*player->getParent()->getneighbor("nw"));
-    td->update(*player->getParent()->getneighbor("no"));
-    td->update(*player->getParent()->getneighbor("ne"));
-    td->update(*player->getParent()->getneighbor("ea"));
-    td->update(*player->getParent()->getneighbor("se"));
-    td->update(*player->getParent()->getneighbor("so"));
-    td->update(*player->getParent()->getneighbor("sw")); 
+    for (int i = 0; i < 8; ++i){
+        td->update(*player->getParent()->getneighbor(i));
+    }
     td->changeAction(output);
     return false;
 }
@@ -701,14 +697,6 @@ void Grid::use(string d) {
         td->changeAction("Dead End");
     }
     enemyMove();
-}
-
-int min(int a, int b) { 
-    if (a >= b) {
-        return a; 
-    } else {
-        return b;
-    }
 }
 
 void Grid::attack(string d) {
