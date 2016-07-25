@@ -55,7 +55,6 @@ int main (int argc, char* argv[]) {
             g.initStair();
            g.initPotion();
 
-#include <iostream>
            g.initGold();
             g.initEnemy();
         }
@@ -85,19 +84,22 @@ int main (int argc, char* argv[]) {
             } else if (isDirection(s)) {
                 hit_stairs = g.move(s);
                 if(hit_stairs) {
-                     
+                    
                 }
 
             } else {
                 cout << "Wrong Input" << endl;
                 continue;
             }
+
             to_replay = g.state();
             if ((to_replay == "neutral") && hit_stairs) {
                 g.GridSpawn();
+                to_replay = g.state();
+
                 hit_stairs = false;
             }
-            if((to_replay == "lost")|| (to_replay=="won")) break;
+            if((to_replay == "lost")|| (to_replay=="win")) break;
         }
         if (to_replay == "lost") {
             cout << "You lost" << endl;
