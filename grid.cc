@@ -900,14 +900,16 @@ void Grid:: move(string d) {
            swapObject(to_move_to, player->getParent());
            Board[row][col].changeO( make_shared<Object>(Object('.', to_move_to)));
        }  
-       if (kind == '#' || kind == '+') {
-        //   auto newObj = Tile(row, col).getObject();
-          // swapObject(newObj, player->getParent());
+        else {
+           // (kind == '#' || kind == '+') {
+           auto newObj = Tile(row, col).getObject();
+           swapObject(to_move_to, player->getParent());
+           Board[row][col].changeO(newObj);
 
        }
-        else {
-                    swapObject(to_move_to, player->getParent());
-                }
+     //   else {
+       //             swapObject(to_move_to, player->getParent());
+         //       }
  enemyMove();
         }
     catch(...) {
