@@ -4,6 +4,7 @@
 #include <math.h> 
 #include "grid.h"
 #include <iostream>
+#include <fstream>
 #include <memory>
 #include <string>
 #include "character.h"
@@ -108,7 +109,7 @@ void Grid::clearGrid(){
     
 }
 
-void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP 
+void Grid::GridSpawn(bool has_file, ifstream& the_file){ //CALL THIS WHEN U LEVEL UP 
     ++floor;
     char race = player->getRace()[0];
     int currentHP = player->getHP();
@@ -116,24 +117,12 @@ void Grid::GridSpawn(){ //CALL THIS WHEN U LEVEL UP
     td->updateFloor(floor);
     td->changeAction("You are now on floor " + to_string(floor));
 
-
     clearGrid();
 
-    
-
-    initPlayer(race);
+    initGrid(has_file,race, the_file);
     int change = player->getHP() - currentHP;
     player->changeHP(change, "decrease");
     player->changeGold(currentGold);
-
-    initStair();
-    initGold();
- 
-   
-    initPotion();
-    initEnemy();
-
-
 }
 
 Grid::~Grid() {
@@ -546,8 +535,8 @@ void Grid::initPotion() {
 
 
 
-/*
-void Grid::initGrid(bool has_file, char type) {
+
+void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
     if (has_file) {
         vector<shared_ptr<Dragon>> Dragons;
         vector<shared_ptr<dragonGold>> Golds;
@@ -555,8 +544,11 @@ void Grid::initGrid(bool has_file, char type) {
         int col = 79;
         string current;
         shared_ptr<Object> temp;
+        shared_ptr<dragonGold> temp_two;
+        shared_ptr<Dragon> temp_four;
+        shared_ptr<Player> temp_three;
         for (int i = 0; i < row; ++i) {
-            getline(f, current);
+            getline(the_file, current);
             for(int j = 0; j < col; ++j) {
                 char cur = current[j];
                 switch (cur) {
@@ -579,8 +571,9 @@ void Grid::initGrid(bool has_file, char type) {
                     case '8':
                         temp = make_shared<merchantGold>(merchantGold(&Board[row][col]));
                     case '9':
-                        temp = make_shared<dragonGold>(dragonGold(&Board[row][col]));
-                        Golds.emplace_back(temp);
+                        temp_two = make_shared<dragonGold>(dragonGold(&Board[row][col]));
+                        Golds.emplace_back(temp_two);
+                        temp = temp_two;
                     case 'V':
                         temp = make_shared<Vampire>(Vampire(&Board[row][col]));
                     case 'W':
@@ -594,39 +587,47 @@ void Grid::initGrid(bool has_file, char type) {
                     case 'M':
                         temp = make_shared<Merchant>(Merchant(&Board[row][col]));
                     case 'D':
-                        temp = make_shared<Dragon>(Dragon(dragonTile, nullptr));
-                        Dragons.emplace_back(temp);
+                        temp_four  = make_shared<Dragon>(Dragon(&Board[row][col], nullptr));
+                        Dragons.emplace_back(temp_four);
+                        temp = temp_four;
                     case '@':
                         switch(type) {
                             case 'h':
-                                temp = make_shared<Player>(Human(&Board[row][col]));
+                                 temp_three = make_shared<Player>(Human(&Board[row][col]));
                             case 'e':
-                                temp = make_shared<Player>(Elf(&Board[row][col]));
+                                temp_three = make_shared<Player>(Elf(&Board[row][col]));
                             case 'd':
-                                temp = make_shared<Player>(Dwarf(&Board[row][col]));
+                                temp_three = make_shared<Player>(Dwarf(&Board[row][col]));
                             case 'o':
-                                temp = make_shared<Player>(Orc(&Board[row][col]));
+                                temp_three = make_shared<Player>(Orc(&Board[row][col]));
                         }
-                    this->player = temp;
-                    td->updatePlayer(temp);
+                    this->player = temp_three;
+                    td->updatePlayer(temp_three);
+                    temp = temp_three;
                 }
                 Board[row][col].changeO(temp);
                 td->update(Board[row][col]);
 
                 for(auto it = Dragons.begin(); it != Dragons.end(); ++it) {
                     for (auto it_two = Golds.begin(); it_two != Golds.end(); ++it_two) {
-                        if (it->can_be_son(*it_two)) {
-                            it->updateSon(*it_two);
-                            it_two->updateDragon(*it);
+                        if ((*it)->can_be_son(*it_two)) {
+                            (*it)->updateSon(*it_two);
+                            (*it_two)->updateDragon(*it);
                             Golds.erase(it_two);
                         }
                     }
                 }
             }
         }
+    } else {
+        initPlayer(type);
+        initStair();
+        initPotion();
+        initGold();
+        initEnemy();
     }
 }
-*/
+
 
 
 
