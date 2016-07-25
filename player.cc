@@ -75,6 +75,6 @@ int Player::changeHP(int n, string to_change){
     }
     return HP - first_hp;
 }
-//for character.cc
+
 
 

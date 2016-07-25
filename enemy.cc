@@ -56,28 +56,8 @@ bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
         if (this->getParent()->getneighbor("false", i) == could_be_son->getParent()) {
             return true;
         }
-    } /*
-    if (this->getParent()->getneighbor("we") == could_be_son->getParent()){
-        return true;
-    }else if (this->getParent()->getneighbor("nw") == could_be_son->getParent()){
-        return true;
-    }else if (this->getParent()->getneighbor("no") == could_be_son->getParent()){
-        return true;
-    }else if (this->getParent()->getneighbor("ne") == could_be_son->getParent()){
-        return true;
-    
-    }else if (this->getParent()->getneighbor("ea") == could_be_son->getParent()){
-        return true;
-    }else if (this->getParent()->getneighbor("se") == could_be_son->getParent()){
-        return true; 
-    }else if (this->getParent()->getneighbor("so") == could_be_son->getParent()){
-        return true;
-    }else if (this->getParent()->getneighbor("sw") == could_be_son->getParent()){
-        return true;
     } 
-    
-    */
-        return false;
+    return false;
 }
 
 void Dragon::updateSon(shared_ptr<dragonGold> new_son) {
