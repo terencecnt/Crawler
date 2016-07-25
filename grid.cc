@@ -1134,6 +1134,7 @@ void Grid::attack(string d) {
 }
 
 void Grid::defend(int d) {
+    cout << "DEFEND IS CALLED" << endl;
     if (player->getHP()<= 0) { 
         state();
     }
@@ -1174,6 +1175,9 @@ void Grid::defend(int d) {
                 td->changeAction("Enemy missed attack");
                 return;
             }
+            string msg= "Enemy dealt " + to_string(damage_on_player) + " damage on you";
+            td->changeAction(msg);
+            player->changeHP(-damage_on_player);
             //subtract HP from player
             //check if player died.
             if (pHP <= 0 ){
