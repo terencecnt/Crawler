@@ -3,7 +3,7 @@
 using namespace std;
 
 Player::Player(int HP, int Atk, int Def, string Race, char Kind, Tile *parent): 
-Character(HP, Atk, Def,'@', parent), gold(0), original_HP{HP}, original_ATK{Atk}, original_DEF{Def}, Race(Race) {};
+Character(HP, Atk, Def,'@', parent), original_HP{HP}, original_ATK{Atk}, original_DEF{Def}, gold(0), Race(Race) {};
 
 Player::Player(int HP, int Atk, int Def, char Kind, Tile *parent): 
 Character(HP, Atk, Def,'@', parent), gold(0){};

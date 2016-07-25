@@ -134,7 +134,7 @@ void Tile::changeO(shared_ptr<Object> new_content) {
 }
 
 Tile *Tile::getneighbor(string d, int neighbor_number) {
-    int  neighbor_number_two;
+    int  neighbor_number_two = 0;
     if (neighbor_number == -1) {
         if (d == "we") {
            neighbor_number_two = 0;
