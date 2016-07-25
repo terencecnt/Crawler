@@ -862,3 +862,7 @@ void Grid::enemyMove() {
 int Grid::displayScore() {
     return player->getMyGold();
 }
+
+string Grid::getPlayerRace() {
+    return player->getRace();
+}

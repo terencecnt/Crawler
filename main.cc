@@ -97,9 +97,14 @@ int main (int argc, char* argv[]) {
             cout << "Your score is 0." << endl;
         } else if (to_replay == "win") {
             cout << "You won" << endl;
-            cout<< "Your score is " << g.displayScore() << "." << endl;
+            int score = g.displayScore();
+            if (g.getPlayerRace() == "Human") {
+                score *= 2;
+            }
+            cout<< "Your score is " << score << "." << endl;
         }
         if (to_replay == "surrender") {
+            cout << "You surrendered" << endl;
             break;
         } else {
             string temp;

@@ -39,6 +39,7 @@ public:
   void defend(int d);
   void enemyMove();
   int displayScore();
+  std::string getPlayerRace();
   void GridSpawn(bool has_file, std::ifstream& the_file);
 };
 
