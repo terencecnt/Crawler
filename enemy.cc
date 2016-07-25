@@ -26,13 +26,30 @@ void Dragon::notifyGold(){
         son->changeStatus();
 }
 
-//bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
-
-
-
-
-
-
+bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
+    //check if could_be_son is a neighbour of Dragon
+    //check west
+    if (this->getParent()->getneighbor("we") == could_be_son->getParent()){
+        return true;
+    }else if (this->getParent()->getneighbor("nw") == could_be_son->getParent()){
+        return true;
+    }else if (this->getParent()->getneighbor("no") == could_be_son->getParent()){
+        return true;
+    }else if (this->getParent()->getneighbor("ne") == could_be_son->getParent()){
+        return true;
+    
+    }else if (this->getParent()->getneighbor("ea") == could_be_son->getParent()){
+        return true;
+    }else if (this->getParent()->getneighbor("se") == could_be_son->getParent()){
+        return true; 
+    }else if (this->getParent()->getneighbor("so") == could_be_son->getParent()){
+        return true;
+    }else if (this->getParent()->getneighbor("sw") == could_be_son->getParent()){
+        return true;
+    } else{
+        return false;
+    }     
+}
 
 void Dragon::updateSon(shared_ptr<dragonGold> new_son) {
     son = new_son;
