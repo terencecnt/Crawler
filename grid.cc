@@ -1163,7 +1163,7 @@ void Grid::defend(int d) {
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
-                td->changeAction("Enemy missed attack. ");
+                td->changeAction(kind + "  missed attack. ");
                 return;
             }
             string msg= "Enemy dealt " + to_string(damage_on_player) + " damage on you. ";
@@ -1179,7 +1179,7 @@ void Grid::defend(int d) {
     }catch(char const *error) {
         cerr << "Not a valid enemy at " << d << endl;
     }
-    enemyMove();
+ //   enemyMove();
 }
 
 
@@ -1284,12 +1284,13 @@ void Grid::defend(int d) {
 
 void Grid::enemyMove() { 
     srand(time(NULL)); 
+    cout << "Enemy move has been called" << endl;
     //int enemyNum = 0;
     //this section makes enemy attack if there is a nearby player 
     for (int enemyNum =0; enemyNum < enemies.size(); ++enemyNum) {
         for (int i =0 ; i < 8; ++i) {
             //checks if attack needs to happen 
-            if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+            if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') {{
                 if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
                     td->changeAction("A friendly Merchant appeared. ");
                     cout << "A friendly Merchant appeared"  << endl;
@@ -1297,37 +1298,34 @@ void Grid::enemyMove() {
                 }
                // if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
                 //    cout << "Merchant is angry"  << endl;
-                //}
+                //}a
                 else if (i <= 3) { 
                     defend(i+ 4);
+                    cout << enemies[enemyNum]->getKind() << " is attacking" << endl;
                     break;
                 }
                 else { 
                     defend(i-4);
+                    cout << enemies[enemyNum]->getKind() << " is attacking" << endl;
                     break;
                 }
             }
         }
-
         while (true) { 
             int neighbourNum = rand()%8;
             if (enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum)->getObject()->getKind() == '.') { 
                 auto to_move_to = enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum);
                 swapObject(to_move_to, enemies[enemyNum]->getParent());
                 td->update(*enemies[enemyNum]->getParent());
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("we"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("nw"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("no"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("ne"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("ea"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("se"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("so"));
-                td->update(*enemies[enemyNum]->getParent()->getneighbor("sw"));
+                for (int i =0; i <8; ++i) { 
+                    td->update(*(enemies[enemyNum]->getParent()->getneighbor("false", i)));
+                }
                 break;
+                }
             }
         }
     }
-}// break;
+}
 
 
 

@@ -29,6 +29,11 @@ void Dragon::notifyGold(){
 bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
     //check if could_be_son is a neighbour of Dragon
     //check west
+    for (int i =0; i <8; ++i) {
+        if (this->getParent()->getneighbor("false", i) == could_be_son->getParent()) {
+            return true;
+        }
+    } /*
     if (this->getParent()->getneighbor("we") == could_be_son->getParent()){
         return true;
     }else if (this->getParent()->getneighbor("nw") == could_be_son->getParent()){
@@ -46,9 +51,10 @@ bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
         return true;
     }else if (this->getParent()->getneighbor("sw") == could_be_son->getParent()){
         return true;
-    } else{
+    } 
+    
+    */
         return false;
-    }     
 }
 
 void Dragon::updateSon(shared_ptr<dragonGold> new_son) {
