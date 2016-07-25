@@ -699,19 +699,21 @@ void Grid::attack(string d) {
     try {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor(d)->getObject(); //object
-        string kind = (static_pointer_cast<Enemy>(enemy))->getName(); 
+        char kind = enemy->getKind();
+        string name;
 
         if ((enemy == nullptr)||
-                ((kind != "Vampire")&&
-                 (kind != "Merchant")&&
-                 (kind != "Werewolf")&&
-                 (kind != "Goblin")&& 
-                 (kind != "Phoenix")&&
-                 (kind != "Dragon")&& 
-                 (kind != "Troll" ))) {
+                ((kind != 'V')&&
+                 (kind != 'M')&&
+                 (kind != 'W')&&
+                 (kind != 'G')&& 
+                 (kind != 'P')&&
+                 (kind != 'D')&& 
+                 (kind != 'T' ))) {
             throw "error";
         }else{
-            if (kind == "Merchant") { 
+            name = (static_pointer_cast<Enemy>(enemy))->getName();
+            if (kind == 'M') { 
                 td->changeAction("Merchants will now be hostile. ");
                 for (int i =0; i <enemies.size(); ++i) { 
                     if (enemies[i]->getKind()== 'M') { 
@@ -727,16 +729,16 @@ void Grid::attack(string d) {
             double damage_on_enemy_ceil = ceil(100/(100+eDef))*pAtk;
             int damage_on_enemy = damage_on_enemy_ceil;
             static_pointer_cast<Character>(enemy)->changeHP(min(0, eHP-damage_on_enemy));
-            string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ " HP remaining. ";
+            string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to " + name + " , it has " + to_string(eHP)+ " HP remaining. ";
             if (eHP <= 0){ //check if enemy died.
-                msg +=  kind +" has died. ";
+                msg +=  name +" has died. ";
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
                 int eCol = player->getParent()->getneighbor(d)->getColumn(); 
-                if (kind == "Dragon") { 
+                if (kind == 'D') { 
                     static_pointer_cast<Dragon>(enemy)->notifyGold();
                     Board[eRow][eCol] = Tile(eRow,eCol);
                 }
-                else if (kind == "Merchant") { 
+                else if (kind == 'M') { 
                     shared_ptr<merchantGold> merchGold =  make_shared<merchantGold>(merchantGold(enemy->getParent()));
                     enemy->getParent()->changeO(merchGold);
                 }
@@ -772,18 +774,20 @@ void Grid::defend(int d) {
     try {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor("false", d)->getObject(); //object
-        string kind = (static_pointer_cast<Enemy>(enemy))->getName(); 
+        char kind = enemy->getKind();
+        string name; 
 
         if ((enemy == nullptr)||
-                ((kind != "Vampire") &&
-                 (kind != "Merchant") &&
-                 (kind != "Werewolf") &&
-                 (kind != "Goblin") && 
-                 (kind != "Phoenix") &&
-                 (kind != "Dragon") && 
-                 (kind != "Troll" ))) {
+                ((kind != 'V') &&
+                 (kind != 'M') &&
+                 (kind != 'W') &&
+                 (kind != 'G') && 
+                 (kind != 'P') &&
+                 (kind != 'D') && 
+                 (kind != 'T'))) {
             throw "error";
-        }else{
+        }else {
+            name = (static_pointer_cast<Enemy>(enemy))->getName();
 
             //player stats
             int pHP = player->getHP();
@@ -805,10 +809,10 @@ void Grid::defend(int d) {
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
-                td->changeAction(kind + " missed attack. ");
+                td->changeAction(name + " missed attack. ");
                 return;
             }
-            string msg=  kind + " " + to_string(damage_on_player) + " damage on you. ";
+            string msg=  name + " " + to_string(damage_on_player) + " damage on you. ";
             td->changeAction(msg);
             player->changeHP(-damage_on_player);
             //subtract HP from player
