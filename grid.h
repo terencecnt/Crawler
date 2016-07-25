@@ -24,6 +24,7 @@ class Grid {
   void initEnemy(); 
   void initGold();
   void initPotion();
+  void initpotionHelper(int row, int col);
 public:
   Grid();
   ~Grid();
