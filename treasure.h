@@ -14,7 +14,6 @@ public:
 	int getValue();
 };
 
-
 class Normal: public Treasure {
 public:
 	Normal(Tile* parent);
@@ -46,6 +45,5 @@ public:
     bool isAlive();
     void changeStatus();
 };
-
 
 #endif
