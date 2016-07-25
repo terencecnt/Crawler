@@ -54,7 +54,7 @@ class dragonGold;
 class Dragon: public Enemy {
     std::shared_ptr<dragonGold> son;
     public:
-        bool can_be_son(shared_ptr<dragonGold> could_be_son);
+        bool can_be_son(std::shared_ptr<dragonGold> could_be_son);
         Dragon(Tile *parent,std::shared_ptr<dragonGold> son);
         void updateSon(std::shared_ptr<dragonGold> new_son);
         void notifyGold();

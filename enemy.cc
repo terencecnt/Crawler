@@ -26,10 +26,14 @@ void Dragon::notifyGold(){
         son->changeStatus();
 }
 
+//bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
+
+
+
+
+
+
+
 void Dragon::updateSon(shared_ptr<dragonGold> new_son) {
     son = new_son;
 }
-
-
-//bool Dragon::can_be_son(shared_ptr<dragonGold> could_be_son) {
-
