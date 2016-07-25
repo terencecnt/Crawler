@@ -122,7 +122,13 @@ void Grid::GridSpawn(bool has_file, ifstream& the_file){ //CALL THIS WHEN U LEVE
 }
 
 Grid::~Grid() {
+    clearGrid();
+    int size = Board.size();
+    for(int i = 0 ; i < size; ++i){
+        Board.pop_back();
+    }
 }
+
 
 void Grid::initStair() {
 
