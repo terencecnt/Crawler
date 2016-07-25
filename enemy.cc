@@ -2,7 +2,27 @@
 #include "treasure.h"
 using namespace std;
 
-Enemy:: Enemy(int HP, int Atk, int Def,char Kind, Tile *parent): Character(HP, Atk, Def, Kind, parent) {};
+Enemy:: Enemy(int HP, int Atk, int Def,char Kind, Tile *parent): Character(HP, Atk, Def, Kind, parent) {
+    if (Kind == 'V') {
+        name = "Vampire";
+    } else if (Kind == 'N') {
+        name = "Goblin";
+    } else if (Kind == 'M') {
+        name = "Merchant";
+
+    } else if (Kind == 'D') {
+        name = "Dragon";
+
+    } else if (Kind == 'X') {
+        name = "Phoenix";
+
+    } else if (Kind == 'W') {
+        name = "Werewolf";
+        
+    } else if (Kind == 'T') {
+        name = "Troll";
+    }
+};
 
 Enemy:: ~Enemy(){};
 

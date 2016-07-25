@@ -4,13 +4,14 @@
 #include "character.h"
 
 class Enemy: public Character{
+    std::string name;
   public: 
       Enemy(int HP, int Atk, int Def,char Kind, Tile *parent); 
       virtual ~Enemy(); 
 };
 
 class Vampire: public Enemy { 
-    public:
+  public:
     Vampire(Tile *parent); 
     ~Vampire() = default;
 
@@ -18,7 +19,7 @@ class Vampire: public Enemy {
 
 class Merchant: public Enemy {
     bool hostile;
-    public:
+  public:
     bool checkHostile(); 
     void makeHostile();
     Merchant(Tile *parent); 
@@ -26,42 +27,39 @@ class Merchant: public Enemy {
 };
 
 class Werewolf: public Enemy { 
-    public:
-        Werewolf(Tile *parent); 
-        ~Werewolf() = default;
+  public:
+      Werewolf(Tile *parent); 
+      ~Werewolf() = default;
 };
 
 class Goblin: public Enemy { 
-    public:
-        Goblin(Tile *parent); 
-        ~Goblin() = default;
+  public:
+      Goblin(Tile *parent); 
+      ~Goblin() = default;
 };
 
 class Phoenix: public Enemy {
-    public:
-        Phoenix(Tile *parent);
-        ~Phoenix() = default;
+  public:
+      Phoenix(Tile *parent);
+      ~Phoenix() = default;
 };
 
 class Troll: public Enemy {
-    public:
-        Troll(Tile *parent); 
-        ~Troll() = default;
+  public:
+      Troll(Tile *parent); 
+      ~Troll() = default;
 };
 
 class dragonGold;
 
 class Dragon: public Enemy {
     std::shared_ptr<dragonGold> son;
-    public:
-        bool can_be_son(std::shared_ptr<dragonGold> could_be_son);
-        Dragon(Tile *parent,std::shared_ptr<dragonGold> son);
-        void updateSon(std::shared_ptr<dragonGold> new_son);
-        void notifyGold();
-        ~Dragon() = default;
+  public:
+    bool can_be_son(std::shared_ptr<dragonGold> could_be_son);
+    Dragon(Tile *parent,std::shared_ptr<dragonGold> son);
+    void updateSon(std::shared_ptr<dragonGold> new_son);
+    void notifyGold();
+    ~Dragon() = default;
 };
 
-
-
 #endif
-
