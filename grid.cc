@@ -946,7 +946,6 @@ bool Grid:: move(string d) {
         } else if (kind == 'G') { 
             //call getGold;
             if (static_pointer_cast<Treasure>(to_move_to->getObject())->getValue() == 6 && static_pointer_cast<dragonGold>(to_move_to->getObject())->isAlive()) {
-                cout << "Must slay dragon before retrieving!" << endl;
                 td->changeAction("Must slay dragon before retrieving! "); 
                 return false;
             }
@@ -980,7 +979,7 @@ bool Grid:: move(string d) {
 
 
 string Grid::state() {
-    if (player->getHP() == 0) {
+    if (player->getHP() <= 0) {
         return "lost";
     } else {
         if (floor == 6) {
@@ -1065,10 +1064,10 @@ void Grid::attack(string d) {
                     throw "error";
         }else{
             if (kind == 'M') { 
-                for (int i =0; i <8; ++i) { 
+                td->changeAction("Merchants will now be hostile. ");
+                for (int i =0; i <enemies.size(); ++i) { 
                     if (enemies[i]->getKind()== 'M') { 
                         cout << "Merchants will now be hostile. " << endl;
-                        td->changeAction("Merchants will now be hostile. ");
                         static_pointer_cast<Merchant>(enemies[i])->makeHostile();
                     }
                 }
@@ -1084,7 +1083,7 @@ void Grid::attack(string d) {
             string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining. ";
             cout << "Update: " << msg << endl;
             if (eHP <= 0){ //check if enemy died.
-                msg += "Enemy has died.";
+                msg += "Enemy has died. ";
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
                 int eCol = player->getParent()->getneighbor(d)->getColumn(); 
                 if (kind == 'D') { 
@@ -1295,9 +1294,9 @@ void Grid::enemyMove() {
                     cout << "A friendly Merchant appeared"  << endl;
                     continue;
                 }
-                if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
-                    cout << "Merchant is angry"  << endl;
-                }
+               // if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                //    cout << "Merchant is angry"  << endl;
+                //}
                 else if (i <= 3) { 
                     defend(i+ 4);
                     break;
