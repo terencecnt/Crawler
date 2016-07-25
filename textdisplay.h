@@ -19,6 +19,7 @@ class TextDisplay {
   void update(Tile &t);
   void updateFloor(int floor);
   void changeAction(std::string newAction);
+  void newAction();
   void updatePlayer(std::shared_ptr<Player> newP);
   void print();
  // void changePlayer(std::shared_ptr<Object> newP);

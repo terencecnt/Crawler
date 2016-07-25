@@ -381,7 +381,7 @@ void Grid::initGold() {
                     else if (dragon == 6){
                         dragonTile = temp->getParent()->getneighbor("so"); 
                     }
-                    else if (dragon == 7){
+                    else {
                         dragonTile = temp->getParent()->getneighbor("sw"); 
                     }
                     if (dragonTile->getObject()->getKind() == '.') {
@@ -951,6 +951,7 @@ void Grid::swapObject(Tile *t1, Tile *t2) {
 }
 
 bool Grid:: move(string d) {
+    td->newAction();
     string output = "Player moved " + d;
     int row = player->getParent()->getRow();
     int col = player->getParent()->getColumn();
@@ -971,6 +972,7 @@ bool Grid:: move(string d) {
             //call getGold;
             if (static_pointer_cast<Treasure>(to_move_to->getObject())->getValue() == 6 && static_pointer_cast<dragonGold>(to_move_to->getObject())->isAlive()) {
                 cout << "Must slay dragon before retrieving!" << endl;
+                td->changeAction("Must slay dragon before retrieving! "); 
                 return false;
             }
             auto temp = to_move_to->getObject();
@@ -1015,6 +1017,7 @@ string Grid::state() {
 }
 
 void Grid::use(string d) {
+ td->newAction();
     Tile *the_Tile = player->getParent();
     Tile *neighbourOfObj = the_Tile->getneighbor(d);
     auto neighbourObj = neighbourOfObj->getObject();
@@ -1068,6 +1071,7 @@ int min(int a, int b) {
 
 
 void Grid::attack(string d) {
+    td->newAction();
     int row = player->getParent()->getRow();
     int col = player->getParent()->getColumn();
     try {
@@ -1088,26 +1092,22 @@ void Grid::attack(string d) {
             if (kind == 'M') { 
                 for (int i =0; i <8; ++i) { 
                     if (enemies[i]->getKind()== 'M') { 
-                        cout << "Merchants will now be hostile" << endl;
+                        cout << "Merchants will now be hostile. " << endl;
+                        td->changeAction("Merchants will now be hostile. ");
                         static_pointer_cast<Merchant>(enemies[i])->makeHostile();
                     }
                 }
             }
-            //double pHP = player->getHP();
             double pAtk = player->getAtk();
-            //double pDef = player->getDef();
             if (static_pointer_cast<Character>(enemy) == nullptr){
                 cout << "nullptr" << endl;
             }
             double eHP = (static_pointer_cast<Character>(enemy))->getHP();
-            //double eAtk = (static_pointer_cast<Character>(enemy))->getAtk();
             double eDef = (static_pointer_cast<Character>(enemy))->getDef();
             double damage_on_enemy = (100/(100+eDef))*pAtk;
             static_pointer_cast<Character>(enemy)->changeHP(min(0, eHP-damage_on_enemy));
-          //  double eHP = (static_pointer_cast<Character>(enemy))->getHP();
             string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining. ";
             cout << "Update: " << msg << endl;
-            //td->changeAction(msg);
             if (eHP <= 0){ //check if enemy died.
                 msg += "Enemy has died.";
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
@@ -1138,9 +1138,11 @@ void Grid::attack(string d) {
                     }
                 }
                 td->changeAction(msg);
-                //td->changeAction("Enemy has died");
+                enemyMove();
                 return;
             }
+            td->changeAction(msg);
+            enemyMove();
         }
     }catch(char const *error) {
         cerr << "Not a valid enemy at " << d << endl;
@@ -1186,22 +1188,23 @@ void Grid::defend(int d) {
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
-                td->changeAction("Enemy missed attack");
+                td->changeAction("Enemy missed attack. ");
                 return;
             }
-            string msg= "Enemy dealt " + to_string(damage_on_player) + " damage on you";
+            string msg= "Enemy dealt " + to_string(damage_on_player) + " damage on you. ";
             td->changeAction(msg);
             player->changeHP(-damage_on_player);
             //subtract HP from player
             //check if player died.
             if (pHP <= 0 ){
-                td->changeAction("You have died");
+                td->changeAction("You have died. ");
                 return;
             }
         }
     }catch(char const *error) {
         cerr << "Not a valid enemy at " << d << endl;
     }
+    enemyMove();
 }
 
 
@@ -1309,31 +1312,29 @@ void Grid::enemyMove() {
     //int enemyNum = 0;
     //this section makes enemy attack if there is a nearby player 
     for (int enemyNum =0; enemyNum < enemies.size(); ++enemyNum) {
-        //dont attack if merchant isn't hostile
-   //     if (enemies[enemyNum]->getKind() == 'M' && !static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){ 
         for (int i =0 ; i < 8; ++i) {
-                         if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
-            //        cout << "secondEn" << endl;
-                //defend(int)a
-                     if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
-                         cout << "A friendly Merchant appeared"  << endl;
-                     }
-                     if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
-                         cout << "Merchant is angry"  << endl;
-                     }
-                     else if (i <= 3) { 
-                        defend(i+ 4);
-                    }
-                    else { 
-                        defend(i-4);
-                    }
-               //     cout << "CODE IN ATTACK FROM " << enemies[enemyNum]->getKind() << "TO PLAYER" << endl;
-               //     break;
-              //      cout << "thirdEn" << endl;
+            //checks if attack needs to happen 
+            if (enemies[enemyNum]->getParent()->getneighbor("false", i)->getObject()->getKind() == '@') { 
+                if (enemies[enemyNum]->getKind() == 'M' && not static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                    td->changeAction("A friendly Merchant appeared. ");
+                    cout << "A friendly Merchant appeared"  << endl;
+                    continue;
                 }
+                if (enemies[enemyNum]->getKind() == 'M' &&  static_pointer_cast<Merchant>(enemies[enemyNum])->checkHostile()){
+                    cout << "Merchant is angry"  << endl;
+                }
+                else if (i <= 3) { 
+                    defend(i+ 4);
+                    break;
+                }
+                else { 
+                    defend(i-4);
+                    break;
+                }
+            }
         }
-    
-    while (true) { 
+
+        while (true) { 
             int neighbourNum = rand()%8;
             if (enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum)->getObject()->getKind() == '.') { 
                 auto to_move_to = enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum);
@@ -1349,7 +1350,7 @@ void Grid::enemyMove() {
                 td->update(*enemies[enemyNum]->getParent()->getneighbor("sw"));
                 break;
             }
-    }
+        }
     }
 }// break;
 

@@ -40,7 +40,11 @@ void TextDisplay:: updateFloor(int floor){
 }
 
 void TextDisplay::changeAction(string newAction) {
-    action = newAction;
+    action += newAction;
+}
+
+void TextDisplay::newAction() {
+    action = "";
 }
 
 void TextDisplay::print() {
