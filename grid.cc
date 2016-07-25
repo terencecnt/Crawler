@@ -134,14 +134,9 @@ void Grid::initStair() {
     int pRow = player->getParent()->getRow(); //players current location
     int pCol = player->getParent()->getColumn();
 
-    int row = pRow + 1;
-    int col = pCol;
-    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
-    Board[row][col].changeO(temp);
-    td->update(Board[row][col]);
-    return;
 
-    /*
+
+    
     if ((pRow >= 3 && pRow < 7) && (pCol >= 3 && pCol < 29)){ // top left chamber1
         chamber = 1; 
     }
@@ -168,7 +163,7 @@ void Grid::initStair() {
                 row = rand()%25;
                 col = rand()%79;
                 if ((Board[row][col].getObject()->getKind() == '.') && ((row < 3 || row >= 7) || (col < 3 || col >= 29))){
-                    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                    auto temp = make_shared<Object>(Object('\\', &Board[row][col]));
                     Board[row][col].changeO(temp);
                     td->update(Board[row][col]);
                     return;
@@ -183,7 +178,7 @@ void Grid::initStair() {
                 if ((Board[row][col].getObject()->getKind() == '.')&& 
                         (((row < 3 || row >= 5)||(col < 39 || col >= 62)) && ((row != 5) || (col < 39 || col >= 70))&&
                          ((row != 6)||(col < 39 || col >= 73)) && ((row < 7 || row >= 13) ||(col < 61 || col >= 76)))) {
-                    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                    auto temp = make_shared<Object>(Object('\\', &Board[row][col]));
                     Board[row][col].changeO(temp);
                     td->update(Board[row][col]);
                     return;
@@ -196,7 +191,7 @@ void Grid::initStair() {
                 row = rand()%25;
                 col = rand()%79;
                 if ((Board[row][col].getObject()->getKind() == '.') && ((row < 10 || row >= 13) || ( col < 38 || col >= 50))){
-                    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                    auto temp = make_shared<Object>(Object('\\', &Board[row][col]));
                     Board[row][col].changeO(temp);
                     td->update(Board[row][col]);
                     return;
@@ -209,7 +204,7 @@ void Grid::initStair() {
                 row = rand()%25;
                 col = rand()%79;
                 if ((Board[row][col].getObject()->getKind() == '.') && ((row < 15 || row >= 22) || (col < 4 || col >= 25))){
-                    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                    auto temp = make_shared<Object>(Object('\\', &Board[row][col]));
                     Board[row][col].changeO(temp);
                     td->update(Board[row][col]);
                     return;
@@ -223,14 +218,14 @@ void Grid::initStair() {
                 col = rand()%79;
                 if ((Board[row][col].getObject()->getKind() == '.') && 
                         (((row < 16 || row >= 19) || (col < 65 && col >= 76)) &&((row < 19 || row >= 22)||(col < 37 || col >= 76)))){
-                    auto temp = make_shared<Object>(Object('/', &Board[row][col]));
+                    auto temp = make_shared<Object>(Object('\\', &Board[row][col]));
                     Board[row][col].changeO(temp);
                     td->update(Board[row][col]);
                     return;
                 }
             }
     }   
-    */
+    
 }
 
 void Grid::initPlayer(char Race) {
@@ -542,80 +537,148 @@ void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
         vector<shared_ptr<dragonGold>> Golds;
         int row = 25;
         int col = 79;
+        bool isObject = true;
         string current;
         shared_ptr<Object> temp;
         shared_ptr<dragonGold> temp_two;
         shared_ptr<Dragon> temp_four;
         shared_ptr<Player> temp_three;
+
         for (int i = 0; i < row; ++i) {
             getline(the_file, current);
             for(int j = 0; j < col; ++j) {
+                isObject = true;
                 char cur = current[j];
-                switch (cur) {
-                    case '0':
-                        temp = make_shared<Potion>(RH(&Board[row][col]));
-                    case '1':
-                        temp = make_shared<Potion>(BA(&Board[row][col]));
-                    case '2':
-                        temp = make_shared<Potion>(BD(&Board[row][col]));
-                    case '3':
-                        temp = make_shared<Potion>(PH(&Board[row][col]));
-                    case '4':
-                        temp = make_shared<Potion>(WA(&Board[row][col]));
-                    case '5':
-                        temp = make_shared<Potion>(WD(&Board[row][col]));
-                    case '6':
-                        temp = make_shared<Normal>(Normal(&Board[row][col]));
-                    case '7':
-                        temp = make_shared<Small>(Small(&Board[row][col]));
-                    case '8':
-                        temp = make_shared<merchantGold>(merchantGold(&Board[row][col]));
-                    case '9':
-                        temp_two = make_shared<dragonGold>(dragonGold(&Board[row][col]));
-                        Golds.emplace_back(temp_two);
-                        temp = temp_two;
-                    case 'V':
-                        temp = make_shared<Vampire>(Vampire(&Board[row][col]));
-                    case 'W':
-                        temp = make_shared<Werewolf>(Werewolf(&Board[row][col]));
-                    case 'N':
-                        temp = make_shared<Goblin>(Goblin(&Board[row][col]));
-                    case 'P':
-                        temp = make_shared<Phoenix>(Phoenix(&Board[row][col]));
-                    case 'T':
-                        temp = make_shared<Troll>(Troll(&Board[row][col]));
-                    case 'M':
-                        temp = make_shared<Merchant>(Merchant(&Board[row][col]));
-                    case 'D':
-                        temp_four  = make_shared<Dragon>(Dragon(&Board[row][col], nullptr));
-                        Dragons.emplace_back(temp_four);
-                        temp = temp_four;
-                    case '@':
-                        switch(type) {
-                            case 'h':
-                                 temp_three = make_shared<Player>(Human(&Board[row][col]));
-                            case 'e':
-                                temp_three = make_shared<Player>(Elf(&Board[row][col]));
-                            case 'd':
-                                temp_three = make_shared<Player>(Dwarf(&Board[row][col]));
-                            case 'o':
-                                temp_three = make_shared<Player>(Orc(&Board[row][col]));
-                        }
+                
+                if (cur == '0'){
+                    temp = make_shared<Potion>(RH(&Board[i][j]));
+                     
+                   
+                }
+                else if (cur == '1'){
+                    temp = make_shared<Potion>(BA(&Board[i][j]));
+                    
+                   
+                }
+                else if (cur == '2'){
+                    temp = make_shared<Potion>(BD(&Board[i][j]));
+                     
+                   
+                }
+                else if (cur == '3'){
+                    temp = make_shared<Potion>(PH(&Board[i][j]));
+                   
+                }
+                else if (cur == '4'){
+                    temp = make_shared<Potion>(WA(&Board[i][j]));
+                    
+                }
+                else if (cur == '5'){
+                    temp = make_shared<Potion>(WD(&Board[i][j]));
+                   
+                }
+                else if (cur == '6'){
+                    temp = make_shared<Normal>(Normal(&Board[i][j]));
+                  
+                }
+                else if (cur == '7'){
+                    temp = make_shared<Small>(Small(&Board[i][j]));
+                    
+                }
+                else if (cur == '8'){
+                    temp = make_shared<merchantGold>(merchantGold(&Board[i][j]));
+                }
+                else if (cur == '9'){
+                    temp_two = make_shared<dragonGold>(dragonGold(&Board[i][j]));
+                    Golds.emplace_back(temp_two);
+                    temp = temp_two;
+                   
+                }
+                else if (cur == 'V'){
+                    temp = make_shared<Vampire>(Vampire(&Board[i][j]));
+                    enemies.emplace_back(temp);
+                    
+                   
+                }
+                else if (cur == 'W'){
+                    temp = make_shared<Werewolf>(Werewolf(&Board[i][j]));
+                    enemies.emplace_back(temp);
+                     
+                    
+                }
+                else if (cur == 'N'){
+                    temp = make_shared<Goblin>(Goblin(&Board[i][j]));
+                    enemies.emplace_back(temp);
+                     
+                   
+                }
+                else if (cur == 'P'){
+                    temp = make_shared<Phoenix>(Phoenix(&Board[i][j]));
+                    enemies.emplace_back(temp);
+                    
+                    
+                }
+                else if (cur == 'T'){
+                    temp = make_shared<Troll>(Troll(&Board[i][j]));
+                    enemies.emplace_back(temp);
+                     
+                    
+                }
+                else if (cur == 'M'){
+                    temp = make_shared<Merchant>(Merchant(&Board[i][j]));
+                    enemies.emplace_back(temp);
+                     
+                   
+                }
+                else if (cur == 'D'){
+                    temp_four  = make_shared<Dragon>(Dragon(&Board[i][j], nullptr));
+                    Dragons.emplace_back(temp_four);
+                    temp = temp_four;
+
+             
+                }
+                else if (cur == '@'){
+                    
+                    if (type =='h'){
+                        temp_three = make_shared<Player>(Human(&Board[i][j]));
+                    }                            
+                    else if (type == 'e'){
+                        temp_three = make_shared<Player>(Elf(&Board[i][j]));
+                    }else if (type == 'd'){
+                        temp_three = make_shared<Player>(Dwarf(&Board[i][j]));
+
+                    }else {
+                        temp_three = make_shared<Player>(Orc(&Board[i][j]));
+                    }
+
                     this->player = temp_three;
                     td->updatePlayer(temp_three);
                     temp = temp_three;
+                } else if (cur == '\\') {
+                    temp = make_shared<Object>(Object('\\', &Board[i][j]));
                 }
-                Board[row][col].changeO(temp);
-                td->update(Board[row][col]);
-
-                for(auto it = Dragons.begin(); it != Dragons.end(); ++it) {
-                    for (auto it_two = Golds.begin(); it_two != Golds.end(); ++it_two) {
-                        if ((*it)->can_be_son(*it_two)) {
-                            (*it)->updateSon(*it_two);
-                            (*it_two)->updateDragon(*it);
-                            Golds.erase(it_two);
-                        }
-                    }
+                else{
+                    //cout << "we in default.." << endl;
+                    isObject = false;
+                }     
+                if (isObject){
+                
+                Board[i][j].changeO(temp);
+                td->update(Board[i][j]);
+            
+                }
+            }
+        }
+           
+        
+        for(auto it = Dragons.begin(); it != Dragons.end(); ++it) {
+            
+            for (auto it_two = Golds.begin(); it_two != Golds.end(); ++it_two) {
+                if ((*it)->can_be_son(*it_two)) {
+                    (*it)->updateSon(*it_two);
+                    (*it_two)->updateDragon(*it);
+                    Golds.erase(it_two);
+                    break;
                 }
             }
         }
@@ -937,12 +1000,12 @@ bool Grid:: move(string d) {
         if ((to_move_to == nullptr)||
                 ((kind != 'G')&&
                  (kind != '.')&&
-                 (kind != '/')&&
+                 (kind != '\\')&&
                  (kind != '#')&& 
                  (kind != '+' ))) {
             //  cout << "throwing error" << endl;
             throw "error";
-        } else if (kind == '/') {
+        } else if (kind == '\\') {
             return true;
         } else if (kind == 'G') { 
             //call getGold;
