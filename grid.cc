@@ -5,6 +5,7 @@
 #include "grid.h"
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <memory>
 #include <string>
 #include "character.h"
@@ -696,14 +697,6 @@ void Grid::use(string d) {
         td->changeAction("Dead End");
     }
     enemyMove();
-}
-
-int min(int a, int b) { 
-    if (a >= b) {
-        return a; 
-    } else {
-        return b;
-    }
 }
 
 void Grid::attack(string d) {
