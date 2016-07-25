@@ -699,19 +699,19 @@ void Grid::attack(string d) {
     try {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor(d)->getObject(); //object
-        char kind = enemy->getKind(); 
+        string kind = (static_pointer_cast<Enemy>(enemy))->getName(); 
 
         if ((enemy == nullptr)||
-                ((kind != 'V')&&
-                 (kind != 'M')&&
-                 (kind != 'W')&&
-                 (kind != 'N')&& 
-                 (kind != 'X')&&
-                 (kind != 'D')&& 
-                 (kind != 'T' ))) {
+                ((kind != "Vampire")&&
+                 (kind != "Merchant")&&
+                 (kind != "Werewolf")&&
+                 (kind != "Goblin")&& 
+                 (kind != "Phoenix")&&
+                 (kind != "Dragon")&& 
+                 (kind != "Troll" ))) {
             throw "error";
         }else{
-            if (kind == 'M') { 
+            if (kind == "Merchant") { 
                 td->changeAction("Merchants will now be hostile. ");
                 for (int i =0; i <enemies.size(); ++i) { 
                     if (enemies[i]->getKind()== 'M') { 
@@ -727,16 +727,16 @@ void Grid::attack(string d) {
             double damage_on_enemy_ceil = ceil(100/(100+eDef))*pAtk;
             int damage_on_enemy = damage_on_enemy_ceil;
             static_pointer_cast<Character>(enemy)->changeHP(min(0, eHP-damage_on_enemy));
-            string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining. ";
+            string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ " HP remaining. ";
             if (eHP <= 0){ //check if enemy died.
-                msg += "Enemy has died. ";
+                msg +=  kind +" has died. ";
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
                 int eCol = player->getParent()->getneighbor(d)->getColumn(); 
-                if (kind == 'D') { 
+                if (kind == "Dragon") { 
                     static_pointer_cast<Dragon>(enemy)->notifyGold();
                     Board[eRow][eCol] = Tile(eRow,eCol);
                 }
-                else if (kind == 'M') { 
+                else if (kind == "Merchant") { 
                     shared_ptr<merchantGold> merchGold =  make_shared<merchantGold>(merchantGold(enemy->getParent()));
                     enemy->getParent()->changeO(merchGold);
                 }
@@ -857,4 +857,8 @@ void Grid::enemyMove() {
             }
         }
     }
+}
+
+int Grid::displayScore() {
+    return player->getMyGold();
 }

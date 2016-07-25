@@ -38,6 +38,7 @@ public:
   void attack(std::string d);
   void defend(int d);
   void enemyMove();
+  int displayScore();
   void GridSpawn(bool has_file, std::ifstream& the_file);
 };
 

@@ -94,8 +94,10 @@ int main (int argc, char* argv[]) {
         }
         if (to_replay == "lost") {
             cout << "You lost" << endl;
+            cout << "Your score is 0." << endl;
         } else if (to_replay == "win") {
             cout << "You won" << endl;
+            cout<< "Your score is " << g.displayScore() << "." << endl;
         }
         if (to_replay == "surrender") {
             break;
@@ -103,7 +105,7 @@ int main (int argc, char* argv[]) {
             string temp;
             cout << "do you want to play again?(yes/no)" << endl;
             cin >> temp;
-            if (temp == "yes") {
+            if (temp == "yes" || temp == "y") {
                 continue;
             } else {
                 break;
