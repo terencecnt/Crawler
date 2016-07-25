@@ -95,10 +95,10 @@ void Grid::clearGrid(){
                 Board[i][j].changeO(make_shared<Object>(Object('.', &Board[i][j])));
                 td->update(Board[i][j]);
             }
-           
+
         }
     }
-    
+
     int enemSize = enemies.size();
     for (int i = 0; i < enemSize; ++i) {
         enemies.pop_back();
@@ -441,41 +441,41 @@ void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
             for(int j = 0; j < col; ++j) {
                 isObject = true;
                 char cur = current[j];
-                
+
                 if (cur == '0'){
                     temp = make_shared<Potion>(RH(&Board[i][j]));
-                     
-                   
+
+
                 }
                 else if (cur == '1'){
                     temp = make_shared<Potion>(BA(&Board[i][j]));
-                    
-                   
+
+
                 }
                 else if (cur == '2'){
                     temp = make_shared<Potion>(BD(&Board[i][j]));
-                     
-                   
+
+
                 }
                 else if (cur == '3'){
                     temp = make_shared<Potion>(PH(&Board[i][j]));
-                   
+
                 }
                 else if (cur == '4'){
                     temp = make_shared<Potion>(WA(&Board[i][j]));
-                    
+
                 }
                 else if (cur == '5'){
                     temp = make_shared<Potion>(WD(&Board[i][j]));
-                   
+
                 }
                 else if (cur == '6'){
                     temp = make_shared<Normal>(Normal(&Board[i][j]));
-                  
+
                 }
                 else if (cur == '7'){
                     temp = make_shared<Small>(Small(&Board[i][j]));
-                    
+
                 }
                 else if (cur == '8'){
                     temp = make_shared<merchantGold>(merchantGold(&Board[i][j]));
@@ -484,53 +484,53 @@ void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
                     temp_two = make_shared<dragonGold>(dragonGold(&Board[i][j]));
                     Golds.emplace_back(temp_two);
                     temp = temp_two;
-                   
+
                 }
                 else if (cur == 'V'){
                     temp = make_shared<Vampire>(Vampire(&Board[i][j]));
                     enemies.emplace_back(temp);
-                    
-                   
+
+
                 }
                 else if (cur == 'W'){
                     temp = make_shared<Werewolf>(Werewolf(&Board[i][j]));
                     enemies.emplace_back(temp);
-                     
-                    
+
+
                 }
                 else if (cur == 'N'){
                     temp = make_shared<Goblin>(Goblin(&Board[i][j]));
                     enemies.emplace_back(temp);
-                     
-                   
+
+
                 }
                 else if (cur == 'P'){
                     temp = make_shared<Phoenix>(Phoenix(&Board[i][j]));
                     enemies.emplace_back(temp);
-                    
-                    
+
+
                 }
                 else if (cur == 'T'){
                     temp = make_shared<Troll>(Troll(&Board[i][j]));
                     enemies.emplace_back(temp);
-                     
-                    
+
+
                 }
                 else if (cur == 'M'){
                     temp = make_shared<Merchant>(Merchant(&Board[i][j]));
                     enemies.emplace_back(temp);
-                     
-                   
+
+
                 }
                 else if (cur == 'D'){
                     temp_four  = make_shared<Dragon>(Dragon(&Board[i][j], nullptr));
                     Dragons.emplace_back(temp_four);
                     temp = temp_four;
 
-             
+
                 }
                 else if (cur == '@'){
-                    
+
                     if (type =='h'){
                         temp_three = make_shared<Player>(Human(&Board[i][j]));
                     }                            
@@ -553,15 +553,15 @@ void Grid::initGrid(bool has_file, char type, ifstream& the_file) {
                     isObject = false;
                 }     
                 if (isObject){
-                
-                Board[i][j].changeO(temp);
-                td->update(Board[i][j]);
-            
+
+                    Board[i][j].changeO(temp);
+                    td->update(Board[i][j]);
+
                 }
             }
         }        
         for(auto it = Dragons.begin(); it != Dragons.end(); ++it) {
-            
+
             for (auto it_two = Golds.begin(); it_two != Golds.end(); ++it_two) {
                 if ((*it)->can_be_son(*it_two)) {
                     (*it)->updateSon(*it_two);
@@ -651,7 +651,7 @@ string Grid::state() {
 }
 
 void Grid::use(string d) {
- td->newAction();
+    td->newAction();
     Tile *the_Tile = player->getParent();
     Tile *neighbourOfObj = the_Tile->getneighbor(d);
     auto neighbourObj = neighbourOfObj->getObject();
@@ -700,7 +700,7 @@ void Grid::attack(string d) {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor(d)->getObject(); //object
         char kind = enemy->getKind(); 
-     
+
         if ((enemy == nullptr)||
                 ((kind != 'V')&&
                  (kind != 'M')&&
@@ -709,7 +709,7 @@ void Grid::attack(string d) {
                  (kind != 'X')&&
                  (kind != 'D')&& 
                  (kind != 'T' ))) {
-                    throw "error";
+            throw "error";
         }else{
             if (kind == 'M') { 
                 td->changeAction("Merchants will now be hostile. ");
@@ -773,7 +773,7 @@ void Grid::defend(int d) {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor("false", d)->getObject(); //object
         string kind = (static_pointer_cast<Enemy>(enemy))->getName(); 
-     
+
         if ((enemy == nullptr)||
                 ((kind != "Vampire") &&
                  (kind != "Merchant") &&
@@ -782,26 +782,26 @@ void Grid::defend(int d) {
                  (kind != "Phoenix") &&
                  (kind != "Dragon") && 
                  (kind != "Troll" ))) {
-                    throw "error";
+            throw "error";
         }else{
 
             //player stats
             int pHP = player->getHP();
             //double pAtk = player->getAtk();
             double pDef = player->getDef();
-           
+
             //enemy stats 
             //double eHP = static_pointer_cast<Character>(enemy)->getHP();
             double eAtk = static_pointer_cast<Character>(enemy)->getAtk();
             //double eDef = static_pointer_cast<Character>(enemy)->getDef();
-           
+
 
             //fight 
             //enemy attacks with 50% chance to miss
-            
+
             double damage_on_player_ceil = ceil(100/(100+pDef))*eAtk;
             int damage_on_player = damage_on_player_ceil ;
-            
+
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
