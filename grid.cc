@@ -1077,9 +1077,10 @@ void Grid::attack(string d) {
             if (static_pointer_cast<Character>(enemy) == nullptr){
                 cout << "nullptr" << endl;
             }
-            double eHP = (static_pointer_cast<Character>(enemy))->getHP();
-            double eDef = (static_pointer_cast<Character>(enemy))->getDef();
-            double damage_on_enemy = (100/(100+eDef))*pAtk;
+            int eHP = (static_pointer_cast<Character>(enemy))->getHP();
+            int eDef = (static_pointer_cast<Character>(enemy))->getDef();
+            double damage = (100/(100+eDef))*pAtk;
+            int damage_on_enemy = damage;
             static_pointer_cast<Character>(enemy)->changeHP(min(0, eHP-damage_on_enemy));
             string msg = "You dealt " + to_string(damage_on_enemy) + " dmg to the enemy, it has " + to_string(eHP)+ "HP remaining. ";
             cout << "Update: " << msg << endl;
@@ -1125,7 +1126,7 @@ void Grid::attack(string d) {
 }
 
 void Grid::defend(int d) {
-    cout << "DEFEND IS CALLED" << endl;
+  //  cout << "DEFEND IS CALLED" << endl;
     if (player->getHP()<= 0) { 
         state();
     }
@@ -1146,24 +1147,26 @@ void Grid::defend(int d) {
         }else{
 
             //player stats
-            double pHP = player->getHP();
+            int pHP = player->getHP();
             //double pAtk = player->getAtk();
-            double pDef = player->getDef();
+            int pDef = player->getDef();
            
             //enemy stats 
             //double eHP = static_pointer_cast<Character>(enemy)->getHP();
-            double eAtk = static_pointer_cast<Character>(enemy)->getAtk();
+            int eAtk = static_pointer_cast<Character>(enemy)->getAtk();
             //double eDef = static_pointer_cast<Character>(enemy)->getDef();
            
 
             //fight 
             //enemy attacks with 50% chance to miss
             
-            double damage_on_player = ceil(100/(100+pDef))*eAtk;
+            double damage= ceil(100/(100+pDef))*eAtk;
+            int damage_on_player = damage;
+            
 
             bool miss = (rand() % 100) < 50;
             if (miss) {
-                td->changeAction(kind + "  missed attack. ");
+                td->changeAction(to_string(kind) + "  missed attack. ");
                 return;
             }
             string msg= "Enemy dealt " + to_string(damage_on_player) + " damage on you. ";
