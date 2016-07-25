@@ -360,35 +360,10 @@ void Grid::initGold() {
                 while (true){ 
                     dragon = rand()%8; 
                     Tile *dragonTile; 
-                    if (dragon == 0){
-                        dragonTile = temp->getParent()->getneighbor("we"); 
-                    }
-                    else if (dragon == 1){
-                        dragonTile = temp->getParent()->getneighbor("nw"); 
-                    }
-                    else if (dragon == 2){
-                        dragonTile = temp->getParent()->getneighbor("no"); 
-                    }
-                    else if (dragon == 3){
-                        dragonTile = temp->getParent()->getneighbor("ne"); 
-                    }
-                    else if (dragon == 4){
-                        dragonTile = temp->getParent()->getneighbor("ea"); 
-                    }
-                    else if (dragon == 5){
-                        dragonTile = temp->getParent()->getneighbor("se"); 
-                    }
-                    else if (dragon == 6){
-                        dragonTile = temp->getParent()->getneighbor("so"); 
-                    }
-                    else {
-                        dragonTile = temp->getParent()->getneighbor("sw"); 
-                    }
+                    dragonTile = temp->getParent()->getneighbor("false", dragon);
                     if (dragonTile->getObject()->getKind() == '.') {
                         auto temp_two = make_shared<Dragon>(Dragon(dragonTile, temp));
-                        //int dragon_row = dragonTile->getRow();
                         Board[row][col].changeO(temp);
-                        //int dragon_col = dragonTile->getColumn();
                         dragonTile->changeO(temp_two);
                         temp->updateDragon(temp_two);
                         td->update(*dragonTile);
