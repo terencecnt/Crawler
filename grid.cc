@@ -968,6 +968,8 @@ void Grid::use(string d) {
 
 
 void Grid::attack(string d) {
+    int row = player->getParent()->getRow();
+    int col = player->getParent()->getColumn();
     try {
         shared_ptr<Object> enemy;
         enemy = player->getParent()->getneighbor(d)->getObject(); //object
@@ -1022,15 +1024,25 @@ void Grid::attack(string d) {
 
             if (eHP <= 0){ //check if enemy died.
                 //check if enemy was a dragon 
-                if (kind == 'D') { 
-                    //call notify
-                    static_pointer_cast<Dragon>(enemy)->notifyGold();
-    
-                }
                 int eRow = player->getParent()->getneighbor(d)->getRow(); 
                 int eCol = player->getParent()->getneighbor(d)->getColumn(); 
+                if (kind == 'D') { 
+                    static_pointer_cast<Dragon>(enemy)->notifyGold();
+                    Board[eRow][eCol] = Tile(eRow,eCol);
+    
+                }
+                else if (kind == 'M') { 
+                    shared_ptr<merchantGold> merchGold =  make_shared<merchantGold>(merchantGold(enemy->getParent()));
+                    enemy->getParent()->changeO(merchGold);
+                    //drop merchant gold 
+                }
+                else { 
+                    player->changeGold(player->getMyGold() +1);
 
-                Board[eRow][eCol] = Tile(eRow,eCol);
+                    Board[eRow][eCol] = Tile(eRow,eCol);
+
+                }
+                //td->update(Board[row][col]);
                 td->update(Board[eRow][eCol]);
                 td->changeAction("Enemy has died");
                 return;
