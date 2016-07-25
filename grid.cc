@@ -574,8 +574,8 @@ void Grid::initPotion() {
 /*
 void Grid::initGrid(bool has_file, char type) {
     if (has_file) {
-        vector<Dragon> Dragons;
-        vector<dragonGold> Golds;
+        vector<shared_ptr<Dragon>> Dragons;
+        vector<shared_ptr<dragonGold>> Golds;
         int row = 25;
         int col = 79;
         string current;
@@ -635,14 +635,24 @@ void Grid::initGrid(bool has_file, char type) {
                     this->player = temp;
                     td->updatePlayer(temp);
                 }
-                    Board[row][col].changeO(temp);
-                    td->update(Board[row][col]);
+                Board[row][col].changeO(temp);
+                td->update(Board[row][col]);
+
+                for(auto it = Dragons.begin(); it != Dragons.end(); ++it) {
+                    for (auto it_two = Golds.begin(); it_two != Golds.end(); ++it_two) {
+                        if (it->can_be_son(*it_two)) {
+                            it->updateSon(*it_two);
+                            it_two->updateDragon(*it);
+                            Golds.erase(it_two);
+                        }
+                    }
+                }
             }
         }
     }
 }
-
 */
+
 
 
 
