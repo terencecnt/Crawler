@@ -3,7 +3,7 @@
 #include "grid.h"
 #include "object.h"
 #include <iostream>
-#include<fstream>
+#include <fstream>
 using namespace std; 
 
 
