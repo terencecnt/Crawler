@@ -689,13 +689,13 @@ void Grid::use(string d) {
             neighbourOfObj->changeO(updated_object);
             td->update(*neighbourOfObj);
             td->changeAction("Potion is used " + to_return + ". ");
+            enemyMove();
         } else {
             td->changeAction("Not a Potion");
         }
     } else {
         td->changeAction("Dead End");
     }
-    enemyMove();
 }
 
 void Grid::attack(string d) {
