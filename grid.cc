@@ -344,6 +344,7 @@ void Grid::initGold() {
                     dragonTile = temp->getParent()->getneighbor("false", dragon);
                     if (dragonTile->getObject()->getKind() == '.') {
                         auto temp_two = make_shared<Dragon>(Dragon(dragonTile, temp));
+                        enemies.emplace_back(temp_two); 
                         Board[row][col].changeO(temp);
                         dragonTile->changeO(temp_two);
                         temp->updateDragon(temp_two);
@@ -856,6 +857,9 @@ void Grid::enemyMove() {
         }
         while (true) { 
             int neighbourNum = rand()%8;
+            if (enemies[enemyNum]->getKind() == 'D') { 
+                break;
+            }
             if (enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum)->getObject()->getKind() == '.') { 
                 auto to_move_to = enemies[enemyNum]->getParent()->getneighbor("false", neighbourNum);
                 swapObject(to_move_to, enemies[enemyNum]->getParent());

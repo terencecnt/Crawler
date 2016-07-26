@@ -35,5 +35,4 @@ void dragonGold::changeStatus() {
     alive= false;
 }
 
-
 dragonGold::~dragonGold() {}
