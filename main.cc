@@ -110,7 +110,12 @@ int main (int argc, char* argv[]) {
             string temp;
             cout << "do you want to play again?(yes/no)" << endl;
             cin >> temp;
+
             if (temp == "yes" || temp == "y") {
+                if (input_exist){
+                cout << "Reload a new loadfile to play again" << endl;
+                break;
+            }
                 continue;
             } else {
                 break;
