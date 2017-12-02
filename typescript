@@ -1,0 +1,3088 @@
+Script started on Fri 01 Dec 2017 10:04:26 PM EST
+tcntsang@ubuntu1604-002:~/cs350-os161/os161-1.99$ ./run ASST3
+sys161: System/161 release 1.99.06, compiled Aug 23 2013 10:23:34
+
+OS/161 base system version 1.99.05
+Copyright (c) 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2009
+   President and Fellows of Harvard College.  All rights reserved.
+
+Terence Tsang's version 0 (ASST3 #52)
+
+1740k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+
+cpu0: MIPS r3000
+cpu1: MIPS r3000
+cpu2: MIPS r3000
+cpu3: MIPS r3000
+OS/161 kernel [? for menu]: p testbin/sort
+j is 0, i is 0, npages is 1, total is 424
+Not Being Used j is 0, i is 0, npages is 1, total is 424
+k is 0
+******
+j is 0, i is 0, npages is 3, total is 424
+J is being used 0
+j is 1, i is 1, npages is 3, total is 424
+Not Being Used j is 1, i is 1, npages is 3, total is 424
+j is 2, i is 1, npages is 3, total is 424
+Not Being Used j is 2, i is 1, npages is 3, total is 424
+j is 3, i is 1, npages is 3, total is 424
+Not Being Used j is 3, i is 1, npages is 3, total is 424
+k is 1
+k is 2
+k is 3
+******
+j is 0, i is 0, npages is 289, total is 424
+J is being used 0
+j is 1, i is 1, npages is 289, total is 424
+J is being used 1
+j is 2, i is 2, npages is 289, total is 424
+J is being used 2
+j is 3, i is 3, npages is 289, total is 424
+J is being used 3
+j is 4, i is 4, npages is 289, total is 424
+Not Being Used j is 4, i is 4, npages is 289, total is 424
+j is 5, i is 4, npages is 289, total is 424
+Not Being Used j is 5, i is 4, npages is 289, total is 424
+j is 6, i is 4, npages is 289, total is 424
+Not Being Used j is 6, i is 4, npages is 289, total is 424
+j is 7, i is 4, npages is 289, total is 424
+Not Being Used j is 7, i is 4, npages is 289, total is 424
+j is 8, i is 4, npages is 289, total is 424
+Not Being Used j is 8, i is 4, npages is 289, total is 424
+j is 9, i is 4, npages is 289, total is 424
+Not Being Used j is 9, i is 4, npages is 289, total is 424
+j is 10, i is 4, npages is 289, total is 424
+Not Being Used j is 10, i is 4, npages is 289, total is 424
+j is 11, i is 4, npages is 289, total is 424
+Not Being Used j is 11, i is 4, npages is 289, total is 424
+j is 12, i is 4, npages is 289, total is 424
+Not Being Used j is 12, i is 4, npages is 289, total is 424
+j is 13, i is 4, npages is 289, total is 424
+Not Being Used j is 13, i is 4, npages is 289, total is 424
+j is 14, i is 4, npages is 289, total is 424
+Not Being Used j is 14, i is 4, npages is 289, total is 424
+j is 15, i is 4, npages is 289, total is 424
+Not Being Used j is 15, i is 4, npages is 289, total is 424
+j is 16, i is 4, npages is 289, total is 424
+Not Being Used j is 16, i is 4, npages is 289, total is 424
+j is 17, i is 4, npages is 289, total is 424
+Not Being Used j is 17, i is 4, npages is 289, total is 424
+j is 18, i is 4, npages is 289, total is 424
+Not Being Used j is 18, i is 4, npages is 289, total is 424
+j is 19, i is 4, npages is 289, total is 424
+Not Being Used j is 19, i is 4, npages is 289, total is 424
+j is 20, i is 4, npages is 289, total is 424
+Not Being Used j is 20, i is 4, npages is 289, total is 424
+j is 21, i is 4, npages is 289, total is 424
+Not Being Used j is 21, i is 4, npages is 289, total is 424
+j is 22, i is 4, npages is 289, total is 424
+Not Being Used j is 22, i is 4, npages is 289, total is 424
+j is 23, i is 4, npages is 289, total is 424
+Not Being Used j is 23, i is 4, npages is 289, total is 424
+j is 24, i is 4, npages is 289, total is 424
+Not Being Used j is 24, i is 4, npages is 289, total is 424
+j is 25, i is 4, npages is 289, total is 424
+Not Being Used j is 25, i is 4, npages is 289, total is 424
+j is 26, i is 4, npages is 289, total is 424
+Not Being Used j is 26, i is 4, npages is 289, total is 424
+j is 27, i is 4, npages is 289, total is 424
+Not Being Used j is 27, i is 4, npages is 289, total is 424
+j is 28, i is 4, npages is 289, total is 424
+Not Being Used j is 28, i is 4, npages is 289, total is 424
+j is 29, i is 4, npages is 289, total is 424
+Not Being Used j is 29, i is 4, npages is 289, total is 424
+j is 30, i is 4, npages is 289, total is 424
+Not Being Used j is 30, i is 4, npages is 289, total is 424
+j is 31, i is 4, npages is 289, total is 424
+Not Being Used j is 31, i is 4, npages is 289, total is 424
+j is 32, i is 4, npages is 289, total is 424
+Not Being Used j is 32, i is 4, npages is 289, total is 424
+j is 33, i is 4, npages is 289, total is 424
+Not Being Used j is 33, i is 4, npages is 289, total is 424
+j is 34, i is 4, npages is 289, total is 424
+Not Being Used j is 34, i is 4, npages is 289, total is 424
+j is 35, i is 4, npages is 289, total is 424
+Not Being Used j is 35, i is 4, npages is 289, total is 424
+j is 36, i is 4, npages is 289, total is 424
+Not Being Used j is 36, i is 4, npages is 289, total is 424
+j is 37, i is 4, npages is 289, total is 424
+Not Being Used j is 37, i is 4, npages is 289, total is 424
+j is 38, i is 4, npages is 289, total is 424
+Not Being Used j is 38, i is 4, npages is 289, total is 424
+j is 39, i is 4, npages is 289, total is 424
+Not Being Used j is 39, i is 4, npages is 289, total is 424
+j is 40, i is 4, npages is 289, total is 424
+Not Being Used j is 40, i is 4, npages is 289, total is 424
+j is 41, i is 4, npages is 289, total is 424
+Not Being Used j is 41, i is 4, npages is 289, total is 424
+j is 42, i is 4, npages is 289, total is 424
+Not Being Used j is 42, i is 4, npages is 289, total is 424
+j is 43, i is 4, npages is 289, total is 424
+Not Being Used j is 43, i is 4, npages is 289, total is 424
+j is 44, i is 4, npages is 289, total is 424
+Not Being Used j is 44, i is 4, npages is 289, total is 424
+j is 45, i is 4, npages is 289, total is 424
+Not Being Used j is 45, i is 4, npages is 289, total is 424
+j is 46, i is 4, npages is 289, total is 424
+Not Being Used j is 46, i is 4, npages is 289, total is 424
+j is 47, i is 4, npages is 289, total is 424
+Not Being Used j is 47, i is 4, npages is 289, total is 424
+j is 48, i is 4, npages is 289, total is 424
+Not Being Used j is 48, i is 4, npages is 289, total is 424
+j is 49, i is 4, npages is 289, total is 424
+Not Being Used j is 49, i is 4, npages is 289, total is 424
+j is 50, i is 4, npages is 289, total is 424
+Not Being Used j is 50, i is 4, npages is 289, total is 424
+j is 51, i is 4, npages is 289, total is 424
+Not Being Used j is 51, i is 4, npages is 289, total is 424
+j is 52, i is 4, npages is 289, total is 424
+Not Being Used j is 52, i is 4, npages is 289, total is 424
+j is 53, i is 4, npages is 289, total is 424
+Not Being Used j is 53, i is 4, npages is 289, total is 424
+j is 54, i is 4, npages is 289, total is 424
+Not Being Used j is 54, i is 4, npages is 289, total is 424
+j is 55, i is 4, npages is 289, total is 424
+Not Being Used j is 55, i is 4, npages is 289, total is 424
+j is 56, i is 4, npages is 289, total is 424
+Not Being Used j is 56, i is 4, npages is 289, total is 424
+j is 57, i is 4, npages is 289, total is 424
+Not Being Used j is 57, i is 4, npages is 289, total is 424
+j is 58, i is 4, npages is 289, total is 424
+Not Being Used j is 58, i is 4, npages is 289, total is 424
+j is 59, i is 4, npages is 289, total is 424
+Not Being Used j is 59, i is 4, npages is 289, total is 424
+j is 60, i is 4, npages is 289, total is 424
+Not Being Used j is 60, i is 4, npages is 289, total is 424
+j is 61, i is 4, npages is 289, total is 424
+Not Being Used j is 61, i is 4, npages is 289, total is 424
+j is 62, i is 4, npages is 289, total is 424
+Not Being Used j is 62, i is 4, npages is 289, total is 424
+j is 63, i is 4, npages is 289, total is 424
+Not Being Used j is 63, i is 4, npages is 289, total is 424
+j is 64, i is 4, npages is 289, total is 424
+Not Being Used j is 64, i is 4, npages is 289, total is 424
+j is 65, i is 4, npages is 289, total is 424
+Not Being Used j is 65, i is 4, npages is 289, total is 424
+j is 66, i is 4, npages is 289, total is 424
+Not Being Used j is 66, i is 4, npages is 289, total is 424
+j is 67, i is 4, npages is 289, total is 424
+Not Being Used j is 67, i is 4, npages is 289, total is 424
+j is 68, i is 4, npages is 289, total is 424
+Not Being Used j is 68, i is 4, npages is 289, total is 424
+j is 69, i is 4, npages is 289, total is 424
+Not Being Used j is 69, i is 4, npages is 289, total is 424
+j is 70, i is 4, npages is 289, total is 424
+Not Being Used j is 70, i is 4, npages is 289, total is 424
+j is 71, i is 4, npages is 289, total is 424
+Not Being Used j is 71, i is 4, npages is 289, total is 424
+j is 72, i is 4, npages is 289, total is 424
+Not Being Used j is 72, i is 4, npages is 289, total is 424
+j is 73, i is 4, npages is 289, total is 424
+Not Being Used j is 73, i is 4, npages is 289, total is 424
+j is 74, i is 4, npages is 289, total is 424
+Not Being Used j is 74, i is 4, npages is 289, total is 424
+j is 75, i is 4, npages is 289, total is 424
+Not Being Used j is 75, i is 4, npages is 289, total is 424
+j is 76, i is 4, npages is 289, total is 424
+Not Being Used j is 76, i is 4, npages is 289, total is 424
+j is 77, i is 4, npages is 289, total is 424
+Not Being Used j is 77, i is 4, npages is 289, total is 424
+j is 78, i is 4, npages is 289, total is 424
+Not Being Used j is 78, i is 4, npages is 289, total is 424
+j is 79, i is 4, npages is 289, total is 424
+Not Being Used j is 79, i is 4, npages is 289, total is 424
+j is 80, i is 4, npages is 289, total is 424
+Not Being Used j is 80, i is 4, npages is 289, total is 424
+j is 81, i is 4, npages is 289, total is 424
+Not Being Used j is 81, i is 4, npages is 289, total is 424
+j is 82, i is 4, npages is 289, total is 424
+Not Being Used j is 82, i is 4, npages is 289, total is 424
+j is 83, i is 4, npages is 289, total is 424
+Not Being Used j is 83, i is 4, npages is 289, total is 424
+j is 84, i is 4, npages is 289, total is 424
+Not Being Used j is 84, i is 4, npages is 289, total is 424
+j is 85, i is 4, npages is 289, total is 424
+Not Being Used j is 85, i is 4, npages is 289, total is 424
+j is 86, i is 4, npages is 289, total is 424
+Not Being Used j is 86, i is 4, npages is 289, total is 424
+j is 87, i is 4, npages is 289, total is 424
+Not Being Used j is 87, i is 4, npages is 289, total is 424
+j is 88, i is 4, npages is 289, total is 424
+Not Being Used j is 88, i is 4, npages is 289, total is 424
+j is 89, i is 4, npages is 289, total is 424
+Not Being Used j is 89, i is 4, npages is 289, total is 424
+j is 90, i is 4, npages is 289, total is 424
+Not Being Used j is 90, i is 4, npages is 289, total is 424
+j is 91, i is 4, npages is 289, total is 424
+Not Being Used j is 91, i is 4, npages is 289, total is 424
+j is 92, i is 4, npages is 289, total is 424
+Not Being Used j is 92, i is 4, npages is 289, total is 424
+j is 93, i is 4, npages is 289, total is 424
+Not Being Used j is 93, i is 4, npages is 289, total is 424
+j is 94, i is 4, npages is 289, total is 424
+Not Being Used j is 94, i is 4, npages is 289, total is 424
+j is 95, i is 4, npages is 289, total is 424
+Not Being Used j is 95, i is 4, npages is 289, total is 424
+j is 96, i is 4, npages is 289, total is 424
+Not Being Used j is 96, i is 4, npages is 289, total is 424
+j is 97, i is 4, npages is 289, total is 424
+Not Being Used j is 97, i is 4, npages is 289, total is 424
+j is 98, i is 4, npages is 289, total is 424
+Not Being Used j is 98, i is 4, npages is 289, total is 424
+j is 99, i is 4, npages is 289, total is 424
+Not Being Used j is 99, i is 4, npages is 289, total is 424
+j is 100, i is 4, npages is 289, total is 424
+Not Being Used j is 100, i is 4, npages is 289, total is 424
+j is 101, i is 4, npages is 289, total is 424
+Not Being Used j is 101, i is 4, npages is 289, total is 424
+j is 102, i is 4, npages is 289, total is 424
+Not Being Used j is 102, i is 4, npages is 289, total is 424
+j is 103, i is 4, npages is 289, total is 424
+Not Being Used j is 103, i is 4, npages is 289, total is 424
+j is 104, i is 4, npages is 289, total is 424
+Not Being Used j is 104, i is 4, npages is 289, total is 424
+j is 105, i is 4, npages is 289, total is 424
+Not Being Used j is 105, i is 4, npages is 289, total is 424
+j is 106, i is 4, npages is 289, total is 424
+Not Being Used j is 106, i is 4, npages is 289, total is 424
+j is 107, i is 4, npages is 289, total is 424
+Not Being Used j is 107, i is 4, npages is 289, total is 424
+j is 108, i is 4, npages is 289, total is 424
+Not Being Used j is 108, i is 4, npages is 289, total is 424
+j is 109, i is 4, npages is 289, total is 424
+Not Being Used j is 109, i is 4, npages is 289, total is 424
+j is 110, i is 4, npages is 289, total is 424
+Not Being Used j is 110, i is 4, npages is 289, total is 424
+j is 111, i is 4, npages is 289, total is 424
+Not Being Used j is 111, i is 4, npages is 289, total is 424
+j is 112, i is 4, npages is 289, total is 424
+Not Being Used j is 112, i is 4, npages is 289, total is 424
+j is 113, i is 4, npages is 289, total is 424
+Not Being Used j is 113, i is 4, npages is 289, total is 424
+j is 114, i is 4, npages is 289, total is 424
+Not Being Used j is 114, i is 4, npages is 289, total is 424
+j is 115, i is 4, npages is 289, total is 424
+Not Being Used j is 115, i is 4, npages is 289, total is 424
+j is 116, i is 4, npages is 289, total is 424
+Not Being Used j is 116, i is 4, npages is 289, total is 424
+j is 117, i is 4, npages is 289, total is 424
+Not Being Used j is 117, i is 4, npages is 289, total is 424
+j is 118, i is 4, npages is 289, total is 424
+Not Being Used j is 118, i is 4, npages is 289, total is 424
+j is 119, i is 4, npages is 289, total is 424
+Not Being Used j is 119, i is 4, npages is 289, total is 424
+j is 120, i is 4, npages is 289, total is 424
+Not Being Used j is 120, i is 4, npages is 289, total is 424
+j is 121, i is 4, npages is 289, total is 424
+Not Being Used j is 121, i is 4, npages is 289, total is 424
+j is 122, i is 4, npages is 289, total is 424
+Not Being Used j is 122, i is 4, npages is 289, total is 424
+j is 123, i is 4, npages is 289, total is 424
+Not Being Used j is 123, i is 4, npages is 289, total is 424
+j is 124, i is 4, npages is 289, total is 424
+Not Being Used j is 124, i is 4, npages is 289, total is 424
+j is 125, i is 4, npages is 289, total is 424
+Not Being Used j is 125, i is 4, npages is 289, total is 424
+j is 126, i is 4, npages is 289, total is 424
+Not Being Used j is 126, i is 4, npages is 289, total is 424
+j is 127, i is 4, npages is 289, total is 424
+Not Being Used j is 127, i is 4, npages is 289, total is 424
+j is 128, i is 4, npages is 289, total is 424
+Not Being Used j is 128, i is 4, npages is 289, total is 424
+j is 129, i is 4, npages is 289, total is 424
+Not Being Used j is 129, i is 4, npages is 289, total is 424
+j is 130, i is 4, npages is 289, total is 424
+Not Being Used j is 130, i is 4, npages is 289, total is 424
+j is 131, i is 4, npages is 289, total is 424
+Not Being Used j is 131, i is 4, npages is 289, total is 424
+j is 132, i is 4, npages is 289, total is 424
+Not Being Used j is 132, i is 4, npages is 289, total is 424
+j is 133, i is 4, npages is 289, total is 424
+Not Being Used j is 133, i is 4, npages is 289, total is 424
+j is 134, i is 4, npages is 289, total is 424
+Not Being Used j is 134, i is 4, npages is 289, total is 424
+j is 135, i is 4, npages is 289, total is 424
+Not Being Used j is 135, i is 4, npages is 289, total is 424
+j is 136, i is 4, npages is 289, total is 424
+Not Being Used j is 136, i is 4, npages is 289, total is 424
+j is 137, i is 4, npages is 289, total is 424
+Not Being Used j is 137, i is 4, npages is 289, total is 424
+j is 138, i is 4, npages is 289, total is 424
+Not Being Used j is 138, i is 4, npages is 289, total is 424
+j is 139, i is 4, npages is 289, total is 424
+Not Being Used j is 139, i is 4, npages is 289, total is 424
+j is 140, i is 4, npages is 289, total is 424
+Not Being Used j is 140, i is 4, npages is 289, total is 424
+j is 141, i is 4, npages is 289, total is 424
+Not Being Used j is 141, i is 4, npages is 289, total is 424
+j is 142, i is 4, npages is 289, total is 424
+Not Being Used j is 142, i is 4, npages is 289, total is 424
+j is 143, i is 4, npages is 289, total is 424
+Not Being Used j is 143, i is 4, npages is 289, total is 424
+j is 144, i is 4, npages is 289, total is 424
+Not Being Used j is 144, i is 4, npages is 289, total is 424
+j is 145, i is 4, npages is 289, total is 424
+Not Being Used j is 145, i is 4, npages is 289, total is 424
+j is 146, i is 4, npages is 289, total is 424
+Not Being Used j is 146, i is 4, npages is 289, total is 424
+j is 147, i is 4, npages is 289, total is 424
+Not Being Used j is 147, i is 4, npages is 289, total is 424
+j is 148, i is 4, npages is 289, total is 424
+Not Being Used j is 148, i is 4, npages is 289, total is 424
+j is 149, i is 4, npages is 289, total is 424
+Not Being Used j is 149, i is 4, npages is 289, total is 424
+j is 150, i is 4, npages is 289, total is 424
+Not Being Used j is 150, i is 4, npages is 289, total is 424
+j is 151, i is 4, npages is 289, total is 424
+Not Being Used j is 151, i is 4, npages is 289, total is 424
+j is 152, i is 4, npages is 289, total is 424
+Not Being Used j is 152, i is 4, npages is 289, total is 424
+j is 153, i is 4, npages is 289, total is 424
+Not Being Used j is 153, i is 4, npages is 289, total is 424
+j is 154, i is 4, npages is 289, total is 424
+Not Being Used j is 154, i is 4, npages is 289, total is 424
+j is 155, i is 4, npages is 289, total is 424
+Not Being Used j is 155, i is 4, npages is 289, total is 424
+j is 156, i is 4, npages is 289, total is 424
+Not Being Used j is 156, i is 4, npages is 289, total is 424
+j is 157, i is 4, npages is 289, total is 424
+Not Being Used j is 157, i is 4, npages is 289, total is 424
+j is 158, i is 4, npages is 289, total is 424
+Not Being Used j is 158, i is 4, npages is 289, total is 424
+j is 159, i is 4, npages is 289, total is 424
+Not Being Used j is 159, i is 4, npages is 289, total is 424
+j is 160, i is 4, npages is 289, total is 424
+Not Being Used j is 160, i is 4, npages is 289, total is 424
+j is 161, i is 4, npages is 289, total is 424
+Not Being Used j is 161, i is 4, npages is 289, total is 424
+j is 162, i is 4, npages is 289, total is 424
+Not Being Used j is 162, i is 4, npages is 289, total is 424
+j is 163, i is 4, npages is 289, total is 424
+Not Being Used j is 163, i is 4, npages is 289, total is 424
+j is 164, i is 4, npages is 289, total is 424
+Not Being Used j is 164, i is 4, npages is 289, total is 424
+j is 165, i is 4, npages is 289, total is 424
+Not Being Used j is 165, i is 4, npages is 289, total is 424
+j is 166, i is 4, npages is 289, total is 424
+Not Being Used j is 166, i is 4, npages is 289, total is 424
+j is 167, i is 4, npages is 289, total is 424
+Not Being Used j is 167, i is 4, npages is 289, total is 424
+j is 168, i is 4, npages is 289, total is 424
+Not Being Used j is 168, i is 4, npages is 289, total is 424
+j is 169, i is 4, npages is 289, total is 424
+Not Being Used j is 169, i is 4, npages is 289, total is 424
+j is 170, i is 4, npages is 289, total is 424
+Not Being Used j is 170, i is 4, npages is 289, total is 424
+j is 171, i is 4, npages is 289, total is 424
+Not Being Used j is 171, i is 4, npages is 289, total is 424
+j is 172, i is 4, npages is 289, total is 424
+Not Being Used j is 172, i is 4, npages is 289, total is 424
+j is 173, i is 4, npages is 289, total is 424
+Not Being Used j is 173, i is 4, npages is 289, total is 424
+j is 174, i is 4, npages is 289, total is 424
+Not Being Used j is 174, i is 4, npages is 289, total is 424
+j is 175, i is 4, npages is 289, total is 424
+Not Being Used j is 175, i is 4, npages is 289, total is 424
+j is 176, i is 4, npages is 289, total is 424
+Not Being Used j is 176, i is 4, npages is 289, total is 424
+j is 177, i is 4, npages is 289, total is 424
+Not Being Used j is 177, i is 4, npages is 289, total is 424
+j is 178, i is 4, npages is 289, total is 424
+Not Being Used j is 178, i is 4, npages is 289, total is 424
+j is 179, i is 4, npages is 289, total is 424
+Not Being Used j is 179, i is 4, npages is 289, total is 424
+j is 180, i is 4, npages is 289, total is 424
+Not Being Used j is 180, i is 4, npages is 289, total is 424
+j is 181, i is 4, npages is 289, total is 424
+Not Being Used j is 181, i is 4, npages is 289, total is 424
+j is 182, i is 4, npages is 289, total is 424
+Not Being Used j is 182, i is 4, npages is 289, total is 424
+j is 183, i is 4, npages is 289, total is 424
+Not Being Used j is 183, i is 4, npages is 289, total is 424
+j is 184, i is 4, npages is 289, total is 424
+Not Being Used j is 184, i is 4, npages is 289, total is 424
+j is 185, i is 4, npages is 289, total is 424
+Not Being Used j is 185, i is 4, npages is 289, total is 424
+j is 186, i is 4, npages is 289, total is 424
+Not Being Used j is 186, i is 4, npages is 289, total is 424
+j is 187, i is 4, npages is 289, total is 424
+Not Being Used j is 187, i is 4, npages is 289, total is 424
+j is 188, i is 4, npages is 289, total is 424
+Not Being Used j is 188, i is 4, npages is 289, total is 424
+j is 189, i is 4, npages is 289, total is 424
+Not Being Used j is 189, i is 4, npages is 289, total is 424
+j is 190, i is 4, npages is 289, total is 424
+Not Being Used j is 190, i is 4, npages is 289, total is 424
+j is 191, i is 4, npages is 289, total is 424
+Not Being Used j is 191, i is 4, npages is 289, total is 424
+j is 192, i is 4, npages is 289, total is 424
+Not Being Used j is 192, i is 4, npages is 289, total is 424
+j is 193, i is 4, npages is 289, total is 424
+Not Being Used j is 193, i is 4, npages is 289, total is 424
+j is 194, i is 4, npages is 289, total is 424
+Not Being Used j is 194, i is 4, npages is 289, total is 424
+j is 195, i is 4, npages is 289, total is 424
+Not Being Used j is 195, i is 4, npages is 289, total is 424
+j is 196, i is 4, npages is 289, total is 424
+Not Being Used j is 196, i is 4, npages is 289, total is 424
+j is 197, i is 4, npages is 289, total is 424
+Not Being Used j is 197, i is 4, npages is 289, total is 424
+j is 198, i is 4, npages is 289, total is 424
+Not Being Used j is 198, i is 4, npages is 289, total is 424
+j is 199, i is 4, npages is 289, total is 424
+Not Being Used j is 199, i is 4, npages is 289, total is 424
+j is 200, i is 4, npages is 289, total is 424
+Not Being Used j is 200, i is 4, npages is 289, total is 424
+j is 201, i is 4, npages is 289, total is 424
+Not Being Used j is 201, i is 4, npages is 289, total is 424
+j is 202, i is 4, npages is 289, total is 424
+Not Being Used j is 202, i is 4, npages is 289, total is 424
+j is 203, i is 4, npages is 289, total is 424
+Not Being Used j is 203, i is 4, npages is 289, total is 424
+j is 204, i is 4, npages is 289, total is 424
+Not Being Used j is 204, i is 4, npages is 289, total is 424
+j is 205, i is 4, npages is 289, total is 424
+Not Being Used j is 205, i is 4, npages is 289, total is 424
+j is 206, i is 4, npages is 289, total is 424
+Not Being Used j is 206, i is 4, npages is 289, total is 424
+j is 207, i is 4, npages is 289, total is 424
+Not Being Used j is 207, i is 4, npages is 289, total is 424
+j is 208, i is 4, npages is 289, total is 424
+Not Being Used j is 208, i is 4, npages is 289, total is 424
+j is 209, i is 4, npages is 289, total is 424
+Not Being Used j is 209, i is 4, npages is 289, total is 424
+j is 210, i is 4, npages is 289, total is 424
+Not Being Used j is 210, i is 4, npages is 289, total is 424
+j is 211, i is 4, npages is 289, total is 424
+Not Being Used j is 211, i is 4, npages is 289, total is 424
+j is 212, i is 4, npages is 289, total is 424
+Not Being Used j is 212, i is 4, npages is 289, total is 424
+j is 213, i is 4, npages is 289, total is 424
+Not Being Used j is 213, i is 4, npages is 289, total is 424
+j is 214, i is 4, npages is 289, total is 424
+Not Being Used j is 214, i is 4, npages is 289, total is 424
+j is 215, i is 4, npages is 289, total is 424
+Not Being Used j is 215, i is 4, npages is 289, total is 424
+j is 216, i is 4, npages is 289, total is 424
+Not Being Used j is 216, i is 4, npages is 289, total is 424
+j is 217, i is 4, npages is 289, total is 424
+Not Being Used j is 217, i is 4, npages is 289, total is 424
+j is 218, i is 4, npages is 289, total is 424
+Not Being Used j is 218, i is 4, npages is 289, total is 424
+j is 219, i is 4, npages is 289, total is 424
+Not Being Used j is 219, i is 4, npages is 289, total is 424
+j is 220, i is 4, npages is 289, total is 424
+Not Being Used j is 220, i is 4, npages is 289, total is 424
+j is 221, i is 4, npages is 289, total is 424
+Not Being Used j is 221, i is 4, npages is 289, total is 424
+j is 222, i is 4, npages is 289, total is 424
+Not Being Used j is 222, i is 4, npages is 289, total is 424
+j is 223, i is 4, npages is 289, total is 424
+Not Being Used j is 223, i is 4, npages is 289, total is 424
+j is 224, i is 4, npages is 289, total is 424
+Not Being Used j is 224, i is 4, npages is 289, total is 424
+j is 225, i is 4, npages is 289, total is 424
+Not Being Used j is 225, i is 4, npages is 289, total is 424
+j is 226, i is 4, npages is 289, total is 424
+Not Being Used j is 226, i is 4, npages is 289, total is 424
+j is 227, i is 4, npages is 289, total is 424
+Not Being Used j is 227, i is 4, npages is 289, total is 424
+j is 228, i is 4, npages is 289, total is 424
+Not Being Used j is 228, i is 4, npages is 289, total is 424
+j is 229, i is 4, npages is 289, total is 424
+Not Being Used j is 229, i is 4, npages is 289, total is 424
+j is 230, i is 4, npages is 289, total is 424
+Not Being Used j is 230, i is 4, npages is 289, total is 424
+j is 231, i is 4, npages is 289, total is 424
+Not Being Used j is 231, i is 4, npages is 289, total is 424
+j is 232, i is 4, npages is 289, total is 424
+Not Being Used j is 232, i is 4, npages is 289, total is 424
+j is 233, i is 4, npages is 289, total is 424
+Not Being Used j is 233, i is 4, npages is 289, total is 424
+j is 234, i is 4, npages is 289, total is 424
+Not Being Used j is 234, i is 4, npages is 289, total is 424
+j is 235, i is 4, npages is 289, total is 424
+Not Being Used j is 235, i is 4, npages is 289, total is 424
+j is 236, i is 4, npages is 289, total is 424
+Not Being Used j is 236, i is 4, npages is 289, total is 424
+j is 237, i is 4, npages is 289, total is 424
+Not Being Used j is 237, i is 4, npages is 289, total is 424
+j is 238, i is 4, npages is 289, total is 424
+Not Being Used j is 238, i is 4, npages is 289, total is 424
+j is 239, i is 4, npages is 289, total is 424
+Not Being Used j is 239, i is 4, npages is 289, total is 424
+j is 240, i is 4, npages is 289, total is 424
+Not Being Used j is 240, i is 4, npages is 289, total is 424
+j is 241, i is 4, npages is 289, total is 424
+Not Being Used j is 241, i is 4, npages is 289, total is 424
+j is 242, i is 4, npages is 289, total is 424
+Not Being Used j is 242, i is 4, npages is 289, total is 424
+j is 243, i is 4, npages is 289, total is 424
+Not Being Used j is 243, i is 4, npages is 289, total is 424
+j is 244, i is 4, npages is 289, total is 424
+Not Being Used j is 244, i is 4, npages is 289, total is 424
+j is 245, i is 4, npages is 289, total is 424
+Not Being Used j is 245, i is 4, npages is 289, total is 424
+j is 246, i is 4, npages is 289, total is 424
+Not Being Used j is 246, i is 4, npages is 289, total is 424
+j is 247, i is 4, npages is 289, total is 424
+Not Being Used j is 247, i is 4, npages is 289, total is 424
+j is 248, i is 4, npages is 289, total is 424
+Not Being Used j is 248, i is 4, npages is 289, total is 424
+j is 249, i is 4, npages is 289, total is 424
+Not Being Used j is 249, i is 4, npages is 289, total is 424
+j is 250, i is 4, npages is 289, total is 424
+Not Being Used j is 250, i is 4, npages is 289, total is 424
+j is 251, i is 4, npages is 289, total is 424
+Not Being Used j is 251, i is 4, npages is 289, total is 424
+j is 252, i is 4, npages is 289, total is 424
+Not Being Used j is 252, i is 4, npages is 289, total is 424
+j is 253, i is 4, npages is 289, total is 424
+Not Being Used j is 253, i is 4, npages is 289, total is 424
+j is 254, i is 4, npages is 289, total is 424
+Not Being Used j is 254, i is 4, npages is 289, total is 424
+j is 255, i is 4, npages is 289, total is 424
+Not Being Used j is 255, i is 4, npages is 289, total is 424
+j is 256, i is 4, npages is 289, total is 424
+Not Being Used j is 256, i is 4, npages is 289, total is 424
+j is 257, i is 4, npages is 289, total is 424
+Not Being Used j is 257, i is 4, npages is 289, total is 424
+j is 258, i is 4, npages is 289, total is 424
+Not Being Used j is 258, i is 4, npages is 289, total is 424
+j is 259, i is 4, npages is 289, total is 424
+Not Being Used j is 259, i is 4, npages is 289, total is 424
+j is 260, i is 4, npages is 289, total is 424
+Not Being Used j is 260, i is 4, npages is 289, total is 424
+j is 261, i is 4, npages is 289, total is 424
+Not Being Used j is 261, i is 4, npages is 289, total is 424
+j is 262, i is 4, npages is 289, total is 424
+Not Being Used j is 262, i is 4, npages is 289, total is 424
+j is 263, i is 4, npages is 289, total is 424
+Not Being Used j is 263, i is 4, npages is 289, total is 424
+j is 264, i is 4, npages is 289, total is 424
+Not Being Used j is 264, i is 4, npages is 289, total is 424
+j is 265, i is 4, npages is 289, total is 424
+Not Being Used j is 265, i is 4, npages is 289, total is 424
+j is 266, i is 4, npages is 289, total is 424
+Not Being Used j is 266, i is 4, npages is 289, total is 424
+j is 267, i is 4, npages is 289, total is 424
+Not Being Used j is 267, i is 4, npages is 289, total is 424
+j is 268, i is 4, npages is 289, total is 424
+Not Being Used j is 268, i is 4, npages is 289, total is 424
+j is 269, i is 4, npages is 289, total is 424
+Not Being Used j is 269, i is 4, npages is 289, total is 424
+j is 270, i is 4, npages is 289, total is 424
+Not Being Used j is 270, i is 4, npages is 289, total is 424
+j is 271, i is 4, npages is 289, total is 424
+Not Being Used j is 271, i is 4, npages is 289, total is 424
+j is 272, i is 4, npages is 289, total is 424
+Not Being Used j is 272, i is 4, npages is 289, total is 424
+j is 273, i is 4, npages is 289, total is 424
+Not Being Used j is 273, i is 4, npages is 289, total is 424
+j is 274, i is 4, npages is 289, total is 424
+Not Being Used j is 274, i is 4, npages is 289, total is 424
+j is 275, i is 4, npages is 289, total is 424
+Not Being Used j is 275, i is 4, npages is 289, total is 424
+j is 276, i is 4, npages is 289, total is 424
+Not Being Used j is 276, i is 4, npages is 289, total is 424
+j is 277, i is 4, npages is 289, total is 424
+Not Being Used j is 277, i is 4, npages is 289, total is 424
+j is 278, i is 4, npages is 289, total is 424
+Not Being Used j is 278, i is 4, npages is 289, total is 424
+j is 279, i is 4, npages is 289, total is 424
+Not Being Used j is 279, i is 4, npages is 289, total is 424
+j is 280, i is 4, npages is 289, total is 424
+Not Being Used j is 280, i is 4, npages is 289, total is 424
+j is 281, i is 4, npages is 289, total is 424
+Not Being Used j is 281, i is 4, npages is 289, total is 424
+j is 282, i is 4, npages is 289, total is 424
+Not Being Used j is 282, i is 4, npages is 289, total is 424
+j is 283, i is 4, npages is 289, total is 424
+Not Being Used j is 283, i is 4, npages is 289, total is 424
+j is 284, i is 4, npages is 289, total is 424
+Not Being Used j is 284, i is 4, npages is 289, total is 424
+j is 285, i is 4, npages is 289, total is 424
+Not Being Used j is 285, i is 4, npages is 289, total is 424
+j is 286, i is 4, npages is 289, total is 424
+Not Being Used j is 286, i is 4, npages is 289, total is 424
+j is 287, i is 4, npages is 289, total is 424
+Not Being Used j is 287, i is 4, npages is 289, total is 424
+j is 288, i is 4, npages is 289, total is 424
+Not Being Used j is 288, i is 4, npages is 289, total is 424
+j is 289, i is 4, npages is 289, total is 424
+Not Being Used j is 289, i is 4, npages is 289, total is 424
+j is 290, i is 4, npages is 289, total is 424
+Not Being Used j is 290, i is 4, npages is 289, total is 424
+j is 291, i is 4, npages is 289, total is 424
+Not Being Used j is 291, i is 4, npages is 289, total is 424
+j is 292, i is 4, npages is 289, total is 424
+Not Being Used j is 292, i is 4, npages is 289, total is 424
+k is 4
+k is 5
+k is 6
+k is 7
+k is 8
+k is 9
+k is 10
+k is 11
+k is 12
+k is 13
+k is 14
+k is 15
+k is 16
+k is 17
+k is 18
+k is 19
+k is 20
+k is 21
+k is 22
+k is 23
+k is 24
+k is 25
+k is 26
+k is 27
+k is 28
+k is 29
+k is 30
+k is 31
+k is 32
+k is 33
+k is 34
+k is 35
+k is 36
+k is 37
+k is 38
+k is 39
+k is 40
+k is 41
+k is 42
+k is 43
+k is 44
+k is 45
+k is 46
+k is 47
+k is 48
+k is 49
+k is 50
+k is 51
+k is 52
+k is 53
+k is 54
+k is 55
+k is 56
+k is 57
+k is 58
+k is 59
+k is 60
+k is 61
+k is 62
+k is 63
+k is 64
+k is 65
+k is 66
+k is 67
+k is 68
+k is 69
+k is 70
+k is 71
+k is 72
+k is 73
+k is 74
+k is 75
+k is 76
+k is 77
+k is 78
+k is 79
+k is 80
+k is 81
+k is 82
+k is 83
+k is 84
+k is 85
+k is 86
+k is 87
+k is 88
+k is 89
+k is 90
+k is 91
+k is 92
+k is 93
+k is 94
+k is 95
+k is 96
+k is 97
+k is 98
+k is 99
+k is 100
+k is 101
+k is 102
+k is 103
+k is 104
+k is 105
+k is 106
+k is 107
+k is 108
+k is 109
+k is 110
+k is 111
+k is 112
+k is 113
+k is 114
+k is 115
+k is 116
+k is 117
+k is 118
+k is 119
+k is 120
+k is 121
+k is 122
+k is 123
+k is 124
+k is 125
+k is 126
+k is 127
+k is 128
+k is 129
+k is 130
+k is 131
+k is 132
+k is 133
+k is 134
+k is 135
+k is 136
+k is 137
+k is 138
+k is 139
+k is 140
+k is 141
+k is 142
+k is 143
+k is 144
+k is 145
+k is 146
+k is 147
+k is 148
+k is 149
+k is 150
+k is 151
+k is 152
+k is 153
+k is 154
+k is 155
+k is 156
+k is 157
+k is 158
+k is 159
+k is 160
+k is 161
+k is 162
+k is 163
+k is 164
+k is 165
+k is 166
+k is 167
+k is 168
+k is 169
+k is 170
+k is 171
+k is 172
+k is 173
+k is 174
+k is 175
+k is 176
+k is 177
+k is 178
+k is 179
+k is 180
+k is 181
+k is 182
+k is 183
+k is 184
+k is 185
+k is 186
+k is 187
+k is 188
+k is 189
+k is 190
+k is 191
+k is 192
+k is 193
+k is 194
+k is 195
+k is 196
+k is 197
+k is 198
+k is 199
+k is 200
+k is 201
+k is 202
+k is 203
+k is 204
+k is 205
+k is 206
+k is 207
+k is 208
+k is 209
+k is 210
+k is 211
+k is 212
+k is 213
+k is 214
+k is 215
+k is 216
+k is 217
+k is 218
+k is 219
+k is 220
+k is 221
+k is 222
+k is 223
+k is 224
+k is 225
+k is 226
+k is 227
+k is 228
+k is 229
+k is 230
+k is 231
+k is 232
+k is 233
+k is 234
+k is 235
+k is 236
+k is 237
+k is 238
+k is 239
+k is 240
+k is 241
+k is 242
+k is 243
+k is 244
+k is 245
+k is 246
+k is 247
+k is 248
+k is 249
+k is 250
+k is 251
+k is 252
+k is 253
+k is 254
+k is 255
+k is 256
+k is 257
+k is 258
+k is 259
+k is 260
+k is 261
+k is 262
+k is 263
+k is 264
+k is 265
+k is 266
+k is 267
+k is 268
+k is 269
+k is 270
+k is 271
+k is 272
+k is 273
+k is 274
+k is 275
+k is 276
+k is 277
+k is 278
+k is 279
+k is 280
+k is 281
+k is 282
+k is 283
+k is 284
+k is 285
+k is 286
+k is 287
+k is 288
+k is 289
+k is 290
+k is 291
+k is 292
+******
+j is 0, i is 0, npages is 12, total is 424
+J is being used 0
+j is 1, i is 1, npages is 12, total is 424
+J is being used 1
+j is 2, i is 2, npages is 12, total is 424
+J is being used 2
+j is 3, i is 3, npages is 12, total is 424
+J is being used 3
+j is 4, i is 4, npages is 12, total is 424
+J is being used 4
+j is 5, i is 5, npages is 12, total is 424
+J is being used 5
+j is 6, i is 6, npages is 12, total is 424
+J is being used 6
+j is 7, i is 7, npages is 12, total is 424
+J is being used 7
+j is 8, i is 8, npages is 12, total is 424
+J is being used 8
+j is 9, i is 9, npages is 12, total is 424
+J is being used 9
+j is 10, i is 10, npages is 12, total is 424
+J is being used 10
+j is 11, i is 11, npages is 12, total is 424
+J is being used 11
+j is 12, i is 12, npages is 12, total is 424
+J is being used 12
+j is 13, i is 13, npages is 12, total is 424
+J is being used 13
+j is 14, i is 14, npages is 12, total is 424
+J is being used 14
+j is 15, i is 15, npages is 12, total is 424
+J is being used 15
+j is 16, i is 16, npages is 12, total is 424
+J is being used 16
+j is 17, i is 17, npages is 12, total is 424
+J is being used 17
+j is 18, i is 18, npages is 12, total is 424
+J is being used 18
+j is 19, i is 19, npages is 12, total is 424
+J is being used 19
+j is 20, i is 20, npages is 12, total is 424
+J is being used 20
+j is 21, i is 21, npages is 12, total is 424
+J is being used 21
+j is 22, i is 22, npages is 12, total is 424
+J is being used 22
+j is 23, i is 23, npages is 12, total is 424
+J is being used 23
+j is 24, i is 24, npages is 12, total is 424
+J is being used 24
+j is 25, i is 25, npages is 12, total is 424
+J is being used 25
+j is 26, i is 26, npages is 12, total is 424
+J is being used 26
+j is 27, i is 27, npages is 12, total is 424
+J is being used 27
+j is 28, i is 28, npages is 12, total is 424
+J is being used 28
+j is 29, i is 29, npages is 12, total is 424
+J is being used 29
+j is 30, i is 30, npages is 12, total is 424
+J is being used 30
+j is 31, i is 31, npages is 12, total is 424
+J is being used 31
+j is 32, i is 32, npages is 12, total is 424
+J is being used 32
+j is 33, i is 33, npages is 12, total is 424
+J is being used 33
+j is 34, i is 34, npages is 12, total is 424
+J is being used 34
+j is 35, i is 35, npages is 12, total is 424
+J is being used 35
+j is 36, i is 36, npages is 12, total is 424
+J is being used 36
+j is 37, i is 37, npages is 12, total is 424
+J is being used 37
+j is 38, i is 38, npages is 12, total is 424
+J is being used 38
+j is 39, i is 39, npages is 12, total is 424
+J is being used 39
+j is 40, i is 40, npages is 12, total is 424
+J is being used 40
+j is 41, i is 41, npages is 12, total is 424
+J is being used 41
+j is 42, i is 42, npages is 12, total is 424
+J is being used 42
+j is 43, i is 43, npages is 12, total is 424
+J is being used 43
+j is 44, i is 44, npages is 12, total is 424
+J is being used 44
+j is 45, i is 45, npages is 12, total is 424
+J is being used 45
+j is 46, i is 46, npages is 12, total is 424
+J is being used 46
+j is 47, i is 47, npages is 12, total is 424
+J is being used 47
+j is 48, i is 48, npages is 12, total is 424
+J is being used 48
+j is 49, i is 49, npages is 12, total is 424
+J is being used 49
+j is 50, i is 50, npages is 12, total is 424
+J is being used 50
+j is 51, i is 51, npages is 12, total is 424
+J is being used 51
+j is 52, i is 52, npages is 12, total is 424
+J is being used 52
+j is 53, i is 53, npages is 12, total is 424
+J is being used 53
+j is 54, i is 54, npages is 12, total is 424
+J is being used 54
+j is 55, i is 55, npages is 12, total is 424
+J is being used 55
+j is 56, i is 56, npages is 12, total is 424
+J is being used 56
+j is 57, i is 57, npages is 12, total is 424
+J is being used 57
+j is 58, i is 58, npages is 12, total is 424
+J is being used 58
+j is 59, i is 59, npages is 12, total is 424
+J is being used 59
+j is 60, i is 60, npages is 12, total is 424
+J is being used 60
+j is 61, i is 61, npages is 12, total is 424
+J is being used 61
+j is 62, i is 62, npages is 12, total is 424
+J is being used 62
+j is 63, i is 63, npages is 12, total is 424
+J is being used 63
+j is 64, i is 64, npages is 12, total is 424
+J is being used 64
+j is 65, i is 65, npages is 12, total is 424
+J is being used 65
+j is 66, i is 66, npages is 12, total is 424
+J is being used 66
+j is 67, i is 67, npages is 12, total is 424
+J is being used 67
+j is 68, i is 68, npages is 12, total is 424
+J is being used 68
+j is 69, i is 69, npages is 12, total is 424
+J is being used 69
+j is 70, i is 70, npages is 12, total is 424
+J is being used 70
+j is 71, i is 71, npages is 12, total is 424
+J is being used 71
+j is 72, i is 72, npages is 12, total is 424
+J is being used 72
+j is 73, i is 73, npages is 12, total is 424
+J is being used 73
+j is 74, i is 74, npages is 12, total is 424
+J is being used 74
+j is 75, i is 75, npages is 12, total is 424
+J is being used 75
+j is 76, i is 76, npages is 12, total is 424
+J is being used 76
+j is 77, i is 77, npages is 12, total is 424
+J is being used 77
+j is 78, i is 78, npages is 12, total is 424
+J is being used 78
+j is 79, i is 79, npages is 12, total is 424
+J is being used 79
+j is 80, i is 80, npages is 12, total is 424
+J is being used 80
+j is 81, i is 81, npages is 12, total is 424
+J is being used 81
+j is 82, i is 82, npages is 12, total is 424
+J is being used 82
+j is 83, i is 83, npages is 12, total is 424
+J is being used 83
+j is 84, i is 84, npages is 12, total is 424
+J is being used 84
+j is 85, i is 85, npages is 12, total is 424
+J is being used 85
+j is 86, i is 86, npages is 12, total is 424
+J is being used 86
+j is 87, i is 87, npages is 12, total is 424
+J is being used 87
+j is 88, i is 88, npages is 12, total is 424
+J is being used 88
+j is 89, i is 89, npages is 12, total is 424
+J is being used 89
+j is 90, i is 90, npages is 12, total is 424
+J is being used 90
+j is 91, i is 91, npages is 12, total is 424
+J is being used 91
+j is 92, i is 92, npages is 12, total is 424
+J is being used 92
+j is 93, i is 93, npages is 12, total is 424
+J is being used 93
+j is 94, i is 94, npages is 12, total is 424
+J is being used 94
+j is 95, i is 95, npages is 12, total is 424
+J is being used 95
+j is 96, i is 96, npages is 12, total is 424
+J is being used 96
+j is 97, i is 97, npages is 12, total is 424
+J is being used 97
+j is 98, i is 98, npages is 12, total is 424
+J is being used 98
+j is 99, i is 99, npages is 12, total is 424
+J is being used 99
+j is 100, i is 100, npages is 12, total is 424
+J is being used 100
+j is 101, i is 101, npages is 12, total is 424
+J is being used 101
+j is 102, i is 102, npages is 12, total is 424
+J is being used 102
+j is 103, i is 103, npages is 12, total is 424
+J is being used 103
+j is 104, i is 104, npages is 12, total is 424
+J is being used 104
+j is 105, i is 105, npages is 12, total is 424
+J is being used 105
+j is 106, i is 106, npages is 12, total is 424
+J is being used 106
+j is 107, i is 107, npages is 12, total is 424
+J is being used 107
+j is 108, i is 108, npages is 12, total is 424
+J is being used 108
+j is 109, i is 109, npages is 12, total is 424
+J is being used 109
+j is 110, i is 110, npages is 12, total is 424
+J is being used 110
+j is 111, i is 111, npages is 12, total is 424
+J is being used 111
+j is 112, i is 112, npages is 12, total is 424
+J is being used 112
+j is 113, i is 113, npages is 12, total is 424
+J is being used 113
+j is 114, i is 114, npages is 12, total is 424
+J is being used 114
+j is 115, i is 115, npages is 12, total is 424
+J is being used 115
+j is 116, i is 116, npages is 12, total is 424
+J is being used 116
+j is 117, i is 117, npages is 12, total is 424
+J is being used 117
+j is 118, i is 118, npages is 12, total is 424
+J is being used 118
+j is 119, i is 119, npages is 12, total is 424
+J is being used 119
+j is 120, i is 120, npages is 12, total is 424
+J is being used 120
+j is 121, i is 121, npages is 12, total is 424
+J is being used 121
+j is 122, i is 122, npages is 12, total is 424
+J is being used 122
+j is 123, i is 123, npages is 12, total is 424
+J is being used 123
+j is 124, i is 124, npages is 12, total is 424
+J is being used 124
+j is 125, i is 125, npages is 12, total is 424
+J is being used 125
+j is 126, i is 126, npages is 12, total is 424
+J is being used 126
+j is 127, i is 127, npages is 12, total is 424
+J is being used 127
+j is 128, i is 128, npages is 12, total is 424
+J is being used 128
+j is 129, i is 129, npages is 12, total is 424
+J is being used 129
+j is 130, i is 130, npages is 12, total is 424
+J is being used 130
+j is 131, i is 131, npages is 12, total is 424
+J is being used 131
+j is 132, i is 132, npages is 12, total is 424
+J is being used 132
+j is 133, i is 133, npages is 12, total is 424
+J is being used 133
+j is 134, i is 134, npages is 12, total is 424
+J is being used 134
+j is 135, i is 135, npages is 12, total is 424
+J is being used 135
+j is 136, i is 136, npages is 12, total is 424
+J is being used 136
+j is 137, i is 137, npages is 12, total is 424
+J is being used 137
+j is 138, i is 138, npages is 12, total is 424
+J is being used 138
+j is 139, i is 139, npages is 12, total is 424
+J is being used 139
+j is 140, i is 140, npages is 12, total is 424
+J is being used 140
+j is 141, i is 141, npages is 12, total is 424
+J is being used 141
+j is 142, i is 142, npages is 12, total is 424
+J is being used 142
+j is 143, i is 143, npages is 12, total is 424
+J is being used 143
+j is 144, i is 144, npages is 12, total is 424
+J is being used 144
+j is 145, i is 145, npages is 12, total is 424
+J is being used 145
+j is 146, i is 146, npages is 12, total is 424
+J is being used 146
+j is 147, i is 147, npages is 12, total is 424
+J is being used 147
+j is 148, i is 148, npages is 12, total is 424
+J is being used 148
+j is 149, i is 149, npages is 12, total is 424
+J is being used 149
+j is 150, i is 150, npages is 12, total is 424
+J is being used 150
+j is 151, i is 151, npages is 12, total is 424
+J is being used 151
+j is 152, i is 152, npages is 12, total is 424
+J is being used 152
+j is 153, i is 153, npages is 12, total is 424
+J is being used 153
+j is 154, i is 154, npages is 12, total is 424
+J is being used 154
+j is 155, i is 155, npages is 12, total is 424
+J is being used 155
+j is 156, i is 156, npages is 12, total is 424
+J is being used 156
+j is 157, i is 157, npages is 12, total is 424
+J is being used 157
+j is 158, i is 158, npages is 12, total is 424
+J is being used 158
+j is 159, i is 159, npages is 12, total is 424
+J is being used 159
+j is 160, i is 160, npages is 12, total is 424
+J is being used 160
+j is 161, i is 161, npages is 12, total is 424
+J is being used 161
+j is 162, i is 162, npages is 12, total is 424
+J is being used 162
+j is 163, i is 163, npages is 12, total is 424
+J is being used 163
+j is 164, i is 164, npages is 12, total is 424
+J is being used 164
+j is 165, i is 165, npages is 12, total is 424
+J is being used 165
+j is 166, i is 166, npages is 12, total is 424
+J is being used 166
+j is 167, i is 167, npages is 12, total is 424
+J is being used 167
+j is 168, i is 168, npages is 12, total is 424
+J is being used 168
+j is 169, i is 169, npages is 12, total is 424
+J is being used 169
+j is 170, i is 170, npages is 12, total is 424
+J is being used 170
+j is 171, i is 171, npages is 12, total is 424
+J is being used 171
+j is 172, i is 172, npages is 12, total is 424
+J is being used 172
+j is 173, i is 173, npages is 12, total is 424
+J is being used 173
+j is 174, i is 174, npages is 12, total is 424
+J is being used 174
+j is 175, i is 175, npages is 12, total is 424
+J is being used 175
+j is 176, i is 176, npages is 12, total is 424
+J is being used 176
+j is 177, i is 177, npages is 12, total is 424
+J is being used 177
+j is 178, i is 178, npages is 12, total is 424
+J is being used 178
+j is 179, i is 179, npages is 12, total is 424
+J is being used 179
+j is 180, i is 180, npages is 12, total is 424
+J is being used 180
+j is 181, i is 181, npages is 12, total is 424
+J is being used 181
+j is 182, i is 182, npages is 12, total is 424
+J is being used 182
+j is 183, i is 183, npages is 12, total is 424
+J is being used 183
+j is 184, i is 184, npages is 12, total is 424
+J is being used 184
+j is 185, i is 185, npages is 12, total is 424
+J is being used 185
+j is 186, i is 186, npages is 12, total is 424
+J is being used 186
+j is 187, i is 187, npages is 12, total is 424
+J is being used 187
+j is 188, i is 188, npages is 12, total is 424
+J is being used 188
+j is 189, i is 189, npages is 12, total is 424
+J is being used 189
+j is 190, i is 190, npages is 12, total is 424
+J is being used 190
+j is 191, i is 191, npages is 12, total is 424
+J is being used 191
+j is 192, i is 192, npages is 12, total is 424
+J is being used 192
+j is 193, i is 193, npages is 12, total is 424
+J is being used 193
+j is 194, i is 194, npages is 12, total is 424
+J is being used 194
+j is 195, i is 195, npages is 12, total is 424
+J is being used 195
+j is 196, i is 196, npages is 12, total is 424
+J is being used 196
+j is 197, i is 197, npages is 12, total is 424
+J is being used 197
+j is 198, i is 198, npages is 12, total is 424
+J is being used 198
+j is 199, i is 199, npages is 12, total is 424
+J is being used 199
+j is 200, i is 200, npages is 12, total is 424
+J is being used 200
+j is 201, i is 201, npages is 12, total is 424
+J is being used 201
+j is 202, i is 202, npages is 12, total is 424
+J is being used 202
+j is 203, i is 203, npages is 12, total is 424
+J is being used 203
+j is 204, i is 204, npages is 12, total is 424
+J is being used 204
+j is 205, i is 205, npages is 12, total is 424
+J is being used 205
+j is 206, i is 206, npages is 12, total is 424
+J is being used 206
+j is 207, i is 207, npages is 12, total is 424
+J is being used 207
+j is 208, i is 208, npages is 12, total is 424
+J is being used 208
+j is 209, i is 209, npages is 12, total is 424
+J is being used 209
+j is 210, i is 210, npages is 12, total is 424
+J is being used 210
+j is 211, i is 211, npages is 12, total is 424
+J is being used 211
+j is 212, i is 212, npages is 12, total is 424
+J is being used 212
+j is 213, i is 213, npages is 12, total is 424
+J is being used 213
+j is 214, i is 214, npages is 12, total is 424
+J is being used 214
+j is 215, i is 215, npages is 12, total is 424
+J is being used 215
+j is 216, i is 216, npages is 12, total is 424
+J is being used 216
+j is 217, i is 217, npages is 12, total is 424
+J is being used 217
+j is 218, i is 218, npages is 12, total is 424
+J is being used 218
+j is 219, i is 219, npages is 12, total is 424
+J is being used 219
+j is 220, i is 220, npages is 12, total is 424
+J is being used 220
+j is 221, i is 221, npages is 12, total is 424
+J is being used 221
+j is 222, i is 222, npages is 12, total is 424
+J is being used 222
+j is 223, i is 223, npages is 12, total is 424
+J is being used 223
+j is 224, i is 224, npages is 12, total is 424
+J is being used 224
+j is 225, i is 225, npages is 12, total is 424
+J is being used 225
+j is 226, i is 226, npages is 12, total is 424
+J is being used 226
+j is 227, i is 227, npages is 12, total is 424
+J is being used 227
+j is 228, i is 228, npages is 12, total is 424
+J is being used 228
+j is 229, i is 229, npages is 12, total is 424
+J is being used 229
+j is 230, i is 230, npages is 12, total is 424
+J is being used 230
+j is 231, i is 231, npages is 12, total is 424
+J is being used 231
+j is 232, i is 232, npages is 12, total is 424
+J is being used 232
+j is 233, i is 233, npages is 12, total is 424
+J is being used 233
+j is 234, i is 234, npages is 12, total is 424
+J is being used 234
+j is 235, i is 235, npages is 12, total is 424
+J is being used 235
+j is 236, i is 236, npages is 12, total is 424
+J is being used 236
+j is 237, i is 237, npages is 12, total is 424
+J is being used 237
+j is 238, i is 238, npages is 12, total is 424
+J is being used 238
+j is 239, i is 239, npages is 12, total is 424
+J is being used 239
+j is 240, i is 240, npages is 12, total is 424
+J is being used 240
+j is 241, i is 241, npages is 12, total is 424
+J is being used 241
+j is 242, i is 242, npages is 12, total is 424
+J is being used 242
+j is 243, i is 243, npages is 12, total is 424
+J is being used 243
+j is 244, i is 244, npages is 12, total is 424
+J is being used 244
+j is 245, i is 245, npages is 12, total is 424
+J is being used 245
+j is 246, i is 246, npages is 12, total is 424
+J is being used 246
+j is 247, i is 247, npages is 12, total is 424
+J is being used 247
+j is 248, i is 248, npages is 12, total is 424
+J is being used 248
+j is 249, i is 249, npages is 12, total is 424
+J is being used 249
+j is 250, i is 250, npages is 12, total is 424
+J is being used 250
+j is 251, i is 251, npages is 12, total is 424
+J is being used 251
+j is 252, i is 252, npages is 12, total is 424
+J is being used 252
+j is 253, i is 253, npages is 12, total is 424
+J is being used 253
+j is 254, i is 254, npages is 12, total is 424
+J is being used 254
+j is 255, i is 255, npages is 12, total is 424
+J is being used 255
+j is 256, i is 256, npages is 12, total is 424
+J is being used 256
+j is 257, i is 257, npages is 12, total is 424
+J is being used 257
+j is 258, i is 258, npages is 12, total is 424
+J is being used 258
+j is 259, i is 259, npages is 12, total is 424
+J is being used 259
+j is 260, i is 260, npages is 12, total is 424
+J is being used 260
+j is 261, i is 261, npages is 12, total is 424
+J is being used 261
+j is 262, i is 262, npages is 12, total is 424
+J is being used 262
+j is 263, i is 263, npages is 12, total is 424
+J is being used 263
+j is 264, i is 264, npages is 12, total is 424
+J is being used 264
+j is 265, i is 265, npages is 12, total is 424
+J is being used 265
+j is 266, i is 266, npages is 12, total is 424
+J is being used 266
+j is 267, i is 267, npages is 12, total is 424
+J is being used 267
+j is 268, i is 268, npages is 12, total is 424
+J is being used 268
+j is 269, i is 269, npages is 12, total is 424
+J is being used 269
+j is 270, i is 270, npages is 12, total is 424
+J is being used 270
+j is 271, i is 271, npages is 12, total is 424
+J is being used 271
+j is 272, i is 272, npages is 12, total is 424
+J is being used 272
+j is 273, i is 273, npages is 12, total is 424
+J is being used 273
+j is 274, i is 274, npages is 12, total is 424
+J is being used 274
+j is 275, i is 275, npages is 12, total is 424
+J is being used 275
+j is 276, i is 276, npages is 12, total is 424
+J is being used 276
+j is 277, i is 277, npages is 12, total is 424
+J is being used 277
+j is 278, i is 278, npages is 12, total is 424
+J is being used 278
+j is 279, i is 279, npages is 12, total is 424
+J is being used 279
+j is 280, i is 280, npages is 12, total is 424
+J is being used 280
+j is 281, i is 281, npages is 12, total is 424
+J is being used 281
+j is 282, i is 282, npages is 12, total is 424
+J is being used 282
+j is 283, i is 283, npages is 12, total is 424
+J is being used 283
+j is 284, i is 284, npages is 12, total is 424
+J is being used 284
+j is 285, i is 285, npages is 12, total is 424
+J is being used 285
+j is 286, i is 286, npages is 12, total is 424
+J is being used 286
+j is 287, i is 287, npages is 12, total is 424
+J is being used 287
+j is 288, i is 288, npages is 12, total is 424
+J is being used 288
+j is 289, i is 289, npages is 12, total is 424
+J is being used 289
+j is 290, i is 290, npages is 12, total is 424
+J is being used 290
+j is 291, i is 291, npages is 12, total is 424
+J is being used 291
+j is 292, i is 292, npages is 12, total is 424
+J is being used 292
+j is 293, i is 293, npages is 12, total is 424
+Not Being Used j is 293, i is 293, npages is 12, total is 424
+j is 294, i is 293, npages is 12, total is 424
+Not Being Used j is 294, i is 293, npages is 12, total is 424
+j is 295, i is 293, npages is 12, total is 424
+Not Being Used j is 295, i is 293, npages is 12, total is 424
+j is 296, i is 293, npages is 12, total is 424
+Not Being Used j is 296, i is 293, npages is 12, total is 424
+j is 297, i is 293, npages is 12, total is 424
+Not Being Used j is 297, i is 293, npages is 12, total is 424
+j is 298, i is 293, npages is 12, total is 424
+Not Being Used j is 298, i is 293, npages is 12, total is 424
+j is 299, i is 293, npages is 12, total is 424
+Not Being Used j is 299, i is 293, npages is 12, total is 424
+j is 300, i is 293, npages is 12, total is 424
+Not Being Used j is 300, i is 293, npages is 12, total is 424
+j is 301, i is 293, npages is 12, total is 424
+Not Being Used j is 301, i is 293, npages is 12, total is 424
+j is 302, i is 293, npages is 12, total is 424
+Not Being Used j is 302, i is 293, npages is 12, total is 424
+j is 303, i is 293, npages is 12, total is 424
+Not Being Used j is 303, i is 293, npages is 12, total is 424
+j is 304, i is 293, npages is 12, total is 424
+Not Being Used j is 304, i is 293, npages is 12, total is 424
+k is 293
+k is 294
+k is 295
+k is 296
+k is 297
+k is 298
+k is 299
+k is 300
+k is 301
+k is 302
+k is 303
+k is 304
+******
+testbin/sort: Passed.
+------------
+1,-1 0,-1 0,-1 0,-1 1,5 1,6 1,7 1,8 1,9 1,10 1,11 1,12 1,13 1,14 1,15 1,16 1,17 1,18 1,19 1,20 1,21 1,22 1,23 1,24 1,25 1,26 1,27 1,28 1,29 1,30 1,31 1,32 1,33 1,34 1,35 1,36 1,37 1,38 1,39 1,40 1,41 1,42 1,43 1,44 1,45 1,46 1,47 1,48 1,49 1,50 1,51 1,52 1,53 1,54 1,55 1,56 1,57 1,58 1,59 1,60 1,61 1,62 1,63 1,64 1,65 1,66 1,67 1,68 1,69 1,70 1,71 1,72 1,73 1,74 1,75 1,76 1,77 1,78 1,79 1,80 1,81 1,82 1,83 1,84 1,85 1,86 1,87 1,88 1,89 1,90 1,91 1,92 1,93 1,94 1,95 1,96 1,97 1,98 1,99 1,100 1,101 1,102 1,103 1,104 1,105 1,106 1,107 1,108 1,109 1,110 1,111 1,112 1,113 1,114 1,115 1,116 1,117 1,118 1,119 1,120 1,121 1,122 1,123 1,124 1,125 1,126 1,127 1,128 1,129 1,130 1,131 1,132 1,133 1,134 1,135 1,136 1,137 1,138 1,139 1,140 1,141 1,142 1,143 1,144 1,145 1,146 1,147 1,148 1,149 1,150 1,151 1,152 1,153 1,154 1,155 1,156 1,157 1,158 1,159 1,160 1,161 1,162 1,163 1,164 1,165 1,166 1,167 1,168 1,169 1,170 1,171 1,172 1,173 1,174 1,175 1,176 1,177 1,178 1,179 1,180 1,181 1,182 1,183 1,184 1,185 1,186 1,187 1,188 1,189 1,190 1,191 1,192 1,193 1,194 1,195 1,196 1,197 1,198 1,199 1,200 1,201 1,202 1,203 1,204 1,205 1,206 1,207 1,208 1,209 1,210 1,211 1,212 1,213 1,214 1,215 1,216 1,217 1,218 1,219 1,220 1,221 1,222 1,223 1,224 1,225 1,226 1,227 1,228 1,229 1,230 1,231 1,232 1,233 1,234 1,235 1,236 1,237 1,238 1,239 1,240 1,241 1,242 1,243 1,244 1,245 1,246 1,247 1,248 1,249 1,250 1,251 1,252 1,253 1,254 1,255 1,256 1,257 1,258 1,259 1,260 1,261 1,262 1,263 1,264 1,265 1,266 1,267 1,268 1,269 1,270 1,271 1,272 1,273 1,274 1,275 1,276 1,277 1,278 1,279 1,280 1,281 1,282 1,283 1,284 1,285 1,286 1,287 1,288 1,289 1,290 1,291 1,292 1,-1 1,294 1,295 1,296 1,297 1,298 1,299 1,300 1,301 1,302 1,303 1,304 1,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 
+------------
+------------
+1,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 1,294 1,295 1,296 1,297 1,298 1,299 1,300 1,301 1,302 1,303 1,304 1,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 
+------------
+------------
+1,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 
+------------
+------------
+0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1 
+------------
+Operation took 7.578297560 seconds
+OS/161 kernel [? for menu]: p testbin/sort
+j is 0, i is 0, npages is 1, total is 424
+Not Being Used j is 0, i is 0, npages is 1, total is 424
+k is 0
+******
+j is 0, i is 0, npages is 3, total is 424
+J is being used 0
+j is 1, i is 1, npages is 3, total is 424
+Not Being Used j is 1, i is 1, npages is 3, total is 424
+j is 2, i is 1, npages is 3, total is 424
+Not Being Used j is 2, i is 1, npages is 3, total is 424
+j is 3, i is 1, npages is 3, total is 424
+Not Being Used j is 3, i is 1, npages is 3, total is 424
+k is 1
+k is 2
+k is 3
+******
+j is 0, i is 0, npages is 289, total is 424
+J is being used 0
+j is 1, i is 1, npages is 289, total is 424
+J is being used 1
+j is 2, i is 2, npages is 289, total is 424
+J is being used 2
+j is 3, i is 3, npages is 289, total is 424
+J is being used 3
+j is 4, i is 4, npages is 289, total is 424
+Not Being Used j is 4, i is 4, npages is 289, total is 424
+j is 5, i is 4, npages is 289, total is 424
+Not Being Used j is 5, i is 4, npages is 289, total is 424
+j is 6, i is 4, npages is 289, total is 424
+Not Being Used j is 6, i is 4, npages is 289, total is 424
+j is 7, i is 4, npages is 289, total is 424
+Not Being Used j is 7, i is 4, npages is 289, total is 424
+j is 8, i is 4, npages is 289, total is 424
+Not Being Used j is 8, i is 4, npages is 289, total is 424
+j is 9, i is 4, npages is 289, total is 424
+Not Being Used j is 9, i is 4, npages is 289, total is 424
+j is 10, i is 4, npages is 289, total is 424
+Not Being Used j is 10, i is 4, npages is 289, total is 424
+j is 11, i is 4, npages is 289, total is 424
+Not Being Used j is 11, i is 4, npages is 289, total is 424
+j is 12, i is 4, npages is 289, total is 424
+Not Being Used j is 12, i is 4, npages is 289, total is 424
+j is 13, i is 4, npages is 289, total is 424
+Not Being Used j is 13, i is 4, npages is 289, total is 424
+j is 14, i is 4, npages is 289, total is 424
+Not Being Used j is 14, i is 4, npages is 289, total is 424
+j is 15, i is 4, npages is 289, total is 424
+Not Being Used j is 15, i is 4, npages is 289, total is 424
+j is 16, i is 4, npages is 289, total is 424
+Not Being Used j is 16, i is 4, npages is 289, total is 424
+j is 17, i is 4, npages is 289, total is 424
+Not Being Used j is 17, i is 4, npages is 289, total is 424
+j is 18, i is 4, npages is 289, total is 424
+Not Being Used j is 18, i is 4, npages is 289, total is 424
+j is 19, i is 4, npages is 289, total is 424
+Not Being Used j is 19, i is 4, npages is 289, total is 424
+j is 20, i is 4, npages is 289, total is 424
+Not Being Used j is 20, i is 4, npages is 289, total is 424
+j is 21, i is 4, npages is 289, total is 424
+Not Being Used j is 21, i is 4, npages is 289, total is 424
+j is 22, i is 4, npages is 289, total is 424
+Not Being Used j is 22, i is 4, npages is 289, total is 424
+j is 23, i is 4, npages is 289, total is 424
+Not Being Used j is 23, i is 4, npages is 289, total is 424
+j is 24, i is 4, npages is 289, total is 424
+Not Being Used j is 24, i is 4, npages is 289, total is 424
+j is 25, i is 4, npages is 289, total is 424
+Not Being Used j is 25, i is 4, npages is 289, total is 424
+j is 26, i is 4, npages is 289, total is 424
+Not Being Used j is 26, i is 4, npages is 289, total is 424
+j is 27, i is 4, npages is 289, total is 424
+Not Being Used j is 27, i is 4, npages is 289, total is 424
+j is 28, i is 4, npages is 289, total is 424
+Not Being Used j is 28, i is 4, npages is 289, total is 424
+j is 29, i is 4, npages is 289, total is 424
+Not Being Used j is 29, i is 4, npages is 289, total is 424
+j is 30, i is 4, npages is 289, total is 424
+Not Being Used j is 30, i is 4, npages is 289, total is 424
+j is 31, i is 4, npages is 289, total is 424
+Not Being Used j is 31, i is 4, npages is 289, total is 424
+j is 32, i is 4, npages is 289, total is 424
+Not Being Used j is 32, i is 4, npages is 289, total is 424
+j is 33, i is 4, npages is 289, total is 424
+Not Being Used j is 33, i is 4, npages is 289, total is 424
+j is 34, i is 4, npages is 289, total is 424
+Not Being Used j is 34, i is 4, npages is 289, total is 424
+j is 35, i is 4, npages is 289, total is 424
+Not Being Used j is 35, i is 4, npages is 289, total is 424
+j is 36, i is 4, npages is 289, total is 424
+Not Being Used j is 36, i is 4, npages is 289, total is 424
+j is 37, i is 4, npages is 289, total is 424
+Not Being Used j is 37, i is 4, npages is 289, total is 424
+j is 38, i is 4, npages is 289, total is 424
+Not Being Used j is 38, i is 4, npages is 289, total is 424
+j is 39, i is 4, npages is 289, total is 424
+Not Being Used j is 39, i is 4, npages is 289, total is 424
+j is 40, i is 4, npages is 289, total is 424
+Not Being Used j is 40, i is 4, npages is 289, total is 424
+j is 41, i is 4, npages is 289, total is 424
+Not Being Used j is 41, i is 4, npages is 289, total is 424
+j is 42, i is 4, npages is 289, total is 424
+Not Being Used j is 42, i is 4, npages is 289, total is 424
+j is 43, i is 4, npages is 289, total is 424
+Not Being Used j is 43, i is 4, npages is 289, total is 424
+j is 44, i is 4, npages is 289, total is 424
+Not Being Used j is 44, i is 4, npages is 289, total is 424
+j is 45, i is 4, npages is 289, total is 424
+Not Being Used j is 45, i is 4, npages is 289, total is 424
+j is 46, i is 4, npages is 289, total is 424
+Not Being Used j is 46, i is 4, npages is 289, total is 424
+j is 47, i is 4, npages is 289, total is 424
+Not Being Used j is 47, i is 4, npages is 289, total is 424
+j is 48, i is 4, npages is 289, total is 424
+Not Being Used j is 48, i is 4, npages is 289, total is 424
+j is 49, i is 4, npages is 289, total is 424
+Not Being Used j is 49, i is 4, npages is 289, total is 424
+j is 50, i is 4, npages is 289, total is 424
+Not Being Used j is 50, i is 4, npages is 289, total is 424
+j is 51, i is 4, npages is 289, total is 424
+Not Being Used j is 51, i is 4, npages is 289, total is 424
+j is 52, i is 4, npages is 289, total is 424
+Not Being Used j is 52, i is 4, npages is 289, total is 424
+j is 53, i is 4, npages is 289, total is 424
+Not Being Used j is 53, i is 4, npages is 289, total is 424
+j is 54, i is 4, npages is 289, total is 424
+Not Being Used j is 54, i is 4, npages is 289, total is 424
+j is 55, i is 4, npages is 289, total is 424
+Not Being Used j is 55, i is 4, npages is 289, total is 424
+j is 56, i is 4, npages is 289, total is 424
+Not Being Used j is 56, i is 4, npages is 289, total is 424
+j is 57, i is 4, npages is 289, total is 424
+Not Being Used j is 57, i is 4, npages is 289, total is 424
+j is 58, i is 4, npages is 289, total is 424
+Not Being Used j is 58, i is 4, npages is 289, total is 424
+j is 59, i is 4, npages is 289, total is 424
+Not Being Used j is 59, i is 4, npages is 289, total is 424
+j is 60, i is 4, npages is 289, total is 424
+Not Being Used j is 60, i is 4, npages is 289, total is 424
+j is 61, i is 4, npages is 289, total is 424
+Not Being Used j is 61, i is 4, npages is 289, total is 424
+j is 62, i is 4, npages is 289, total is 424
+Not Being Used j is 62, i is 4, npages is 289, total is 424
+j is 63, i is 4, npages is 289, total is 424
+Not Being Used j is 63, i is 4, npages is 289, total is 424
+j is 64, i is 4, npages is 289, total is 424
+Not Being Used j is 64, i is 4, npages is 289, total is 424
+j is 65, i is 4, npages is 289, total is 424
+Not Being Used j is 65, i is 4, npages is 289, total is 424
+j is 66, i is 4, npages is 289, total is 424
+Not Being Used j is 66, i is 4, npages is 289, total is 424
+j is 67, i is 4, npages is 289, total is 424
+Not Being Used j is 67, i is 4, npages is 289, total is 424
+j is 68, i is 4, npages is 289, total is 424
+Not Being Used j is 68, i is 4, npages is 289, total is 424
+j is 69, i is 4, npages is 289, total is 424
+Not Being Used j is 69, i is 4, npages is 289, total is 424
+j is 70, i is 4, npages is 289, total is 424
+Not Being Used j is 70, i is 4, npages is 289, total is 424
+j is 71, i is 4, npages is 289, total is 424
+Not Being Used j is 71, i is 4, npages is 289, total is 424
+j is 72, i is 4, npages is 289, total is 424
+Not Being Used j is 72, i is 4, npages is 289, total is 424
+j is 73, i is 4, npages is 289, total is 424
+Not Being Used j is 73, i is 4, npages is 289, total is 424
+j is 74, i is 4, npages is 289, total is 424
+Not Being Used j is 74, i is 4, npages is 289, total is 424
+j is 75, i is 4, npages is 289, total is 424
+Not Being Used j is 75, i is 4, npages is 289, total is 424
+j is 76, i is 4, npages is 289, total is 424
+Not Being Used j is 76, i is 4, npages is 289, total is 424
+j is 77, i is 4, npages is 289, total is 424
+Not Being Used j is 77, i is 4, npages is 289, total is 424
+j is 78, i is 4, npages is 289, total is 424
+Not Being Used j is 78, i is 4, npages is 289, total is 424
+j is 79, i is 4, npages is 289, total is 424
+Not Being Used j is 79, i is 4, npages is 289, total is 424
+j is 80, i is 4, npages is 289, total is 424
+Not Being Used j is 80, i is 4, npages is 289, total is 424
+j is 81, i is 4, npages is 289, total is 424
+Not Being Used j is 81, i is 4, npages is 289, total is 424
+j is 82, i is 4, npages is 289, total is 424
+Not Being Used j is 82, i is 4, npages is 289, total is 424
+j is 83, i is 4, npages is 289, total is 424
+Not Being Used j is 83, i is 4, npages is 289, total is 424
+j is 84, i is 4, npages is 289, total is 424
+Not Being Used j is 84, i is 4, npages is 289, total is 424
+j is 85, i is 4, npages is 289, total is 424
+Not Being Used j is 85, i is 4, npages is 289, total is 424
+j is 86, i is 4, npages is 289, total is 424
+Not Being Used j is 86, i is 4, npages is 289, total is 424
+j is 87, i is 4, npages is 289, total is 424
+Not Being Used j is 87, i is 4, npages is 289, total is 424
+j is 88, i is 4, npages is 289, total is 424
+Not Being Used j is 88, i is 4, npages is 289, total is 424
+j is 89, i is 4, npages is 289, total is 424
+Not Being Used j is 89, i is 4, npages is 289, total is 424
+j is 90, i is 4, npages is 289, total is 424
+Not Being Used j is 90, i is 4, npages is 289, total is 424
+j is 91, i is 4, npages is 289, total is 424
+Not Being Used j is 91, i is 4, npages is 289, total is 424
+j is 92, i is 4, npages is 289, total is 424
+Not Being Used j is 92, i is 4, npages is 289, total is 424
+j is 93, i is 4, npages is 289, total is 424
+Not Being Used j is 93, i is 4, npages is 289, total is 424
+j is 94, i is 4, npages is 289, total is 424
+Not Being Used j is 94, i is 4, npages is 289, total is 424
+j is 95, i is 4, npages is 289, total is 424
+Not Being Used j is 95, i is 4, npages is 289, total is 424
+j is 96, i is 4, npages is 289, total is 424
+Not Being Used j is 96, i is 4, npages is 289, total is 424
+j is 97, i is 4, npages is 289, total is 424
+Not Being Used j is 97, i is 4, npages is 289, total is 424
+j is 98, i is 4, npages is 289, total is 424
+Not Being Used j is 98, i is 4, npages is 289, total is 424
+j is 99, i is 4, npages is 289, total is 424
+Not Being Used j is 99, i is 4, npages is 289, total is 424
+j is 100, i is 4, npages is 289, total is 424
+Not Being Used j is 100, i is 4, npages is 289, total is 424
+j is 101, i is 4, npages is 289, total is 424
+Not Being Used j is 101, i is 4, npages is 289, total is 424
+j is 102, i is 4, npages is 289, total is 424
+Not Being Used j is 102, i is 4, npages is 289, total is 424
+j is 103, i is 4, npages is 289, total is 424
+Not Being Used j is 103, i is 4, npages is 289, total is 424
+j is 104, i is 4, npages is 289, total is 424
+Not Being Used j is 104, i is 4, npages is 289, total is 424
+j is 105, i is 4, npages is 289, total is 424
+Not Being Used j is 105, i is 4, npages is 289, total is 424
+j is 106, i is 4, npages is 289, total is 424
+Not Being Used j is 106, i is 4, npages is 289, total is 424
+j is 107, i is 4, npages is 289, total is 424
+Not Being Used j is 107, i is 4, npages is 289, total is 424
+j is 108, i is 4, npages is 289, total is 424
+Not Being Used j is 108, i is 4, npages is 289, total is 424
+j is 109, i is 4, npages is 289, total is 424
+Not Being Used j is 109, i is 4, npages is 289, total is 424
+j is 110, i is 4, npages is 289, total is 424
+Not Being Used j is 110, i is 4, npages is 289, total is 424
+j is 111, i is 4, npages is 289, total is 424
+Not Being Used j is 111, i is 4, npages is 289, total is 424
+j is 112, i is 4, npages is 289, total is 424
+Not Being Used j is 112, i is 4, npages is 289, total is 424
+j is 113, i is 4, npages is 289, total is 424
+Not Being Used j is 113, i is 4, npages is 289, total is 424
+j is 114, i is 4, npages is 289, total is 424
+Not Being Used j is 114, i is 4, npages is 289, total is 424
+j is 115, i is 4, npages is 289, total is 424
+Not Being Used j is 115, i is 4, npages is 289, total is 424
+j is 116, i is 4, npages is 289, total is 424
+Not Being Used j is 116, i is 4, npages is 289, total is 424
+j is 117, i is 4, npages is 289, total is 424
+Not Being Used j is 117, i is 4, npages is 289, total is 424
+j is 118, i is 4, npages is 289, total is 424
+Not Being Used j is 118, i is 4, npages is 289, total is 424
+j is 119, i is 4, npages is 289, total is 424
+Not Being Used j is 119, i is 4, npages is 289, total is 424
+j is 120, i is 4, npages is 289, total is 424
+Not Being Used j is 120, i is 4, npages is 289, total is 424
+j is 121, i is 4, npages is 289, total is 424
+Not Being Used j is 121, i is 4, npages is 289, total is 424
+j is 122, i is 4, npages is 289, total is 424
+Not Being Used j is 122, i is 4, npages is 289, total is 424
+j is 123, i is 4, npages is 289, total is 424
+Not Being Used j is 123, i is 4, npages is 289, total is 424
+j is 124, i is 4, npages is 289, total is 424
+Not Being Used j is 124, i is 4, npages is 289, total is 424
+j is 125, i is 4, npages is 289, total is 424
+Not Being Used j is 125, i is 4, npages is 289, total is 424
+j is 126, i is 4, npages is 289, total is 424
+Not Being Used j is 126, i is 4, npages is 289, total is 424
+j is 127, i is 4, npages is 289, total is 424
+Not Being Used j is 127, i is 4, npages is 289, total is 424
+j is 128, i is 4, npages is 289, total is 424
+Not Being Used j is 128, i is 4, npages is 289, total is 424
+j is 129, i is 4, npages is 289, total is 424
+Not Being Used j is 129, i is 4, npages is 289, total is 424
+j is 130, i is 4, npages is 289, total is 424
+Not Being Used j is 130, i is 4, npages is 289, total is 424
+j is 131, i is 4, npages is 289, total is 424
+Not Being Used j is 131, i is 4, npages is 289, total is 424
+j is 132, i is 4, npages is 289, total is 424
+Not Being Used j is 132, i is 4, npages is 289, total is 424
+j is 133, i is 4, npages is 289, total is 424
+Not Being Used j is 133, i is 4, npages is 289, total is 424
+j is 134, i is 4, npages is 289, total is 424
+Not Being Used j is 134, i is 4, npages is 289, total is 424
+j is 135, i is 4, npages is 289, total is 424
+Not Being Used j is 135, i is 4, npages is 289, total is 424
+j is 136, i is 4, npages is 289, total is 424
+Not Being Used j is 136, i is 4, npages is 289, total is 424
+j is 137, i is 4, npages is 289, total is 424
+Not Being Used j is 137, i is 4, npages is 289, total is 424
+j is 138, i is 4, npages is 289, total is 424
+Not Being Used j is 138, i is 4, npages is 289, total is 424
+j is 139, i is 4, npages is 289, total is 424
+Not Being Used j is 139, i is 4, npages is 289, total is 424
+j is 140, i is 4, npages is 289, total is 424
+Not Being Used j is 140, i is 4, npages is 289, total is 424
+j is 141, i is 4, npages is 289, total is 424
+Not Being Used j is 141, i is 4, npages is 289, total is 424
+j is 142, i is 4, npages is 289, total is 424
+Not Being Used j is 142, i is 4, npages is 289, total is 424
+j is 143, i is 4, npages is 289, total is 424
+Not Being Used j is 143, i is 4, npages is 289, total is 424
+j is 144, i is 4, npages is 289, total is 424
+Not Being Used j is 144, i is 4, npages is 289, total is 424
+j is 145, i is 4, npages is 289, total is 424
+Not Being Used j is 145, i is 4, npages is 289, total is 424
+j is 146, i is 4, npages is 289, total is 424
+Not Being Used j is 146, i is 4, npages is 289, total is 424
+j is 147, i is 4, npages is 289, total is 424
+Not Being Used j is 147, i is 4, npages is 289, total is 424
+j is 148, i is 4, npages is 289, total is 424
+Not Being Used j is 148, i is 4, npages is 289, total is 424
+j is 149, i is 4, npages is 289, total is 424
+Not Being Used j is 149, i is 4, npages is 289, total is 424
+j is 150, i is 4, npages is 289, total is 424
+Not Being Used j is 150, i is 4, npages is 289, total is 424
+j is 151, i is 4, npages is 289, total is 424
+Not Being Used j is 151, i is 4, npages is 289, total is 424
+j is 152, i is 4, npages is 289, total is 424
+Not Being Used j is 152, i is 4, npages is 289, total is 424
+j is 153, i is 4, npages is 289, total is 424
+Not Being Used j is 153, i is 4, npages is 289, total is 424
+j is 154, i is 4, npages is 289, total is 424
+Not Being Used j is 154, i is 4, npages is 289, total is 424
+j is 155, i is 4, npages is 289, total is 424
+Not Being Used j is 155, i is 4, npages is 289, total is 424
+j is 156, i is 4, npages is 289, total is 424
+Not Being Used j is 156, i is 4, npages is 289, total is 424
+j is 157, i is 4, npages is 289, total is 424
+Not Being Used j is 157, i is 4, npages is 289, total is 424
+j is 158, i is 4, npages is 289, total is 424
+Not Being Used j is 158, i is 4, npages is 289, total is 424
+j is 159, i is 4, npages is 289, total is 424
+Not Being Used j is 159, i is 4, npages is 289, total is 424
+j is 160, i is 4, npages is 289, total is 424
+Not Being Used j is 160, i is 4, npages is 289, total is 424
+j is 161, i is 4, npages is 289, total is 424
+Not Being Used j is 161, i is 4, npages is 289, total is 424
+j is 162, i is 4, npages is 289, total is 424
+Not Being Used j is 162, i is 4, npages is 289, total is 424
+j is 163, i is 4, npages is 289, total is 424
+Not Being Used j is 163, i is 4, npages is 289, total is 424
+j is 164, i is 4, npages is 289, total is 424
+Not Being Used j is 164, i is 4, npages is 289, total is 424
+j is 165, i is 4, npages is 289, total is 424
+Not Being Used j is 165, i is 4, npages is 289, total is 424
+j is 166, i is 4, npages is 289, total is 424
+Not Being Used j is 166, i is 4, npages is 289, total is 424
+j is 167, i is 4, npages is 289, total is 424
+Not Being Used j is 167, i is 4, npages is 289, total is 424
+j is 168, i is 4, npages is 289, total is 424
+Not Being Used j is 168, i is 4, npages is 289, total is 424
+j is 169, i is 4, npages is 289, total is 424
+Not Being Used j is 169, i is 4, npages is 289, total is 424
+j is 170, i is 4, npages is 289, total is 424
+Not Being Used j is 170, i is 4, npages is 289, total is 424
+j is 171, i is 4, npages is 289, total is 424
+Not Being Used j is 171, i is 4, npages is 289, total is 424
+j is 172, i is 4, npages is 289, total is 424
+Not Being Used j is 172, i is 4, npages is 289, total is 424
+j is 173, i is 4, npages is 289, total is 424
+Not Being Used j is 173, i is 4, npages is 289, total is 424
+j is 174, i is 4, npages is 289, total is 424
+Not Being Used j is 174, i is 4, npages is 289, total is 424
+j is 175, i is 4, npages is 289, total is 424
+Not Being Used j is 175, i is 4, npages is 289, total is 424
+j is 176, i is 4, npages is 289, total is 424
+Not Being Used j is 176, i is 4, npages is 289, total is 424
+j is 177, i is 4, npages is 289, total is 424
+Not Being Used j is 177, i is 4, npages is 289, total is 424
+j is 178, i is 4, npages is 289, total is 424
+Not Being Used j is 178, i is 4, npages is 289, total is 424
+j is 179, i is 4, npages is 289, total is 424
+Not Being Used j is 179, i is 4, npages is 289, total is 424
+j is 180, i is 4, npages is 289, total is 424
+Not Being Used j is 180, i is 4, npages is 289, total is 424
+j is 181, i is 4, npages is 289, total is 424
+Not Being Used j is 181, i is 4, npages is 289, total is 424
+j is 182, i is 4, npages is 289, total is 424
+Not Being Used j is 182, i is 4, npages is 289, total is 424
+j is 183, i is 4, npages is 289, total is 424
+Not Being Used j is 183, i is 4, npages is 289, total is 424
+j is 184, i is 4, npages is 289, total is 424
+Not Being Used j is 184, i is 4, npages is 289, total is 424
+j is 185, i is 4, npages is 289, total is 424
+Not Being Used j is 185, i is 4, npages is 289, total is 424
+j is 186, i is 4, npages is 289, total is 424
+Not Being Used j is 186, i is 4, npages is 289, total is 424
+j is 187, i is 4, npages is 289, total is 424
+Not Being Used j is 187, i is 4, npages is 289, total is 424
+j is 188, i is 4, npages is 289, total is 424
+Not Being Used j is 188, i is 4, npages is 289, total is 424
+j is 189, i is 4, npages is 289, total is 424
+Not Being Used j is 189, i is 4, npages is 289, total is 424
+j is 190, i is 4, npages is 289, total is 424
+Not Being Used j is 190, i is 4, npages is 289, total is 424
+j is 191, i is 4, npages is 289, total is 424
+Not Being Used j is 191, i is 4, npages is 289, total is 424
+j is 192, i is 4, npages is 289, total is 424
+Not Being Used j is 192, i is 4, npages is 289, total is 424
+j is 193, i is 4, npages is 289, total is 424
+Not Being Used j is 193, i is 4, npages is 289, total is 424
+j is 194, i is 4, npages is 289, total is 424
+Not Being Used j is 194, i is 4, npages is 289, total is 424
+j is 195, i is 4, npages is 289, total is 424
+Not Being Used j is 195, i is 4, npages is 289, total is 424
+j is 196, i is 4, npages is 289, total is 424
+Not Being Used j is 196, i is 4, npages is 289, total is 424
+j is 197, i is 4, npages is 289, total is 424
+Not Being Used j is 197, i is 4, npages is 289, total is 424
+j is 198, i is 4, npages is 289, total is 424
+Not Being Used j is 198, i is 4, npages is 289, total is 424
+j is 199, i is 4, npages is 289, total is 424
+Not Being Used j is 199, i is 4, npages is 289, total is 424
+j is 200, i is 4, npages is 289, total is 424
+Not Being Used j is 200, i is 4, npages is 289, total is 424
+j is 201, i is 4, npages is 289, total is 424
+Not Being Used j is 201, i is 4, npages is 289, total is 424
+j is 202, i is 4, npages is 289, total is 424
+Not Being Used j is 202, i is 4, npages is 289, total is 424
+j is 203, i is 4, npages is 289, total is 424
+Not Being Used j is 203, i is 4, npages is 289, total is 424
+j is 204, i is 4, npages is 289, total is 424
+Not Being Used j is 204, i is 4, npages is 289, total is 424
+j is 205, i is 4, npages is 289, total is 424
+Not Being Used j is 205, i is 4, npages is 289, total is 424
+j is 206, i is 4, npages is 289, total is 424
+Not Being Used j is 206, i is 4, npages is 289, total is 424
+j is 207, i is 4, npages is 289, total is 424
+Not Being Used j is 207, i is 4, npages is 289, total is 424
+j is 208, i is 4, npages is 289, total is 424
+Not Being Used j is 208, i is 4, npages is 289, total is 424
+j is 209, i is 4, npages is 289, total is 424
+Not Being Used j is 209, i is 4, npages is 289, total is 424
+j is 210, i is 4, npages is 289, total is 424
+Not Being Used j is 210, i is 4, npages is 289, total is 424
+j is 211, i is 4, npages is 289, total is 424
+Not Being Used j is 211, i is 4, npages is 289, total is 424
+j is 212, i is 4, npages is 289, total is 424
+Not Being Used j is 212, i is 4, npages is 289, total is 424
+j is 213, i is 4, npages is 289, total is 424
+Not Being Used j is 213, i is 4, npages is 289, total is 424
+j is 214, i is 4, npages is 289, total is 424
+Not Being Used j is 214, i is 4, npages is 289, total is 424
+j is 215, i is 4, npages is 289, total is 424
+Not Being Used j is 215, i is 4, npages is 289, total is 424
+j is 216, i is 4, npages is 289, total is 424
+Not Being Used j is 216, i is 4, npages is 289, total is 424
+j is 217, i is 4, npages is 289, total is 424
+Not Being Used j is 217, i is 4, npages is 289, total is 424
+j is 218, i is 4, npages is 289, total is 424
+Not Being Used j is 218, i is 4, npages is 289, total is 424
+j is 219, i is 4, npages is 289, total is 424
+Not Being Used j is 219, i is 4, npages is 289, total is 424
+j is 220, i is 4, npages is 289, total is 424
+Not Being Used j is 220, i is 4, npages is 289, total is 424
+j is 221, i is 4, npages is 289, total is 424
+Not Being Used j is 221, i is 4, npages is 289, total is 424
+j is 222, i is 4, npages is 289, total is 424
+Not Being Used j is 222, i is 4, npages is 289, total is 424
+j is 223, i is 4, npages is 289, total is 424
+Not Being Used j is 223, i is 4, npages is 289, total is 424
+j is 224, i is 4, npages is 289, total is 424
+Not Being Used j is 224, i is 4, npages is 289, total is 424
+j is 225, i is 4, npages is 289, total is 424
+Not Being Used j is 225, i is 4, npages is 289, total is 424
+j is 226, i is 4, npages is 289, total is 424
+Not Being Used j is 226, i is 4, npages is 289, total is 424
+j is 227, i is 4, npages is 289, total is 424
+Not Being Used j is 227, i is 4, npages is 289, total is 424
+j is 228, i is 4, npages is 289, total is 424
+Not Being Used j is 228, i is 4, npages is 289, total is 424
+j is 229, i is 4, npages is 289, total is 424
+Not Being Used j is 229, i is 4, npages is 289, total is 424
+j is 230, i is 4, npages is 289, total is 424
+Not Being Used j is 230, i is 4, npages is 289, total is 424
+j is 231, i is 4, npages is 289, total is 424
+Not Being Used j is 231, i is 4, npages is 289, total is 424
+j is 232, i is 4, npages is 289, total is 424
+Not Being Used j is 232, i is 4, npages is 289, total is 424
+j is 233, i is 4, npages is 289, total is 424
+Not Being Used j is 233, i is 4, npages is 289, total is 424
+j is 234, i is 4, npages is 289, total is 424
+Not Being Used j is 234, i is 4, npages is 289, total is 424
+j is 235, i is 4, npages is 289, total is 424
+Not Being Used j is 235, i is 4, npages is 289, total is 424
+j is 236, i is 4, npages is 289, total is 424
+Not Being Used j is 236, i is 4, npages is 289, total is 424
+j is 237, i is 4, npages is 289, total is 424
+Not Being Used j is 237, i is 4, npages is 289, total is 424
+j is 238, i is 4, npages is 289, total is 424
+Not Being Used j is 238, i is 4, npages is 289, total is 424
+j is 239, i is 4, npages is 289, total is 424
+Not Being Used j is 239, i is 4, npages is 289, total is 424
+j is 240, i is 4, npages is 289, total is 424
+Not Being Used j is 240, i is 4, npages is 289, total is 424
+j is 241, i is 4, npages is 289, total is 424
+Not Being Used j is 241, i is 4, npages is 289, total is 424
+j is 242, i is 4, npages is 289, total is 424
+Not Being Used j is 242, i is 4, npages is 289, total is 424
+j is 243, i is 4, npages is 289, total is 424
+Not Being Used j is 243, i is 4, npages is 289, total is 424
+j is 244, i is 4, npages is 289, total is 424
+Not Being Used j is 244, i is 4, npages is 289, total is 424
+j is 245, i is 4, npages is 289, total is 424
+Not Being Used j is 245, i is 4, npages is 289, total is 424
+j is 246, i is 4, npages is 289, total is 424
+Not Being Used j is 246, i is 4, npages is 289, total is 424
+j is 247, i is 4, npages is 289, total is 424
+Not Being Used j is 247, i is 4, npages is 289, total is 424
+j is 248, i is 4, npages is 289, total is 424
+Not Being Used j is 248, i is 4, npages is 289, total is 424
+j is 249, i is 4, npages is 289, total is 424
+Not Being Used j is 249, i is 4, npages is 289, total is 424
+j is 250, i is 4, npages is 289, total is 424
+Not Being Used j is 250, i is 4, npages is 289, total is 424
+j is 251, i is 4, npages is 289, total is 424
+Not Being Used j is 251, i is 4, npages is 289, total is 424
+j is 252, i is 4, npages is 289, total is 424
+Not Being Used j is 252, i is 4, npages is 289, total is 424
+j is 253, i is 4, npages is 289, total is 424
+Not Being Used j is 253, i is 4, npages is 289, total is 424
+j is 254, i is 4, npages is 289, total is 424
+Not Being Used j is 254, i is 4, npages is 289, total is 424
+j is 255, i is 4, npages is 289, total is 424
+Not Being Used j is 255, i is 4, npages is 289, total is 424
+j is 256, i is 4, npages is 289, total is 424
+Not Being Used j is 256, i is 4, npages is 289, total is 424
+j is 257, i is 4, npages is 289, total is 424
+Not Being Used j is 257, i is 4, npages is 289, total is 424
+j is 258, i is 4, npages is 289, total is 424
+Not Being Used j is 258, i is 4, npages is 289, total is 424
+j is 259, i is 4, npages is 289, total is 424
+Not Being Used j is 259, i is 4, npages is 289, total is 424
+j is 260, i is 4, npages is 289, total is 424
+Not Being Used j is 260, i is 4, npages is 289, total is 424
+j is 261, i is 4, npages is 289, total is 424
+Not Being Used j is 261, i is 4, npages is 289, total is 424
+j is 262, i is 4, npages is 289, total is 424
+Not Being Used j is 262, i is 4, npages is 289, total is 424
+j is 263, i is 4, npages is 289, total is 424
+Not Being Used j is 263, i is 4, npages is 289, total is 424
+j is 264, i is 4, npages is 289, total is 424
+Not Being Used j is 264, i is 4, npages is 289, total is 424
+j is 265, i is 4, npages is 289, total is 424
+Not Being Used j is 265, i is 4, npages is 289, total is 424
+j is 266, i is 4, npages is 289, total is 424
+Not Being Used j is 266, i is 4, npages is 289, total is 424
+j is 267, i is 4, npages is 289, total is 424
+Not Being Used j is 267, i is 4, npages is 289, total is 424
+j is 268, i is 4, npages is 289, total is 424
+Not Being Used j is 268, i is 4, npages is 289, total is 424
+j is 269, i is 4, npages is 289, total is 424
+Not Being Used j is 269, i is 4, npages is 289, total is 424
+j is 270, i is 4, npages is 289, total is 424
+Not Being Used j is 270, i is 4, npages is 289, total is 424
+j is 271, i is 4, npages is 289, total is 424
+Not Being Used j is 271, i is 4, npages is 289, total is 424
+j is 272, i is 4, npages is 289, total is 424
+Not Being Used j is 272, i is 4, npages is 289, total is 424
+j is 273, i is 4, npages is 289, total is 424
+Not Being Used j is 273, i is 4, npages is 289, total is 424
+j is 274, i is 4, npages is 289, total is 424
+Not Being Used j is 274, i is 4, npages is 289, total is 424
+j is 275, i is 4, npages is 289, total is 424
+Not Being Used j is 275, i is 4, npages is 289, total is 424
+j is 276, i is 4, npages is 289, total is 424
+Not Being Used j is 276, i is 4, npages is 289, total is 424
+j is 277, i is 4, npages is 289, total is 424
+Not Being Used j is 277, i is 4, npages is 289, total is 424
+j is 278, i is 4, npages is 289, total is 424
+Not Being Used j is 278, i is 4, npages is 289, total is 424
+j is 279, i is 4, npages is 289, total is 424
+Not Being Used j is 279, i is 4, npages is 289, total is 424
+j is 280, i is 4, npages is 289, total is 424
+Not Being Used j is 280, i is 4, npages is 289, total is 424
+j is 281, i is 4, npages is 289, total is 424
+Not Being Used j is 281, i is 4, npages is 289, total is 424
+j is 282, i is 4, npages is 289, total is 424
+Not Being Used j is 282, i is 4, npages is 289, total is 424
+j is 283, i is 4, npages is 289, total is 424
+Not Being Used j is 283, i is 4, npages is 289, total is 424
+j is 284, i is 4, npages is 289, total is 424
+Not Being Used j is 284, i is 4, npages is 289, total is 424
+j is 285, i is 4, npages is 289, total is 424
+Not Being Used j is 285, i is 4, npages is 289, total is 424
+j is 286, i is 4, npages is 289, total is 424
+Not Being Used j is 286, i is 4, npages is 289, total is 424
+j is 287, i is 4, npages is 289, total is 424
+Not Being Used j is 287, i is 4, npages is 289, total is 424
+j is 288, i is 4, npages is 289, total is 424
+Not Being Used j is 288, i is 4, npages is 289, total is 424
+j is 289, i is 4, npages is 289, total is 424
+Not Being Used j is 289, i is 4, npages is 289, total is 424
+j is 290, i is 4, npages is 289, total is 424
+Not Being Used j is 290, i is 4, npages is 289, total is 424
+j is 291, i is 4, npages is 289, total is 424
+Not Being Used j is 291, i is 4, npages is 289, total is 424
+j is 292, i is 4, npages is 289, total is 424
+Not Being Used j is 292, i is 4, npages is 289, total is 424
+k is 4
+k is 5
+k is 6
+k is 7
+k is 8
+k is 9
+k is 10
+k is 11
+k is 12
+k is 13
+k is 14
+k is 15
+k is 16
+k is 17
+k is 18
+k is 19
+k is 20
+k is 21
+k is 22
+k is 23
+k is 24
+k is 25
+k is 26
+k is 27
+k is 28
+k is 29
+k is 30
+k is 31
+k is 32
+k is 33
+k is 34
+k is 35
+k is 36
+k is 37
+k is 38
+k is 39
+k is 40
+k is 41
+k is 42
+k is 43
+k is 44
+k is 45
+k is 46
+k is 47
+k is 48
+k is 49
+k is 50
+k is 51
+k is 52
+k is 53
+k is 54
+k is 55
+k is 56
+k is 57
+k is 58
+k is 59
+k is 60
+k is 61
+k is 62
+k is 63
+k is 64
+k is 65
+k is 66
+k is 67
+k is 68
+k is 69
+k is 70
+k is 71
+k is 72
+k is 73
+k is 74
+k is 75
+k is 76
+k is 77
+k is 78
+k is 79
+k is 80
+k is 81
+k is 82
+k is 83
+k is 84
+k is 85
+k is 86
+k is 87
+k is 88
+k is 89
+k is 90
+k is 91
+k is 92
+k is 93
+k is 94
+k is 95
+k is 96
+k is 97
+k is 98
+k is 99
+k is 100
+k is 101
+k is 102
+k is 103
+k is 104
+k is 105
+k is 106
+k is 107
+k is 108
+k is 109
+k is 110
+k is 111
+k is 112
+k is 113
+k is 114
+k is 115
+k is 116
+k is 117
+k is 118
+k is 119
+k is 120
+k is 121
+k is 122
+k is 123
+k is 124
+k is 125
+k is 126
+k is 127
+k is 128
+k is 129
+k is 130
+k is 131
+k is 132
+k is 133
+k is 134
+k is 135
+k is 136
+k is 137
+k is 138
+k is 139
+k is 140
+k is 141
+k is 142
+k is 143
+k is 144
+k is 145
+k is 146
+k is 147
+k is 148
+k is 149
+k is 150
+k is 151
+k is 152
+k is 153
+k is 154
+k is 155
+k is 156
+k is 157
+k is 158
+k is 159
+k is 160
+k is 161
+k is 162
+k is 163
+k is 164
+k is 165
+k is 166
+k is 167
+k is 168
+k is 169
+k is 170
+k is 171
+k is 172
+k is 173
+k is 174
+k is 175
+k is 176
+k is 177
+k is 178
+k is 179
+k is 180
+k is 181
+k is 182
+k is 183
+k is 184
+k is 185
+k is 186
+k is 187
+k is 188
+k is 189
+k is 190
+k is 191
+k is 192
+k is 193
+k is 194
+k is 195
+k is 196
+k is 197
+k is 198
+k is 199
+k is 200
+k is 201
+k is 202
+k is 203
+k is 204
+k is 205
+k is 206
+k is 207
+k is 208
+k is 209
+k is 210
+k is 211
+k is 212
+k is 213
+k is 214
+k is 215
+k is 216
+k is 217
+k is 218
+k is 219
+k is 220
+k is 221
+k is 222
+k is 223
+k is 224
+k is 225
+k is 226
+k is 227
+k is 228
+k is 229
+k is 230
+k is 231
+k is 232
+k is 233
+k is 234
+k is 235
+k is 236
+k is 237
+k is 238
+k is 239
+k is 240
+k is 241
+k is 242
+k is 243
+k is 244
+k is 245
+k is 246
+k is 247
+k is 248
+k is 249
+k is 250
+k is 251
+k is 252
+k is 253
+k is 254
+k is 255
+k is 256
+k is 257
+k is 258
+k is 259
+k is 260
+k is 261
+k is 262
+k is 263
+k is 264
+k is 265
+k is 266
+k is 267
+k is 268
+k is 269
+k is 270
+k is 271
+k is 272
+k is 273
+k is 274
+k is 275
+k is 276
+k is 277
+k is 278
+k is 279
+k is 280
+k is 281
+k is 282
+k is 283
+k is 284
+k is 285
+k is 286
+k is 287
+k is 288
+k is 289
+k is 290
+k is 291
+k is 292
+******
+j is 0, i is 0, npages is 12, total is 424
+J is being used 0
+j is 1, i is 1, npages is 12, total is 424
+J is being used 1
+j is 2, i is 2, npages is 12, total is 424
+J is being used 2
+j is 3, i is 3, npages is 12, total is 424
+J is being used 3
+j is 4, i is 4, npages is 12, total is 424
+J is being used 4
+j is 5, i is 5, npages is 12, total is 424
+J is being used 5
+j is 6, i is 6, npages is 12, total is 424
+J is being used 6
+j is 7, i is 7, npages is 12, total is 424
+J is being used 7
+j is 8, i is 8, npages is 12, total is 424
+J is being used 8
+j is 9, i is 9, npages is 12, total is 424
+J is being used 9
+j is 10, i is 10, npages is 12, total is 424
+J is being used 10
+j is 11, i is 11, npages is 12, total is 424
+J is being used 11
+j is 12, i is 12, npages is 12, total is 424
+J is being used 12
+j is 13, i is 13, npages is 12, total is 424
+J is being used 13
+j is 14, i is 14, npages is 12, total is 424
+J is being used 14
+j is 15, i is 15, npages is 12, total is 424
+J is being used 15
+j is 16, i is 16, npages is 12, total is 424
+J is being used 16
+j is 17, i is 17, npages is 12, total is 424
+J is being used 17
+j is 18, i is 18, npages is 12, total is 424
+J is being used 18
+j is 19, i is 19, npages is 12, total is 424
+J is being used 19
+j is 20, i is 20, npages is 12, total is 424
+J is being used 20
+j is 21, i is 21, npages is 12, total is 424
+J is being used 21
+j is 22, i is 22, npages is 12, total is 424
+J is being used 22
+j is 23, i is 23, npages is 12, total is 424
+J is being used 23
+j is 24, i is 24, npages is 12, total is 424
+J is being used 24
+j is 25, i is 25, npages is 12, total is 424
+J is being used 25
+j is 26, i is 26, npages is 12, total is 424
+J is being used 26
+j is 27, i is 27, npages is 12, total is 424
+J is being used 27
+j is 28, i is 28, npages is 12, total is 424
+J is being used 28
+j is 29, i is 29, npages is 12, total is 424
+J is being used 29
+j is 30, i is 30, npages is 12, total is 424
+J is being used 30
+j is 31, i is 31, npages is 12, total is 424
+J is being used 31
+j is 32, i is 32, npages is 12, total is 424
+J is being used 32
+j is 33, i is 33, npages is 12, total is 424
+J is being used 33
+j is 34, i is 34, npages is 12, total is 424
+J is being used 34
+j is 35, i is 35, npages is 12, total is 424
+J is being used 35
+j is 36, i is 36, npages is 12, total is 424
+J is being used 36
+j is 37, i is 37, npages is 12, total is 424
+J is being used 37
+j is 38, i is 38, npages is 12, total is 424
+J is being used 38
+j is 39, i is 39, npages is 12, total is 424
+J is being used 39
+j is 40, i is 40, npages is 12, total is 424
+J is being used 40
+j is 41, i is 41, npages is 12, total is 424
+J is being used 41
+j is 42, i is 42, npages is 12, total is 424
+J is being used 42
+j is 43, i is 43, npages is 12, total is 424
+J is being used 43
+j is 44, i is 44, npages is 12, total is 424
+J is being used 44
+j is 45, i is 45, npages is 12, total is 424
+J is being used 45
+j is 46, i is 46, npages is 12, total is 424
+J is being used 46
+j is 47, i is 47, npages is 12, total is 424
+J is being used 47
+j is 48, i is 48, npages is 12, total is 424
+J is being used 48
+j is 49, i is 49, npages is 12, total is 424
+J is being used 49
+j is 50, i is 50, npages is 12, total is 424
+J is being used 50
+j is 51, i is 51, npages is 12, total is 424
+J is being used 51
+j is 52, i is 52, npages is 12, total is 424
+J is being used 52
+j is 53, i is 53, npages is 12, total is 424
+J is being used 53
+j is 54, i is 54, npages is 12, total is 424
+J is being used 54
+j is 55, i is 55, npages is 12, total is 424
+J is being used 55
+j is 56, i is 56, npages is 12, total is 424
+J is being used 56
+j is 57, i is 57, npages is 12, total is 424
+J is being used 57
+j is 58, i is 58, npages is 12, total is 424
+J is being used 58
+j is 59, i is 59, npages is 12, total is 424
+J is being used 59
+j is 60, i is 60, npages is 12, total is 424
+J is being used 60
+j is 61, i is 61, npages is 12, total is 424
+J is being used 61
+j is 62, i is 62, npages is 12, total is 424
+J is being used 62
+j is 63, i is 63, npages is 12, total is 424
+J is being used 63
+j is 64, i is 64, npages is 12, total is 424
+J is being used 64
+j is 65, i is 65, npages is 12, total is 424
+J is being used 65
+j is 66, i is 66, npages is 12, total is 424
+J is being used 66
+j is 67, i is 67, npages is 12, total is 424
+J is being used 67
+j is 68, i is 68, npages is 12, total is 424
+J is being used 68
+j is 69, i is 69, npages is 12, total is 424
+J is being used 69
+j is 70, i is 70, npages is 12, total is 424
+J is being used 70
+j is 71, i is 71, npages is 12, total is 424
+J is being used 71
+j is 72, i is 72, npages is 12, total is 424
+J is being used 72
+j is 73, i is 73, npages is 12, total is 424
+J is being used 73
+j is 74, i is 74, npages is 12, total is 424
+J is being used 74
+j is 75, i is 75, npages is 12, total is 424
+J is being used 75
+j is 76, i is 76, npages is 12, total is 424
+J is being used 76
+j is 77, i is 77, npages is 12, total is 424
+J is being used 77
+j is 78, i is 78, npages is 12, total is 424
+J is being used 78
+j is 79, i is 79, npages is 12, total is 424
+J is being used 79
+j is 80, i is 80, npages is 12, total is 424
+J is being used 80
+j is 81, i is 81, npages is 12, total is 424
+J is being used 81
+j is 82, i is 82, npages is 12, total is 424
+J is being used 82
+j is 83, i is 83, npages is 12, total is 424
+J is being used 83
+j is 84, i is 84, npages is 12, total is 424
+J is being used 84
+j is 85, i is 85, npages is 12, total is 424
+J is being used 85
+j is 86, i is 86, npages is 12, total is 424
+J is being used 86
+j is 87, i is 87, npages is 12, total is 424
+J is being used 87
+j is 88, i is 88, npages is 12, total is 424
+J is being used 88
+j is 89, i is 89, npages is 12, total is 424
+J is being used 89
+j is 90, i is 90, npages is 12, total is 424
+J is being used 90
+j is 91, i is 91, npages is 12, total is 424
+J is being used 91
+j is 92, i is 92, npages is 12, total is 424
+J is being used 92
+j is 93, i is 93, npages is 12, total is 424
+J is being used 93
+j is 94, i is 94, npages is 12, total is 424
+J is being used 94
+j is 95, i is 95, npages is 12, total is 424
+J is being used 95
+j is 96, i is 96, npages is 12, total is 424
+J is being used 96
+j is 97, i is 97, npages is 12, total is 424
+J is being used 97
+j is 98, i is 98, npages is 12, total is 424
+J is being used 98
+j is 99, i is 99, npages is 12, total is 424
+J is being used 99
+j is 100, i is 100, npages is 12, total is 424
+J is being used 100
+j is 101, i is 101, npages is 12, total is 424
+J is being used 101
+j is 102, i is 102, npages is 12, total is 424
+J is being used 102
+j is 103, i is 103, npages is 12, total is 424
+J is being used 103
+j is 104, i is 104, npages is 12, total is 424
+J is being used 104
+j is 105, i is 105, npages is 12, total is 424
+J is being used 105
+j is 106, i is 106, npages is 12, total is 424
+J is being used 106
+j is 107, i is 107, npages is 12, total is 424
+J is being used 107
+j is 108, i is 108, npages is 12, total is 424
+J is being used 108
+j is 109, i is 109, npages is 12, total is 424
+J is being used 109
+j is 110, i is 110, npages is 12, total is 424
+J is being used 110
+j is 111, i is 111, npages is 12, total is 424
+J is being used 111
+j is 112, i is 112, npages is 12, total is 424
+J is being used 112
+j is 113, i is 113, npages is 12, total is 424
+J is being used 113
+j is 114, i is 114, npages is 12, total is 424
+J is being used 114
+j is 115, i is 115, npages is 12, total is 424
+J is being used 115
+j is 116, i is 116, npages is 12, total is 424
+J is being used 116
+j is 117, i is 117, npages is 12, total is 424
+J is being used 117
+j is 118, i is 118, npages is 12, total is 424
+J is being used 118
+j is 119, i is 119, npages is 12, total is 424
+J is being used 119
+j is 120, i is 120, npages is 12, total is 424
+J is being used 120
+j is 121, i is 121, npages is 12, total is 424
+J is being used 121
+j is 122, i is 122, npages is 12, total is 424
+J is being used 122
+j is 123, i is 123, npages is 12, total is 424
+J is being used 123
+j is 124, i is 124, npages is 12, total is 424
+J is being used 124
+j is 125, i is 125, npages is 12, total is 424
+J is being used 125
+j is 126, i is 126, npages is 12, total is 424
+J is being used 126
+j is 127, i is 127, npages is 12, total is 424
+J is being used 127
+j is 128, i is 128, npages is 12, total is 424
+J is being used 128
+j is 129, i is 129, npages is 12, total is 424
+J is being used 129
+j is 130, i is 130, npages is 12, total is 424
+J is being used 130
+j is 131, i is 131, npages is 12, total is 424
+J is being used 131
+j is 132, i is 132, npages is 12, total is 424
+J is being used 132
+j is 133, i is 133, npages is 12, total is 424
+J is being used 133
+j is 134, i is 134, npages is 12, total is 424
+J is being used 134
+j is 135, i is 135, npages is 12, total is 424
+J is being used 135
+j is 136, i is 136, npages is 12, total is 424
+J is being used 136
+j is 137, i is 137, npages is 12, total is 424
+J is being used 137
+j is 138, i is 138, npages is 12, total is 424
+J is being used 138
+j is 139, i is 139, npages is 12, total is 424
+J is being used 139
+j is 140, i is 140, npages is 12, total is 424
+J is being used 140
+j is 141, i is 141, npages is 12, total is 424
+J is being used 141
+j is 142, i is 142, npages is 12, total is 424
+J is being used 142
+j is 143, i is 143, npages is 12, total is 424
+J is being used 143
+j is 144, i is 144, npages is 12, total is 424
+J is being used 144
+j is 145, i is 145, npages is 12, total is 424
+J is being used 145
+j is 146, i is 146, npages is 12, total is 424
+J is being used 146
+j is 147, i is 147, npages is 12, total is 424
+J is being used 147
+j is 148, i is 148, npages is 12, total is 424
+J is being used 148
+j is 149, i is 149, npages is 12, total is 424
+J is being used 149
+j is 150, i is 150, npages is 12, total is 424
+J is being used 150
+j is 151, i is 151, npages is 12, total is 424
+J is being used 151
+j is 152, i is 152, npages is 12, total is 424
+J is being used 152
+j is 153, i is 153, npages is 12, total is 424
+J is being used 153
+j is 154, i is 154, npages is 12, total is 424
+J is being used 154
+j is 155, i is 155, npages is 12, total is 424
+J is being used 155
+j is 156, i is 156, npages is 12, total is 424
+J is being used 156
+j is 157, i is 157, npages is 12, total is 424
+J is being used 157
+j is 158, i is 158, npages is 12, total is 424
+J is being used 158
+j is 159, i is 159, npages is 12, total is 424
+J is being used 159
+j is 160, i is 160, npages is 12, total is 424
+J is being used 160
+j is 161, i is 161, npages is 12, total is 424
+J is being used 161
+j is 162, i is 162, npages is 12, total is 424
+J is being used 162
+j is 163, i is 163, npages is 12, total is 424
+J is being used 163
+j is 164, i is 164, npages is 12, total is 424
+J is being used 164
+j is 165, i is 165, npages is 12, total is 424
+J is being used 165
+j is 166, i is 166, npages is 12, total is 424
+J is being used 166
+j is 167, i is 167, npages is 12, total is 424
+J is being used 167
+j is 168, i is 168, npages is 12, total is 424
+J is being used 168
+j is 169, i is 169, npages is 12, total is 424
+J is being used 169
+j is 170, i is 170, npages is 12, total is 424
+J is being used 170
+j is 171, i is 171, npages is 12, total is 424
+J is being used 171
+j is 172, i is 172, npages is 12, total is 424
+J is being used 172
+j is 173, i is 173, npages is 12, total is 424
+J is being used 173
+j is 174, i is 174, npages is 12, total is 424
+J is being used 174
+j is 175, i is 175, npages is 12, total is 424
+J is being used 175
+j is 176, i is 176, npages is 12, total is 424
+J is being used 176
+j is 177, i is 177, npages is 12, total is 424
+J is being used 177
+j is 178, i is 178, npages is 12, total is 424
+J is being used 178
+j is 179, i is 179, npages is 12, total is 424
+J is being used 179
+j is 180, i is 180, npages is 12, total is 424
+J is being used 180
+j is 181, i is 181, npages is 12, total is 424
+J is being used 181
+j is 182, i is 182, npages is 12, total is 424
+J is being used 182
+j is 183, i is 183, npages is 12, total is 424
+J is being used 183
+j is 184, i is 184, npages is 12, total is 424
+J is being used 184
+j is 185, i is 185, npages is 12, total is 424
+J is being used 185
+j is 186, i is 186, npages is 12, total is 424
+J is being used 186
+j is 187, i is 187, npages is 12, total is 424
+J is being used 187
+j is 188, i is 188, npages is 12, total is 424
+J is being used 188
+j is 189, i is 189, npages is 12, total is 424
+J is being used 189
+j is 190, i is 190, npages is 12, total is 424
+J is being used 190
+j is 191, i is 191, npages is 12, total is 424
+J is being used 191
+j is 192, i is 192, npages is 12, total is 424
+J is being used 192
+j is 193, i is 193, npages is 12, total is 424
+J is being used 193
+j is 194, i is 194, npages is 12, total is 424
+J is being used 194
+j is 195, i is 195, npages is 12, total is 424
+J is being used 195
+j is 196, i is 196, npages is 12, total is 424
+J is being used 196
+j is 197, i is 197, npages is 12, total is 424
+J is being used 197
+j is 198, i is 198, npages is 12, total is 424
+J is being used 198
+j is 199, i is 199, npages is 12, total is 424
+J is being used 199
+j is 200, i is 200, npages is 12, total is 424
+J is being used 200
+j is 201, i is 201, npages is 12, total is 424
+J is being used 201
+j is 202, i is 202, npages is 12, total is 424
+J is being used 202
+j is 203, i is 203, npages is 12, total is 424
+J is being used 203
+j is 204, i is 204, npages is 12, total is 424
+J is being used 204
+j is 205, i is 205, npages is 12, total is 424
+J is being used 205
+j is 206, i is 206, npages is 12, total is 424
+J is being used 206
+j is 207, i is 207, npages is 12, total is 424
+J is being used 207
+j is 208, i is 208, npages is 12, total is 424
+J is being used 208
+j is 209, i is 209, npages is 12, total is 424
+J is being used 209
+j is 210, i is 210, npages is 12, total is 424
+J is being used 210
+j is 211, i is 211, npages is 12, total is 424
+J is being used 211
+j is 212, i is 212, npages is 12, total is 424
+J is being used 212
+j is 213, i is 213, npages is 12, total is 424
+J is being used 213
+j is 214, i is 214, npages is 12, total is 424
+J is being used 214
+j is 215, i is 215, npages is 12, total is 424
+J is being used 215
+j is 216, i is 216, npages is 12, total is 424
+J is being used 216
+j is 217, i is 217, npages is 12, total is 424
+J is being used 217
+j is 218, i is 218, npages is 12, total is 424
+J is being used 218
+j is 219, i is 219, npages is 12, total is 424
+J is being used 219
+j is 220, i is 220, npages is 12, total is 424
+J is being used 220
+j is 221, i is 221, npages is 12, total is 424
+J is being used 221
+j is 222, i is 222, npages is 12, total is 424
+J is being used 222
+j is 223, i is 223, npages is 12, total is 424
+J is being used 223
+j is 224, i is 224, npages is 12, total is 424
+J is being used 224
+j is 225, i is 225, npages is 12, total is 424
+J is being used 225
+j is 226, i is 226, npages is 12, total is 424
+J is being used 226
+j is 227, i is 227, npages is 12, total is 424
+J is being used 227
+j is 228, i is 228, npages is 12, total is 424
+J is being used 228
+j is 229, i is 229, npages is 12, total is 424
+J is being used 229
+j is 230, i is 230, npages is 12, total is 424
+J is being used 230
+j is 231, i is 231, npages is 12, total is 424
+J is being used 231
+j is 232, i is 232, npages is 12, total is 424
+J is being used 232
+j is 233, i is 233, npages is 12, total is 424
+J is being used 233
+j is 234, i is 234, npages is 12, total is 424
+J is being used 234
+j is 235, i is 235, npages is 12, total is 424
+J is being used 235
+j is 236, i is 236, npages is 12, total is 424
+J is being used 236
+j is 237, i is 237, npages is 12, total is 424
+J is being used 237
+j is 238, i is 238, npages is 12, total is 424
+J is being used 238
+j is 239, i is 239, npages is 12, total is 424
+J is being used 239
+j is 240, i is 240, npages is 12, total is 424
+J is being used 240
+j is 241, i is 241, npages is 12, total is 424
+J is being used 241
+j is 242, i is 242, npages is 12, total is 424
+J is being used 242
+j is 243, i is 243, npages is 12, total is 424
+J is being used 243
+j is 244, i is 244, npages is 12, total is 424
+J is being used 244
+j is 245, i is 245, npages is 12, total is 424
+J is being used 245
+j is 246, i is 246, npages is 12, total is 424
+J is being used 246
+j is 247, i is 247, npages is 12, total is 424
+J is being used 247
+j is 248, i is 248, npages is 12, total is 424
+J is being used 248
+j is 249, i is 249, npages is 12, total is 424
+J is being used 249
+j is 250, i is 250, npages is 12, total is 424
+J is being used 250
+j is 251, i is 251, npages is 12, total is 424
+J is being used 251
+j is 252, i is 252, npages is 12, total is 424
+J is being used 252
+j is 253, i is 253, npages is 12, total is 424
+J is being used 253
+j is 254, i is 254, npages is 12, total is 424
+J is being used 254
+j is 255, i is 255, npages is 12, total is 424
+J is being used 255
+j is 256, i is 256, npages is 12, total is 424
+J is being used 256
+j is 257, i is 257, npages is 12, total is 424
+J is being used 257
+j is 258, i is 258, npages is 12, total is 424
+J is being used 258
+j is 259, i is 259, npages is 12, total is 424
+J is being used 259
+j is 260, i is 260, npages is 12, total is 424
+J is being used 260
+j is 261, i is 261, npages is 12, total is 424
+J is being used 261
+j is 262, i is 262, npages is 12, total is 424
+J is being used 262
+j is 263, i is 263, npages is 12, total is 424
+J is being used 263
+j is 264, i is 264, npages is 12, total is 424
+J is being used 264
+j is 265, i is 265, npages is 12, total is 424
+J is being used 265
+j is 266, i is 266, npages is 12, total is 424
+J is being used 266
+j is 267, i is 267, npages is 12, total is 424
+J is being used 267
+j is 268, i is 268, npages is 12, total is 424
+J is being used 268
+j is 269, i is 269, npages is 12, total is 424
+J is being used 269
+j is 270, i is 270, npages is 12, total is 424
+J is being used 270
+j is 271, i is 271, npages is 12, total is 424
+J is being used 271
+j is 272, i is 272, npages is 12, total is 424
+J is being used 272
+j is 273, i is 273, npages is 12, total is 424
+J is being used 273
+j is 274, i is 274, npages is 12, total is 424
+J is being used 274
+j is 275, i is 275, npages is 12, total is 424
+J is being used 275
+j is 276, i is 276, npages is 12, total is 424
+J is being used 276
+j is 277, i is 277, npages is 12, total is 424
+J is being used 277
+j is 278, i is 278, npages is 12, total is 424
+J is being used 278
+j is 279, i is 279, npages is 12, total is 424
+J is being used 279
+j is 280, i is 280, npages is 12, total is 424
+J is being used 280
+j is 281, i is 281, npages is 12, total is 424
+J is being used 281
+j is 282, i is 282, npages is 12, total is 424
+J is being used 282
+j is 283, i is 283, npages is 12, total is 424
+J is being used 283
+j is 284, i is 284, npages is 12, total is 424
+J is being used 284
+j is 285, i is 285, npages is 12, total is 424
+J is being used 285
+j is 286, i is 286, npages is 12, total is 424
+J is being used 286
+j is 287, i is 287, npages is 12, total is 424
+J is being used 287
+j is 288, i is 288, npages is 12, total is 424
+J is being used 288
+j is 289, i is 289, npages is 12, total is 424
+J is being used 289
+j is 290, i is 290, npages is 12, total is 424
+J is being used 290
+j is 291, i is 291, npages is 12, total is 424
+J is being used 291
+j is 292, i is 292, npages is 12, total is 424
+J is being used 292
+j is 293, i is 293, npages is 12, total is 424
+Not Being Used j is 293, i is 293, npages is 12, total is 424
+j is 294, i is 293, npages is 12, total is 424
+Not Being Used j is 294, i is 293, npages is 12, total is 424
+j is 295, i is 293, npages is 12, total is 424
+Not Being Used j is 295, i is 293, npages is 12, total is 424
+j is 296, i is 293, npages is 12, total is 424
+Not Being Used j is 296, i is 293, npages is 12, total is 424
+j is 297, i is 293, npages is 12, total is 424
+Not Being Used j is 297, i is 293, npages is 12, total is 424
+j is 298, i is 293, npages is 12, total is 424
+Not Being Used j is 298, i is 293, npages is 12, total is 424
+j is 299, i is 293, npages is 12, total is 424
+Not Being Used j is 299, i is 293, npages is 12, total is 424
+j is 300, i is 293, npages is 12, total is 424
+Not Being Used j is 300, i is 293, npages is 12, total is 424
+j is 301, i is 293, npages is 12, total is 424
+Not Being Used j is 301, i is 293, npages is 12, total is 424
+j is 302, i is 293, npages is 12, total is 424
+Not Being Used j is 302, i is 293, npages is 12, total is 424
+j is 303, i is 293, npages is 12, total is 424
+Not Being Used j is 303, i is 293, npages is 12, total is 424
+j is 304, i is 293, npages is 12, total is 424
+Not Being Used j is 304, i is 293, npages is 12, total is 424
+k is 293
+k is 294
+k is 295
+k is 296
+k is 297
+k is 298
+k is 299
+k is 300
+k is 301
+k is 302
+k is 303
+k is 304
+******
+Running program testbin/sort failed: Bad memory reference
+panic: Assertion failed: curproc == kproc || curproc == NULL, at ../../thread/thread.c:790 (thread_exit)
+sys161: 2147483648391600179 cycles (281143985 run, 2147483648110456194 global-idle)
+sys161:   cpu0: 199466328 kern, 81621622 user, 56035 idle)
+sys161:   cpu1: 316185 kern, 0 user, 280827800 idle)
+sys161:   cpu2: 318385 kern, 0 user, 280825600 idle)
+sys161:   cpu3: 317712 kern, 0 user, 280826273 idle)
+sys161: 4827 irqs 1930 exns 0r/0w disk 30r/119044w console 16r/0w/5m emufs 0r/0w net
+sys161: Elapsed real time: 15.681783 seconds (1.36941e+11 mhz)
+sys161: Elapsed virtual time: 15.664007177 seconds (25 mhz)
+tcntsang@ubuntu1604-002:~/cs350-os161/os161-1.99$ exit
+
+Script done on Fri 01 Dec 2017 10:04:48 PM EST
